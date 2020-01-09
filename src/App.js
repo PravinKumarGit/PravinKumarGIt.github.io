@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import GlobalStyles from './theme/default/globalStyle';
+import GlobalStyles from './theme/global/globalStyle';
 import { store } from './redux/store';
 import Boot from './redux/boot';
 import Routes from './router';

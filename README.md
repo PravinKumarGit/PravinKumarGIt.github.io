@@ -26,6 +26,12 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
+Create a file called .env at your project root(same place where package.json is located).
+In this file write this(no quotes around the url):
+
+PUBLIC_URL=url where this build is hosted.
+Build your project as usual (yarn run build)
+
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 

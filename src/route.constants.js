@@ -1,5 +1,7 @@
 export const PUBLIC_ROUTE = {
-  LANDING: "/"
+  LANDING: "/",
+  COMING_SOON: "/coming-soon",
+  PAGE_NOT_FOUND: "",
 };
 
 export const PRIVATE_ROUTE = {

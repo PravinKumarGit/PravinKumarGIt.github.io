@@ -1,3 +1,0 @@
-/**
- * @description Default Theme folder
- */

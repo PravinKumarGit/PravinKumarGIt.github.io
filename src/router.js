@@ -1,24 +1,24 @@
-import React, { lazy, Suspense } from 'react';
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch,
-} from 'react-router-dom';
+import React, { lazy, Suspense } from "react";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
-import ErrorBoundary from './ErrorBoundary';
-import { PUBLIC_ROUTE } from './route.constants';
-import Loader from './components/utility/loader';
-
+import ErrorBoundary from "./ErrorBoundary";
+import { PUBLIC_ROUTE } from "./route.constants";
+import Loader from "./components/utility/loader";
 
 const publicRoutes = [
   {
     path: PUBLIC_ROUTE.LANDING,
     exact: true,
-    component: lazy(() => import('./containers/PersonalLoan/PersonalLoan')),
+    component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
   },
   {
-    path: PUBLIC_ROUTE.PAGE_404,
-    component: lazy(() => import('./containers/Pages/404/404')),
+    path: PUBLIC_ROUTE.COMING_SOON,
+    exact: true,
+    component: lazy(() => import("./containers/Pages/ComingSoon"))
+  },
+  {
+    path: PUBLIC_ROUTE.PAGE_NOT_FOUND,
+    component: lazy(() => import("./containers/Pages/404/404"))
   }
 ];
 

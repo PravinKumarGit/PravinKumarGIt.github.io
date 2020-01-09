@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { palette } from "styled-theme";
+import { palette, size } from "styled-theme";
 import { transition, borderRadius } from "../../../utils/helpers/style_utils";
 
 const FourZeroFourStyleWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
+  width: ${size("fullScreen")};
+  height: ${size("windowHeight")};
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -12,28 +12,14 @@ const FourZeroFourStyleWrapper = styled.div`
   justify-content: center;
   position: relative;
 
-  @media only screen and (max-width: 767px) {
-    width: 100%;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-
   .iso404Content {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     flex-direction: column;
 
-    @media only screen and (max-width: 767px) {
-      order: 2;
-      margin-top: 20px;
-      align-items: center;
-      text-align: center;
-      flex-direction: column;
-    }
-
     h1 {
-      font-size: 84px;
+      font-size: ${size("h1")};
       font-weight: 700;
       color: ${palette("secondary", 2)};
       line-height: 1;
@@ -106,18 +92,32 @@ const FourZeroFourStyleWrapper = styled.div`
         }
       }
     }
+    @media only screen and (max-width: ${size("M")}) {
+      order: 2;
+      margin-top: 20px;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      h1 {
+        font-size: ${size("h3")};
+      }
+    }
   }
 
   .iso404Artwork {
     display: flex;
     align-items: center;
     justify-content: center;
-
     height: 500px;
-
     img {
-      max-height: 100%;
+      max-height: ${size("fullScreen")};
     }
+  }
+
+  @media only screen and (max-width: ${size("M")}) {
+    width: ${size("fullScreen")};
+    flex-direction: column;
+    flex-wrap: nowrap;
   }
 `;
 
