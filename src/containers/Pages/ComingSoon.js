@@ -5,7 +5,7 @@ import FourZeroFourStyleWrapper from "./404/404.styles";
 
 export default function() {
   const options = {
-    endDate: "03/01/2020 10:55 AM",
+    endDate: "01/21/2020 10:55 AM",
     prefix: "until my birthday!"
   };
 
