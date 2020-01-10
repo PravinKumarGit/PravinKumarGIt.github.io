@@ -13,5 +13,6 @@ export default Loader => (
         strokeWidth="3.6"
       />
     </svg>
+    <p>Loading...</p>
   </LoaderComponent>
 );

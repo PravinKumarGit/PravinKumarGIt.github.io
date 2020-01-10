@@ -3,9 +3,6 @@ import { palette, font } from 'styled-theme';
 
 
 const GlobalStyles = createGlobalStyle`
-  
-font-family: ${font('primary', 0)};
-
 h1,
 h2,
 h3,
@@ -64,7 +61,7 @@ html,
 body,
 html a {
   margin-bottom: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: ${font('primary')};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
