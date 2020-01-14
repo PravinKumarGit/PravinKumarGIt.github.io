@@ -8,13 +8,30 @@ export default function ParsonalLoan({ ...props }) {
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
-  const loanAmount = useSelector(state => state.loanAmountResponse);
+  const {
+    loanAmountResponse,
+    loanAmountIsFetching,
+    loanAmountError
+  } = useSelector(state => state.StartUp);
 
-  console.log(loanAmount, Input, Select, "loanAmount");
+  console.log(loanAmountResponse, Input, Select, "loanAmount");
   return (
     <div>
       Personal Loan Application <Input />
-      Personal Loan Application <Select />
+      Personal Loan Application{loanAmountError && loanAmountError.errMessage}
+      <Select
+        defaultValue={
+          loanAmountResponse &&
+          loanAmountResponse[0] &&
+          loanAmountResponse[0].value
+        }
+        Title="Loan Amount"
+        loading={loanAmountIsFetching}
+        options={loanAmountResponse}
+        onChange={item => {
+          console.log(item);
+        }}
+      />
     </div>
   );
 }

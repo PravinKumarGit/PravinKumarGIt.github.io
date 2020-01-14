@@ -45,7 +45,8 @@ theme.palette = {
     "#d73925", // 10: Google Plus Darken 5%
     "#e14615", // 11: Auth0
     "#ca3f13", // 12: Auth0
-    "#e0364c" // 13: themeColor--AlizarinCrimson
+    "#e0364c", // 13: themeColor--AlizarinCrimson
+    "#94c840" // 14: light green
   ],
   warning: [
     "#ffbf00" // 0: Warning
