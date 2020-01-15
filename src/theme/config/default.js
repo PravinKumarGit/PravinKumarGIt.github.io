@@ -99,7 +99,7 @@ theme.palette = {
 };
 
 theme.fonts = {
-  primary: "Roboto, sans-serif",
+  primary: "Open Sans,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
   pre: "Consolas, Liberation Mono, Menlo, Courier, monospace"
 };
 

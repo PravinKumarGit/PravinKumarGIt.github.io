@@ -1,12 +1,39 @@
 import React from "react";
 
+import Image from "../../../theme/assets/icon-tooltip.svg";
 import Wrapper from "./select.styles";
 export default function Select({ ...props }) {
-  const { options, valueKey, labelKey, loading, Title, ...rest } = props;
+  const {
+    options,
+    valueKey,
+    labelKey,
+    loading,
+    Title,
+    helpToolTip,
+    ToolTipText,
+    OptionalLabel,
+    errorMessage,
+    ...rest
+  } = props;
   return (
     <Wrapper>
       <section class="select-Component">
-        {Title && <label class="select-Label">{Title}</label>}
+        {Title && (
+          <label class="select-Label">
+            {Title}
+            {helpToolTip && (
+              <i class="toolTip-Icon">
+                <img src={Image} alt="help icon" />
+                {ToolTipText && (
+                  <span className="toolTip-Text">{ToolTipText}</span>
+                )}
+              </i>
+            )}
+            {OptionalLabel && (
+              <label class="textBox-Label-Optional">optional</label>
+            )}
+          </label>
+        )}
         {loading ? (
           <section class="select-loader">
             <svg
@@ -26,7 +53,10 @@ export default function Select({ ...props }) {
             </svg>
           </section>
         ) : (
-          <select class="select-Select" {...rest}>
+          <select
+            class={`select-Select ${errorMessage && "required"} `}
+            {...rest}
+          >
             {(options || []).map((item, index) => (
               <option
                 key={`${new Date().getTime()}${index}`}
@@ -38,6 +68,7 @@ export default function Select({ ...props }) {
             ))}
           </select>
         )}
+        {errorMessage && <p class="message"> {errorMessage} </p>}
       </section>
     </Wrapper>
   );

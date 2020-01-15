@@ -60,7 +60,7 @@ div,
 html,
 body,
 html a {
-  margin-bottom: 0;
+  margin: 0;
   font-family: ${font('primary')};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
