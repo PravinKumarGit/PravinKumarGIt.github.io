@@ -4,6 +4,7 @@ import actions from "../../redux/startup/actions";
 import Input from "../../components/uielements/input";
 import Select from "../../components/uielements/select/select";
 import LoanSelect from "./components/selectForLoanResoans";
+import TitleSelect from "./components/selectForNamePrefix";
 import TopHeader from "../../components/uielements/topHeader";
 import BreadCrum from "../../components/uielements/breadCrum";
 import PageTopHeading from "../../components/uielements/pageTopHeading";
@@ -17,7 +18,7 @@ export default function ParsonalLoan({ ...props }) {
   const {
     loanAmountResponse,
     loanAmountIsFetching,
-    loanAmountError
+    // loanAmountError
   } = useSelector(state => state.StartUp);
 
   console.log(loanAmountResponse, Input, Select, "loanAmount");
@@ -49,6 +50,17 @@ export default function ParsonalLoan({ ...props }) {
           placeholder="Email"
           type="email"
         />
+        <TitleSelect
+          onChange={item => {
+            console.log(item);
+          }}
+        />
+
+        <LoanSelect
+          onChange={item => {
+            console.log(item);
+          }}
+        />
         <Select
           defaultValue={
             loanAmountResponse &&
@@ -75,11 +87,6 @@ export default function ParsonalLoan({ ...props }) {
             console.log(item);
           }}
           errorMessage="This field is required."
-        />
-        <LoanSelect
-          onChange={item => {
-            console.log(item);
-          }}
         />
       </Paper>
     </Wrapper>

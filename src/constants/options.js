@@ -14,3 +14,10 @@ export const LOAN_REASON_OPTIONS = [
   { label: "Car Repairs", value: "Car Repairs" },
   { label: "Other", value: "Other" }
 ];
+
+export const NAME_PREFIX = [
+  { label: "Mr", value: "Mr" },
+  { label: "Mrs", value: "Mrs" },
+  { label: "Ms", value: "Ms" },
+  { label: "Miss", value: "Miss" }
+];
