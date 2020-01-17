@@ -8,6 +8,7 @@ import TopHeader from "../../components/uielements/topHeader";
 import BreadCrum from "../../components/uielements/breadCrum";
 import PageTopHeading from "../../components/uielements/pageTopHeading";
 import Paper from "../../components/uielements/paper";
+import Accordian from "../../components/uielements/accordian";
 import Wrapper from "./PersonalLoan.styles";
 export default function ParsonalLoan({ ...props }) {
   const dispatch = useDispatch();
@@ -29,13 +30,14 @@ export default function ParsonalLoan({ ...props }) {
         <PageTopHeading
           heading="Personal Loan Application"
           subheading={
-            <spna>
+            <span>
               It only takes a few minutes to get an outcome.
               <br /> Call us on <a href="tel:+1300324746">1300 324 746</a> if
               you have any problems completing this form.
-            </spna>
+            </span>
           }
         />
+        <Accordian />
         <Input
           title="Email"
           preFix={<span>@</span>}

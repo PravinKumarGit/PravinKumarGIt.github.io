@@ -5,19 +5,19 @@ export default function Input({ ...props }) {
   const { title, preFix, errorMessage, ...rest } = props;
   return (
     <Wrapper>
-      <section class="textBox">
-        <section class="textBox-Label-Container">
-          {title && <label class="textBox-Label">{title}</label>}
+      <section className="textBox">
+        <section className="textBox-Label-Container">
+          {title && <label className="textBox-Label">{title}</label>}
         </section>
-        <section class={`textBox-Input ${errorMessage && "required"}`}>
+        <section className={`textBox-Input ${errorMessage && "required"}`}>
           {preFix && (
-            <section class={`textBox-Icon ${errorMessage && "iconRequired"} `}>
+            <section className={`textBox-Icon ${errorMessage && "iconRequired"} `}>
               {preFix}
             </section>
           )}
           <input {...rest} />
         </section>
-        {errorMessage && <p class="message"> {errorMessage} </p>}
+        {errorMessage && <p className="message"> {errorMessage} </p>}
       </section>
     </Wrapper>
   );

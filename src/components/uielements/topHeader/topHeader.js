@@ -5,19 +5,19 @@ import Wrapper from "./topHeader.styles";
 export default function Select({ ...props }) {
   return (
     <Wrapper>
-      <header class="Header-Container">
-        <section class="logos">
-          <section class="logoBox">
+      <header className="Header-Container">
+        <section className="logos">
+          <section className="logoBox">
             <img src={LogoImage} alt="logo" />
           </section>
         </section>
-        <a class="header-PhoneNumber" href="tel:1300 324 746">
+        <a className="header-PhoneNumber" href="tel:1300 324 746">
           <svg
             aria-hidden="true"
             focusable="false"
             data-prefix="fas"
             data-icon="phone-alt"
-            class="svg-inline--fa fa-phone-alt fa-w-16 "
+            className="svg-inline--fa fa-phone-alt fa-w-16 "
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
