@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   .textBox {
-    display: block;
+    display: flex;
     margin: 10px;
     width: 290px;
-    height: 85px;
-    float: left;
+    height: 80px;
+    flex-direction: column;
+    position: relative;
   }
   .textBox-Label-Container {
     display: flex;
@@ -64,17 +65,55 @@ const Wrapper = styled.div`
     border: 1px solid red !important;
   }
   .message {
-    display: flex;
     position: absolute;
-    padding-left: 3px;
-    margin-top: 2px;
-    margin-bottom: 0;
+    padding-left: 1px;
     color: #fb5708;
     font-size: 13px;
+    top: 54px;
   }
   .iconRequired {
     border-right: 1px solid red;
     color: red;
+  }
+  .textBox-Input input::placeholder {
+    color: gray;
+    font-weight: lighter;
+  }
+  .toolTip-Icon {
+    float: left;
+    text-decoration: none;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    font-size: 11px;
+    margin-left: 5px;
+  }
+
+  .toolTip-Icon span {
+    display: none;
+  }
+
+  .toolTip-Icon:hover span {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    bottom: 20px;
+  }
+
+  .toolTip-Text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5px;
+    width: 200px;
+    color: gray;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 1px 2px #8888886e;
   }
 `;
 

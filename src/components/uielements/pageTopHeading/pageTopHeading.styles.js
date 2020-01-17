@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+  text-align: center;
   .page-heading {
     color: #94c840;
     font-weight: 400;

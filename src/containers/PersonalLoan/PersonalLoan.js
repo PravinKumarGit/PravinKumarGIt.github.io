@@ -10,7 +10,9 @@ import BreadCrum from "../../components/uielements/breadCrum";
 import PageTopHeading from "../../components/uielements/pageTopHeading";
 import Paper from "../../components/uielements/paper";
 import Accordian from "../../components/uielements/accordian";
+import DobInput from "./components/dobField";
 import Wrapper from "./PersonalLoan.styles";
+import Divider from "../../components/uielements/divider";
 export default function ParsonalLoan({ ...props }) {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,7 +20,7 @@ export default function ParsonalLoan({ ...props }) {
   }, [dispatch]);
   const {
     loanAmountResponse,
-    loanAmountIsFetching,
+    loanAmountIsFetching
     // loanAmountError
   } = useSelector(state => state.StartUp);
 
@@ -39,6 +41,7 @@ export default function ParsonalLoan({ ...props }) {
           }
         />
         <Accordian />
+        <Divider />
         <Input
           title="Email"
           preFix={<span>@</span>}
@@ -51,6 +54,13 @@ export default function ParsonalLoan({ ...props }) {
           preFix={<span>@</span>}
           placeholder="Email"
           type="email"
+        />
+        <DobInput
+          title="Date of Birth"
+          value={new Date()}
+          onChange={item => {
+            console.log(item);
+          }}
         />
         <TitleSelect
           onChange={item => {
