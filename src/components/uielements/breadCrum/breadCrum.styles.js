@@ -3,9 +3,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   .applicationBreadCrumb-Container {
     display: flex;
-    max-height: 120px;
-    min-height: 120px;
-    min-width: 850px;
+    height: 120px;
     background-color: #00673f;
     font-size: small;
   }

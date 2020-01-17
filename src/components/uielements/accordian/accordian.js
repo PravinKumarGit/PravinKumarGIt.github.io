@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import Wrapper from "./accordian.styles";
 export default function Accordian({ ...props }) {
+  const [openIndex, setOpenIndex] = useState(null);
+  const updateOpenIndex = index => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   return (
     <Wrapper>
       <section className="UserInputBlock-Container">
-        <title className="UserInputBlock-Label">
+        <title
+          className="UserInputBlock-Label"
+          onClick={() => updateOpenIndex(0)}
+        >
           <p className="Label-Text">Are you eligible to apply?</p>
-          <p className="Label-Icon">-</p>
+          <p className="Label-Icon">{openIndex === 0 ? "+" : "-"}</p>
         </title>
-        <section className="content-show">
+        <section className={`content-${openIndex === 0 ? "show" : "hide"}`}>
           <section className="pageOne-ApplicationInformation-Section">
             <section className="listBox-Container">
               <ul>
-                <p className="listBox-Title">To apply for a loan, you must be:</p>
+                <p className="listBox-Title">
+                  To apply for a loan, you must be:
+                </p>
                 <li className="listBox-Item">
                   <span className="listBox-text">18 years old or older</span>
                 </li>

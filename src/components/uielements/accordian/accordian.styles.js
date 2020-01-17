@@ -35,6 +35,9 @@ const Wrapper = styled.div`
     grid-template-columns: 100%;
     background-color: rgb(0, 103, 63);
   }
+  .content-hide {
+    display: none;
+  }
   .pageOne-ApplicationInformation-Section {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -50,6 +53,7 @@ const Wrapper = styled.div`
     padding-inline-start: 10px;
     -webkit-padding-end: 10px;
     padding-inline-end: 10px;
+    margin-bottom: 15px;
   }
   .listBox-Item {
     list-style: none;
