@@ -17,12 +17,12 @@ export default function Select({ ...props }) {
   } = props;
   return (
     <Wrapper>
-      <section class="select-Component">
+      <section className="select-Component">
         {Title && (
-          <label class="select-Label">
+          <label className="select-Label">
             {Title}
             {helpToolTip && (
-              <i class="toolTip-Icon">
+              <i className="toolTip-Icon">
                 <img src={Image} alt="help icon" />
                 {ToolTipText && (
                   <span className="toolTip-Text">{ToolTipText}</span>
@@ -30,18 +30,18 @@ export default function Select({ ...props }) {
               </i>
             )}
             {OptionalLabel && (
-              <label class="textBox-Label-Optional">optional</label>
+              <label className="textBox-Label-Optional">optional</label>
             )}
           </label>
         )}
         {loading ? (
-          <section class="select-loader">
+          <section className="select-loader">
             <svg
               aria-hidden="true"
               focusable="false"
               data-prefix="fas"
               data-icon="spinner"
-              class="svg-inline--fa fa-spinner fa-w-16 select-spinner-icon"
+              className="svg-inline--fa fa-spinner fa-w-16 select-spinner-icon"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -54,13 +54,13 @@ export default function Select({ ...props }) {
           </section>
         ) : (
           <select
-            class={`select-Select ${errorMessage && "required"} `}
+            className={`select-Select ${errorMessage && "required"} `}
             {...rest}
           >
             {(options || []).map((item, index) => (
               <option
                 key={`${new Date().getTime()}${index}`}
-                class={`select-Option${index}`}
+                className={`select-Option${index}`}
                 value={item[valueKey] || item.value}
               >
                 {item[labelKey] || item.label}
@@ -68,7 +68,7 @@ export default function Select({ ...props }) {
             ))}
           </select>
         )}
-        {errorMessage && <p class="message"> {errorMessage} </p>}
+        {errorMessage && <p className="message"> {errorMessage} </p>}
       </section>
     </Wrapper>
   );
