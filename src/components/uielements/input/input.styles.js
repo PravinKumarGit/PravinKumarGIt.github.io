@@ -4,7 +4,6 @@ const Wrapper = styled.div`
   .textBox {
     display: flex;
     margin: 10px;
-    width: 290px;
     height: 80px;
     flex-direction: column;
     position: relative;
@@ -39,6 +38,16 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .textBox-Icon-Suffix {
+    color: rgba(148, 200, 64, 0.5);
+    border-left: 1px solid rgba(148, 200, 64, 0.3);
+    margin-left: 7px;
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
   .textBox-Icon * {
     display: inherit;

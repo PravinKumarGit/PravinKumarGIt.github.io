@@ -1,16 +1,28 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Formik } from "formik";
 import actions from "../../redux/startup/actions";
-import Input from "../../components/uielements/input";
+import Button from "../../components/uielements/button";
 import Select from "../../components/uielements/select/select";
 import LoanSelect from "./components/selectForLoanResoans";
 import TitleSelect from "./components/selectForNamePrefix";
 import TopHeader from "../../components/uielements/topHeader";
 import BreadCrum from "../../components/uielements/breadCrum";
-import PageTopHeading from "../../components/uielements/pageTopHeading";
+import SectionHeading from "../../components/uielements/sectionHeading";
 import Paper from "../../components/uielements/paper";
 import Accordian from "../../components/uielements/accordian";
+import MobileNoField from "./components/mobileNoField";
+import FirstName from "./components/firstName";
+import MiddleName from "./components/middleName";
+import LastName from "./components/lastName";
+import EmailField from "./components/emailField";
 import DobInput from "./components/dobField";
+import TermsCheckBox from "./components/termsCheckBox";
+import SelectIncomeFrequency from "./components/selectIncomeFrequency";
+import IncomeField from "./components/incomeField";
+import RefferalCheckbox from "./components/refferalCheckbox";
+import AddressField from "./components/addressField";
+
 import Wrapper from "./PersonalLoan.styles";
 import Divider from "../../components/uielements/divider";
 export default function ParsonalLoan({ ...props }) {
@@ -24,13 +36,12 @@ export default function ParsonalLoan({ ...props }) {
     // loanAmountError
   } = useSelector(state => state.StartUp);
 
-  console.log(loanAmountResponse, Input, Select, "loanAmount");
   return (
     <Wrapper>
       <TopHeader />
       <BreadCrum />
       <Paper>
-        <PageTopHeading
+        <SectionHeading
           heading="Personal Loan Application"
           subheading={
             <span>
@@ -42,64 +53,64 @@ export default function ParsonalLoan({ ...props }) {
         />
         <Accordian />
         <Divider />
-        <Input
-          title="Email"
-          preFix={<span>@</span>}
-          placeholder="Email"
-          type="email"
-        />
-        <Input
-          title="Email"
-          errorMessage="This is required"
-          preFix={<span>@</span>}
-          placeholder="Email"
-          type="email"
-        />
-        <DobInput
-          title="Date of Birth"
-          value={new Date()}
-          onChange={item => {
-            console.log(item);
+        <Formik
+          onSubmit={(values, actions) => {
+            setTimeout(() => {
+              alert(JSON.stringify(values, null, 2));
+              actions.setSubmitting(false);
+            }, 1000);
           }}
-        />
-        <TitleSelect
-          onChange={item => {
-            console.log(item);
-          }}
-        />
+        >
+          {props => (
+            <form onSubmit={props.handleSubmit}>
+              <SectionHeading heading="How much do you need?" />
+              <Select
+                defaultValue={
+                  loanAmountResponse &&
+                  loanAmountResponse[0] &&
+                  loanAmountResponse[0].value
+                }
+                Title="Loan Amount"
+                loading={loanAmountIsFetching}
+                options={loanAmountResponse}
+                onChange={item => {
+                  console.log(item);
+                }}
+              />
 
-        <LoanSelect
-          onChange={item => {
-            console.log(item);
-          }}
-        />
-        <Select
-          defaultValue={
-            loanAmountResponse &&
-            loanAmountResponse[0] &&
-            loanAmountResponse[0].value
-          }
-          Title="Loan Amount"
-          loading={loanAmountIsFetching}
-          options={loanAmountResponse}
-          onChange={item => {
-            console.log(item);
-          }}
-        />
-        <Select
-          defaultValue={
-            loanAmountResponse &&
-            loanAmountResponse[0] &&
-            loanAmountResponse[0].value
-          }
-          Title="Loan Amount"
-          loading={loanAmountIsFetching}
-          options={loanAmountResponse}
-          onChange={item => {
-            console.log(item);
-          }}
-          errorMessage="This field is required."
-        />
+              <LoanSelect
+                onChange={item => {
+                  console.log(item);
+                }}
+              />
+              <Divider />
+              <SectionHeading heading="About You" />
+              <TitleSelect
+                onChange={item => {
+                  console.log(item);
+                }}
+              />
+              <MobileNoField />
+              <FirstName />
+              <MiddleName />
+              <LastName />
+              <EmailField />
+              <DobInput />
+              <TermsCheckBox />
+              <Divider />
+              <SectionHeading heading="Your Current Address" />
+              <AddressField />
+              <Divider />
+              <SectionHeading heading="Your Income" />
+              <SelectIncomeFrequency />
+              <IncomeField />
+              <RefferalCheckbox />
+              <Button type="submit" disabled>
+                Go
+              </Button>
+            </form>
+          )}
+        </Formik>
       </Paper>
     </Wrapper>
   );

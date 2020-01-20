@@ -1,10 +1,12 @@
 import React from "react";
 
+import Image from "../../../theme/assets/icon-tooltip.svg";
 import Wrapper from "./input.styles";
 export default function Input({ ...props }) {
   const {
     title,
-    preFix,
+    prefix,
+    suffix,
     errorMessage,
     helpToolTip,
     ToolTipText,
@@ -33,17 +35,26 @@ export default function Input({ ...props }) {
             </label>
           )}
         </div>
-        <div className={`textBox-Input ${errorMessage ? "required" : null}`}>
-          {preFix && (
+        <div className={`textBox-Input ${errorMessage ? "required" : ""}`}>
+          {prefix && (
             <div
               className={`textBox-Icon ${
-                errorMessage ? "iconRequired" : null
+                errorMessage ? "iconRequired" : ""
               } `}
             >
-              {preFix}
+              {prefix}
             </div>
           )}
           <input {...rest} />
+          {suffix && (
+            <div
+              className={`textBox-Icon-Suffix ${
+                errorMessage ? "iconRequired" : ""
+              } `}
+            >
+              {suffix}
+            </div>
+          )}
         </div>
         {errorMessage && <div className="message"> {errorMessage} </div>}
       </div>

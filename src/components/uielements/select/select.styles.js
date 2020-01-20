@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   .select-Component {
-    display: inline-block;
     margin: 10px;
-    max-width: 290px;
     min-height: 80px;
   }
   .select-Label {
@@ -23,8 +21,8 @@ const Wrapper = styled.div`
     padding-left: 7px;
     padding-right: 2px;
     overflow: hidden;
-    width: 288px;
     height: 32px;
+    width: 100%;
     color: #94c840;
     fill: #94c840;
   }

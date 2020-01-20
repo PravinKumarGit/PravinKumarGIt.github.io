@@ -21,3 +21,9 @@ export const NAME_PREFIX = [
   { label: "Ms", value: "Ms" },
   { label: "Miss", value: "Miss" }
 ];
+
+export const INCOME_FREQUENCY_OPTIONS = [
+  { label: "Weekly", value: "Weekly" },
+  { label: "Fortnightly", value: "Fortnightly" },
+  { label: "Monthly", value: "Monthly" }
+];

@@ -4,7 +4,6 @@ const Wrapper = styled.div`
   .textBox {
     display: flex;
     margin: 10px;
-    width: 290px;
     height: 85px;
     flex-direction: column;
   }

@@ -3,8 +3,8 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   .UserInputBlock-Container {
     display: grid;
-    padding: 10px;
-    margin: 30px 5% 20px;
+    padding: 10px 0;
+    margin: 30px 0 20px;
     align-content: center;
     text-align: center;
     background-color: #fff;

@@ -7,7 +7,7 @@ export default function Accordian({ ...props }) {
   };
   return (
     <Wrapper>
-      <section className="UserInputBlock-Container">
+      <div className="UserInputBlock-Container">
         <title
           className="UserInputBlock-Label"
           onClick={() => updateOpenIndex(0)}
@@ -15,9 +15,9 @@ export default function Accordian({ ...props }) {
           <p className="Label-Text">Are you eligible to apply?</p>
           <p className="Label-Icon">{openIndex === 0 ? "+" : "-"}</p>
         </title>
-        <section className={`content-${openIndex === 0 ? "show" : "hide"}`}>
-          <section className="pageOne-ApplicationInformation-Section">
-            <section className="listBox-Container">
+        <div className={`content-${openIndex === 0 ? "show" : "hide"}`}>
+          <div className="pageOne-ApplicationInformation-div">
+            <div className="listBox-Container">
               <ul>
                 <p className="listBox-Title">
                   To apply for a loan, you must be:
@@ -31,8 +31,8 @@ export default function Accordian({ ...props }) {
                   </span>
                 </li>
               </ul>
-            </section>
-            <section className="listBox-Container">
+            </div>
+            <div className="listBox-Container">
               <ul>
                 <p className="listBox-Title">We cannot assist you if:</p>
                 <li className="listBox-Item">
@@ -47,10 +47,10 @@ export default function Accordian({ ...props }) {
                   </span>
                 </li>
               </ul>
-            </section>
-          </section>
-        </section>
-      </section>
+            </div>
+          </div>
+        </div>
+      </div>
     </Wrapper>
   );
 }
