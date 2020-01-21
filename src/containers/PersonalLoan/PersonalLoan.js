@@ -98,7 +98,7 @@ export default function ParsonalLoan({ ...props }) {
               <MiddleName />
               <LastName />
               <EmailField />
-              <DobInput />
+              {/* <DobInput /> */}
               <TermsCheckBox />
               <Divider />
               <SectionHeading heading="Your Current Address" />
