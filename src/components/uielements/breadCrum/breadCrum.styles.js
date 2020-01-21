@@ -6,6 +6,7 @@ const Wrapper = styled.div`
     height: 120px;
     background-color: #00673f;
     font-size: small;
+    overflow: scroll;
   }
   .breadCrumbBox {
     display: flex;
@@ -26,7 +27,7 @@ const Wrapper = styled.div`
   .breadCrumb-title-and-button {
     display: block;
     align-self: center;
-    margin-left: 50px;
+    margin-left: 30px;
     margin-right: 30px;
   }
   .breadCrumb-title-active {
