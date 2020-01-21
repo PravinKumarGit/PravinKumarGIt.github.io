@@ -19,7 +19,7 @@ img,
 svg {
   &::selection {
     background: ${palette("primary", 0)};
-    color: #fff;
+    color: ${palette("color", 16)};
   }
 }
 *:focus{

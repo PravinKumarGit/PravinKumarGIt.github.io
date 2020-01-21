@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .select-Component {
@@ -9,13 +10,13 @@ const Wrapper = styled.div`
     display: flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: grey;
+    color: ${palette("grayscale", 1)};
     font-weight: 700;
-    font-size: 13px;
+ font-size:  ${size("p2")};
   }
   .select-Select {
     display: flex;
-    border: 1px solid rgba(148, 200, 64, 0.3);
+    border: 1px solid ${palette("border", 5)};
     border-radius: 5px;
     margin: 0 !important;
     padding-left: 7px;
@@ -23,18 +24,18 @@ const Wrapper = styled.div`
     overflow: hidden;
     height: 32px;
     width: 100%;
-    color: #94c840;
-    fill: #94c840;
+    color: ${palette("color", 14)};
+    fill: ${palette("color", 14)};
   }
   .select-Select * {
     border: none;
-    font-size: 15px;
+ font-size:  ${size("p1")};
   }
   .select-loader {
     display: flex;
     width: 288px;
     height: 32px;
-    background-color: #d3d3d3;
+    background-color: ${palette("border", 4)};
     opacity: 0.5;
     border-radius: 5px;
   }
@@ -59,7 +60,7 @@ const Wrapper = styled.div`
     -webkit-animation: spin 4s linear infinite;
     -moz-animation: spin 4s linear infinite;
     animation: spin 4s linear infinite;
-    color: white;
+    color: ${palette("color", 16)};
   }
 
   .toolTip-Icon {
@@ -69,9 +70,9 @@ const Wrapper = styled.div`
     height: 15px;
     width: 15px;
     cursor: pointer;
-    color: white;
+    color: ${palette("color", 16)};
     border-radius: 10px;
-    font-size: 11px;
+    font-size:  ${size("p4")};
     margin-left: 5px;
   }
 
@@ -93,26 +94,26 @@ const Wrapper = styled.div`
     padding-top: 5px;
     width: 200px;
     color: gray;
-    background-color: white;
+    background-color: ${palette("color", 16)};
     border: 1px solid lightgray;
     border-radius: 5px;
-    box-shadow: 1px 2px #8888886e;
+    box-shadow: 1px 2px ${palette("grayscale", 12)};
   }
   .textBox-Label-Optional {
     padding-left: 6px;
-    font-size: 12px;
-    color: #aaa;
+    font-size:  ${size("p3")};
+    color: ${palette("grayscale", 15)};
     font-weight: 700;
   }
   .select-Select:focus-within {
     outline: none;
   }
   .required:focus-within {
-    box-shadow: 0 0 6px #fb5708;
+    box-shadow: 0 0 6px ${palette("color", 18)};
     outline: none;
   }
   .required {
-    border: 1px solid red !important;
+    border: 1px solid${palette("error", 3)}!important;
   }
   .message {
     display: flex;
@@ -120,8 +121,8 @@ const Wrapper = styled.div`
     padding-left: 3px;
     margin-top: 2px;
     margin-bottom: 0;
-    color: #fb5708;
-    font-size: 13px;
+    color: ${palette("color", 18)};
+ font-size:  ${size("p2")};
   }
   @-moz-keyframes spin {
     100% {

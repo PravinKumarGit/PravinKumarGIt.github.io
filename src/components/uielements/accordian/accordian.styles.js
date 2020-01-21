@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .UserInputBlock-Container {
@@ -7,24 +8,32 @@ const Wrapper = styled.div`
     margin: 30px 0 20px;
     align-content: center;
     text-align: center;
-    background-color: #fff;
-    color: #fff;
+    background-color: ${palette("color", 16)};
+    color: ${palette("color", 16)};
   }
   .UserInputBlock-Label {
     display: grid;
     grid-template-columns: 1fr 40px;
     align-content: center;
     height: 40px;
-    font-size: 20px;
+    font-size: ${size("h5")};
     background: -webkit-gradient(
       linear,
       right top,
       left top,
-      color-stop(0, #00673f),
-      to(#94c840)
+      color-stop(0, ${palette("color", 15)}),
+      to(${palette("color", 14)})
     );
-    background: -webkit-linear-gradient(right, #00673f, #94c840);
-    background: linear-gradient(270deg, #00673f 0, #94c840);
+    background: -webkit-linear-gradient(
+      right,
+      ${palette("color", 15)},
+      ${palette("color", 14)}
+    );
+    background: linear-gradient(
+      270deg,
+      ${palette("color", 15)} 0,
+      ${palette("color", 14)}
+    );
   }
   .content-show {
     display: grid;
@@ -38,46 +47,7 @@ const Wrapper = styled.div`
   .content-hide {
     display: none;
   }
-  .pageOne-ApplicationInformation-Section {
-    display: grid;
-    grid-template-columns: 50% 50%;
-  }
-  .listBox-Container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    font-size: 15px;
-  }
-  .listBox-Container ul {
-    -webkit-padding-start: 10px;
-    padding-inline-start: 10px;
-    -webkit-padding-end: 10px;
-    padding-inline-end: 10px;
-    margin-bottom: 15px;
-  }
-  .listBox-Item {
-    list-style: none;
-    padding-left: 3px;
-    text-align: justify;
-  }
-  .listBox-text {
-    margin-left: 5px;
-    font-size: small;
-  }
-  .listBox-Title {
-    text-align: justify;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0;
-    -webkit-margin-before: 0;
-    margin-block-start: 0;
-  }
-  .listBox-Item:before {
-    color: #94c840;
-    content: "•";
-    font-size: 20px;
-  }
+  
 `;
 
 export default Wrapper;

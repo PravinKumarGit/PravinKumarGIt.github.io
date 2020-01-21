@@ -14,7 +14,7 @@ export default function CheckBox({ ...props }) {
   } = props;
   return (
     <Wrapper>
-      <div className={`checkBox-Component ${errorMessage ? "required" : null}`}>
+      <div className={`checkBox-Component ${errorMessage ? "required" : ''}`}>
         {title && (
           <label className="checkBox-Label">
             {title}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Wrapper from "./accordian.styles";
 export default function Accordian({ ...props }) {
+  const { title, children } = props;
   const [openIndex, setOpenIndex] = useState(null);
   const updateOpenIndex = index => {
     setOpenIndex(openIndex === index ? null : index);
@@ -12,11 +13,12 @@ export default function Accordian({ ...props }) {
           className="UserInputBlock-Label"
           onClick={() => updateOpenIndex(0)}
         >
-          <p className="Label-Text">Are you eligible to apply?</p>
+          <p className="Label-Text">{title}</p>
           <p className="Label-Icon">{openIndex === 0 ? "+" : "-"}</p>
         </title>
         <div className={`content-${openIndex === 0 ? "show" : "hide"}`}>
-          <div className="pageOne-ApplicationInformation-div">
+          {children}
+          {/* <div className="pageOne-ApplicationInformation">
             <div className="listBox-Container">
               <ul>
                 <p className="listBox-Title">
@@ -48,7 +50,7 @@ export default function Accordian({ ...props }) {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </Wrapper>

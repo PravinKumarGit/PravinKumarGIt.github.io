@@ -1,17 +1,18 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   text-align: center;
   .page-heading {
-    color: #94c840;
+    color: ${palette("color", 14)};
     font-weight: 400;
-    font-size: 33px;
+    font-size: ${size("h3")};
     line-height: 33px;
     margin: 20px;
   }
   .page-subheading {
-    font-size: 13px;
-    color: #7b7b7b;
+    font-size: ${size("p2")};
+    color: ${palette("color", 17)};
     line-height: 16px;
   }
 `;

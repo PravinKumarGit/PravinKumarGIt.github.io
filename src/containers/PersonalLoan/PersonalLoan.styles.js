@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { palette } from "styled-theme";
 
 const Wrapper = styled.div`
-  background-color: #f2f7f0;
+  background-color: ${palette("grayscale", 14)};
 `;
 
 export default Wrapper;

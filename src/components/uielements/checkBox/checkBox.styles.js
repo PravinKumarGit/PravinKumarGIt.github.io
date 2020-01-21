@@ -1,17 +1,18 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .checkBox-Component {
     display: grid;
-    color: #7b7b7b;
-    font-size: 13px;
+    color: ${palette("color", 17)};
+    font-size: ${size("p2")};
     line-height: 16px;
     grid-template-columns: 30px 1fr;
   }
 
   .required {
-    color: red;
-    border: 1px solid red;
+    color: ${palette("error", 3)};
+    border: 1px solid ${palette("error", 3)};
   }
 
   .checkBox-InformationContainer {

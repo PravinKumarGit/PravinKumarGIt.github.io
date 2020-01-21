@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .label {

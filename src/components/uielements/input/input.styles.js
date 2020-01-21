@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .textBox {
@@ -10,29 +11,27 @@ const Wrapper = styled.div`
   }
   .textBox-Label-Container {
     display: flex;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
     width: fit-content;
   }
   .textBox-Label {
     display: inline-flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: grey;
+    color: ${palette("grayscale", 1)};
     font-weight: 700;
-    font-size: 13px;
+    font-size: ${size("p2")};
   }
   .textBox-Input {
     display: flex;
-    border: 1px solid rgba(148, 200, 64, 0.3);
+    border: 1px solid ${palette("border", 5)};
     border-radius: 5px;
     height: 30px;
     margin: 0 !important;
     overflow: hidden;
   }
   .textBox-Icon {
-    color: rgba(148, 200, 64, 0.5);
-    border-right: 1px solid rgba(148, 200, 64, 0.3);
+    color: ${palette("border", 6)};
+    border-right: 1px solid ${palette("border", 5)};
     margin-right: 7px;
     min-width: 30px;
     display: flex;
@@ -40,8 +39,8 @@ const Wrapper = styled.div`
     align-items: center;
   }
   .textBox-Icon-Suffix {
-    color: rgba(148, 200, 64, 0.5);
-    border-left: 1px solid rgba(148, 200, 64, 0.3);
+    color: ${palette("border", 6)};
+    border-left: 1px solid ${palette("border", 5)};
     margin-left: 7px;
     min-width: 30px;
     display: flex;
@@ -51,38 +50,38 @@ const Wrapper = styled.div`
   }
   .textBox-Icon * {
     display: inherit;
-    font-size: 15px;
+    font-size: ${size("p1")};
   }
   .textBox-Input input {
     display: inline-block;
     border: none;
     align-content: center;
     width: 100%;
-    font-size: 15px;
+    font-size: ${size("p1")};
     padding: none !important;
-    color: #94c840;
+    color: ${palette("color", 14)};
     text-overflow: ellipsis;
   }
   .textBox-Input input:focus {
     outline: none;
   }
   .required:focus-within {
-    box-shadow: 0 0 6px #fb5708;
+    box-shadow: 0 0 6px ${palette("color", 18)};
     outline: none;
   }
   .required {
-    border: 1px solid red !important;
+    border: 1px solid ${palette("error", 3)}!important;
   }
   .message {
     position: absolute;
     padding-left: 1px;
-    color: #fb5708;
-    font-size: 13px;
+    color: ${palette("color", 18)};
+    font-size: ${size("p2")};
     top: 54px;
   }
   .iconRequired {
-    border-right: 1px solid red;
-    color: red;
+    border-right: 1px solid ${palette("error", 3)};
+    color: ${palette("error", 3)};
   }
   .textBox-Input input::placeholder {
     color: gray;
@@ -95,9 +94,9 @@ const Wrapper = styled.div`
     height: 15px;
     width: 15px;
     cursor: pointer;
-    color: white;
+    color: ${palette("color", 16)};
     border-radius: 10px;
-    font-size: 11px;
+    font-size: ${size("p4")};
     margin-left: 5px;
   }
 
@@ -119,10 +118,10 @@ const Wrapper = styled.div`
     padding-top: 5px;
     width: 200px;
     color: gray;
-    background-color: white;
+    background-color: ${palette("color", 16)};
     border: 1px solid lightgray;
     border-radius: 5px;
-    box-shadow: 1px 2px #8888886e;
+    box-shadow: 1px 2px ${palette("grayscale", 12)};
   }
 `;
 

@@ -27,7 +27,7 @@ const FourZeroFourStyleWrapper = styled.div`
     }
 
     h3 {
-      font-size: 24px;
+      font-size:  ${size("h3")};
       font-weight: 400;
       color: ${palette("text", 1)};
       margin: 0 0 10px;
@@ -35,7 +35,7 @@ const FourZeroFourStyleWrapper = styled.div`
     }
 
     p {
-      font-size: 14px;
+      font-size:  ${size("p2")};
       font-weight: 400;
       color: ${palette("text", 3)};
       margin: 0 0 10px;
@@ -52,10 +52,10 @@ const FourZeroFourStyleWrapper = styled.div`
       cursor: pointer;
       background-image: none;
       border: 0;
-      white-space: nowrap;
+      ${palette("color", 16)}-space: nowrap;
       line-height: 1.5;
       padding: 0 30px;
-      font-size: 13px;
+   font-size:  ${size("p2")};
       flex-shrink: 0;
       height: 36px;
       -webkit-user-select: none;
@@ -63,7 +63,7 @@ const FourZeroFourStyleWrapper = styled.div`
       -ms-user-select: none;
       user-select: none;
       position: relative;
-      color: #ffffff;
+      color: ${palette("color", 16)};
       background-color: ${palette("primary", 0)};
       ${transition()};
       ${borderRadius("18px")};
@@ -71,7 +71,7 @@ const FourZeroFourStyleWrapper = styled.div`
       a {
         width: 100%;
         height: 100%;
-        color: #ffffff;
+        color: ${palette("color", 16)};
         text-decoration: none;
       }
 

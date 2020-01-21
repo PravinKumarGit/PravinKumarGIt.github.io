@@ -27,3 +27,22 @@ export const INCOME_FREQUENCY_OPTIONS = [
   { label: "Fortnightly", value: "Fortnightly" },
   { label: "Monthly", value: "Monthly" }
 ];
+
+export const DAYS = [
+  { label: "1", value: 1 },
+  { label: "2", value: 2 }
+];
+export const MONTHS = [
+  { label: "", value: "" },
+  { label: "", value: "" },
+  { label: "", value: "" },
+  { label: "", value: "" },
+  { label: "", value: "" }
+];
+export const YEARS = [
+  { label: "", value: "" },
+  { label: "", value: "" },
+  { label: "", value: "" },
+  { label: "", value: "" },
+  { label: "", value: "" }
+];

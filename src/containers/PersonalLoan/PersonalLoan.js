@@ -22,6 +22,7 @@ import SelectIncomeFrequency from "./components/selectIncomeFrequency";
 import IncomeField from "./components/incomeField";
 import RefferalCheckbox from "./components/refferalCheckbox";
 import AddressField from "./components/addressField";
+import WhyLoanText from "./components/whyLoanText";
 
 import Wrapper from "./PersonalLoan.styles";
 import Divider from "../../components/uielements/divider";
@@ -51,7 +52,9 @@ export default function ParsonalLoan({ ...props }) {
             </span>
           }
         />
-        <Accordian />
+        <Accordian title="Are you eligible to apply?">
+          <WhyLoanText />
+        </Accordian>
         <Divider />
         <Formik
           onSubmit={(values, actions) => {

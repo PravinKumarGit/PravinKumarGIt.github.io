@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .Header-Container {
     display: block;
     height: 50px;
-    background: #7bb840;
-    color: #fff;
+    background: ${palette("color", 19)};
+    color: ${palette("color", 16)};
   }
   .logos {
     display: flex;
@@ -28,8 +29,8 @@ const Wrapper = styled.div`
     margin-right: 10vw;
     float: right;
     align-items: center;
-    color: #fdfff9;
-    font-size: 15px;
+    color: ${palette("grayscale", 16)};
+    font-size: ${size("p1")};
     letter-spacing: 1px;
     font-weight: 700;
     text-decoration: none;

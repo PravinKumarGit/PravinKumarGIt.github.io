@@ -46,7 +46,13 @@ theme.palette = {
     "#e14615", // 11: Auth0
     "#ca3f13", // 12: Auth0
     "#e0364c", // 13: themeColor--AlizarinCrimson
-    "#94c840" // 14: light green
+    "#94c840", // 14: light green
+    "#00673f", // 15: Dark green
+    "#FFFFFF", // 16: white,
+    "#7b7b7b", // 17: light gray,
+    "#fb5708", // 18: light red,
+    "#7bb840", // 19: extra light green,
+    "#50b849" // 20: extra light green,
   ],
   warning: [
     "#ffbf00" // 0: Warning
@@ -57,7 +63,8 @@ theme.palette = {
   error: [
     "#f64744", // 0: Error
     "#EC3D3A", // 1: Darken 4%
-    "#FF5B58" // 2: Lighten 8%
+    "#FF5B58", // 2: Lighten 8%
+    "#ff0000" // 3: Red
   ],
   grayscale: [
     "#bababa", // 0: GreyShade
@@ -71,7 +78,12 @@ theme.palette = {
     "#eeeeee", // 8:
     "#fbfbfb", // 9:
     "#f5f5f5", // 10:
-    "#f7f8f9" // 11: today-highlight-bg
+    "#f7f8f9", // 11: today-highlight-bg
+    "#8888886e", // 12: light gray with less opacity
+    "#f9fbf8", // 13: extra light gray with green
+    "#f2f7f0", // 14: extra light gray with green
+    "#aaaaaa", // 15: gray with red
+    "#fdfff9" // 16: extra light gray with green
   ],
   text: [
     "#323332", // 0: Heading
@@ -84,8 +96,11 @@ theme.palette = {
     "#e9e9e9", // 0: Border
     "#d8d8d8", // 1: BorderDark
     "#ebebeb", // 2: BorderLight
-    "#d3d3d3", // 3:
-    "rgba(228, 228, 228, 0.65)" // 4:
+    "#d3d3d3", // 3: orderExtraLight
+    "rgba(228, 228, 228, 0.65)", // 4:
+    "rgba(148, 200, 64, 0.3)", // 5: extra light green
+    "rgba(148, 200, 64, 0.5)", // 6: light green
+    "rgba(199,195,195,.2)" // 7: light gray
   ],
 
   calendar: [
@@ -99,7 +114,8 @@ theme.palette = {
 };
 
 theme.fonts = {
-  primary: "Open Sans,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
+  primary:
+    "Open Sans,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
   pre: "Consolas, Liberation Mono, Menlo, Courier, monospace"
 };
 
@@ -113,12 +129,17 @@ theme.sizes = {
   fullScreen: "100%",
   windowWidth: "100vw",
   windowHeight: "100vh",
-  h1: '84px',
-  h2: '48px',
-  h3: '24px',
-  h4: '20px',
-  h6: '18px',
-  p1: '15px',
-  p2: '10px',
+  h1: "84px",
+  h2: "48px",
+  h3: "33px",
+  h4: "24px",
+  h5: "20px",
+  h6: "18px",
+  p0: "16px",
+  p1: "15px",
+  p2: "13px",
+  p3: "12px",
+  p4: "11px",
+  p5: "10px",
 };
 export default theme;

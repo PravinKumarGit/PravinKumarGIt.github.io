@@ -1,19 +1,20 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .Address-ManualButton {
     display: flex;
     height: 100%;
-    background-color: #f9fbf8;
-    color: #94c840;
-    font-size: 14px;
+    background-color: ${palette("grayscale", 13)};
+    color: ${palette("color", 14)};
+    font-size:  ${size("p2")};
     align-items: center;
     border: none;
   }
 
   .Address-ManualButton:hover {
-    background-color: #50b849;
-    color: white;
+    background-color: ${palette("color", 20)};
+    color: ${palette("color", 16)};
   }
 `;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .button-Container {
@@ -8,13 +9,13 @@ const Wrapper = styled.div`
 
   .button-Button {
     border: none;
-    background-color: #00673f;
+    background-color: ${palette("color", 15)};
     border-radius: 5px;
     height: 40px;
     width: 100%;
-    color: white;
+    color: ${palette("color", 16)};
     opacity: 0.85;
-    font-size: 16px;
+    font-size:  ${size("p0")};
   }
 
   .disabled {

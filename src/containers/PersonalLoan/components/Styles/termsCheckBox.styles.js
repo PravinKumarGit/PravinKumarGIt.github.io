@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { palette } from "styled-theme";
 
 const Wrapper = styled.div`
   .pct-show {
@@ -7,7 +8,7 @@ const Wrapper = styled.div`
   }
 
   .pct-show:hover {
-    color: #7b7b7b;
+    color: ${palette("color", 17)};
     text-decoration: underline;
   }
 `;

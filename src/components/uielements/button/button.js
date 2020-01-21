@@ -7,7 +7,7 @@ export default function Select({ ...props }) {
     <Wrapper>
       <section className="button-Container">
         <button
-          className={`button-Button ${disabled ? "disabled" : null}`}
+          className={`button-Button ${disabled ? "disabled" : ''}`}
           {...buttonProps}
         >
           {buttonText}
