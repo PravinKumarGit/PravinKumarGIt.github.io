@@ -16,13 +16,19 @@ const Wrapper = styled.div`
     display: inline-flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: ${palette("grayscale", 1)};
+    color: ${palette("grayscale", 17)};
     font-weight: 700;
- font-size:  ${size("p2")};
+    font-size: ${size("p2")};
+  }
+  .textBox-Label-Optional {
+    padding-left: 6px;
+    font-size: ${size("p3")};
+    color: ${palette("grayscale", 17)};
+    font-weight: 700;
   }
   .textBox-Input {
     display: flex;
-    border: 1px solid ;
+    border: 1px solid;
     border-radius: 5px;
     height: 32px;
     margin: 0 !important;
@@ -39,14 +45,14 @@ const Wrapper = styled.div`
   }
   .textBox-Icon * {
     display: inherit;
- font-size:  ${size("p1")};
+    font-size: ${size("p1")};
   }
   .textBox-Input input {
     display: inline-block;
     border: none;
     align-content: center;
     width: 100%;
- font-size:  ${size("p1")};
+    font-size: ${size("p1")};
     padding: none !important;
     color: ${palette("color", 14)};
     text-overflow: ellipsis;
@@ -59,7 +65,7 @@ const Wrapper = styled.div`
     outline: none;
   }
   .required {
-    border: 1px solid${palette("error", 3)}!important;
+    border: 1px solid ${palette("error", 3)}!important;
   }
   .message {
     display: flex;
@@ -68,26 +74,26 @@ const Wrapper = styled.div`
     margin-top: 2px;
     margin-bottom: 0;
     color: ${palette("color", 18)};
- font-size:  ${size("p2")};
+    font-size: ${size("p2")};
   }
   .iconRequired {
     border-right: 1px solid ${palette("error", 3)};
     color: ${palette("error", 3)};
   }
   .react-calendar__month-view__weekdays {
- font-size:  ${size("p2")};
-    color:${palette("color", 19)};
+    font-size: ${size("p2")};
+    color: ${palette("color", 19)};
   }
   .react-calendar__navigation {
     margin-bottom: 0;
   }
   .react-calendar__navigation button {
     font-weight: bold;
-    font-size:  ${size("h6")};
+    font-size: ${size("h6")};
     color: ${palette("color", 15)};
   }
   .react-calendar__tile {
-    font-size:  ${size("p2")};
+    font-size: ${size("p2")};
   }
   .react-date-picker__wrapper {
     border: 1px solid ${palette("border", 5)};
@@ -99,13 +105,14 @@ const Wrapper = styled.div`
     align-items: center;
     display: flex;
   }
-  .react-date-picker__inputGroup__input, .react-date-picker__inputGroup__leadingZero {
- font-size:  ${size("p1")};
+  .react-date-picker__inputGroup__input,
+  .react-date-picker__inputGroup__leadingZero {
+    font-size: ${size("p1")};
     color: ${palette("color", 14)};
     text-overflow: ellipsis;
   }
   .react-date-picker__inputGroup__divider {
- font-size:  ${size("p1")};
+    font-size: ${size("p1")};
     color: ${palette("color", 14)};
   }
   .react-date-picker__button__icon {
@@ -124,7 +131,7 @@ const Wrapper = styled.div`
     cursor: pointer;
     color: ${palette("color", 16)};
     border-radius: 10px;
-    font-size:  ${size("p4")};
+    font-size: ${size("p4")};
     margin-left: 5px;
   }
 

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     display: flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: ${palette("grayscale", 1)};
+    color: ${palette("grayscale", 17)};
     font-weight: 700;
  font-size:  ${size("p2")};
   }

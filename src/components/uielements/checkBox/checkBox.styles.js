@@ -28,6 +28,12 @@ const Wrapper = styled.div`
     float: left;
     font-weight: bold;
   }
+  .checkBox-Label-Optional {
+    padding-left: 6px;
+    font-size: ${size("p3")};
+    color: ${palette("grayscale", 17)};
+    font-weight: 700;
+  }
 `;
 
 export default Wrapper;

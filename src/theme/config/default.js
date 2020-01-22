@@ -83,7 +83,8 @@ theme.palette = {
     "#f9fbf8", // 13: extra light gray with green
     "#f2f7f0", // 14: extra light gray with green
     "#aaaaaa", // 15: gray with red
-    "#fdfff9" // 16: extra light gray with green
+    "#fdfff9", // 16: extra light gray with green
+    "#808080"  // 17: GreyDarker
   ],
   text: [
     "#323332", // 0: Heading

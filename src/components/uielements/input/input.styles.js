@@ -17,9 +17,15 @@ const Wrapper = styled.div`
     display: inline-flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: ${palette("grayscale", 1)};
+    color: ${palette("grayscale", 17)};
     font-weight: 700;
     font-size: ${size("p2")};
+  }
+  .textBox-Label-Optional {
+    padding-left: 6px;
+    font-size: ${size("p3")};
+    color: ${palette("grayscale", 15)};
+    font-weight: 700;
   }
   .textBox-Input {
     display: flex;

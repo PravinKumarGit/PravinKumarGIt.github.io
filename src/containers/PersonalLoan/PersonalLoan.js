@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Formik } from "formik";
+import { Row, Col } from "react-grid-system";
+
 import actions from "../../redux/startup/actions";
 import Button from "../../components/uielements/button";
 import Select from "../../components/uielements/select/select";
@@ -39,81 +41,144 @@ export default function ParsonalLoan({ ...props }) {
 
   return (
     <Wrapper>
-      <TopHeader />
-      <BreadCrum />
+      <Row>
+        <Col>
+          <TopHeader />
+          <BreadCrum />
+        </Col>
+      </Row>
       <Paper>
-        <SectionHeading
-          heading="Personal Loan Application"
-          subheading={
-            <span>
-              It only takes a few minutes to get an outcome.
-              <br /> Call us on <a href="tel:+1300324746">1300 324 746</a> if
-              you have any problems completing this form.
-            </span>
-          }
-        />
-        <Accordian title="Are you eligible to apply?">
-          <WhyLoanText />
-        </Accordian>
-        <Divider />
-        <Formik
-          onSubmit={(values, actions) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              actions.setSubmitting(false);
-            }, 1000);
-          }}
-        >
-          {props => (
-            <form onSubmit={props.handleSubmit}>
-              <SectionHeading heading="How much do you need?" />
-              <Select
-                defaultValue={
-                  loanAmountResponse &&
-                  loanAmountResponse[0] &&
-                  loanAmountResponse[0].value
-                }
-                Title="Loan Amount"
-                loading={loanAmountIsFetching}
-                options={loanAmountResponse}
-                onChange={item => {
-                  console.log(item);
-                }}
-              />
-
-              <LoanSelect
-                onChange={item => {
-                  console.log(item);
-                }}
-              />
-              <Divider />
-              <SectionHeading heading="About You" />
-              <TitleSelect
-                onChange={item => {
-                  console.log(item);
-                }}
-              />
-              <MobileNoField />
-              <FirstName />
-              <MiddleName />
-              <LastName />
-              <EmailField />
-              {/* <DobInput /> */}
-              <TermsCheckBox />
-              <Divider />
-              <SectionHeading heading="Your Current Address" />
-              <AddressField />
-              <Divider />
-              <SectionHeading heading="Your Income" />
-              <SelectIncomeFrequency />
-              <IncomeField />
-              <RefferalCheckbox />
-              <Button type="submit" disabled>
-                Go
-              </Button>
-            </form>
-          )}
-        </Formik>
+        <Row>
+          <Col>
+            <SectionHeading
+              heading="Personal Loan Application"
+              subheading={
+                <span>
+                  It only takes a few minutes to get an outcome.
+                  <br /> Call us on <a href="tel:+1300324746">
+                    1300 324 746
+                  </a>{" "}
+                  if you have any problems completing this form.
+                </span>
+              }
+            />
+            <Accordian title="Are you eligible to apply?">
+              <WhyLoanText />
+            </Accordian>
+            <Divider />
+          </Col>
+        </Row>
+        <Row>
+          <Formik
+            onSubmit={(values, actions) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+                actions.setSubmitting(false);
+              }, 1000);
+            }}
+          >
+            {props => (
+              <form onSubmit={props.handleSubmit}>
+                <Row>
+                  <Col xl>
+                    <SectionHeading heading="How much do you need?" />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <Select
+                      defaultValue={
+                        loanAmountResponse &&
+                        loanAmountResponse[0] &&
+                        loanAmountResponse[0].value
+                      }
+                      Title="Loan Amount"
+                      loading={loanAmountIsFetching}
+                      options={loanAmountResponse}
+                      onChange={item => {
+                        console.log(item);
+                      }}
+                    />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <LoanSelect
+                      onChange={item => {
+                        console.log(item);
+                      }}
+                    />
+                  </Col>
+                  <Col xl>
+                    <Divider />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xl>
+                    <SectionHeading heading="About You" />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <TitleSelect
+                      onChange={item => {
+                        console.log(item);
+                      }}
+                    />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <MobileNoField />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <FirstName />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <MiddleName />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <LastName />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <EmailField />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <DobInput />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <TermsCheckBox />
+                  </Col>
+                  <Col xl>
+                    <Divider />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xl>
+                    <SectionHeading heading="Your Current Address" />
+                  </Col>
+                  <Col xl>
+                    <AddressField />
+                  </Col>
+                  <Col xl>
+                    <Divider />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xl>
+                    <SectionHeading heading="Your Income" />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <SelectIncomeFrequency />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <IncomeField />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <RefferalCheckbox />
+                  </Col>
+                  <Col sm={12} md={6}>
+                    <Button type="submit" disabled>
+                      Go
+                    </Button>
+                  </Col>
+                </Row>
+              </form>
+            )}
+          </Formik>
+        </Row>
       </Paper>
     </Wrapper>
   );

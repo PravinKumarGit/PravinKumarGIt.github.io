@@ -28,21 +28,31 @@ export const INCOME_FREQUENCY_OPTIONS = [
   { label: "Monthly", value: "Monthly" }
 ];
 
-export const DAYS = [
-  { label: "1", value: 1 },
-  { label: "2", value: 2 }
-];
+export const DAYS = (() => {
+  const Days = [];
+  for (let i = 1; i < 32; i++) {
+    Days.push({ label: i, value: i });
+  }
+  return Days;
+})();
 export const MONTHS = [
-  { label: "", value: "" },
-  { label: "", value: "" },
-  { label: "", value: "" },
-  { label: "", value: "" },
-  { label: "", value: "" }
+  { label: "Jan", value: "Jan" },
+  { label: "Feb", value: "Feb" },
+  { label: "Mar", value: "Mar" },
+  { label: "Apr", value: "Apr" },
+  { label: "May", value: "May" },
+  { label: "Jun", value: "Jun" },
+  { label: "Jul", value: "Jul" },
+  { label: "Aug", value: "Aug" },
+  { label: "Sep", value: "Sep" },
+  { label: "Oct", value: "Oct" },
+  { label: "Nov", value: "Nov" },
+  { label: "Dec", value: "Dec" }
 ];
-export const YEARS = [
-  { label: "", value: "" },
-  { label: "", value: "" },
-  { label: "", value: "" },
-  { label: "", value: "" },
-  { label: "", value: "" }
-];
+export const YEARS = (() => {
+  const years = [];
+  for (let i = 1902; i < 2003; i++) {
+    years.push({ label: i, value: i });
+  }
+  return years;
+})();
