@@ -28,7 +28,6 @@ const Wrapper = styled.div`
     font-weight: 700;
   }
   .selectBox-Input {
-    display: flex;
     border: 1px solid ${palette("border", 5)};
     border-radius: 5px;
     height: 30px;
@@ -132,6 +131,42 @@ const Wrapper = styled.div`
   .Input-field {
     display: flex;
     flex-direction: row;
+  }
+  .select-Select {
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    margin: 0 !important;
+    padding-left: 7px;
+    padding-right: 2px;
+    overflow: hidden;
+    height: 32px;
+    width: 100%;
+    color: ${palette("color", 14)};
+    fill: ${palette("color", 14)};
+  }
+  .select-Select * {
+    border: none;
+    font-size: ${size("p1")};
+  }
+  .select-Select:focus-within {
+    outline: none;
+  }
+  .required:focus-within {
+    box-shadow: 0 0 6px ${palette("color", 18)};
+    outline: none;
+  }
+  .required {
+    border: 1px solid ${palette("error", 3)}!important;
+  }
+  .message {
+    display: flex;
+    position: absolute;
+    padding-left: 3px;
+    margin-top: 2px;
+    margin-bottom: 0;
+    color: ${palette("color", 18)};
+    font-size: ${size("p2")};
   }
   @media only screen and (max-width: ${size("M")}) {
     .pageOne-ApplicationInformation {

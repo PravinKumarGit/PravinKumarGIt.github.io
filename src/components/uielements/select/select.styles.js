@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     padding-bottom: 7px;
     color: ${palette("grayscale", 17)};
     font-weight: 700;
- font-size:  ${size("p2")};
+    font-size: ${size("p2")};
   }
   .select-Select {
     display: flex;
@@ -29,7 +29,10 @@ const Wrapper = styled.div`
   }
   .select-Select * {
     border: none;
- font-size:  ${size("p1")};
+    font-size: ${size("p1")};
+  }
+  .select-Select:focus-within {
+    outline: none;
   }
   .select-loader {
     display: flex;
@@ -72,7 +75,7 @@ const Wrapper = styled.div`
     cursor: pointer;
     color: ${palette("color", 16)};
     border-radius: 10px;
-    font-size:  ${size("p4")};
+    font-size: ${size("p4")};
     margin-left: 5px;
   }
 
@@ -101,19 +104,17 @@ const Wrapper = styled.div`
   }
   .textBox-Label-Optional {
     padding-left: 6px;
-    font-size:  ${size("p3")};
+    font-size: ${size("p3")};
     color: ${palette("grayscale", 15)};
     font-weight: 700;
   }
-  .select-Select:focus-within {
-    outline: none;
-  }
+
   .required:focus-within {
     box-shadow: 0 0 6px ${palette("color", 18)};
     outline: none;
   }
   .required {
-    border: 1px solid${palette("error", 3)}!important;
+    border: 1px solid ${palette("error", 3)}!important;
   }
   .message {
     display: flex;
@@ -122,7 +123,7 @@ const Wrapper = styled.div`
     margin-top: 2px;
     margin-bottom: 0;
     color: ${palette("color", 18)};
- font-size:  ${size("p2")};
+    font-size: ${size("p2")};
   }
   @-moz-keyframes spin {
     100% {

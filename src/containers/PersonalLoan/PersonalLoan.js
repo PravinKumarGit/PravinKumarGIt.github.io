@@ -42,8 +42,10 @@ export default function ParsonalLoan({ ...props }) {
   return (
     <Wrapper>
       <Row>
-        <Col>
+        <Col lg>
           <TopHeader />
+        </Col>
+        <Col lg>
           <BreadCrum />
         </Col>
       </Row>

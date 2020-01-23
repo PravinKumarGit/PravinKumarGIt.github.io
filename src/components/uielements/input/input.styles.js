@@ -67,6 +67,7 @@ const Wrapper = styled.div`
     padding: none !important;
     color: ${palette("color", 14)};
     text-overflow: ellipsis;
+    padding-left: 10px;
   }
   .textBox-Input input:focus {
     outline: none;
