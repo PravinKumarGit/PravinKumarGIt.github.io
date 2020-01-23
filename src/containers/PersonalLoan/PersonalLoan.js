@@ -40,7 +40,7 @@ export default function ParsonalLoan({ ...props }) {
   } = useSelector(state => state.StartUp);
 
   return (
-    <Wrapper>
+    <Wrapper> 
       <Row>
         <Col lg>
           <TopHeader />
