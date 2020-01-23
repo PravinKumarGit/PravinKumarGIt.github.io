@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     border-top: none;
     box-sizing: border-box;
     overflow: hidden;
-    width: 90%;
+    width: 87.8%;
     top: 56px;
     left: 10px;
   }

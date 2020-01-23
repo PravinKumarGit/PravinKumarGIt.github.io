@@ -38,7 +38,7 @@ export default function EmailField({ ...props }) {
                 placeHolder: "Address Search",
                 suffix: [
                   <button className="Address-ManualButton noselect">
-                    Manual
+                    <span>Manual</span>
                   </button>
                 ]
               })}
@@ -55,7 +55,9 @@ export default function EmailField({ ...props }) {
                     >
                       <span className="pac-icon pac-icon-marker"></span>
                       <span className="pac-item-query">
-                        <span className="pac-matched">{(address || '').split(',')[0]}</span>
+                        <span className="pac-matched">
+                          {(address || "").split(",")[0]}
+                        </span>
                       </span>
                       <span>{suggestion.description}</span>
                     </div>
