@@ -11,6 +11,7 @@ const Wrapper = styled.div`
     align-items: center;
     border: none;
     min-width: 80px;
+    justify-content: center;
   }
 
   .Address-ManualButton:hover {
@@ -30,9 +31,9 @@ const Wrapper = styled.div`
     border-top: none;
     box-sizing: border-box;
     overflow: hidden;
-    width: 87.8%;
+    width: 85.5%;
     top: 56px;
-    left: 10px;
+    left: 30px;
   }
   .pac-logo:after {
     content: "";

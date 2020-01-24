@@ -4,7 +4,7 @@ import { palette, size } from "styled-theme";
 const Wrapper = styled.div`
   .textBox {
     display: flex;
-    margin: 10px;
+    margin: 10px 30px;
     height: 80px;
     flex-direction: column;
     position: relative;

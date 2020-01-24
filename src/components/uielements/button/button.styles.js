@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   .button-Container {
     align-self: center;
     color: black;
+    padding: 10px 30px;
   }
 
   .button-Button {
@@ -12,10 +13,10 @@ const Wrapper = styled.div`
     background-color: ${palette("color", 15)};
     border-radius: 5px;
     height: 40px;
-    width: 100%;
     color: ${palette("color", 16)};
     opacity: 0.85;
-    font-size:  ${size("p0")};
+    font-size: ${size("p0")};
+    width: 100%;
   }
 
   .disabled {

@@ -11,7 +11,7 @@ export default function LoanReasons({ ...props }) {
   return (
     <Wrapper>
       <Row>
-        <Col xl>
+        <Col xl={12}>
           <div className="selectBox">
             <div className="selectBox-Label-Container">
               <label className="selectBox-Label">
@@ -44,7 +44,6 @@ export default function LoanReasons({ ...props }) {
                 <select
                   className={`select-Select ${errorMessage ? "required" : ""} `}
                 >
-                  <span>{console.log(DAYS)}</span>
                   {(DAYS || []).map((item, index) => (
                     <option
                       key={`${new Date().getTime()}${index}`}

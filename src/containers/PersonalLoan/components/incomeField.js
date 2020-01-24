@@ -6,7 +6,7 @@ export default function IncomeFields({ ...props }) {
       <Input
         title="Weekly total income (including benefits)"
         type="number"
-        preFix={<span>$</span>}
+        prefix={<span>$</span>}
         {...props}
       />
     </>

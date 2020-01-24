@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     font-size: ${size("p2")};
     line-height: 16px;
     grid-template-columns: 30px 1fr;
+    margin: 10px 30px;
   }
 
   .required {

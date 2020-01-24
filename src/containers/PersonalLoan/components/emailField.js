@@ -5,8 +5,8 @@ export default function EmailField({ ...props }) {
     <>
       <Input
         title="Email Address"
-        placeHolder="Email Address"
-        preFix={<span>@</span>}
+        placeholder="Email Address"
+        prefix={<span>@</span>}
         {...props}
       />
     </>

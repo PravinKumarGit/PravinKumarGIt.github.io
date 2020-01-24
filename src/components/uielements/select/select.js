@@ -13,6 +13,8 @@ export default function Select({ ...props }) {
     ToolTipText,
     OptionalLabel,
     errorMessage,
+    isPlaceHolder,
+    placeHolder,
     ...rest
   } = props;
   return (
@@ -54,9 +56,14 @@ export default function Select({ ...props }) {
           </div>
         ) : (
           <select
-            className={`select-Select ${errorMessage && "required"} `}
+            className={`select-Select ${errorMessage ? "required" : ""} `}
             {...rest}
           >
+            {isPlaceHolder && (
+              <option value="" disabled hidden>
+                {placeHolder}
+              </option>
+            )}
             {(options || []).map((item, index) => (
               <option
                 key={`${new Date().getTime()}${index}`}

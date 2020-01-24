@@ -8,7 +8,7 @@ export default function MiddleName({ ...props }) {
         helpToolTip
         ToolTipText="Your Middle Name or Middle Initial."
         OptionalLabel
-        placeHolder="Middle Name"
+        placeholder="Middle Name"
         {...props}
       />
     </>

@@ -33,19 +33,15 @@ export default function ParsonalLoan({ ...props }) {
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
-  const {
-    loanAmountResponse,
-    loanAmountIsFetching
-    // loanAmountError
-  } = useSelector(state => state.StartUp);
+  const StartUp = useSelector(state => state.StartUp);
 
   return (
-    <Wrapper> 
+    <Wrapper>
       <Row>
-        <Col lg>
+        <Col lg={12}>
           <TopHeader />
         </Col>
-        <Col lg>
+        <Col lg={12}>
           <BreadCrum />
         </Col>
       </Row>
@@ -82,19 +78,20 @@ export default function ParsonalLoan({ ...props }) {
             {props => (
               <form onSubmit={props.handleSubmit}>
                 <Row>
-                  <Col xl>
+                  <Col xl={12}>
                     <SectionHeading heading="How much do you need?" />
                   </Col>
                   <Col sm={12} md={6}>
                     <Select
                       defaultValue={
-                        loanAmountResponse &&
-                        loanAmountResponse[0] &&
-                        loanAmountResponse[0].value
+                        StartUp &&
+                        StartUp.loanAmountResponse &&
+                        StartUp.loanAmountResponse[0] &&
+                        StartUp.loanAmountResponse[0].value
                       }
                       Title="Loan Amount"
-                      loading={loanAmountIsFetching}
-                      options={loanAmountResponse}
+                      loading={StartUp && StartUp.loanAmountIsFetching}
+                      options={StartUp ? StartUp.loanAmountResponse : []}
                       onChange={item => {
                         console.log(item);
                       }}
@@ -107,12 +104,12 @@ export default function ParsonalLoan({ ...props }) {
                       }}
                     />
                   </Col>
-                  <Col xl>
+                  <Col xl={12}>
                     <Divider />
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl>
+                  <Col xl={12}>
                     <SectionHeading heading="About You" />
                   </Col>
                   <Col sm={12} md={6}>
@@ -143,23 +140,23 @@ export default function ParsonalLoan({ ...props }) {
                   <Col sm={12} md={6}>
                     <TermsCheckBox />
                   </Col>
-                  <Col xl>
+                  <Col xl={12}>
                     <Divider />
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl>
+                  <Col xl={12}>
                     <SectionHeading heading="Your Current Address" />
                   </Col>
-                  <Col xl>
+                  <Col xl={12}>
                     <AddressField />
                   </Col>
-                  <Col xl>
+                  <Col xl={12}>
                     <Divider />
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl>
+                  <Col xl={12}>
                     <SectionHeading heading="Your Income" />
                   </Col>
                   <Col sm={12} md={6}>

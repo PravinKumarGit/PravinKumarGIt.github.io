@@ -3,7 +3,7 @@ import Input from "../../../components/uielements/input";
 export default function FirstName({ ...props }) {
   return (
     <>
-      <Input title="First Name" placeHolder="First Name" {...props} />
+      <Input title="First Name" placeholder="First Name" {...props} />
     </>
   );
 }

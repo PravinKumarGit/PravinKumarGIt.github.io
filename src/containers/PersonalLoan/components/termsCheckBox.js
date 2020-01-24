@@ -7,7 +7,7 @@ export default function TermsCheckBox({ ...props }) {
     <Wrapper>
       <CheckBox {...props}>
         I agree to: (1){" "}
-        <Link className="pct-show">the terms of the Privacy Policy </Link>
+        <Link to="#" className="pct-show">the terms of the Privacy Policy </Link>
         which includes permission for Fair Go Finance to obtain a copy of my
         credit file and as a result of this a credit enquiry may be put on my
         credit record with one or more credit reporting bodies; (2) that all

@@ -3,7 +3,7 @@ import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .select-Component {
-    margin: 10px;
+    margin: 10px 30px;
     min-height: 80px;
   }
   .select-Label {
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   }
   .select-loader {
     display: flex;
-    width: 288px;
+    width: 100%;
     height: 32px;
     background-color: ${palette("border", 4)};
     opacity: 0.5;
