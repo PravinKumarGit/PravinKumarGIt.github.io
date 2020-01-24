@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-grid-system";
 
 import PlacesAutocomplete, {
@@ -9,6 +9,7 @@ import Input from "../../../components/uielements/input";
 import Select from "../../../components/uielements/select/select";
 import { STATE_CODE } from "../../../constants/options";
 import Wrapper from "./Styles/addressField.styles";
+import CONFIG from "../../../constants/config";
 export default function EmailField({ ...props }) {
   const [address, setAddress] = useState("");
   const [manual, toggleManual] = useState(false);
@@ -65,13 +66,15 @@ export default function EmailField({ ...props }) {
       })
       .catch(error => console.error("Error", error));
   };
+  useEffect(() => {
+    window.initMap = () => setGmapLibLoaded(true);
+    const gmapScriptEl = document.createElement(`script`);
+    gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=${CONFIG.GOOGLE_API_KEY}&libraries=places&callback=initMap`;
+    document
+      .querySelector(`body`)
+      .insertAdjacentElement(`beforeend`, gmapScriptEl);
+  }, []);
 
-  window.initMap = () => setGmapLibLoaded(true);
-  const gmapScriptEl = document.createElement(`script`);
-  gmapScriptEl.src = `https://maps.googleapis.com/maps/api/js?key=SECRET_EATING&libraries=places&callback=initMap`;
-  document
-    .querySelector(`body`)
-    .insertAdjacentElement(`beforeend`, gmapScriptEl);
   return (
     <Wrapper>
       {gmapLibLoaded && (
