@@ -14,7 +14,7 @@ export default function Select({ ...props }) {
     OptionalLabel,
     errorMessage,
     isPlaceHolder,
-    placeHolder,
+    placeholder,
     ...rest
   } = props;
   return (
@@ -60,8 +60,8 @@ export default function Select({ ...props }) {
             {...rest}
           >
             {isPlaceHolder && (
-              <option value="" disabled hidden>
-                {placeHolder}
+              <option value="" >
+                {placeholder}
               </option>
             )}
             {(options || []).map((item, index) => (

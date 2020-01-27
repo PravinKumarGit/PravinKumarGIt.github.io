@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
 
@@ -17,25 +17,43 @@ import LoanForm from "./components/LoanForm";
 import validationSchema from "./components/validationSchema";
 export default function ParsonalLoan({ ...props }) {
   const values = {
-    name: "",
-    surname: "",
+    loanAmount: "",
+    reasonOfLoan: "",
+    title: "",
+    mobileNumber: "",
+    firstName: "",
+    middleName: "",
+    lastName: "",
     email: "",
-    countryCode: "+31",
-    phoneNumber: "",
-    password: "",
-    confirmPassword: ""
+    dateOfBirth: "",
+    terms: false,
+    unitNumber: "",
+    streetNumber: "",
+    suburb: "",
+    street: "",
+    state: "",
+    postCode: "",
+    incomeFrequency: "",
+    totalIncome: "",
+    refferalConsent: false
+  };
+  const touchedValues = {
+    mobileNumber: false,
+    firstName: false,
+    middleName: false,
+    lastName: false
   };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
-  const StartUp = useSelector(state => state.StartUp);
+  // const StartUp = useSelector(state => state.StartUp);
   const handleSubmit = (values, actions) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      actions.setSubmitting(false);
-    }, 1000);
-    console.log(values, "Form values");
+    // setTimeout(() => {
+    //   alert(JSON.stringify(values, null, 2));
+    //   actions.setSubmitting(false);
+    // }, 1000);
+    console.log(values, actions, "Form values");
   };
   return (
     <Wrapper>
@@ -55,9 +73,7 @@ export default function ParsonalLoan({ ...props }) {
               subheading={
                 <span>
                   It only takes a few minutes to get an outcome.
-                  <br /> Call us on <a href="tel:+1300324746">
-                    1300 324 746
-                  </a>{" "}
+                  <br /> Call us on <a href="tel:+1300324746">1300 324 746</a>
                   if you have any problems completing this form.
                 </span>
               }
@@ -73,9 +89,10 @@ export default function ParsonalLoan({ ...props }) {
             render={props => <LoanForm {...props} />}
             initialValues={values}
             validationSchema={validationSchema}
-            validateOnChange={false}
-            validateOnBlur={true}
+            validateOnChange
+            validateOnBlur
             onSubmit={(values, actions) => handleSubmit(values, actions)}
+            touched={touchedValues}
           />
         </Row>
       </Paper>

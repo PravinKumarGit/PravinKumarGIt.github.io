@@ -1,69 +1,120 @@
-import * as Yup from 'yup';
+/* eslint-disable no-useless-escape */
+import * as Yup from "yup";
 export default Yup.object({
+  // loanAmount validations - required field
+  loanAmount: Yup.string()
+    .trim()
+    .required("This field is required."),
+  // loanAmount validations - required field
+  reasonOfLoan: Yup.string()
+    .trim()
+    .required("This field is required."),
+  // name validations - Alphabet only, required field
+  firstName: Yup.string()
+    .trim()
+    .matches(/^[A-Za-z ]+$/, {
+      message: "Value entered must have alphabets only",
+      excludeEmptyString: true
+    })
+    .matches(/^[A-Za-z ]{2,}$/, {
+      message: "Value entered must be minimum 2 characters.",
+      excludeEmptyString: true
+    })
+    .required("This field is required."),
   // name validations =  Alphabet only, required field
-  name: Yup.string()
+  middleName: Yup.string()
     .trim()
     .matches(/^[A-Za-z ]+$/, {
-      message: 'Nome should only have alphabets',
+      message: "Value entered must have alphabets only",
       excludeEmptyString: true
     })
-    .required('Nome is required'),
-  // surname validations = Alphabets only, required field
-  surname: Yup.string()
+    .matches(/^[A-Za-z ]{2,}$/, {
+      message: "Value entered must be minimum 2 characters.",
+      excludeEmptyString: true
+    })
+    .required("This field is required."),
+  // name validations =  Alphabet only, required field
+  lastName: Yup.string()
     .trim()
     .matches(/^[A-Za-z ]+$/, {
-      message: 'Cognome should only have alphabets',
+      message: "Value entered must have alphabets only",
       excludeEmptyString: true
     })
-    .required('Cognome is required'),
-
-  // email validations =  Alphabet only, required field
-  email: Yup.string('Enter your Email')
+    .matches(/^[A-Za-z ]{2,}$/, {
+      message: "Value entered must be minimum 2 characters.",
+      excludeEmptyString: true
+    })
+    .required("This field is required."),
+  mobileNumber: Yup.string()
     .trim()
-    .required('Email is required')
-    .test('test-name', 'Please enter a valid email address', value => {
-      const emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      /* const phoneRegex = /^07[0-9]{1,9}$/; */
-
-      let isValidEmail = emailRegex.test(value);
-      /* let isValidPhone = phoneRegex.test(value); */
-
-      if (!isValidEmail) {
-        return false;
-      }
-      return true;
-    }),
-  countryCode: Yup.string('Enter your country code')
-    .trim()
-    .required('Country code is required'),
-  phoneNumber: Yup.string('Enter your Cellulare')
-    .trim()
-    .required('Cellulare is required'),
-  // password validations = length, required field, alphanumeric
-  password: Yup.string()
-    .trim()
-    .required('Password is required')
+    .required("This field is required.")
+    .matches(/^[0-9]+$/, {
+      message: "Value entered must have numbers only",
+      excludeEmptyString: true
+    })
     .test(
-      'alpha-numeric-check',
-      'You must use a mix of lower and upper case letters, numbers and symbols. 8 characters minimum.',
+      "test-number",
+      "Please enter a valid mobile number 10 digit start with 04.",
       value => {
-        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^\da-zA-Z])(.{8,50})$/;
-        let isValidPassword = passwordRegex.test(value);
-        if (!isValidPassword) {
+        const Regex = /^[04]\d{10}$/;
+        let isValid = Regex.test(value);
+        if (!isValid) {
           return false;
         }
         return true;
       }
     ),
-  // confirm password validations = length, required field, alphanumeric and password-match
-  confirmPassword: Yup.string()
+  terms: Yup.bool().oneOf([true], "Field must be checked"),
+  unitNumber: Yup.string()
     .trim()
-    .required('Confirm Password is required')
-    .when('password', {
-      is: val => (val && val.length > 0 ? true : false),
-      then: Yup.string().oneOf(
-        [Yup.ref('password')],
-        'Passwords do not match. Please try again.'
-      )
+    .matches(/^[0-9A-Za-z ]$/, {
+      message: "Please enter letters or numbers only.",
+      excludeEmptyString: true
+    }),
+  streetNumber: Yup.string()
+    .trim()
+    .required("This field is required.")
+    .matches(/^[0-9A-Za-z ]$/, {
+      message: "Please enter letters or numbers only.",
+      excludeEmptyString: true
+    }),
+  suburb: Yup.string()
+    .trim()
+    .required("This field is required.")
+    .matches(/^[A-Za-z ]$/, {
+      message: "Please enter letters only.",
+      excludeEmptyString: true
+    }),
+  street: Yup.string()
+    .trim()
+    .required("This field is required."),
+  state: Yup.string()
+    .trim()
+    .required("This field is required."),
+  postCode: Yup.string()
+    .trim()
+    .matches(/^[0-9]$/, {
+      message: "Please enter numbers only.",
+      excludeEmptyString: true
+    }),
+  // email validations =  Alphabet only, required field
+  email: Yup.string()
+    .trim()
+    .required("This field is required.")
+    .test("test-name", "Please enter a valid email address", value => {
+      const emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      const isValidEmail = emailRegex.test(value);
+      if (!isValidEmail) return false;
+      return true;
+    }),
+  totalIncome: Yup.string()
+    .trim()
+    .required("This field is required.")
+    .test("test-MinMax", "Please enter minimum 10 maximum 10000.", value => {
+      const isValid = value > 10 && value < 10000;
+      if (!isValid) {
+        return false;
+      }
+      return true;
     })
 });

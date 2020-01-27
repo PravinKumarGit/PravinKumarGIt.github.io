@@ -33,7 +33,6 @@ export default function CheckBox({ ...props }) {
         )}
         {/* <div className="checkBox-Component-Required"> */}
         <input
-          id="termsAndPolicy"
           type="checkbox"
           className="checkBox-Input"
           {...inputPorps}

@@ -11,24 +11,37 @@ import { STATE_CODE } from "../../../constants/options";
 import Wrapper from "./Styles/addressField.styles";
 import CONFIG from "../../../constants/config";
 export default function EmailField({ ...props }) {
+  const {
+    values: { unitNumber, streetNumber, suburb, street, state, postCode },
+    errors,
+    // touched,
+    handleChange,
+    handleBlur,
+    // isValid,
+    // setFieldTouched,
+    // setFieldValue,
+    // setSubmitting,
+    // setErrors,
+    // validateForm
+  } = props;
   const [address, setAddress] = useState("");
   const [manual, toggleManual] = useState(false);
-  const [unitNumber, setUnitNumber] = useState("");
-  const [streetNumber, setStreetNumber] = useState("");
-  const [suburb, setSuburb] = useState("");
-  const [street, setStreet] = useState("");
-  const [state, setState] = useState("");
-  const [postCode, setPostCode] = useState("");
+  // const [unitNumber, setUnitNumber] = useState("");
+  // const [streetNumber, setStreetNumber] = useState("");
+  // const [suburb, setSuburb] = useState("");
+  // const [street, setStreet] = useState("");
+  // const [state, setState] = useState("");
+  // const [postCode, setPostCode] = useState("");
   const [gmapLibLoaded, setGmapLibLoaded] = useState(false);
-  const handleChange = address => {
+  const handleChangeLocal = address => {
     setAddress(address);
     if (address.length === 0) {
       toggleManual(false);
-      setStreetNumber("");
-      setStreet("");
-      setState("");
-      setSuburb("");
-      setPostCode("");
+      // setStreetNumber("");
+      // setStreet("");
+      // setState("");
+      // setSuburb("");
+      // setPostCode("");
     }
   };
 
@@ -36,33 +49,33 @@ export default function EmailField({ ...props }) {
     setAddress(address);
     geocodeByAddress(address)
       .then(results => {
-        const add = results[0];
-        const streetNumberIndex = (
-          add.address_components || []
-        ).findIndex(item => item.types.includes("street_number"));
-        const stateIndex = (add.address_components || []).findIndex(item =>
-          item.types.includes("administrative_area_level_1")
-        );
-        const streetIndex = (add.address_components || []).findIndex(item =>
-          item.types.includes("route")
-        );
-        const suburIndex = (add.address_components || []).findIndex(item =>
-          item.types.includes("locality")
-        );
-        const postalCodeIndex = (add.address_components || []).findIndex(item =>
-          item.types.includes("postal_code")
-        );
+        // const add = results[0];
+        // const streetNumberIndex = (
+        //   add.address_components || []
+        // ).findIndex(item => item.types.includes("street_number"));
+        // const stateIndex = (add.address_components || []).findIndex(item =>
+        //   item.types.includes("administrative_area_level_1")
+        // );
+        // const streetIndex = (add.address_components || []).findIndex(item =>
+        //   item.types.includes("route")
+        // );
+        // const suburIndex = (add.address_components || []).findIndex(item =>
+        //   item.types.includes("locality")
+        // );
+        // const postalCodeIndex = (add.address_components || []).findIndex(item =>
+        //   item.types.includes("postal_code")
+        // );
         toggleManual(true);
-        streetNumberIndex > 0 &&
-          setStreetNumber(add.address_components[streetNumberIndex].short_name);
-        streetIndex > 0 &&
-          setStreet(add.address_components[streetIndex].short_name); //street_number
-        stateIndex > 0 &&
-          setState(add.address_components[stateIndex].short_name); //administrative_area_level_1
-        suburIndex > 0 &&
-          setSuburb(add.address_components[suburIndex].short_name); // locality
-        postalCodeIndex > 0 &&
-          setPostCode(add.address_components[postalCodeIndex].short_name); //postal_code
+        // streetNumberIndex > 0 &&
+        //   setStreetNumber(add.address_components[streetNumberIndex].short_name);
+        // streetIndex > 0 &&
+        //   setStreet(add.address_components[streetIndex].short_name); //street_number
+        // stateIndex > 0 &&
+        //   setState(add.address_components[stateIndex].short_name); //administrative_area_level_1
+        // suburIndex > 0 &&
+        //   setSuburb(add.address_components[suburIndex].short_name); // locality
+        // postalCodeIndex > 0 &&
+        //   setPostCode(add.address_components[postalCodeIndex].short_name); //postal_code
       })
       .catch(error => console.error("Error", error));
   };
@@ -80,7 +93,7 @@ export default function EmailField({ ...props }) {
       {gmapLibLoaded && (
         <PlacesAutocomplete
           value={address}
-          onChange={handleChange}
+          onChange={handleChangeLocal}
           onSelect={handleSelect}
           searchOptions={{
             componentRestrictions: {
@@ -98,12 +111,13 @@ export default function EmailField({ ...props }) {
               <Input
                 {...getInputProps({
                   title: "Type here to search for your address",
-                  placeHolder: "Address Search",
+                  placeholder: "Address Search",
                   suffix: [
                     <button
                       onClick={() => toggleManual(!manual)}
                       className="Address-ManualButton noselect"
                       type="button"
+                      key="toggleManual"
                     >
                       <span>Manual</span>
                     </button>
@@ -141,37 +155,73 @@ export default function EmailField({ ...props }) {
           <Col xs={12} sm={12} md={3} xl={3} lg={3}>
             <Input
               title="Unit Number"
-              placeHolder="Unit Number"
+              placeholder="Unit Number"
               OptionalLabel
+              onChange={handleChange}
+              onBlur={handleBlur}
               value={unitNumber}
+              name="unitNumber"
+              errorMessage={errors.unitNumber}
             />
           </Col>
           <Col xs={12} sm={12} md={3} xl={3} lg={3}>
             <Input
               title="Street Number"
-              placeHolder="Street Number"
+              placeholder="Street Number"
+              onChange={handleChange}
+              onBlur={handleBlur}
               value={streetNumber}
+              name="streetNumber"
+              errorMessage={errors.streetNumber}
             />
           </Col>
           <Col xs={12} sm={12} md={6} xl={6} lg={6}>
-            <Input title="Suburb" placeHolder="Suburb" value={suburb} />
+            <Input
+              title="Suburb"
+              placeholder="Suburb"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={suburb}
+              name="suburb"
+              errorMessage={errors.suburb}
+            />
           </Col>
         </Row>,
         <Row>
           <Col xs={12} sm={12} md={6} xl={6} lg={6}>
-            <Input title="Street" placeHolder="Street" value={street} />
+            <Input
+              title="Street"
+              placeholder="Street"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={street}
+              name="street"
+              errorMessage={errors.street}
+            />
           </Col>
           <Col xs={12} sm={12} md={3} xl={3} lg={3}>
             <Select
               isPlaceHolder
-              placeHolder="State"
+              placeholder="State"
               Title="State"
               options={STATE_CODE}
+              onChange={handleChange}
+              onBlur={handleBlur}
               value={state}
+              name="state"
+              errorMessage={errors.state}
             />
           </Col>
           <Col xs={12} sm={12} md={3} xl={3} lg={3}>
-            <Input title="Post code" placeHolder="Post code" value={postCode} />
+            <Input
+              title="Post code"
+              placeholder="Post code"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={postCode}
+              name="postCode"
+              errorMessage={errors.postCode}
+            />
           </Col>
         </Row>
       ]}
