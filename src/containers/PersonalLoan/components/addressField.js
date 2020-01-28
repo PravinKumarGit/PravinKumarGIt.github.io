@@ -17,21 +17,10 @@ export default function EmailField({ ...props }) {
     touched,
     handleChange,
     handleBlur,
-    // isValid,
-    // setFieldTouched,
     setFieldValue
-    // setSubmitting,
-    // setErrors,
-    // validateForm
   } = props;
   const [address, setAddress] = useState("");
   const [manual, toggleManual] = useState(false);
-  // const [unitNumber, setUnitNumber] = useState("");
-  // const [streetNumber, setStreetNumber] = useState("");
-  // const [suburb, setSuburb] = useState("");
-  // const [street, setStreet] = useState("");
-  // const [state, setState] = useState("");
-  // const [postCode, setPostCode] = useState("");
   const [gmapLibLoaded, setGmapLibLoaded] = useState(false);
   const handleChangeLocal = address => {
     setAddress(address);

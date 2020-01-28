@@ -42,7 +42,6 @@ export default function ParsonalLoan({ ...props }) {
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
-  // const StartUp = useSelector(state => state.StartUp);
   const handleSubmit = (values, actions) => {
     // setTimeout(() => {
     //   alert(JSON.stringify(values, null, 2));

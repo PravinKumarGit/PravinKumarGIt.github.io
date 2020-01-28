@@ -34,12 +34,6 @@ const PersonalLoanForm = props => {
       email,
       dateOfBirth,
       terms,
-      // unitNumber,
-      // streetNumber,
-      // suburb,
-      // street,
-      // state,
-      // postCode,
       incomeFrequency,
       totalIncome,
       refferalConsent
@@ -49,11 +43,6 @@ const PersonalLoanForm = props => {
     handleChange,
     handleBlur,
     isValid,
-    // setFieldTouched,
-    // setFieldValue,
-    // setSubmitting,
-    // setErrors,
-    // validateForm,
     countryCodes
   } = props;
 
