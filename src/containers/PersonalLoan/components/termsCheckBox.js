@@ -5,7 +5,7 @@ import Wrapper from "./Styles/termsCheckBox.styles";
 export default function TermsCheckBox({ ...props }) {
   return (
     <Wrapper>
-      <CheckBox {...props}>
+      <CheckBox {...props} >
         I agree to: (1){" "}
         <Link to="#" className="pct-show">the terms of the Privacy Policy </Link>
         which includes permission for Fair Go Finance to obtain a copy of my

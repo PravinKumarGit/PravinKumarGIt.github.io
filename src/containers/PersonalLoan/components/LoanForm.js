@@ -45,10 +45,10 @@ const PersonalLoanForm = props => {
       refferalConsent
     },
     errors,
-    // touched,
+    touched,
     handleChange,
     handleBlur,
-    // isValid,
+    isValid,
     // setFieldTouched,
     // setFieldValue,
     // setSubmitting,
@@ -74,7 +74,7 @@ const PersonalLoanForm = props => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
   const StartUp = useSelector(state => state.StartUp);
-  console.log(props, "Form");
+  console.log(props, touched, "Form");
   return (
     <form
       noValidate
@@ -97,7 +97,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={loanAmount}
             name="loanAmount"
-            errorMessage={errors.loanAmount}
+            errorMessage={touched.loanAmount ? errors.loanAmount : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -108,7 +108,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={reasonOfLoan}
             name="reasonOfLoan"
-            errorMessage={errors.reasonOfLoan}
+            errorMessage={touched.reasonOfLoan ? errors.reasonOfLoan : ""}
           />
         </Col>
         <Col xl={12}>
@@ -133,7 +133,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={mobileNumber}
             name="mobileNumber"
-            errorMessage={errors.mobileNumber}
+            errorMessage={touched.mobileNumber ? errors.mobileNumber : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -142,7 +142,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={firstName}
             name="firstName"
-            errorMessage={errors.firstName}
+            errorMessage={touched.firstName ? errors.firstName : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -151,7 +151,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={middleName}
             name="middleName"
-            errorMessage={errors.middleName}
+            errorMessage={touched.middleName ? errors.middleName : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -160,7 +160,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={lastName}
             name="lastName"
-            errorMessage={errors.lastName}
+            errorMessage={touched.lastName ? errors.lastName : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -169,7 +169,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={email}
             name="email"
-            errorMessage={errors.email}
+            errorMessage={touched.email ? errors.email : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -178,16 +178,16 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={dateOfBirth}
             name="dateOfBirth"
-            errorMessage={errors.dateOfBirth}
+            errorMessage={touched.dateOfBirth ? errors.dateOfBirth : ""}
           />
         </Col>
         <Col sm={12} md={6}>
           <TermsCheckBox
-            onClick={handleChange}
+            onChange={handleChange}
             onBlur={handleBlur}
             chacked={terms}
             name="terms"
-            errorMessage={errors.terms}
+            errorMessage={touched.terms ? errors.terms : ""}
           />
         </Col>
         <Col xl={12}>
@@ -215,7 +215,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={incomeFrequency}
             name="incomeFrequency"
-            errorMessage={errors.incomeFrequency}
+            errorMessage={touched.incomeFrequency ? errors.incomeFrequency : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -224,7 +224,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={totalIncome}
             name="totalIncome"
-            errorMessage={errors.totalIncome}
+            errorMessage={touched.totalIncome ? errors.totalIncome : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -233,11 +233,11 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             chacked={refferalConsent}
             name="refferalConsent"
-            errorMessage={errors.refferalConsent}
+            errorMessage={touched.refferalConsent ? errors.refferalConsent : ""}
           />
         </Col>
         <Col sm={12} md={6}>
-          <Button type="submit">Go</Button>
+          <Button type="submit" disabled={!isValid || !touched.loanAmount}>Go</Button>
         </Col>
       </Row>
     </form>

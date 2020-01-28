@@ -56,7 +56,7 @@ export default Yup.object({
       "test-number",
       "Please enter a valid mobile number 10 digit start with 04.",
       value => {
-        const Regex = /^[04]\d{10}$/;
+        const Regex = /^04\d{8}$/;
         let isValid = Regex.test(value);
         if (!isValid) {
           return false;
@@ -67,21 +67,21 @@ export default Yup.object({
   terms: Yup.bool().oneOf([true], "Field must be checked"),
   unitNumber: Yup.string()
     .trim()
-    .matches(/^[0-9A-Za-z ]$/, {
+    .matches(/^[0-9A-Za-z ]+$/, {
       message: "Please enter letters or numbers only.",
       excludeEmptyString: true
     }),
   streetNumber: Yup.string()
     .trim()
     .required("This field is required.")
-    .matches(/^[0-9A-Za-z ]$/, {
+    .matches(/^[0-9A-Za-z ]+$/, {
       message: "Please enter letters or numbers only.",
       excludeEmptyString: true
     }),
   suburb: Yup.string()
     .trim()
     .required("This field is required.")
-    .matches(/^[A-Za-z ]$/, {
+    .matches(/^[A-Za-z ]+$/, {
       message: "Please enter letters only.",
       excludeEmptyString: true
     }),
@@ -93,7 +93,7 @@ export default Yup.object({
     .required("This field is required."),
   postCode: Yup.string()
     .trim()
-    .matches(/^[0-9]$/, {
+    .matches(/^[0-9]+$/, {
       message: "Please enter numbers only.",
       excludeEmptyString: true
     }),
@@ -111,7 +111,7 @@ export default Yup.object({
     .trim()
     .required("This field is required.")
     .test("test-MinMax", "Please enter minimum 10 maximum 10000.", value => {
-      const isValid = value > 10 && value < 10000;
+      const isValid = value >= 10 && value <= 10000;
       if (!isValid) {
         return false;
       }

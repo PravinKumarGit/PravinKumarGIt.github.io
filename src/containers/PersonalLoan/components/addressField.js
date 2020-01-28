@@ -14,12 +14,12 @@ export default function EmailField({ ...props }) {
   const {
     values: { unitNumber, streetNumber, suburb, street, state, postCode },
     errors,
-    // touched,
+    touched,
     handleChange,
     handleBlur,
     // isValid,
     // setFieldTouched,
-    // setFieldValue,
+    setFieldValue
     // setSubmitting,
     // setErrors,
     // validateForm
@@ -37,11 +37,11 @@ export default function EmailField({ ...props }) {
     setAddress(address);
     if (address.length === 0) {
       toggleManual(false);
-      // setStreetNumber("");
-      // setStreet("");
-      // setState("");
-      // setSuburb("");
-      // setPostCode("");
+      setFieldValue("streetNumber", "");
+      setFieldValue("street", "");
+      setFieldValue("state", "");
+      setFieldValue("suburb", "");
+      setFieldValue("suburb", "");
     }
   };
 
@@ -49,33 +49,45 @@ export default function EmailField({ ...props }) {
     setAddress(address);
     geocodeByAddress(address)
       .then(results => {
-        // const add = results[0];
-        // const streetNumberIndex = (
-        //   add.address_components || []
-        // ).findIndex(item => item.types.includes("street_number"));
-        // const stateIndex = (add.address_components || []).findIndex(item =>
-        //   item.types.includes("administrative_area_level_1")
-        // );
-        // const streetIndex = (add.address_components || []).findIndex(item =>
-        //   item.types.includes("route")
-        // );
-        // const suburIndex = (add.address_components || []).findIndex(item =>
-        //   item.types.includes("locality")
-        // );
-        // const postalCodeIndex = (add.address_components || []).findIndex(item =>
-        //   item.types.includes("postal_code")
-        // );
+        const add = results[0];
+        const streetNumberIndex = (
+          add.address_components || []
+        ).findIndex(item => item.types.includes("street_number"));
+        const stateIndex = (add.address_components || []).findIndex(item =>
+          item.types.includes("administrative_area_level_1")
+        );
+        const streetIndex = (add.address_components || []).findIndex(item =>
+          item.types.includes("route")
+        );
+        const suburIndex = (add.address_components || []).findIndex(item =>
+          item.types.includes("locality")
+        );
+        const postalCodeIndex = (add.address_components || []).findIndex(item =>
+          item.types.includes("postal_code")
+        );
         toggleManual(true);
-        // streetNumberIndex > 0 &&
-        //   setStreetNumber(add.address_components[streetNumberIndex].short_name);
-        // streetIndex > 0 &&
-        //   setStreet(add.address_components[streetIndex].short_name); //street_number
-        // stateIndex > 0 &&
-        //   setState(add.address_components[stateIndex].short_name); //administrative_area_level_1
-        // suburIndex > 0 &&
-        //   setSuburb(add.address_components[suburIndex].short_name); // locality
-        // postalCodeIndex > 0 &&
-        //   setPostCode(add.address_components[postalCodeIndex].short_name); //postal_code
+        streetNumberIndex > 0 &&
+          setFieldValue(
+            "streetNumber",
+            add.address_components[streetNumberIndex].short_name
+          );
+        streetIndex > 0 &&
+          setFieldValue(
+            "street",
+            add.address_components[streetIndex].short_name
+          );
+        stateIndex > 0 &&
+          setFieldValue("state", add.address_components[stateIndex].short_name);
+        suburIndex > 0 &&
+          setFieldValue(
+            "suburb",
+            add.address_components[suburIndex].short_name
+          );
+        postalCodeIndex > 0 &&
+          setFieldValue(
+            "suburb",
+            add.address_components[postalCodeIndex].short_name
+          );
       })
       .catch(error => console.error("Error", error));
   };
@@ -161,7 +173,7 @@ export default function EmailField({ ...props }) {
               onBlur={handleBlur}
               value={unitNumber}
               name="unitNumber"
-              errorMessage={errors.unitNumber}
+              errorMessage={touched.unitNumber ? errors.unitNumber : ""}
             />
           </Col>
           <Col xs={12} sm={12} md={3} xl={3} lg={3}>
@@ -172,7 +184,7 @@ export default function EmailField({ ...props }) {
               onBlur={handleBlur}
               value={streetNumber}
               name="streetNumber"
-              errorMessage={errors.streetNumber}
+              errorMessage={touched.streetNumber ? errors.streetNumber : ""}
             />
           </Col>
           <Col xs={12} sm={12} md={6} xl={6} lg={6}>
@@ -183,7 +195,7 @@ export default function EmailField({ ...props }) {
               onBlur={handleBlur}
               value={suburb}
               name="suburb"
-              errorMessage={errors.suburb}
+              errorMessage={touched.suburb ? errors.suburb : ""}
             />
           </Col>
         </Row>,
@@ -196,7 +208,7 @@ export default function EmailField({ ...props }) {
               onBlur={handleBlur}
               value={street}
               name="street"
-              errorMessage={errors.street}
+              errorMessage={touched.street ? errors.street : ""}
             />
           </Col>
           <Col xs={12} sm={12} md={3} xl={3} lg={3}>
@@ -209,7 +221,7 @@ export default function EmailField({ ...props }) {
               onBlur={handleBlur}
               value={state}
               name="state"
-              errorMessage={errors.state}
+              errorMessage={touched.state ? errors.state : ""}
             />
           </Col>
           <Col xs={12} sm={12} md={3} xl={3} lg={3}>
@@ -220,7 +232,8 @@ export default function EmailField({ ...props }) {
               onBlur={handleBlur}
               value={postCode}
               name="postCode"
-              errorMessage={errors.postCode}
+              type="number"
+              errorMessage={touched.postCode ? errors.postCode : ""}
             />
           </Col>
         </Row>

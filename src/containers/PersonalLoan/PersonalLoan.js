@@ -37,12 +37,7 @@ export default function ParsonalLoan({ ...props }) {
     totalIncome: "",
     refferalConsent: false
   };
-  const touchedValues = {
-    mobileNumber: false,
-    firstName: false,
-    middleName: false,
-    lastName: false
-  };
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
@@ -92,7 +87,6 @@ export default function ParsonalLoan({ ...props }) {
             validateOnChange
             validateOnBlur
             onSubmit={(values, actions) => handleSubmit(values, actions)}
-            touched={touchedValues}
           />
         </Row>
       </Paper>

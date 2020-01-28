@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     line-height: 16px;
     grid-template-columns: 30px 1fr;
     margin: 10px 30px;
+    padding: 5px;
   }
 
   .required {
