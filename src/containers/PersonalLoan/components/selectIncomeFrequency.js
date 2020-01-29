@@ -5,6 +5,8 @@ export default function LoanReasons({ ...props }) {
   return (
     <>
       <Select
+        isPlaceHolder
+        placeholder="Please Select"
         Title="Income frequency"
         options={INCOME_FREQUENCY_OPTIONS}
         {...props}

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import {  useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
 
@@ -25,7 +25,7 @@ export default function ParsonalLoan({ ...props }) {
     middleName: "",
     lastName: "",
     email: "",
-    dateOfBirth: "",
+    dateOfBirth: { day: "", month: "", year: "" },
     terms: false,
     unitNumber: "",
     streetNumber: "",
@@ -67,7 +67,9 @@ export default function ParsonalLoan({ ...props }) {
               subheading={
                 <span>
                   It only takes a few minutes to get an outcome.
-                  <br /> Call us on <a href="tel:+1300324746">1300 324 746</a>
+                  <br /> Call us on <a href="tel:+1300324746">
+                    1300 324 746
+                  </a>{" "}
                   if you have any problems completing this form.
                 </span>
               }

@@ -5,7 +5,8 @@ export default function LoanReasons({ ...props }) {
   return (
     <>
       <Select
-        defaultValue="-- Select Reason --"
+        isPlaceHolder
+        placeholder="Please Select"
         Title="Title"
         options={NAME_PREFIX}
         {...props}

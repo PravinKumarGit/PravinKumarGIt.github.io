@@ -32,7 +32,6 @@ const PersonalLoanForm = props => {
       middleName,
       lastName,
       email,
-      dateOfBirth,
       terms,
       incomeFrequency,
       totalIncome,
@@ -63,7 +62,7 @@ const PersonalLoanForm = props => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
   const StartUp = useSelector(state => state.StartUp);
-  console.log(props, touched, "Form");
+  console.log(props, "details");
   return (
     <form
       noValidate
@@ -114,6 +113,7 @@ const PersonalLoanForm = props => {
             onBlur={handleBlur}
             value={title}
             name="title"
+            errorMessage={touched.title ? errors.title : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -162,13 +162,7 @@ const PersonalLoanForm = props => {
           />
         </Col>
         <Col sm={12} md={6}>
-          <DobInput
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={dateOfBirth}
-            name="dateOfBirth"
-            errorMessage={touched.dateOfBirth ? errors.dateOfBirth : ""}
-          />
+          <DobInput {...props} />
         </Col>
         <Col sm={12} md={6}>
           <TermsCheckBox
@@ -226,7 +220,9 @@ const PersonalLoanForm = props => {
           />
         </Col>
         <Col sm={12} md={6}>
-          <Button type="submit" disabled={!isValid || !touched.loanAmount}>Go</Button>
+          <Button type="submit" disabled={!isValid || !touched.loanAmount}>
+            Go
+          </Button>
         </Col>
       </Row>
     </form>

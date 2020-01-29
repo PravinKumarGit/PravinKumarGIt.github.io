@@ -1,6 +1,9 @@
 /* eslint-disable no-useless-escape */
 import * as Yup from "yup";
 export default Yup.object({
+  title: Yup.string()
+    .trim()
+    .required("This field is required."),
   // loanAmount validations - required field
   loanAmount: Yup.string()
     .trim()
@@ -13,7 +16,7 @@ export default Yup.object({
   firstName: Yup.string()
     .trim()
     .matches(/^[A-Za-z ]+$/, {
-      message: "Value entered must have alphabets only",
+      message: "not a valid value",
       excludeEmptyString: true
     })
     .matches(/^[A-Za-z ]{2,}$/, {
@@ -25,7 +28,7 @@ export default Yup.object({
   middleName: Yup.string()
     .trim()
     .matches(/^[A-Za-z ]+$/, {
-      message: "Value entered must have alphabets only",
+      message: "not a valid value",
       excludeEmptyString: true
     })
     .matches(/^[A-Za-z ]{2,}$/, {
@@ -37,7 +40,7 @@ export default Yup.object({
   lastName: Yup.string()
     .trim()
     .matches(/^[A-Za-z ]+$/, {
-      message: "Value entered must have alphabets only",
+      message: "not a valid value",
       excludeEmptyString: true
     })
     .matches(/^[A-Za-z ]{2,}$/, {
@@ -49,7 +52,7 @@ export default Yup.object({
     .trim()
     .required("This field is required.")
     .matches(/^[0-9]+$/, {
-      message: "Value entered must have numbers only",
+      message: "not a valid value",
       excludeEmptyString: true
     })
     .test(
@@ -68,21 +71,21 @@ export default Yup.object({
   unitNumber: Yup.string()
     .trim()
     .matches(/^[0-9A-Za-z ]+$/, {
-      message: "Please enter letters or numbers only.",
+      message: "not a valid value",
       excludeEmptyString: true
     }),
   streetNumber: Yup.string()
     .trim()
     .required("This field is required.")
     .matches(/^[0-9A-Za-z ]+$/, {
-      message: "Please enter letters or numbers only.",
+      message: "not a valid value",
       excludeEmptyString: true
     }),
   suburb: Yup.string()
     .trim()
     .required("This field is required.")
     .matches(/^[A-Za-z ]+$/, {
-      message: "Please enter letters only.",
+      message: "not a valid value.",
       excludeEmptyString: true
     }),
   street: Yup.string()
@@ -94,7 +97,7 @@ export default Yup.object({
   postCode: Yup.string()
     .trim()
     .matches(/^[0-9]+$/, {
-      message: "Please enter numbers only.",
+      message: "not a valid value.",
       excludeEmptyString: true
     }),
   // email validations =  Alphabet only, required field
@@ -110,11 +113,22 @@ export default Yup.object({
   totalIncome: Yup.string()
     .trim()
     .required("This field is required.")
-    .test("test-MinMax", "Please enter minimum 10 maximum 10000.", value => {
-      const isValid = value >= 10 && value <= 10000;
+    .test("test-MinMax", "Please enter minimum 100 maximum 10000.", value => {
+      const isValid = value >= 100 && value <= 10000;
       if (!isValid) {
         return false;
       }
       return true;
-    })
+    }),
+  dateOfBirth: Yup.object().shape({
+    day: Yup.string()
+      .trim()
+      .required("This field is required."),
+    month: Yup.string()
+      .trim()
+      .required("This field is required."),
+    year: Yup.string()
+      .trim()
+      .required("This field is required.")
+  })
 });
