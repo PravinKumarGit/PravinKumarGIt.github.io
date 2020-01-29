@@ -6,24 +6,26 @@ export default function TermsCheckBox({ ...props }) {
   const [modalTerms, setModalTerms] = useState(false);
   return (
     <Wrapper onClick={props.ha}>
-      <CheckBox {...props}>
-        I agree to: (1){" "}
-        <Link
-          to="#"
-          onClick={e => {
-            e.stopPropagation();
-            setModalTerms(!modalTerms);
-          }}
-          className="pct-show"
-        >
-          the terms of the Privacy Policy
-        </Link>
-        which includes permission for Fair Go Finance to obtain a copy of my
-        credit file and as a result of this a credit enquiry may be put on my
-        credit record with one or more credit reporting bodies; (2) that all
-        communications to me can be sent electronically; and (3) I am authorised
-        to provide these personal details.
-      </CheckBox>
+      <label>
+        <CheckBox {...props}>
+          I agree to: (1){" "}
+          <Link
+            to="#"
+            onClick={e => {
+              e.stopPropagation();
+              setModalTerms(!modalTerms);
+            }}
+            className="pct-show"
+          >
+            the terms of the Privacy Policy
+          </Link>
+          which includes permission for Fair Go Finance to obtain a copy of my
+          credit file and as a result of this a credit enquiry may be put on my
+          credit record with one or more credit reporting bodies; (2) that all
+          communications to me can be sent electronically; and (3) I am
+          authorised to provide these personal details.
+        </CheckBox>
+      </label>
     </Wrapper>
   );
 }
