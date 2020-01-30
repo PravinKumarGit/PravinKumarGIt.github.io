@@ -15,8 +15,55 @@ export default function LoanReasons({ ...props }) {
     errors,
     touched,
     handleChange,
-    handleBlur
+    handleBlur,
+    setFieldValue
   } = props;
+
+  const activeDays = [...DAYS];
+  const activeDay = () => {
+    switch (month) {
+      case "Jun":
+        activeDays.splice(30, 1);
+        if (day && day * 1 === 31) {
+          setFieldValue("dateOfBirth.day", "");
+        }
+        break;
+      case "Feb":
+        if (year && (year * 1) % 4 === 0) {
+          activeDays.splice(29, 2);
+          if (day && day * 1 > 29) {
+            setFieldValue("dateOfBirth.day", "");
+          }
+        } else {
+          activeDays.splice(28, 3);
+          if (day && day * 1 > 28) {
+            setFieldValue("dateOfBirth.day", "");
+          }
+        }
+        break;
+      case "Nov":
+        activeDays.splice(30, 1);
+        if (day && day * 1 === 31) {
+          setFieldValue("dateOfBirth.day", "");
+        }
+        break;
+      case "Apr":
+        activeDays.splice(30, 1);
+        if (day && day * 1 === 31) {
+          setFieldValue("dateOfBirth.day", "");
+        }
+        break;
+      case "Sep":
+        activeDays.splice(30, 1);
+        if (day && day * 1 === 31) {
+          setFieldValue("dateOfBirth.day", "");
+        }
+        break;
+      default:
+    }
+    return activeDays;
+  };
+
   return (
     <Wrapper>
       <Row>
@@ -41,7 +88,10 @@ export default function LoanReasons({ ...props }) {
                 <div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth && errors.dateOfBirth && touched.dateOfBirth.day &&  errors.dateOfBirth.day
+                      touched.dateOfBirth &&
+                      errors.dateOfBirth &&
+                      touched.dateOfBirth.day &&
+                      errors.dateOfBirth.day
                         ? "required"
                         : ""
                     } `}
@@ -53,7 +103,7 @@ export default function LoanReasons({ ...props }) {
                     <option className={`select-Option`} value="">
                       Day
                     </option>
-                    {(DAYS || []).map((item, index) => (
+                    {(activeDay() || []).map((item, index) => (
                       <option
                         key={`${new Date().getTime()}${index}`}
                         className={`select-Option${index}`}
@@ -64,14 +114,20 @@ export default function LoanReasons({ ...props }) {
                     ))}
                   </select>
 
-                  {touched.dateOfBirth && errors.dateOfBirth && touched.dateOfBirth.day && errors.dateOfBirth.day && (
-                    <div className="message"> {errors.dateOfBirth.day} </div>
-                  )}
+                  {touched.dateOfBirth &&
+                    errors.dateOfBirth &&
+                    touched.dateOfBirth.day &&
+                    errors.dateOfBirth.day && (
+                      <div className="message"> {errors.dateOfBirth.day} </div>
+                    )}
                 </div>
                 <div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth && errors.dateOfBirth && touched.dateOfBirth.month && errors.dateOfBirth.month
+                      touched.dateOfBirth &&
+                      errors.dateOfBirth &&
+                      touched.dateOfBirth.month &&
+                      errors.dateOfBirth.month
                         ? "required"
                         : ""
                     } `}
@@ -93,14 +149,23 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth && errors.dateOfBirth && touched.dateOfBirth.month && errors.dateOfBirth.month && (
-                    <div className="message"> {errors.dateOfBirth.month} </div>
-                  )}
+                  {touched.dateOfBirth &&
+                    errors.dateOfBirth &&
+                    touched.dateOfBirth.month &&
+                    errors.dateOfBirth.month && (
+                      <div className="message">
+                        {" "}
+                        {errors.dateOfBirth.month}{" "}
+                      </div>
+                    )}
                 </div>
                 <div className="dob-input-last">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth && errors.dateOfBirth && touched.dateOfBirth.year && errors.dateOfBirth.year
+                      touched.dateOfBirth &&
+                      errors.dateOfBirth &&
+                      touched.dateOfBirth.year &&
+                      errors.dateOfBirth.year
                         ? "required"
                         : ""
                     } `}
@@ -122,9 +187,12 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth && errors.dateOfBirth && touched.dateOfBirth.year && errors.dateOfBirth.year && (
-                    <div className="message"> {errors.dateOfBirth.year} </div>
-                  )}
+                  {touched.dateOfBirth &&
+                    errors.dateOfBirth &&
+                    touched.dateOfBirth.year &&
+                    errors.dateOfBirth.year && (
+                      <div className="message"> {errors.dateOfBirth.year} </div>
+                    )}
                 </div>
               </Col>
             </Row>

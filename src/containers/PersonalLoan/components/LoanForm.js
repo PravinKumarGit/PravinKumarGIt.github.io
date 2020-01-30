@@ -194,7 +194,7 @@ const PersonalLoanForm = props => {
         </Col>
         <Col sm={12} md={6}>
           <SelectIncomeFrequency
-            onClick={handleChange}
+            onChange={handleChange}
             onBlur={handleBlur}
             value={incomeFrequency}
             name="incomeFrequency"

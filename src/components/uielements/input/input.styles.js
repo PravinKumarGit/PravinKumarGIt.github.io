@@ -80,11 +80,9 @@ const Wrapper = styled.div`
     border: 1px solid ${palette("error", 3)}!important;
   }
   .message {
-    position: absolute;
     padding-left: 1px;
     color: ${palette("color", 18)};
     font-size: ${size("p2")};
-    top: 54px;
   }
   .iconRequired {
     border-right: 1px solid ${palette("error", 3)};

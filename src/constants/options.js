@@ -1,4 +1,4 @@
-export const LOAN_REASON_OPTIONS = [
+export const LOAN_REASON_OPTIONS = Object.freeze([
   { label: "Bond Loan", value: "Bond Loan" },
   { label: "Household Bills", value: "Household Bills" },
   { label: "Travel Holiday", value: "Travel Holiday" },
@@ -13,29 +13,29 @@ export const LOAN_REASON_OPTIONS = [
   { label: "Education For Children", value: "Education For Children" },
   { label: "Car Repairs", value: "Car Repairs" },
   { label: "Other", value: "Other" }
-];
+]);
 
-export const NAME_PREFIX = [
+export const NAME_PREFIX = Object.freeze([
   { label: "Mr", value: "Mr" },
   { label: "Mrs", value: "Mrs" },
   { label: "Ms", value: "Ms" },
   { label: "Miss", value: "Miss" }
-];
+]);
 
-export const INCOME_FREQUENCY_OPTIONS = [
+export const INCOME_FREQUENCY_OPTIONS = Object.freeze([
   { label: "Weekly", value: "Weekly" },
   { label: "Fortnightly", value: "Fortnightly" },
   { label: "Monthly", value: "Monthly" }
-];
+]);
 
 export const DAYS = (() => {
   const Days = [];
   for (let i = 1; i < 32; i++) {
     Days.push({ label: i, value: i });
   }
-  return Days;
+  return Object.freeze(Days);
 })();
-export const MONTHS = [
+export const MONTHS = Object.freeze([
   { label: "Jan", value: "Jan" },
   { label: "Feb", value: "Feb" },
   { label: "Mar", value: "Mar" },
@@ -48,16 +48,17 @@ export const MONTHS = [
   { label: "Oct", value: "Oct" },
   { label: "Nov", value: "Nov" },
   { label: "Dec", value: "Dec" }
-];
+]);
 export const YEARS = (() => {
   const years = [];
-  for (let i = 1902; i < 2003; i++) {
+  const date = new Date();
+  for (let i = date.getFullYear() - 117; i < date.getFullYear() - 17; i++) {
     years.push({ label: i, value: i });
   }
-  return years;
+  return Object.freeze(years);
 })();
 
-export const STATE_CODE = [
+export const STATE_CODE = Object.freeze([
   { label: "ACT", value: "ACT" },
   { label: "NSW", value: "NSW" },
   { label: "NT", value: "NT" },
@@ -66,4 +67,4 @@ export const STATE_CODE = [
   { label: "TAS", value: "TAS" },
   { label: "VIC", value: "VIC" },
   { label: "WA", value: "WA" }
-];
+]);
