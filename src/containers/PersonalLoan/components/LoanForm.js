@@ -168,7 +168,7 @@ const PersonalLoanForm = props => {
           <TermsCheckBox
             onChange={handleChange}
             onBlur={handleBlur}
-            chacked={terms}
+            chacked={terms.toString()}
             name="terms"
             errorMessage={touched.terms ? errors.terms : ""}
           />
@@ -214,7 +214,7 @@ const PersonalLoanForm = props => {
           <RefferalCheckbox
             onClick={handleChange}
             onBlur={handleBlur}
-            chacked={refferalConsent}
+            chacked={refferalConsent.toString()}
             name="refferalConsent"
             errorMessage={touched.refferalConsent ? errors.refferalConsent : ""}
           />

@@ -5,7 +5,6 @@ export default function LoanReasons({ ...props }) {
   return (
     <>
       <Select
-        defaultValue="-- Select Reason --"
         Title="Reason for loan"
         options={LOAN_REASON_OPTIONS}
         helpToolTip

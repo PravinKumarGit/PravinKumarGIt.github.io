@@ -7,7 +7,7 @@ export default function IncomeFields({ ...props }) {
         title="Weekly total income (including benefits)"
         type="number"
         prefix={<span>$</span>}
-        maxlength={5}
+        maxLength={5}
         {...props}
       />
     </>

@@ -7,7 +7,7 @@ export default function MobileNumber({ ...props }) {
         title="Mobile Number"
         type="number"
         placeholder="Mobile Number"
-        maxlength={10}
+        maxLength={10}
         {...props}
       />
     </>

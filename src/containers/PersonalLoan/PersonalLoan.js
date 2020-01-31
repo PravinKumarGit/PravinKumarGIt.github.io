@@ -82,13 +82,14 @@ export default function ParsonalLoan({ ...props }) {
         </Row>
         <Row>
           <Formik
-            render={props => <LoanForm {...props} />}
             initialValues={values}
             validationSchema={validationSchema}
             validateOnChange
             validateOnBlur
             onSubmit={(values, actions) => handleSubmit(values, actions)}
-          />
+          >
+            {props => <LoanForm {...props} />}
+          </Formik>
         </Row>
       </Paper>
     </Wrapper>
