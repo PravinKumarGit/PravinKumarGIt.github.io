@@ -62,7 +62,6 @@ const PersonalLoanForm = props => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
   const StartUp = useSelector(state => state.StartUp);
-  console.log(props, "details");
   return (
     <form
       noValidate

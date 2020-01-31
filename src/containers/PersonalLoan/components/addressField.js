@@ -151,82 +151,84 @@ export default function EmailField({ ...props }) {
           )}
         </PlacesAutocomplete>
       )}
-      {manual && [
-        <Row>
-          <Col xs={12} sm={12} md={3} xl={3} lg={3}>
-            <Input
-              title="Unit Number"
-              placeholder="Unit Number"
-              OptionalLabel
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={unitNumber}
-              name="unitNumber"
-              errorMessage={touched.unitNumber ? errors.unitNumber : ""}
-            />
-          </Col>
-          <Col xs={12} sm={12} md={3} xl={3} lg={3}>
-            <Input
-              title="Street Number"
-              placeholder="Street Number"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={streetNumber}
-              name="streetNumber"
-              errorMessage={touched.streetNumber ? errors.streetNumber : ""}
-            />
-          </Col>
-          <Col xs={12} sm={12} md={6} xl={6} lg={6}>
-            <Input
-              title="Suburb"
-              placeholder="Suburb"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={suburb}
-              name="suburb"
-              errorMessage={touched.suburb ? errors.suburb : ""}
-            />
-          </Col>
-        </Row>,
-        <Row>
-          <Col xs={12} sm={12} md={6} xl={6} lg={6}>
-            <Input
-              title="Street"
-              placeholder="Street"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={street}
-              name="street"
-              errorMessage={touched.street ? errors.street : ""}
-            />
-          </Col>
-          <Col xs={12} sm={12} md={3} xl={3} lg={3}>
-            <Select
-              isPlaceHolder
-              placeholder="State"
-              Title="State"
-              options={STATE_CODE}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={state}
-              name="state"
-              errorMessage={touched.state ? errors.state : ""}
-            />
-          </Col>
-          <Col xs={12} sm={12} md={3} xl={3} lg={3}>
-            <Input
-              title="Post code"
-              placeholder="Post code"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={postCode}
-              name="postCode"
-              type="number"
-              errorMessage={touched.postCode ? errors.postCode : ""}
-            />
-          </Col>
-        </Row>
-      ]}
+      {manual && (
+        <>
+          <Row>
+            <Col xs={12} sm={12} md={3} xl={3} lg={3}>
+              <Input
+                title="Unit Number"
+                placeholder="Unit Number"
+                OptionalLabel
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={unitNumber}
+                name="unitNumber"
+                errorMessage={touched.unitNumber ? errors.unitNumber : ""}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={3} xl={3} lg={3}>
+              <Input
+                title="Street Number"
+                placeholder="Street Number"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={streetNumber}
+                name="streetNumber"
+                errorMessage={touched.streetNumber ? errors.streetNumber : ""}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={6} xl={6} lg={6}>
+              <Input
+                title="Suburb"
+                placeholder="Suburb"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={suburb}
+                name="suburb"
+                errorMessage={touched.suburb ? errors.suburb : ""}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={6} xl={6} lg={6}>
+              <Input
+                title="Street"
+                placeholder="Street"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={street}
+                name="street"
+                errorMessage={touched.street ? errors.street : ""}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={3} xl={3} lg={3}>
+              <Select
+                isPlaceHolder
+                placeholder="State"
+                Title="State"
+                options={STATE_CODE}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={state}
+                name="state"
+                errorMessage={touched.state ? errors.state : ""}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={3} xl={3} lg={3}>
+              <Input
+                title="Post code"
+                placeholder="Post code"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={postCode}
+                name="postCode"
+                type="number"
+                errorMessage={touched.postCode ? errors.postCode : ""}
+              />
+            </Col>
+          </Row>
+        </>
+      )}
     </Wrapper>
   );
 }
