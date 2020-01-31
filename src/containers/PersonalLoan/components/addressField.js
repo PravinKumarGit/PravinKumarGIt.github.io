@@ -55,26 +55,26 @@ export default function EmailField({ ...props }) {
           item.types.includes("postal_code")
         );
         toggleManual(true);
-        streetNumberIndex > 0 &&
+        streetNumberIndex !== -1 &&
           setFieldValue(
             "streetNumber",
             add.address_components[streetNumberIndex].short_name
           );
-        streetIndex > 0 &&
+        streetIndex !== -1 &&
           setFieldValue(
             "street",
             add.address_components[streetIndex].short_name
           );
-        stateIndex > 0 &&
+        stateIndex !== -1 &&
           setFieldValue("state", add.address_components[stateIndex].short_name);
-        suburIndex > 0 &&
+        suburIndex !== -1 &&
           setFieldValue(
             "suburb",
             add.address_components[suburIndex].short_name
           );
-        postalCodeIndex > 0 &&
+        postalCodeIndex !== -1 &&
           setFieldValue(
-            "suburb",
+            "postCode",
             add.address_components[postalCodeIndex].short_name
           );
       })
