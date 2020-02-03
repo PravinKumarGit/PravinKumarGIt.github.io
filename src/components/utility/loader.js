@@ -1,5 +1,5 @@
-import React from 'react';
-import LoaderComponent from './loader.style';
+import React from "react";
+import LoaderComponent from "./loader.style";
 
 export default Loader => (
   <LoaderComponent>
@@ -13,6 +13,6 @@ export default Loader => (
         strokeWidth="3.6"
       />
     </svg>
-    <p>Loading...</p>
+    <p className="loadingText">Loading...</p>
   </LoaderComponent>
 );
