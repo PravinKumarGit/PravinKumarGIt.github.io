@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
 
-import actions from "../../redux/startup/actions";
+import loanFormActions from "../../redux/loanForm/actions";
+import startUpActions from "../../redux/startup/actions";
 import TopHeader from "../../components/uielements/topHeader";
 import BreadCrum from "../../components/uielements/breadCrum";
 import SectionHeading from "../../components/uielements/sectionHeading";
@@ -37,16 +38,42 @@ export default function ParsonalLoan({ ...props }) {
     totalIncome: "",
     refferalConsent: false
   };
-
+  // const values = {
+  //   loanAmount: "1000",
+  //   reasonOfLoan: "Household Bills",
+  //   title: "Mrs",
+  //   mobileNumber: "0421323123",
+  //   firstName: "Testing",
+  //   middleName: "Test",
+  //   lastName: "Test",
+  //   email: "abc@abc.com",
+  //   dateOfBirth: { day: "1", month: "Mar", year: "1904" },
+  //   terms: true,
+  //   unitNumber: "AS1234",
+  //   streetNumber: "9599",
+  //   suburb: "Melbourne Airport",
+  //   street: "S Centre Rd",
+  //   state: "VIC",
+  //   postCode: "3045",
+  //   incomeFrequency: "Fortnightly",
+  //   totalIncome: "123",
+  //   refferalConsent: false
+  // };
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(actions.loanAmountRequest());
+    dispatch(startUpActions.loanAmountRequest());
   }, [dispatch]);
   const handleSubmit = (values, actions) => {
-    // setTimeout(() => {
-    //   alert(JSON.stringify(values, null, 2));
-    //   actions.setSubmitting(false);
-    // }, 1000);
+    const { setSubmitting } = actions;
+    setSubmitting(true);
+    try {
+      setSubmitting(false);
+      dispatch(loanFormActions.postLoanFormRequest(values));
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setSubmitting(false);
+    }
     console.log(values, actions, "Form values");
   };
   return (
