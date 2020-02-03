@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
@@ -17,6 +17,7 @@ import Wrapper from "./PersonalLoan.styles";
 import LoanForm from "./components/LoanForm";
 import validationSchema from "./components/validationSchema";
 export default function ParsonalLoan({ ...props }) {
+  const [step, setStep] = useState(1);
   const values = {
     loanAmount: "",
     reasonOfLoan: "",
@@ -83,42 +84,49 @@ export default function ParsonalLoan({ ...props }) {
           <TopHeader />
         </Col>
         <Col lg={12}>
-          <BreadCrum />
+          <BreadCrum step={step} changeStep={step => setStep(step)} />
         </Col>
       </Row>
-      <Paper>
-        <Row>
-          <Col>
-            <SectionHeading
-              heading="Personal Loan Application"
-              subheading={
-                <span>
-                  It only takes a few minutes to get an outcome.
-                  <br /> Call us on <a href="tel:+1300324746">
-                    1300 324 746
-                  </a>{" "}
-                  if you have any problems completing this form.
-                </span>
-              }
-            />
-            <Accordian title="Are you eligible to apply?">
-              <WhyLoanText />
-            </Accordian>
-            <Divider />
-          </Col>
-        </Row>
-        <Row>
-          <Formik
-            initialValues={values}
-            validationSchema={validationSchema}
-            validateOnChange
-            validateOnBlur
-            onSubmit={(values, actions) => handleSubmit(values, actions)}
-          >
-            {props => <LoanForm {...props} />}
-          </Formik>
-        </Row>
-      </Paper>
+      {step === 1 && (
+        <Paper>
+          <Row>
+            <Col>
+              <SectionHeading
+                heading="Personal Loan Application"
+                subheading={
+                  <span>
+                    It only takes a few minutes to get an outcome.
+                    <br /> Call us on <a href="tel:+1300324746">
+                      1300 324 746
+                    </a>{" "}
+                    if you have any problems completing this form.
+                  </span>
+                }
+              />
+              <Accordian title="Are you eligible to apply?">
+                <WhyLoanText />
+              </Accordian>
+              <Divider />
+            </Col>
+          </Row>
+          <Row>
+            <Formik
+              initialValues={values}
+              validationSchema={validationSchema}
+              validateOnChange
+              validateOnBlur
+              onSubmit={(values, actions) => handleSubmit(values, actions)}
+            >
+              {props => <LoanForm {...props} />}
+            </Formik>
+          </Row>
+        </Paper>
+      )}
+      {step === 2 && (
+        <Paper>
+          <div>Step two</div>
+        </Paper>
+      )}
     </Wrapper>
   );
 }
