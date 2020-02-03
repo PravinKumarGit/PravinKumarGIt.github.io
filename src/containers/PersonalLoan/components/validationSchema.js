@@ -110,6 +110,9 @@ export default Yup.object({
       if (!isValidEmail) return false;
       return true;
     }),
+  incomeFrequency: Yup.string()
+    .trim()
+    .required("This field is required."),
   totalIncome: Yup.string()
     .trim()
     .required("This field is required.")
