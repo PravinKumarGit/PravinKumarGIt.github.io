@@ -37,18 +37,18 @@ export const DAYS = (() => {
   return Object.freeze(Days);
 })();
 export const MONTHS = Object.freeze([
-  { label: "01", value: "Jan" },
-  { label: "02", value: "Feb" },
-  { label: "03", value: "Mar" },
-  { label: "04", value: "Apr" },
-  { label: "05", value: "May" },
-  { label: "06", value: "Jun" },
-  { label: "07", value: "Jul" },
-  { label: "08", value: "Aug" },
-  { label: "09", value: "Sep" },
-  { label: "10", value: "Oct" },
-  { label: "11", value: "Nov" },
-  { label: "12", value: "Dec" }
+  { value: "01", label: "Jan" },
+  { value: "02", label: "Feb" },
+  { value: "03", label: "Mar" },
+  { value: "04", label: "Apr" },
+  { value: "05", label: "May" },
+  { value: "06", label: "Jun" },
+  { value: "07", label: "Jul" },
+  { value: "08", label: "Aug" },
+  { value: "09", label: "Sep" },
+  { value: "10", label: "Oct" },
+  { value: "11", label: "Nov" },
+  { value: "12", label: "Dec" }
 ]);
 export const YEARS = (() => {
   const years = [];

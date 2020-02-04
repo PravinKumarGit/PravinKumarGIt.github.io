@@ -12,6 +12,7 @@ import Divider from "../../components/uielements/divider";
 import Paper from "../../components/uielements/paper";
 import Accordian from "../../components/uielements/accordian";
 import WhyLoanText from "./components/whyLoanText";
+import Footer from "../../components/uielements/footer";
 
 import Wrapper from "./PersonalLoan.styles";
 import LoanForm from "./components/LoanForm";
@@ -147,6 +148,7 @@ export default function ParsonalLoan({ ...props }) {
           <div>comming soon...</div>
         </Paper>
       )}
+      <Footer />
     </Wrapper>
   );
 }

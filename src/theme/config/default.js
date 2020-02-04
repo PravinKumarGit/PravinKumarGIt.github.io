@@ -52,7 +52,8 @@ theme.palette = {
     "#7b7b7b", // 17: light gray,
     "#fb5708", // 18: light red,
     "#7bb840", // 19: extra light green,
-    "#50b849" // 20: extra light green,
+    "#50b849", // 20: extra light green,
+    "#000000"  // 21: black,
   ],
   warning: [
     "#ffbf00" // 0: Warning

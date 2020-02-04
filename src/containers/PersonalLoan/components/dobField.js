@@ -154,8 +154,7 @@ export default function LoanReasons({ ...props }) {
                     touched.dateOfBirth.month &&
                     errors.dateOfBirth.month && (
                       <div className="message">
-                        {" "}
-                        {errors.dateOfBirth.month}{" "}
+                        {errors.dateOfBirth.month}
                       </div>
                     )}
                 </div>
