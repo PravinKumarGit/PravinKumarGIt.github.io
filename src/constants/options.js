@@ -31,23 +31,24 @@ export const INCOME_FREQUENCY_OPTIONS = Object.freeze([
 export const DAYS = (() => {
   const Days = [];
   for (let i = 1; i < 32; i++) {
-    Days.push({ label: i, value: i });
+    const day = i < 10 ? `0${i}` : `${i}`;
+    Days.push({ label: day, value: day });
   }
   return Object.freeze(Days);
 })();
 export const MONTHS = Object.freeze([
-  { label: "Jan", value: "Jan" },
-  { label: "Feb", value: "Feb" },
-  { label: "Mar", value: "Mar" },
-  { label: "Apr", value: "Apr" },
-  { label: "May", value: "May" },
-  { label: "Jun", value: "Jun" },
-  { label: "Jul", value: "Jul" },
-  { label: "Aug", value: "Aug" },
-  { label: "Sep", value: "Sep" },
-  { label: "Oct", value: "Oct" },
-  { label: "Nov", value: "Nov" },
-  { label: "Dec", value: "Dec" }
+  { label: "01", value: "Jan" },
+  { label: "02", value: "Feb" },
+  { label: "03", value: "Mar" },
+  { label: "04", value: "Apr" },
+  { label: "05", value: "May" },
+  { label: "06", value: "Jun" },
+  { label: "07", value: "Jul" },
+  { label: "08", value: "Aug" },
+  { label: "09", value: "Sep" },
+  { label: "10", value: "Oct" },
+  { label: "11", value: "Nov" },
+  { label: "12", value: "Dec" }
 ]);
 export const YEARS = (() => {
   const years = [];

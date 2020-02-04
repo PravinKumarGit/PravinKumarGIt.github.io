@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     z-index: 5;
   }
   .line {
-    min-width: 170px;
+    min-width: 173px;
     height: 10px;
     background-color: ${palette("color", 16)};
     position: absolute;

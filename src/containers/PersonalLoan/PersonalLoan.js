@@ -77,6 +77,12 @@ export default function ParsonalLoan({ ...props }) {
     }
     console.log(values, actions, "Form values");
   };
+  const STEPS = [
+    { step: 1, label: "start", active: true },
+    { step: 2, label: "Bank Statement", active: true },
+    { step: 3, label: "General Living", active: true },
+    { step: 4, label: "Finally", active: true }
+  ];
   return (
     <Wrapper>
       <Row>
@@ -84,7 +90,11 @@ export default function ParsonalLoan({ ...props }) {
           <TopHeader />
         </Col>
         <Col lg={12}>
-          <BreadCrum step={step} changeStep={step => setStep(step)} />
+          <BreadCrum
+            steps={STEPS}
+            activeStep={step}
+            changeStep={step => setStep(step)}
+          />
         </Col>
       </Row>
       {step === 1 && (
@@ -124,7 +134,17 @@ export default function ParsonalLoan({ ...props }) {
       )}
       {step === 2 && (
         <Paper>
-          <div>Step two</div>
+          <div>comming soon...</div>
+        </Paper>
+      )}
+      {step === 3 && (
+        <Paper>
+          <div>comming soon...</div>
+        </Paper>
+      )}
+      {step === 4 && (
+        <Paper>
+          <div>comming soon...</div>
         </Paper>
       )}
     </Wrapper>

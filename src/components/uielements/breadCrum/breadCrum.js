@@ -2,76 +2,37 @@ import React from "react";
 
 import Wrapper from "./breadCrum.styles";
 export default function Select({ ...props }) {
-  const { step, changeStep } = props;
+  const { steps, activeStep, changeStep } = props;
+  const stepsActive = (steps || []).filter(item => item.active);
   return (
     <Wrapper>
-      <section className="applicationBreadCrumb-Container">
-        <article className="breadCrumbBox">
-          <section
-            className="breadCrumb-title-and-button"
-            onClick={() => changeStep(1)}
-          >
-            <span
-              className={`breadCrumb-title ${
-                step === 1 ? "active" : "inactive"
-              }`}
+      <div className="applicationBreadCrumb-Container">
+        <div className="breadCrumbBox">
+          {stepsActive.map(item => (
+            <div
+              className="breadCrumb-title-and-button"
+              onClick={() => changeStep(item.step)}
+              key={`breadCrumb${item.step}`}
             >
-              Start
-            </span>
-            <section
-              className={`section-${step === 1 ? "active" : "inactive"}`}
-            ></section>
-          </section>
-          <section
-            className="breadCrumb-title-and-button"
-            onClick={() => changeStep(2)}
-          >
-            <span
-              className={`breadCrumb-title ${
-                step === 2 ? "active" : "inactive"
-              }`}
-            >
-              Bank Statement
-            </span>
-            <section
-              className={`section-${step === 2 ? "active" : "inactive"}`}
-            ></section>
-            <section className="line"></section>
-          </section>
-          <section
-            className="breadCrumb-title-and-button"
-            onClick={() => changeStep(3)}
-          >
-            <span
-              className={`breadCrumb-title ${
-                step === 3 ? "active" : "inactive"
-              }`}
-            >
-              General Living
-            </span>
-            <section
-              className={`section-${step === 3 ? "active" : "inactive"}`}
-            ></section>
-            <section className="line"></section>
-          </section>
-          <section
-            className="breadCrumb-title-and-button"
-            onClick={() => changeStep(4)}
-          >
-            <span
-              className={`breadCrumb-title ${
-                step === 4 ? "active" : "inactive"
-              }`}
-            >
-              Finally
-            </span>
-            <section
-              className={`section-${step === 4 ? "active" : "inactive"}`}
-            ></section>
-            <section className="line"></section>
-          </section>
-        </article>
-      </section>
+              <span
+                className={`breadCrumb-title ${
+                  activeStep === item.step ? "active" : "inactive"
+                }`}
+              >
+                {item.label}
+              </span>
+              <div
+                className={`section-${
+                  activeStep === item.step ? "active" : "inactive"
+                }`}
+              ></div>
+              {item.step !== stepsActive[0].step && (
+                <div className="line"></div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </Wrapper>
   );
 }
