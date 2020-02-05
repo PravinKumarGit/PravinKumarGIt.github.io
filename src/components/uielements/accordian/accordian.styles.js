@@ -17,6 +17,7 @@ const Wrapper = styled.div`
     align-content: center;
     height: 40px;
     font-size: ${size("h5")};
+    cursor: pointer;
     background: -webkit-gradient(
       linear,
       right top,
@@ -47,7 +48,6 @@ const Wrapper = styled.div`
   .content-hide {
     display: none;
   }
-  
 `;
 
 export default Wrapper;
