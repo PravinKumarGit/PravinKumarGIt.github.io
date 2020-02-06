@@ -14,7 +14,7 @@ export default function Accordian({ ...props }) {
           onClick={() => updateOpenIndex(0)}
         >
           <p className="Label-Text">{title}</p>
-          <p className="Label-Icon">{openIndex === 0 ? "+" : "-"}</p>
+          <p className="Label-Icon">{openIndex === 0 ? "-" : "+"}</p>
         </div>
         <div className={`content-${openIndex === 0 ? "show" : "hide"}`}>
           {children}

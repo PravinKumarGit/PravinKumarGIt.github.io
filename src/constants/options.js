@@ -53,7 +53,7 @@ export const MONTHS = Object.freeze([
 export const YEARS = (() => {
   const years = [];
   const date = new Date();
-  for (let i = date.getFullYear() - 117; i < date.getFullYear() - 17; i++) {
+  for (let i = date.getFullYear() - 18; i > date.getFullYear() - 81; i--) {
     years.push({ label: i, value: i });
   }
   return Object.freeze(years);

@@ -34,8 +34,7 @@ export default Yup.object({
     .matches(/^[A-Za-z ]{2,}$/, {
       message: "Value entered must be minimum 2 characters.",
       excludeEmptyString: true
-    })
-    .required("This field is required."),
+    }),
   // name validations =  Alphabet only, required field
   lastName: Yup.string()
     .trim()
