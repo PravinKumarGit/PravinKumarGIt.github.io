@@ -96,7 +96,7 @@ export default function TermsAcceptModal({ ...props }) {
           </p>
           <p>
             You can opt out from allowing these third parties to set cookies on
-            your machine, by going to this link
+            your machine, by going to this link{" "}
             <a href="https://rtb.loopa.net.au/pixel/optout">
               https://rtb.loopa.net.au/pixel/optout
             </a>{" "}
