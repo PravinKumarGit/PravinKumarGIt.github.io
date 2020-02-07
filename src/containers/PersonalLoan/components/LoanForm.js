@@ -114,17 +114,6 @@ const PersonalLoanForm = props => {
             name="title"
             errorMessage={touched.title ? errors.title : ""}
           />
-        </Col>
-        <Col sm={12} md={6}>
-          <MobileNoField
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={mobileNumber}
-            name="mobileNumber"
-            errorMessage={touched.mobileNumber ? errors.mobileNumber : ""}
-          />
-        </Col>
-        <Col sm={12} md={6}>
           <FirstName
             onChange={handleChange}
             onBlur={handleBlur}
@@ -132,8 +121,6 @@ const PersonalLoanForm = props => {
             name="firstName"
             errorMessage={touched.firstName ? errors.firstName : ""}
           />
-        </Col>
-        <Col sm={12} md={6}>
           <MiddleName
             onChange={handleChange}
             onBlur={handleBlur}
@@ -141,8 +128,6 @@ const PersonalLoanForm = props => {
             name="middleName"
             errorMessage={touched.middleName ? errors.middleName : ""}
           />
-        </Col>
-        <Col sm={12} md={6}>
           <LastName
             onChange={handleChange}
             onBlur={handleBlur}
@@ -152,6 +137,13 @@ const PersonalLoanForm = props => {
           />
         </Col>
         <Col sm={12} md={6}>
+          <MobileNoField
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={mobileNumber}
+            name="mobileNumber"
+            errorMessage={touched.mobileNumber ? errors.mobileNumber : ""}
+          />
           <EmailField
             onChange={handleChange}
             onBlur={handleBlur}
@@ -159,15 +151,11 @@ const PersonalLoanForm = props => {
             name="email"
             errorMessage={touched.email ? errors.email : ""}
           />
-        </Col>
-        <Col sm={12} md={6}>
           <DobInput {...props} />
-        </Col>
-        <Col sm={12} md={6}>
           <TermsCheckBox
             onChange={handleChange}
             onBlur={handleBlur}
-            chacked={terms.toString()}
+            checked={terms.toString()}
             name="terms"
             errorMessage={touched.terms ? errors.terms : ""}
           />
@@ -213,7 +201,7 @@ const PersonalLoanForm = props => {
           <RefferalCheckbox
             onClick={handleChange}
             onBlur={handleBlur}
-            chacked={refferalConsent.toString()}
+            checked={refferalConsent.toString()}
             name="refferalConsent"
             errorMessage={touched.refferalConsent ? errors.refferalConsent : ""}
           />

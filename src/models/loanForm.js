@@ -6,7 +6,7 @@ export default class LoanForm {
   }
 
   inIt(data) {
-    console.log(data, "Model");
+    // step 1
     this.LoanAmount = data.loanAmount || null;
     this.LoanReason = data.reasonOfLoan || null;
     this.Title = data.title || null;
@@ -28,8 +28,9 @@ export default class LoanForm {
     this.ReferralConsent = data.refferalConsent || false;
     this.IncomeFrequency = data.incomeFrequency || null;
     this.TotalIncome = data.totalIncome || null;
-
+    // step 2
     this.bankStatementReferralCode = data.bankStatementReferralCode || null;
+    // step 3
     this.occupation = data.occupation || null;
     this.employmentBasis = data.employmentBasis || null;
     this.employerName = data.employerName || null;
@@ -43,6 +44,7 @@ export default class LoanForm {
     this.residentialStatus = data.residentialStatus || null;
     this.weeklyEstimatedCostOfLiving = data.weeklyEstimatedCostOfLiving || null;
     this.creditCardCount = data.creditCardCount || null;
+    // step 4
     this.identificationType = data.identificationType || null;
     this.driversLicenceNumber = data.driversLicenceNumber || null;
     this.driversLicenceCardNumber = data.driversLicenceCardNumber || null;

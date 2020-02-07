@@ -10,6 +10,7 @@ export default function CheckBox({ ...props }) {
     ToolTipText,
     label,
     children,
+    checked,
     ...rest
   } = props;
   return (
@@ -31,7 +32,6 @@ export default function CheckBox({ ...props }) {
             )}
           </label>
         )}
-        {/* <div className="checkBox-Component-Required"> */}
         <input type="checkbox" className="checkBox-Input" {...rest} />
         <div className="checkBox-InformationContainer">
           <div className="checkBox-Message">

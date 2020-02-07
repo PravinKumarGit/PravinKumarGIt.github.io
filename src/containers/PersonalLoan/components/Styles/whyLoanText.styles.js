@@ -47,11 +47,6 @@ const Wrapper = styled.div`
       grid-template-columns: 100%;
     }
   }
-  @media only screen and (max-width: ${size("S")}) {
-    width: 100vw;
-    padding: 40px 14px;
-    border-radius: 0;
-  }
 `;
 
 export default Wrapper;

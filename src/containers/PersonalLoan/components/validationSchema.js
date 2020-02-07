@@ -12,7 +12,7 @@ export default Yup.object({
   reasonOfLoan: Yup.string()
     .trim()
     .required("This field is required."),
-  // name validations - Alphabet only, required field
+  // // name validations - Alphabet only, required field
   firstName: Yup.string()
     .trim()
     .matches(/^[A-Za-z ]+$/, {

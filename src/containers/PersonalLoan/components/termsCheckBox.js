@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CheckBox from "../../../components/uielements/checkBox";
+import TermsAcceptModal from "./termsAcceptModel";
 import Wrapper from "./Styles/termsCheckBox.styles";
 export default function TermsCheckBox({ ...props }) {
   const [modalTerms, setModalTerms] = useState(false);
   return (
-    <Wrapper onClick={props.ha}>
+    <Wrapper>
       <label>
         <CheckBox {...props}>
           I agree to: (1){" "}
@@ -18,7 +19,7 @@ export default function TermsCheckBox({ ...props }) {
             className="pct-show"
           >
             the terms of the Privacy Policy
-          </Link>
+          </Link>{" "}
           which includes permission for Fair Go Finance to obtain a copy of my
           credit file and as a result of this a credit enquiry may be put on my
           credit record with one or more credit reporting bodies; (2) that all
@@ -26,6 +27,10 @@ export default function TermsCheckBox({ ...props }) {
           authorised to provide these personal details.
         </CheckBox>
       </label>
+      <TermsAcceptModal
+        visible={modalTerms}
+        close={() => setModalTerms(!modalTerms)}
+      />
     </Wrapper>
   );
 }

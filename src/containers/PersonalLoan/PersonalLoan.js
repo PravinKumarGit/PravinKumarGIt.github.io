@@ -41,7 +41,7 @@ export default function ParsonalLoan({ ...props }) {
     refferalConsent: false
   };
   // const values = {
-  //   loanAmount: "1000",
+  //   loanAmount: "",
   //   reasonOfLoan: "Household Bills",
   //   title: "Mrs",
   //   mobileNumber: "0421323123",
@@ -49,7 +49,7 @@ export default function ParsonalLoan({ ...props }) {
   //   middleName: "Test",
   //   lastName: "Test",
   //   email: "abc@abc.com",
-  //   dateOfBirth: { day: "1", month: "Mar", year: "1904" },
+  //   dateOfBirth: { day: "01", month: "12", year: "2000" },
   //   terms: true,
   //   unitNumber: "AS1234",
   //   streetNumber: "9599",
@@ -59,7 +59,7 @@ export default function ParsonalLoan({ ...props }) {
   //   postCode: "3045",
   //   incomeFrequency: "Fortnightly",
   //   totalIncome: "123",
-  //   refferalConsent: false
+  //   refferalConsent: true
   // };
   const dispatch = useDispatch();
   useEffect(() => {

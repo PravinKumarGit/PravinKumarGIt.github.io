@@ -51,7 +51,7 @@ export default function Input({ ...props }) {
                 return (
                   <input
                     {...rest}
-                    type="text"
+                    type="number"
                     onChange={onChange}
                     onKeyPress={evt => {
                       if (evt.which < 48 || evt.which > 57) {
