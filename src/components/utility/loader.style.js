@@ -21,8 +21,8 @@ const LoaderComponent = styled.div`
   }
 
   .isoContentLoader {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     animation: svgSpinner 1.4s linear infinite;
   }
 
@@ -30,13 +30,20 @@ const LoaderComponent = styled.div`
     animation: svgSpinnerCircle 1.4s ease-in-out infinite;
     stroke-dasharray: 80px, 200px;
     stroke-dashoffset: 0px;
-    stroke: ${palette("color", 15)};
     stroke-linecap: round;
   }
-  .loadingText {
+  .greenCirle {
+    stroke: ${palette("color", 15)};
+  }
+  .greenLabel {
     color: ${palette("color", 14)};
   }
-
+  .whiteCirle {
+    stroke: ${palette("color", 16)};
+  }
+  .whiteLabel {
+    color: ${palette("color", 16)};
+  }
   @keyframes svgSpinner {
     100% {
       transform: rotate(360deg);

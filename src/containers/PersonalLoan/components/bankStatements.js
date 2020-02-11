@@ -7,6 +7,8 @@ import Select from "../../../components/uielements/select/select";
 import Divider from "../../../components/uielements/divider";
 import actions from "../../../redux/startup/actions";
 import SectionHeading from "../../../components/uielements/sectionHeading";
+import Loader from "../../../components/utility/loader";
+
 import LoanSelect from "./selectForLoanResoans";
 import TitleSelect from "./selectForNamePrefix";
 import MobileNoField from "./mobileNoField";
@@ -62,6 +64,9 @@ const PersonalLoanForm = props => {
     dispatch(actions.loanAmountRequest());
   }, [dispatch]);
   const StartUp = useSelector(state => state.StartUp);
+  const { isFetching } = useSelector(state => state.loanForm);
+
+  console.log(props, "");
   return (
     <form
       noValidate
@@ -207,8 +212,11 @@ const PersonalLoanForm = props => {
           />
         </Col>
         <Col sm={12} md={6}>
-          <Button type="submit" disabled={!isValid || !touched.loanAmount}>
-            Go
+          <Button
+            type={isFetching ? "button" : "submit"}
+            disabled={!isValid || !touched.loanAmount}
+          >
+            {isFetching ? <Loader type="light" label="processing..." /> : "Go"}
           </Button>
         </Col>
       </Row>

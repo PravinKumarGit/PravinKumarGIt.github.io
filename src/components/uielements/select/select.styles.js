@@ -38,7 +38,7 @@ const Wrapper = styled.div`
     display: flex;
     width: 100%;
     height: 32px;
-    background-color: ${palette("border", 4)};
+    background-color: ${palette("border", 3)};
     opacity: 0.5;
     border-radius: 5px;
   }
@@ -46,7 +46,7 @@ const Wrapper = styled.div`
     overflow: visible;
   }
   .svg-inline--fa.fa-w-16 {
-    width: 1em;
+    width: 2em;
   }
   .svg-inline--fa {
     display: inline-block;

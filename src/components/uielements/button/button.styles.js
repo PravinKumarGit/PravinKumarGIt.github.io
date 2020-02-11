@@ -17,6 +17,7 @@ const Wrapper = styled.div`
     opacity: 0.85;
     font-size: ${size("p0")};
     width: 100%;
+    position: relative;
   }
 
   .disabled {

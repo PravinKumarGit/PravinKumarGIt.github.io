@@ -11,21 +11,21 @@ const initState = Object.assign(
 
 export default function(state = initState, action) {
   switch (action.type) {
-    case actions.GET_LAON_AMOUNT_START:
+    case actions.POST_LOAN_FORM_START:
       return {
         ...state,
         isFetching: true,
         loanFormResponse: null,
         loanFormError: null
       };
-    case actions.GET_LAON_AMOUNT_SUCCESS:
+    case actions.POST_LOAN_FORM_SUCCESS:
       return {
         ...state,
         isFetching: false,
         loanFormResponse: action.payload,
         loanFormError: null
       };
-    case actions.GET_LAON_AMOUNT_ERROR:
+    case actions.POST_LOAN_FORM_ERROR:
       return {
         ...state,
         isFetching: false,

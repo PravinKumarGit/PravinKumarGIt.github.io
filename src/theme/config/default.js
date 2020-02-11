@@ -53,7 +53,7 @@ theme.palette = {
     "#fb5708", // 18: light red,
     "#7bb840", // 19: extra light green,
     "#50b849", // 20: extra light green,
-    "#000000"  // 21: black,
+    "#000000" // 21: black,
   ],
   warning: [
     "#ffbf00" // 0: Warning
@@ -85,7 +85,8 @@ theme.palette = {
     "#f2f7f0", // 14: extra light gray with green
     "#aaaaaa", // 15: gray with red
     "#fdfff9", // 16: extra light gray with green
-    "#808080"  // 17: GreyDarker
+    "#808080", // 17: GreyDarker
+    "#fefefe"  // 18: Grey
   ],
   text: [
     "#323332", // 0: Heading
@@ -142,6 +143,6 @@ theme.sizes = {
   p2: "13px",
   p3: "12px",
   p4: "11px",
-  p5: "10px",
+  p5: "10px"
 };
 export default theme;

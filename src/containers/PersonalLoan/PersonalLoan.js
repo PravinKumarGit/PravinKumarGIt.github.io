@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch
+  // , useSelector 
+} from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
 
@@ -15,52 +17,56 @@ import WhyLoanText from "./components/whyLoanText";
 import Footer from "../../components/uielements/footer";
 
 import Wrapper from "./PersonalLoan.styles";
-import LoanForm from "./components/LoanForm";
+import LoanForm from "./components/startForm";
 import validationSchema from "./components/validationSchema";
 export default function ParsonalLoan({ ...props }) {
   const [step, setStep] = useState(1);
-  const values = {
-    loanAmount: "",
-    reasonOfLoan: "",
-    title: "",
-    mobileNumber: "",
-    firstName: "",
-    middleName: "",
-    lastName: "",
-    email: "",
-    dateOfBirth: { day: "", month: "", year: "" },
-    terms: false,
-    unitNumber: "",
-    streetNumber: "",
-    suburb: "",
-    street: "",
-    state: "",
-    postCode: "",
-    incomeFrequency: "",
-    totalIncome: "",
-    refferalConsent: false
-  };
+  // const { isFetching, loanFormResponse, loanFormError } = useSelector(
+  //   state => state.loanForm
+  // );
   // const values = {
   //   loanAmount: "",
-  //   reasonOfLoan: "Household Bills",
-  //   title: "Mrs",
-  //   mobileNumber: "0421323123",
-  //   firstName: "Testing",
-  //   middleName: "Test",
-  //   lastName: "Test",
-  //   email: "abc@abc.com",
-  //   dateOfBirth: { day: "01", month: "12", year: "2000" },
-  //   terms: true,
-  //   unitNumber: "AS1234",
-  //   streetNumber: "9599",
-  //   suburb: "Melbourne Airport",
-  //   street: "S Centre Rd",
-  //   state: "VIC",
-  //   postCode: "3045",
-  //   incomeFrequency: "Fortnightly",
-  //   totalIncome: "123",
-  //   refferalConsent: true
+  //   reasonOfLoan: "",
+  //   title: "",
+  //   mobileNumber: "",
+  //   firstName: "",
+  //   middleName: "",
+  //   lastName: "",
+  //   email: "",
+  //   dateOfBirth: { day: "", month: "", year: "" },
+  //   terms: false,
+  //   unitNumber: "",
+  //   streetNumber: "",
+  //   suburb: "",
+  //   street: "",
+  //   state: "",
+  //   postCode: "",
+  //   incomeFrequency: "",
+  //   totalIncome: "",
+  //   refferalConsent: false
   // };
+  const values = {
+    loanAmount: "1000",
+    reasonOfLoan: "Household Bills",
+    title: "Mrs",
+    mobileNumber: "0421323123",
+    firstName: "Testing",
+    middleName: "Test",
+    lastName: "Test",
+    email: "abc@abc.com",
+    dateOfBirth: { day: "01", month: "12", year: "2000" },
+    terms: true,
+    unitNumber: "AS1234",
+    streetNumber: "9599",
+    suburb: "Melbourne Airport",
+    street: "S Centre Rd",
+    state: "VIC",
+    postCode: "3045",
+    incomeFrequency: "Fortnightly",
+    totalIncome: "123",
+    refferalConsent: true,
+    bankStatementReferralCode: ""
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
@@ -70,7 +76,7 @@ export default function ParsonalLoan({ ...props }) {
     setSubmitting(true);
     try {
       setSubmitting(false);
-      dispatch(loanFormActions.postLoanFormRequest(values));
+      dispatch(loanFormActions.postLoanFormRequest({ values, step }));
     } catch (err) {
       console.log(err);
     } finally {
@@ -78,6 +84,18 @@ export default function ParsonalLoan({ ...props }) {
     }
     console.log(values, actions, "Form values");
   };
+  useEffect(() => {
+    window.addEventListener("message", messageEvent => {
+      const bankStatementMessageId = "Bank_Statements_Request_ID";
+      if (
+        messageEvent &&
+        messageEvent.data &&
+        messageEvent.data.messageId === bankStatementMessageId
+      ) {
+        console.log(messageEvent.data.value, "code");
+      }
+    });
+  }, []);
   const STEPS = [
     { step: 1, label: "start", active: true },
     { step: 2, label: "Bank Statement", active: true },
@@ -135,7 +153,47 @@ export default function ParsonalLoan({ ...props }) {
       )}
       {step === 2 && (
         <Paper>
-          <div>comming soon...</div>
+          <Row>
+            <Col>
+              <SectionHeading
+                heading="Bank Statement"
+                subheading={
+                  <span>
+                    Please call us on <a href="tel:+1300324746">1300 324 746</a>{" "}
+                    if you have any queries completing this application.
+                  </span>
+                }
+              />
+              <Divider />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <SectionHeading
+                heading="Your Bank Account"
+                subheading={[
+                  <span>
+                    in order to assess your ability to repay your loan, we are
+                    required to view 90 days of banking history. The simplest
+                    and quickest way to do this is through uploading your
+                    statement using our tool below..
+                  </span>,
+                  <br />,
+                  <span>
+                    Note: we do not see your internet banking details and do not
+                    gain access to your bank account.
+                  </span>
+                ]}
+              />
+              <div class="verifyBankDetails-Container">
+                <iframe
+                  id="fgf-bank-frame"
+                  src="https://bs.fgfdev.com.au"
+                  title="bankFrame"
+                ></iframe>
+              </div>
+            </Col>
+          </Row>
         </Paper>
       )}
       {step === 3 && (
