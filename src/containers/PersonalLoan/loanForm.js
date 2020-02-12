@@ -27,9 +27,9 @@ export default function LoanForm({ ...props }) {
         );
       }
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(props,'LoanForm')
+  // console.log(props, "LoanForm");
   return (
     <>
       {step === 1 && (
@@ -55,7 +55,6 @@ export default function LoanForm({ ...props }) {
               <Divider />
             </Col>
           </Row>
-          <Row></Row>
         </Paper>
       )}
       {step === 2 && (
@@ -80,21 +79,24 @@ export default function LoanForm({ ...props }) {
               <SubSectionHeading
                 heading="Your Bank Account"
                 subheading={[
-                  <span className="left-align">
-                    In order to assess your ability to repay your loan, we are
-                    required to view 90 days of banking history. The simplest
-                    and quickest way to do this is through uploading your
-                    statement using our tool below.
-                  </span>,
-                  <br />,
-                  <span className="left-align">
-                    <span className="label">Note:</span> we do not see your
-                    internet banking details and do not gain access to your bank
-                    account.
+                  <span>
+                    <span className="left-align">
+                      In order to assess your ability to repay your loan, we are
+                      required to view 90 days of banking history. The simplest
+                      and quickest way to do this is through uploading your
+                      statement using our tool below.
+                    </span>
+                    ,
+                    <br />,
+                    <span className="left-align">
+                      <span className="label">Note:</span> we do not see your
+                      internet banking details and do not gain access to your
+                      bank account.
+                    </span>
                   </span>
                 ]}
               />
-              <div class="verifyBankDetails-Container">
+              <div className="verifyBankDetails-Container">
                 <iframe
                   id="fgf-bank-frame"
                   src="https://bs.fgfdev.com.au"
