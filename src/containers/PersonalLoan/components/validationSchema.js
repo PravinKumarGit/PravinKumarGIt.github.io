@@ -59,7 +59,6 @@ export default Yup.object({
       "Please enter a valid mobile number 10 digit start with 04.",
       value => {
         const Regex = /^04\d{8}$/;
-        console.log(value, typeof (value, "validations"));
         let isValid = Regex.test(value);
         if (!isValid) {
           return false;
