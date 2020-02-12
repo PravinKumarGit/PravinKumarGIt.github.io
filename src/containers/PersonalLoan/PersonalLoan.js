@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch
-  // , useSelector 
+import {
+  useDispatch
+  // , useSelector
 } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
@@ -9,15 +10,11 @@ import loanFormActions from "../../redux/loanForm/actions";
 import startUpActions from "../../redux/startup/actions";
 import TopHeader from "../../components/uielements/topHeader";
 import BreadCrum from "../../components/uielements/breadCrum";
-import SectionHeading from "../../components/uielements/sectionHeading";
-import Divider from "../../components/uielements/divider";
-import Paper from "../../components/uielements/paper";
-import Accordian from "../../components/uielements/accordian";
-import WhyLoanText from "./components/whyLoanText";
+
 import Footer from "../../components/uielements/footer";
 
 import Wrapper from "./PersonalLoan.styles";
-import LoanForm from "./components/startForm";
+import LoanForm from "./loanForm";
 import validationSchema from "./components/validationSchema";
 export default function ParsonalLoan({ ...props }) {
   const [step, setStep] = useState(1);
@@ -43,7 +40,8 @@ export default function ParsonalLoan({ ...props }) {
     postCode: "",
     incomeFrequency: "",
     totalIncome: "",
-    refferalConsent: false
+    refferalConsent: false,
+    bankStatementReferralCode: ""
   };
   // const values = {
   //   loanAmount: "1000",
@@ -116,96 +114,15 @@ export default function ParsonalLoan({ ...props }) {
           />
         </Col>
       </Row>
-      {step === 1 && (
-        <Paper>
-          <Row>
-            <Col>
-              <SectionHeading
-                heading="Personal Loan Application"
-                subheading={
-                  <span>
-                    It only takes a few minutes to get an outcome.
-                    <br /> Call us on <a href="tel:+1300324746">
-                      1300 324 746
-                    </a>{" "}
-                    if you have any problems completing this form.
-                  </span>
-                }
-              />
-              <Accordian title="Are you eligible to apply?">
-                <WhyLoanText />
-              </Accordian>
-              <Divider />
-            </Col>
-          </Row>
-          <Row>
-            <Formik
-              initialValues={values}
-              validationSchema={validationSchema}
-              validateOnChange
-              validateOnBlur
-              onSubmit={(values, actions) => handleSubmit(values, actions)}
-            >
-              {props => <LoanForm {...props} />}
-            </Formik>
-          </Row>
-        </Paper>
-      )}
-      {step === 2 && (
-        <Paper>
-          <Row>
-            <Col>
-              <SectionHeading
-                heading="Bank Statement"
-                subheading={
-                  <span>
-                    Please call us on <a href="tel:+1300324746">1300 324 746</a>{" "}
-                    if you have any queries completing this application.
-                  </span>
-                }
-              />
-              <Divider />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <SectionHeading
-                heading="Your Bank Account"
-                subheading={[
-                  <span>
-                    in order to assess your ability to repay your loan, we are
-                    required to view 90 days of banking history. The simplest
-                    and quickest way to do this is through uploading your
-                    statement using our tool below..
-                  </span>,
-                  <br />,
-                  <span>
-                    Note: we do not see your internet banking details and do not
-                    gain access to your bank account.
-                  </span>
-                ]}
-              />
-              <div class="verifyBankDetails-Container">
-                <iframe
-                  id="fgf-bank-frame"
-                  src="https://bs.fgfdev.com.au"
-                  title="bankFrame"
-                ></iframe>
-              </div>
-            </Col>
-          </Row>
-        </Paper>
-      )}
-      {step === 3 && (
-        <Paper>
-          <div>comming soon...</div>
-        </Paper>
-      )}
-      {step === 4 && (
-        <Paper>
-          <div>comming soon...</div>
-        </Paper>
-      )}
+      <Formik
+        initialValues={values}
+        validationSchema={validationSchema}
+        validateOnChange
+        validateOnBlur
+        onSubmit={(values, actions) => handleSubmit(values, actions)}
+      >
+        {props => <LoanForm {...props} step={step} />}
+      </Formik>
       <Footer />
     </Wrapper>
   );

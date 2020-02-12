@@ -6,7 +6,8 @@ import Button from "../../../components/uielements/button";
 import Select from "../../../components/uielements/select/select";
 import Divider from "../../../components/uielements/divider";
 import actions from "../../../redux/startup/actions";
-import SectionHeading from "../../../components/uielements/sectionHeading";
+import SubSectionHeading from "../../../components/uielements/subSectionHeading";
+
 import Loader from "../../../components/utility/loader";
 
 import LoanSelect from "./selectForLoanResoans";
@@ -75,7 +76,7 @@ const Start = props => {
     >
       <Row>
         <Col xl={12}>
-          <SectionHeading heading="How much do you need?" />
+          <SubSectionHeading heading="How much do you need?" />
         </Col>
         <Col sm={12} md={6}>
           <Select
@@ -108,7 +109,7 @@ const Start = props => {
       </Row>
       <Row>
         <Col xl={12}>
-          <SectionHeading heading="About You" />
+          <SubSectionHeading heading="About You" />
         </Col>
         <Col sm={12} md={6}>
           <TitleSelect
@@ -170,7 +171,7 @@ const Start = props => {
       </Row>
       <Row>
         <Col xl={12}>
-          <SectionHeading heading="Your Current Address" />
+          <SubSectionHeading heading="Your Current Address" />
         </Col>
         <Col xl={12}>
           <AddressField {...props} />
@@ -181,7 +182,7 @@ const Start = props => {
       </Row>
       <Row>
         <Col xl={12}>
-          <SectionHeading heading="Your Income" />
+          <SubSectionHeading heading="Your Income" />
         </Col>
         <Col sm={12} md={6}>
           <SelectIncomeFrequency

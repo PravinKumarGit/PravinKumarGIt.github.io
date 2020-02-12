@@ -86,7 +86,7 @@ theme.palette = {
     "#aaaaaa", // 15: gray with red
     "#fdfff9", // 16: extra light gray with green
     "#808080", // 17: GreyDarker
-    "#fefefe"  // 18: Grey
+    "#fefefe" // 18: Grey
   ],
   text: [
     "#323332", // 0: Heading
@@ -143,6 +143,7 @@ theme.sizes = {
   p2: "13px",
   p3: "12px",
   p4: "11px",
-  p5: "10px"
+  p5: "10px",
+  p6: "calc(10px + 2vmin)"
 };
 export default theme;

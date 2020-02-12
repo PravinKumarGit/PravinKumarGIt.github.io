@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     border-radius: 5px;
     font-size: 13px;
     justify-content: center;
+    margin-top: 20px;
   }
 
   #fgf-bank-frame {
@@ -17,8 +18,17 @@ const Wrapper = styled.div`
     width: 80%;
     height: 500px;
     overflow-x: hidden;
-    background-color: rgba(228,228,228,0.815);
+    background-color: rgba(228, 228, 228, 0.815);
     border-radius: 5px;
+  }
+  .label {
+    margin-right: 3px;
+    font-weight: 700;
+  }
+  .left-align {
+    display: flex;
+    text-align: left;
+    flex-direction: row;
   }
 `;
 

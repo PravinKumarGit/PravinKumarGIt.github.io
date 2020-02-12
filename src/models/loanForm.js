@@ -1,7 +1,7 @@
 export default class LoanForm {
   constructor(data = {}, initModel = true) {
     if (initModel) {
-      console.log(data, 'model')
+      console.log(data, "model");
       this.inIt(data);
     }
   }
@@ -16,9 +16,7 @@ export default class LoanForm {
     this.LastName = values.lastName || null;
     this.MobilePhone = values.mobileNumber || null;
     this.EmailAddress = values.email || null;
-    this.DateOfBirth =
-      `${values.dateOfBirth.year}-${values.dateOfBirth.month}-${values.dateOfBirth.day}T00:00:00+00:00` ||
-      null;
+    this.DateOfBirth = values.dateOfBirth || null;
     this.AcceptsPrivacyPolicy = values.terms || false;
     this.UnitNumber = values.unitNumber || null;
     this.StreetNumber = values.streetNumber || null;
