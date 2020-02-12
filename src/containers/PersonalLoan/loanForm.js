@@ -6,7 +6,7 @@ import Divider from "../../components/uielements/divider";
 import Paper from "../../components/uielements/paper";
 import Accordian from "../../components/uielements/accordian";
 import WhyLoanText from "./components/whyLoanText";
-import StartForm from "./components/startForm";
+import StartForm from "./components/formStart";
 
 import SubSectionHeading from "../../components/uielements/subSectionHeading";
 import { useEffect } from "react";
@@ -27,6 +27,7 @@ export default function LoanForm({ ...props }) {
         );
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(props,'LoanForm')
   return (
