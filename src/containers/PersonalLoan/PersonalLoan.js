@@ -15,7 +15,7 @@ import Footer from "../../components/uielements/footer";
 
 import Wrapper from "./PersonalLoan.styles";
 import LoanForm from "./loanForm";
-import validationSchema from "./components/validationSchema";
+import validationSchema from "./components/steps/validationSchema";
 export default function ParsonalLoan({ ...props }) {
   const [step, setStep] = useState(1);
   // const { isFetching, loanFormResponse, loanFormError } = useSelector(

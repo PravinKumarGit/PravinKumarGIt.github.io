@@ -2,7 +2,7 @@ import React from "react";
 import LoaderComponent from "./loader.style";
 
 export default function Loader({ ...props }) {
-  const { label, type } = props;
+  const { label, type, loading } = props;
   const color = {
     circle: "greenCirle",
     label: "greenLabel"
@@ -15,18 +15,20 @@ export default function Loader({ ...props }) {
     default:
   }
   return (
-    <LoaderComponent>
-      <svg className="isoContentLoader" viewBox="0 0 50 50">
-        <circle
-          className={`isoContentLoaderCircle ${color.circle}`}
-          cx="25"
-          cy="25"
-          r="20"
-          fill="none"
-          strokeWidth="3.6"
-        />
-      </svg>
-      <p className={color.label}>{label || "Loading..."}</p>
-    </LoaderComponent>
+    loading !== false && (
+      <LoaderComponent>
+        <svg className="isoContentLoader" viewBox="0 0 50 50">
+          <circle
+            className={`isoContentLoaderCircle ${color.circle}`}
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            strokeWidth="3.6"
+          />
+        </svg>
+        <p className={color.label}>{label || "Loading..."}</p>
+      </LoaderComponent>
+    )
   );
 }

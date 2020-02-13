@@ -2,27 +2,27 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-grid-system";
 
-import Button from "../../../components/uielements/button";
-import Select from "../../../components/uielements/select/select";
-import Divider from "../../../components/uielements/divider";
-import actions from "../../../redux/startup/actions";
-import SubSectionHeading from "../../../components/uielements/subSectionHeading";
+import Button from "../../../../components/uielements/button";
+import Select from "../../../../components/uielements/select/select";
+import Divider from "../../../../components/uielements/divider";
+import actions from "../../../../redux/startup/actions";
+import SubSectionHeading from "../../../../components/uielements/subSectionHeading";
 
-import Loader from "../../../components/utility/loader";
+import Loader from "../../../../components/utility/loader";
 
-import LoanSelect from "./selectForLoanResoans";
-import TitleSelect from "./selectForNamePrefix";
-import MobileNoField from "./mobileNoField";
-import FirstName from "./firstName";
-import MiddleName from "./middleName";
-import LastName from "./lastName";
-import EmailField from "./emailField";
-import DobInput from "./dobField";
-import TermsCheckBox from "./termsCheckBox";
-import SelectIncomeFrequency from "./selectIncomeFrequency";
-import IncomeField from "./incomeField";
-import RefferalCheckbox from "./refferalCheckbox";
-import AddressField from "./addressField";
+import LoanSelect from "../selectForLoanResoans";
+import TitleSelect from "../selectForNamePrefix";
+import MobileNoField from "../mobileNoField";
+import FirstName from "../firstName";
+import MiddleName from "../middleName";
+import LastName from "../lastName";
+import EmailField from "../emailField";
+import DobInput from "../dobField";
+import TermsCheckBox from "../termsCheckBox";
+import SelectIncomeFrequency from "../selectIncomeFrequency";
+import IncomeField from "../incomeField";
+import RefferalCheckbox from "../refferalCheckbox";
+import AddressField from "../addressField";
 
 const Start = props => {
   const {
@@ -63,17 +63,13 @@ const Start = props => {
 
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
-  }, [dispatch]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const StartUp = useSelector(state => state.StartUp);
   const { isFetching } = useSelector(state => state.loanForm);
 
   return (
-    <form
-      noValidate
-      autoComplete="off"
-      className="register-form"
-      onSubmit={props.handleSubmit}
-    >
+    <>
       <Row>
         <Col xl={12}>
           <SubSectionHeading heading="How much do you need?" />
@@ -220,7 +216,7 @@ const Start = props => {
           </Button>
         </Col>
       </Row>
-    </form>
+    </>
   );
 };
 

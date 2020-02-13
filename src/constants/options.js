@@ -69,3 +69,21 @@ export const STATE_CODE = Object.freeze([
   { label: "VIC", value: "VIC" },
   { label: "WA", value: "WA" }
 ]);
+
+export const OCCUPATION_OPTIONS = Object.freeze([
+  { label: "Professional OR Executive", value: "Professional OR Executive" },
+  { label: "Office Staff OR Clerical", value: "Office Staff OR Clerical" },
+  { label: "Trade", value: "Trade" },
+  { label: "Unskilled", value: "Unskilled" },
+  { label: "Unemployed, Benefits", value: "Unemployed, Benefits" },
+  { label: "Retired, Super", value: "Retired, Super" },
+  { label: "All Others", value: "All Others" }
+]);
+export const EMPLOYMENT_OPTIONS = Object.freeze([
+  { label: "Full Time Work", value: "Full Time Work" },
+  { label: "Part Time Work", value: "Part Time Work" },
+  { label: "Casual Work", value: "Casual Work" },
+  { label: "Self Employed", value: "Self Employed" },
+  { label: "Centrelink", value: "Centrelink" },
+  { label: "Other", value: "Other" }
+]);

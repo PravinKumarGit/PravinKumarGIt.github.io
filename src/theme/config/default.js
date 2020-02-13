@@ -47,11 +47,11 @@ theme.palette = {
     "#ca3f13", // 12: Auth0
     "#e0364c", // 13: themeColor--AlizarinCrimson
     "#94c840", // 14: light green
-    "#00673f", // 15: Dark green
+    "#00673f", // 15: themeColor--- Dark green
     "#FFFFFF", // 16: white,
     "#7b7b7b", // 17: light gray,
     "#fb5708", // 18: light red,
-    "#7bb840", // 19: extra light green,
+    "#7bb840", // 19: themeColor-- extra light green,
     "#50b849", // 20: extra light green,
     "#000000" // 21: black,
   ],
