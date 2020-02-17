@@ -10,10 +10,17 @@ import Loader from "../../../../components/utility/loader";
 
 import OccupationSelect from "../selectOccupation";
 import EmploymentSelect from "../selectEmployment";
+import DateStarted from "../dateStarted";
+import EmployerContact from "../employerContact";
+import BusinessName from "../businessName";
+import DateStartedAddress from "../dateStartedAddress";
+import LivingSituation from "../selectLivingSituation";
+import DependentCount from "../selectDependentCount";
+import ResidentialStatus from "../selectResidentialStatus";
 
 const Start = props => {
   const {
-    values: { occupation, employmentType },
+    values: { occupation, businessName, employerPhone, employmentType,livingSituation },
     errors,
     touched,
     handleChange,
@@ -45,6 +52,27 @@ const Start = props => {
             errorMessage={touched.employmentType ? errors.employmentType : ""}
           />
         </Col>
+        <Col sm={12} md={6}>
+          <BusinessName
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={businessName}
+            name="businessName"
+            errorMessage={touched.businessName ? errors.businessName : ""}
+          />
+        </Col>
+        <Col sm={12} md={6}>
+          <DateStarted {...props} />
+        </Col>
+        <Col sm={12} md={6}>
+          <EmployerContact
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={employerPhone}
+            name="employerPhone"
+            errorMessage={touched.employerPhone ? errors.employerPhone : ""}
+          />
+        </Col>
         <Col xl={12}>
           <Divider />
         </Col>
@@ -53,8 +81,28 @@ const Start = props => {
         <Col xl={12}>
           <SubSectionHeading heading="Your Living Situation" />
         </Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}><LivingSituation /></Col>
+        <Col sm={12} md={6}>
+          <DependentCount
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={livingSituation}
+            name="livingSituation"
+            errorMessage={touched.livingSituation ? errors.livingSituation : ""}
+          />
+        </Col>
+        <Col sm={12} md={6}>
+          <ResidentialStatus
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={businessName}
+            name="businessName"
+            errorMessage={touched.businessName ? errors.businessName : ""}
+          />
+        </Col>
+        <Col sm={12} md={6}>
+          <DateStartedAddress {...props} />
+        </Col>
         <Col xl={12}>
           <Divider />
         </Col>
