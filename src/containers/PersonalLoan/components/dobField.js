@@ -176,7 +176,7 @@ export default function LoanReasons({ ...props }) {
                     <option className={`select-Option`} value="">
                       Year
                     </option>
-                    {(YEARS || []).map((item, index) => (
+                    {(YEARS() || []).map((item, index) => (
                       <option
                         key={`${new Date().getTime()}${index}`}
                         className={`select-Option${index}`}

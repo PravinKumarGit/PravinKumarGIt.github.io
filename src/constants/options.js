@@ -50,14 +50,14 @@ export const MONTHS = Object.freeze([
   { value: "11", label: "Nov" },
   { value: "12", label: "Dec" }
 ]);
-export const YEARS = (() => {
+export const YEARS = (min = 18, max = 81) => {
   const years = [];
   const date = new Date();
-  for (let i = date.getFullYear() - 18; i > date.getFullYear() - 81; i--) {
+  for (let i = date.getFullYear() - min; i > date.getFullYear() - max; i--) {
     years.push({ label: i, value: i });
   }
   return Object.freeze(years);
-})();
+};
 
 export const STATE_CODE = Object.freeze([
   { label: "ACT", value: "ACT" },
@@ -85,5 +85,41 @@ export const EMPLOYMENT_OPTIONS = Object.freeze([
   { label: "Casual Work", value: "Casual Work" },
   { label: "Self Employed", value: "Self Employed" },
   { label: "Centrelink", value: "Centrelink" },
+  { label: "Other", value: "Other" }
+]);
+
+export const LIVING_SITUATION_OPTIONS = Object.freeze([
+  { label: "I live alone", value: "I live alone" },
+  { label: "I live with friend(s)", value: "I live with friend(s)" },
+  { label: "I live with my partner", value: "I live with my partner" },
+  {
+    label: "I live with my parents (or other relatives)",
+    value: "I live with my parents (or other relatives)"
+  },
+  { label: "Other", value: "Other" }
+]);
+
+export const DEPENDENT_COUNT_OPTIONS = Object.freeze([
+  { label: "0", value: "0" },
+  { label: "1", value: "1" },
+  { label: "2", value: "2" },
+  { label: "3", value: "3" },
+  { label: "4", value: "4" },
+  { label: "5", value: "5" },
+  { label: "6+", value: "6+" }
+]);
+
+export const RESIDENTIAL_STATUS = Object.freeze([
+  { label: "Renting", value: "Renting" },
+  { label: "Mortgage", value: "Mortgage" },
+  {
+    label: "Boarding (with friends/family/relatives)",
+    value: "Boarding (with friends/family/relatives)"
+  },
+  {
+    label: "Homeowner (no mortgage owing)",
+    value: "Homeowner (no mortgage owing)"
+  },
+  { label: "Caravan", value: "Caravan" },
   { label: "Other", value: "Other" }
 ]);

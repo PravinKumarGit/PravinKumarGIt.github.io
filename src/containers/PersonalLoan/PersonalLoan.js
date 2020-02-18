@@ -41,7 +41,19 @@ export default function ParsonalLoan({ ...props }) {
     incomeFrequency: "",
     totalIncome: "",
     refferalConsent: false,
-    bankStatementReferralCode: ""
+    //step 2
+    bankStatementReferralCode: "",
+    // step 3
+    occupation: "",
+    employmentBasis: "",
+    employerName: "",
+    businessName: "",
+    employerPhone: "",
+    dateStarted: { day: 1, month: "", year: "" },
+    dateStartedAtCurrentAddress: { day: 1, month: "", year: "" },
+    livingSituation:"",
+    numberOfDependents:"",
+    residentialStatus: ""
   };
   // const values = {
   //   loanAmount: "1000",
