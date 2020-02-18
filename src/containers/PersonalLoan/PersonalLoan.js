@@ -95,7 +95,7 @@ export default function ParsonalLoan({ ...props }) {
     });
   }, []);
   const STEPS = [
-    { step: 1, label: "start", active: true },
+    { step: 1, label: "Start", active: true },
     { step: 2, label: "Bank Statement", active: true },
     { step: 3, label: "General Living", active: true },
     { step: 4, label: "Finally", active: true }
