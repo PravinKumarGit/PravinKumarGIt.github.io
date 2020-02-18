@@ -6,7 +6,7 @@ export default class LoanAmount {
   }
 
   inIt(data) {
-    this.label = data;
+    this.label = `$${data}`;
     this.value = data;
   }
 }
