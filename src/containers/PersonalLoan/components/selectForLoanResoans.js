@@ -9,7 +9,6 @@ export default function LoanReasons({ ...props }) {
         options={LOAN_REASON_OPTIONS}
         helpToolTip
         ToolTipText="What do you require the majority of the funds for?"
-        OptionalLabel
         {...props}
       />
     </>
