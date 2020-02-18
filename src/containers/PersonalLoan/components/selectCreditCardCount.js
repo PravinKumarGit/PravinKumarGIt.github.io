@@ -1,14 +1,14 @@
 import React from "react";
 import Select from "../../../components/uielements/select/select";
 import { COUNT_OPTIONS } from "../../../constants/options";
-export default function DependentCount({ ...props }) {
+export default function CreditCardCount({ ...props }) {
   return (
     <>
       <Select
         isPlaceHolder
-        placeholder="Please Select"
-        Title="Number of dependants"
-        options={COUNT_OPTIONS(0,6)}
+        placeholder="Number of credit cards"
+        Title="Credit Card commitments"
+        options={COUNT_OPTIONS(0, 5)}
         {...props}
       />
     </>
