@@ -99,15 +99,14 @@ export const LIVING_SITUATION_OPTIONS = Object.freeze([
   { label: "Other", value: "Other" }
 ]);
 
-export const DEPENDENT_COUNT_OPTIONS = Object.freeze([
-  { label: "0", value: "0" },
-  { label: "1", value: "1" },
-  { label: "2", value: "2" },
-  { label: "3", value: "3" },
-  { label: "4", value: "4" },
-  { label: "5", value: "5" },
-  { label: "6+", value: "6+" }
-]);
+export const COUNT_OPTIONS = (min = 0, max = 6) => {
+  const COUNT = [];
+  for (let i = min; i <= max; i++) {
+    if (i !== max) COUNT.push({ label: i, value: i });
+    else COUNT.push({ label: `${i}+`, value: `${i}+` });
+  }
+  return Object.freeze(COUNT);
+};
 
 export const RESIDENTIAL_STATUS = Object.freeze([
   { label: "Renting", value: "Renting" },

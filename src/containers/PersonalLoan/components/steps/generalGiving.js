@@ -17,10 +17,18 @@ import DateStartedAddress from "../dateStartedAddress";
 import LivingSituation from "../selectLivingSituation";
 import DependentCount from "../selectDependentCount";
 import ResidentialStatus from "../selectResidentialStatus";
+import CreditCardCount from "../selectCreditCardCount";
 
 const Start = props => {
   const {
-    values: { occupation, businessName, employerPhone, employmentType,livingSituation },
+    values: {
+      occupation,
+      businessName,
+      employerPhone,
+      employmentType,
+      livingSituation,
+      creditCardCount
+    },
     errors,
     touched,
     handleChange,
@@ -81,7 +89,9 @@ const Start = props => {
         <Col xl={12}>
           <SubSectionHeading heading="Your Living Situation" />
         </Col>
-        <Col sm={12} md={6}><LivingSituation /></Col>
+        <Col sm={12} md={6}>
+          <LivingSituation />
+        </Col>
         <Col sm={12} md={6}>
           <DependentCount
             onChange={handleChange}
@@ -112,14 +122,30 @@ const Start = props => {
           <SubSectionHeading
             heading="Your Expenses"
             subheading={
-              <span>
-                Please be as accurate as possible with your expenses. If they
-                are greatly different from what your bank statement shows, any
-                conditional loan offer provided
-              </span>
+              <>
+                <p>
+                  Please be as accurate as possible with your expenses. If they
+                  are greatly
+                </p>
+                <p>
+                  different from what your bank statement shows, any conditional
+                  loan offer
+                </p>
+                <p>provided</p>
+              </>
             }
           />
         </Col>
+        <Col sm={12} md={6}>
+          <CreditCardCount
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={creditCardCount}
+            name="creditCardCount"
+            errorMessage={touched.creditCardCount ? errors.creditCardCount : ""}
+          />
+        </Col>
+        <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}>
           <Button
