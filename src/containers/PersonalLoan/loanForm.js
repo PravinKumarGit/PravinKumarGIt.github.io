@@ -9,6 +9,7 @@ import WhyLoanText from "./components/whyLoanText";
 import StartForm from "./components/steps/formStart";
 import GeneralGiving from "./components/steps/generalGiving";
 import BankStatement from "./components/steps/formBankStatement";
+import Finally from "./components/steps/formFinally";
 
 import SubSectionHeading from "../../components/uielements/subSectionHeading";
 import Wrapper from "./loanForm.styles";
@@ -118,7 +119,13 @@ export default function LoanForm({ ...props }) {
         )}
         {step === 4 && (
           <Paper>
-            <div>comming soon...</div>
+            <Row>
+              <Col>
+                <Divider />
+                <Finally {...props} />
+                <Divider />
+              </Col>
+            </Row>
           </Paper>
         )}
       </form>

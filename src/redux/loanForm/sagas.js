@@ -2,18 +2,17 @@ import { all, call, takeLatest, put } from "redux-saga/effects";
 import actions from "./actions";
 import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
-import LoanFormModel from "../../models/loanForm";
+import { LoanFormPost } from "../../models/loanForm";
 function* loanForm(action) {
   console.log(action);
 
-  const payLoad = new LoanFormModel(action.payload);
+  const payLoad = new LoanFormPost(action.payload);
   try {
     const response = yield call(postLoanForm, payLoad);
     const { status, data } = response;
     switch (status) {
       case 200:
-        const DataModel = new LoanFormModel(data);
-        yield put(actions.postLoanFormSuccess(DataModel));
+        yield put(actions.postLoanFormSuccess(data));
         break;
       default: {
         yield put(

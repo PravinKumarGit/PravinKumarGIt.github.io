@@ -16,45 +16,11 @@ import Footer from "../../components/uielements/footer";
 import Wrapper from "./PersonalLoan.styles";
 import LoanForm from "./loanForm";
 import validationSchema from "./components/steps/validationSchema";
+import { LoanFormGet } from "../../models/loanForm";
+
 export default function ParsonalLoan({ ...props }) {
   const [step, setStep] = useState(1);
-  // const { isFetching, loanFormResponse, loanFormError } = useSelector(
-  //   state => state.loanForm
-  // );
-  const values = {
-    loanAmount: "",
-    reasonOfLoan: "",
-    title: "",
-    mobileNumber: "",
-    firstName: "",
-    middleName: "",
-    lastName: "",
-    email: "",
-    dateOfBirth: { day: "", month: "", year: "" },
-    terms: false,
-    unitNumber: "",
-    streetNumber: "",
-    suburb: "",
-    street: "",
-    state: "",
-    postCode: "",
-    incomeFrequency: "",
-    totalIncome: "",
-    refferalConsent: false,
-    //step 2
-    bankStatementReferralCode: "",
-    // step 3
-    occupation: "",
-    employmentBasis: "",
-    employerName: "",
-    businessName: "",
-    employerPhone: "",
-    dateStarted: { day: 1, month: "", year: "" },
-    dateStartedAtCurrentAddress: { day: 1, month: "", year: "" },
-    livingSituation:"",
-    numberOfDependents:"",
-    residentialStatus: ""
-  };
+
   // const values = {
   //   loanAmount: "1000",
   //   reasonOfLoan: "Household Bills",
@@ -74,7 +40,7 @@ export default function ParsonalLoan({ ...props }) {
   //   postCode: "3045",
   //   incomeFrequency: "Fortnightly",
   //   totalIncome: "123",
-  //   refferalConsent: true,
+  //   referralConsent: true,
   //   bankStatementReferralCode: ""
   // };
   const dispatch = useDispatch();
@@ -127,7 +93,7 @@ export default function ParsonalLoan({ ...props }) {
         </Col>
       </Row>
       <Formik
-        initialValues={values}
+        initialValues={new LoanFormGet({ values: {}, step })}
         validationSchema={validationSchema}
         validateOnChange
         validateOnBlur
