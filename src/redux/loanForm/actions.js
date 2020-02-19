@@ -1,19 +1,22 @@
-import { createGenericAction } from "../utility/actions";
+import { createPayloadAction, createEmptyAction } from "../utility/actions";
 
 const POST_LOAN_FORM_START = "POST_LOAN_FORM_START";
 const POST_LOAN_FORM_SUCCESS = "POST_LOAN_FORM_SUCCESS";
 const POST_LOAN_FORM_ERROR = "POST_LOAN_FORM_ERROR";
-const LOAN_FORM_COMPLETE_PAGE = "LOAN_FORM_COMPLETE_PAGE";
+const INCREMENT_STEP = "INCREMENT_STEP";
+const SET_STEP = "SET_STEP";
 
 const actions = {
   POST_LOAN_FORM_START,
   POST_LOAN_FORM_SUCCESS,
   POST_LOAN_FORM_ERROR,
-  LOAN_FORM_COMPLETE_PAGE,
-  postLoanFormRequest: createGenericAction(POST_LOAN_FORM_START),
-  postLoanFormSuccess: createGenericAction(POST_LOAN_FORM_SUCCESS),
-  postLoanFormError: createGenericAction(POST_LOAN_FORM_ERROR),
-  loanFormCompletePage: createGenericAction(LOAN_FORM_COMPLETE_PAGE)
+  INCREMENT_STEP,
+  SET_STEP,
+  postLoanFormRequest: createPayloadAction(POST_LOAN_FORM_START),
+  postLoanFormSuccess: createPayloadAction(POST_LOAN_FORM_SUCCESS),
+  postLoanFormError: createPayloadAction(POST_LOAN_FORM_ERROR),
+  incrementStep: createEmptyAction(INCREMENT_STEP),
+  setStep: createPayloadAction(SET_STEP)
 };
 
 export default actions;

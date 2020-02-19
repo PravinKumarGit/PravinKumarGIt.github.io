@@ -3,17 +3,22 @@ import actions from "./actions";
 import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
 import LoanFormModel from "../../models/loanForm";
-function* loanForm(action) {
-  console.log(action);
 
-  const payLoad = new LoanFormModel(action.payload);
+function* loanForm(action) {
+  console.log({action});
+  const { payload } = action;
+  const { step } = payload;
+
+  const loanFormModel = new LoanFormModel(payload);
   try {
-    const response = yield call(postLoanForm, payLoad);
+    const response = yield call(postLoanForm, loanFormModel);
     const { status, data } = response;
     switch (status) {
       case 200:
         const DataModel = new LoanFormModel(data);
         yield put(actions.postLoanFormSuccess(DataModel));
+        
+        yield put(actions.incrementStep());
         break;
       default: {
         yield put(

@@ -5,7 +5,8 @@ const initState = Object.assign(
   {
     isFetching: null,
     loanFormResponse: null,
-    loanFormError: null
+    loanFormError: null,
+    step: 1
   }
 );
 
@@ -31,6 +32,18 @@ export default function(state = initState, action) {
         isFetching: false,
         loanFormResponse: null,
         loanFormError: action.payload
+      };
+    case actions.INCREMENT_STEP:
+      const totalSteps = 4;
+      const nextStep = Math.min(state.step + 1, totalSteps);
+      return {
+        ...state,
+        step: nextStep
+      };
+    case actions.SET_STEP:
+      return {
+        ...state,
+        step: action.payload
       };
     default:
       return initState;

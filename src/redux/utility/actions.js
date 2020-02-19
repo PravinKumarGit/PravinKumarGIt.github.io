@@ -1,4 +1,6 @@
-﻿export const createGenericAction = type => payload => ({
+﻿export const createPayloadAction = type => payload => ({
     type,
     payload
 });
+
+export const createEmptyAction = type => () => ({type});

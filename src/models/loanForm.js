@@ -6,80 +6,80 @@ export default class LoanForm {
     }
   }
 
-  inIt({ values, step }) {
+  inIt({ value: formValues, step }) {
     // step 1
-    this.LoanAmount = values.loanAmount || null;
-    this.LoanReason = values.reasonOfLoan || null;
-    this.Title = values.title || null;
-    this.FirstName = values.firstName || null;
-    this.MiddleName = values.middleName || null;
-    this.LastName = values.lastName || null;
-    this.MobilePhone = values.mobileNumber || null;
-    this.EmailAddress = values.email || null;
-    this.DateOfBirth = values.dateOfBirth || null;
-    this.AcceptsPrivacyPolicy = values.terms || false;
-    this.UnitNumber = values.unitNumber || null;
-    this.StreetNumber = values.streetNumber || null;
-    this.Suburb = values.suburb || null;
-    this.Street = values.street || null;
-    this.State = values.state || null;
-    this.PostCode = values.postCode || null;
-    this.ReferralConsent = values.refferalConsent || false;
-    this.IncomeFrequency = values.incomeFrequency || null;
-    this.TotalIncome = values.totalIncome || null;
+    this.LoanAmount = formValues.loanAmount || null;
+    this.LoanReason = formValues.reasonOfLoan || null;
+    this.Title = formValues.title || null;
+    this.FirstName = formValues.firstName || null;
+    this.MiddleName = formValues.middleName || null;
+    this.LastName = formValues.lastName || null;
+    this.MobilePhone = formValues.mobileNumber || null;
+    this.EmailAddress = formValues.email || null;
+    this.DateOfBirth = formValues.dateOfBirth || null;
+    this.AcceptsPrivacyPolicy = formValues.terms || false;
+    this.UnitNumber = formValues.unitNumber || null;
+    this.StreetNumber = formValues.streetNumber || null;
+    this.Suburb = formValues.suburb || null;
+    this.Street = formValues.street || null;
+    this.State = formValues.state || null;
+    this.PostCode = formValues.postCode || null;
+    this.ReferralConsent = formValues.refferalConsent || false;
+    this.IncomeFrequency = formValues.incomeFrequency || null;
+    this.TotalIncome = formValues.totalIncome || null;
     if (step === 1) return;
 
     // step 2
-    this.bankStatementReferralCode = values.bankStatementReferralCode || null;
+    this.bankStatementReferralCode = formValues.bankStatementReferralCode || null;
     if (step === 2) return;
 
     // step 3
-    this.occupation = values.occupation || null;
-    this.employmentBasis = values.employmentBasis || null;
-    this.employerName = values.employerName || null;
-    this.businessName = values.businessName || null;
-    this.employerPhone = values.employerPhone || null;
-    this.dateStarted = values.dateStarted || null;
-    this.nextPayDate = values.nextPayDate || null;
-    this.numberOfDependents = values.numberOfDependents || null;
-    this.livingSituation = values.livingSituation || null;
-    this.partnerIncome = values.partnerIncome || null;
-    this.residentialStatus = values.residentialStatus || null;
+    this.occupation = formValues.occupation || null;
+    this.employmentBasis = formValues.employmentBasis || null;
+    this.employerName = formValues.employerName || null;
+    this.businessName = formValues.businessName || null;
+    this.employerPhone = formValues.employerPhone || null;
+    this.dateStarted = formValues.dateStarted || null;
+    this.nextPayDate = formValues.nextPayDate || null;
+    this.numberOfDependents = formValues.numberOfDependents || null;
+    this.livingSituation = formValues.livingSituation || null;
+    this.partnerIncome = formValues.partnerIncome || null;
+    this.residentialStatus = formValues.residentialStatus || null;
     this.weeklyEstimatedCostOfLiving =
-      values.weeklyEstimatedCostOfLiving || null;
-    this.creditCardCount = values.creditCardCount || null;
+      formValues.weeklyEstimatedCostOfLiving || null;
+    this.creditCardCount = formValues.creditCardCount || null;
     if (step === 3) return;
 
     // step 4
-    this.identificationType = values.identificationType || null;
-    this.driversLicenceNumber = values.driversLicenceNumber || null;
-    this.driversLicenceCardNumber = values.driversLicenceCardNumber || null;
-    this.driversLicenceState = values.driversLicenceState || null;
-    this.driversLicenceExpiry = values.driversLicenceExpiry || null;
-    this.medicareName = values.medicareName || null;
-    this.medicareNumber = values.medicareNumber || null;
-    this.medicareReference = values.medicareReference || null;
-    this.medicareCardColour = values.medicareCardColour || null;
-    this.medicareDateExpiry = values.medicareDateExpiry || null;
+    this.identificationType = formValues.identificationType || null;
+    this.driversLicenceNumber = formValues.driversLicenceNumber || null;
+    this.driversLicenceCardNumber = formValues.driversLicenceCardNumber || null;
+    this.driversLicenceState = formValues.driversLicenceState || null;
+    this.driversLicenceExpiry = formValues.driversLicenceExpiry || null;
+    this.medicareName = formValues.medicareName || null;
+    this.medicareNumber = formValues.medicareNumber || null;
+    this.medicareReference = formValues.medicareReference || null;
+    this.medicareCardColour = formValues.medicareCardColour || null;
+    this.medicareDateExpiry = formValues.medicareDateExpiry || null;
     this.consentsToIdentityVerification =
-      values.consentsToIdentityVerification || false;
-    this.workContactNumber = values.workContactNumber || null;
-    this.homePhoneNumber = values.homePhoneNumber || null;
-    this.secondaryEmail = values.secondaryEmail || null;
-    this.alternateContactName = values.alternateContactName || null;
-    this.alternateContactNumber = values.alternateContactNumber || null;
-    this.alternateRelationship = values.alternateRelationship || null;
-    this.foreseeableChanges = values.foreseeableChanges || false;
-    this.foreseeableChangesExplain = values.foreseeableChangesExplain || null;
-    this.residencyStatus = values.residencyStatus || null;
-    this.accountPk = values.accountPk || null;
-    this.accountExternalId = values.accountExternalId || null;
-    this.loanSecurity = values.loanSecurity || null;
-    this.brokerExternalPartyId = values.brokerExternalPartyId || null;
+      formValues.consentsToIdentityVerification || false;
+    this.workContactNumber = formValues.workContactNumber || null;
+    this.homePhoneNumber = formValues.homePhoneNumber || null;
+    this.secondaryEmail = formValues.secondaryEmail || null;
+    this.alternateContactName = formValues.alternateContactName || null;
+    this.alternateContactNumber = formValues.alternateContactNumber || null;
+    this.alternateRelationship = formValues.alternateRelationship || null;
+    this.foreseeableChanges = formValues.foreseeableChanges || false;
+    this.foreseeableChangesExplain = formValues.foreseeableChangesExplain || null;
+    this.residencyStatus = formValues.residencyStatus || null;
+    this.accountPk = formValues.accountPk || null;
+    this.accountExternalId = formValues.accountExternalId || null;
+    this.loanSecurity = formValues.loanSecurity || null;
+    this.brokerExternalPartyId = formValues.brokerExternalPartyId || null;
     this.brokerExternalPartyEmployeeClientEmploymentId =
-      values.brokerExternalPartyEmployeeClientEmploymentId || null;
-    this.maritalStatus = values.maritalStatus || null;
-    this.consentsToScoreSeeker = values.consentsToScoreSeeker || false;
+      formValues.brokerExternalPartyEmployeeClientEmploymentId || null;
+    this.maritalStatus = formValues.maritalStatus || null;
+    this.consentsToScoreSeeker = formValues.consentsToScoreSeeker || false;
     if (step === 4) return;
   }
 }
