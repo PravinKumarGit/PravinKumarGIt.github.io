@@ -1,57 +1,67 @@
 /* eslint-disable no-useless-escape */
 import * as Yup from "yup";
+
+const requiredFieldMessage = "is required";
+const invalidValue = "not a valid value";
+const requiredLetterInputFieldRegexMessage = "Value entered must be minimum 2 characters.";
+
+const requiredLetterInputFieldRegex = /^[A-Za-z ]+$/;
+const requiredDigitInputFieldRegex = /^[0-9]+$/;
+const requiredDigitOrLetterInputFieldRegex = /^[0-9A-Za-z ]+$/;
+const twoCharacterInputFieldRegex = /^[A-Za-z ]{2,}$/;
+
 export default Yup.object({
   title: Yup.string()
     .trim()
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   // loanAmount validations - required field
   loanAmount: Yup.string()
     .trim()
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   // loanAmount validations - required field
   reasonOfLoan: Yup.string()
     .trim()
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   // // name validations - Alphabet only, required field
   firstName: Yup.string()
     .trim()
-    .matches(/^[A-Za-z ]+$/, {
-      message: "not a valid value",
+    .matches(requiredLetterInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     })
-    .matches(/^[A-Za-z ]{2,}$/, {
-      message: "Value entered must be minimum 2 characters.",
+    .matches(twoCharacterInputFieldRegex, {
+      message: requiredLetterInputFieldRegexMessage,
       excludeEmptyString: true
     })
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   // name validations =  Alphabet only, required field
   middleName: Yup.string()
     .trim()
-    .matches(/^[A-Za-z ]+$/, {
-      message: "not a valid value",
+    .matches(requiredLetterInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     })
-    .matches(/^[A-Za-z ]{2,}$/, {
-      message: "Value entered must be minimum 2 characters.",
+    .matches(twoCharacterInputFieldRegex, {
+      message: requiredLetterInputFieldRegexMessage,
       excludeEmptyString: true
     }),
   // name validations =  Alphabet only, required field
   lastName: Yup.string()
     .trim()
-    .matches(/^[A-Za-z ]+$/, {
-      message: "not a valid value",
+    .matches(requiredLetterInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     })
-    .matches(/^[A-Za-z ]{2,}$/, {
-      message: "Value entered must be minimum 2 characters.",
+    .matches(twoCharacterInputFieldRegex, {
+      message: requiredLetterInputFieldRegexMessage,
       excludeEmptyString: true
     })
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   mobileNumber: Yup.string()
     .trim()
-    .required("This field is required.")
-    .matches(/^[0-9]+$/, {
-      message: "not a valid value",
+    .required(requiredFieldMessage)
+    .matches(requiredDigitInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     })
     .test(
@@ -69,68 +79,63 @@ export default Yup.object({
   terms: Yup.bool().oneOf([true], "Field must be checked"),
   unitNumber: Yup.string()
     .trim()
-    .matches(/^[0-9A-Za-z ]+$/, {
-      message: "not a valid value",
+    .matches(requiredDigitOrLetterInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     }),
   streetNumber: Yup.string()
     .trim()
-    .required("This field is required.")
-    .matches(/^[0-9A-Za-z ]+$/, {
-      message: "not a valid value",
+    .required(requiredFieldMessage)
+    .matches(requiredDigitOrLetterInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     }),
   suburb: Yup.string()
     .trim()
-    .required("This field is required.")
-    .matches(/^[A-Za-z ]+$/, {
-      message: "not a valid value.",
+    .required(requiredFieldMessage)
+    .matches(requiredLetterInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     }),
   street: Yup.string()
     .trim()
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   state: Yup.string()
     .trim()
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   postCode: Yup.string()
     .trim()
-    .matches(/^[0-9]+$/, {
-      message: "not a valid value.",
+    .matches(requiredDigitInputFieldRegex, {
+      message: invalidValue,
       excludeEmptyString: true
     }),
   // email validations =  Alphabet only, required field
   email: Yup.string()
     .trim()
-    .required("This field is required.")
+    .required(requiredFieldMessage)
     .test("test-name", "Please enter a valid email address", value => {
       const emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      const isValidEmail = emailRegex.test(value);
-      if (!isValidEmail) return false;
-      return true;
+      return emailRegex.test(value);
     }),
   incomeFrequency: Yup.string()
     .trim()
-    .required("This field is required."),
+    .required(requiredFieldMessage),
   totalIncome: Yup.string()
     .trim()
-    .required("This field is required.")
+    .required(requiredFieldMessage)
     .test("test-MinMax", "Please enter minimum 100 maximum 10000.", value => {
       const isValid = value >= 100 && value <= 10000;
-      if (!isValid) {
-        return false;
-      }
-      return true;
+      return isValid;
     }),
   dateOfBirth: Yup.object().shape({
     day: Yup.string()
       .trim()
-      .required("This field is required."),
+      .required(requiredFieldMessage),
     month: Yup.string()
       .trim()
-      .required("This field is required."),
+      .required(requiredFieldMessage),
     year: Yup.string()
       .trim()
-      .required("This field is required.")
+      .required(requiredFieldMessage)
   })
 });
