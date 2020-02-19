@@ -1,31 +1,19 @@
+import { createGenericAction } from "../utility/actions";
+
+const START_UP = "START_UP";
+const GET_LOAN_AMOUNT_START = "GET_LOAN_AMOUNT_START";
+const GET_LOAN_AMOUNT_SUCCESS = "GET_LOAN_AMOUNT_SUCCESS";
+const GET_LOAN_AMOUNT_ERROR = "GET_LOAN_AMOUNT_ERROR";
+
 const actions = {
-  START_UP: "START_UP",
-  GET_LAON_AMOUNT_START: "GET_LAON_AMOUNT_START",
-  GET_LAON_AMOUNT_SUCCESS: "GET_LAON_AMOUNT_SUCCESS",
-  GET_LAON_AMOUNT_ERROR: "GET_LAON_AMOUNT_ERROR",
-  startUp: payload => {
-    return {
-      type: actions.START_UP,
-      payload
-    };
-  },
-  loanAmountRequest: payload => {
-    return {
-      type: actions.GET_LAON_AMOUNT_START,
-      payload
-    };
-  },
-  loanAmountSuccess: payload => {
-    return {
-      type: actions.GET_LAON_AMOUNT_SUCCESS,
-      payload
-    };
-  },
-  loanAmountError: payload => {
-    return {
-      type: actions.GET_LAON_AMOUNT_ERROR,
-      payload
-    };
-  }
+  START_UP,
+  GET_LOAN_AMOUNT_START,
+  GET_LOAN_AMOUNT_SUCCESS,
+  GET_LOAN_AMOUNT_ERROR,
+  startUp: createGenericAction(START_UP),
+  loanAmountRequest: createGenericAction(GET_LOAN_AMOUNT_START),
+  loanAmountSuccess: createGenericAction(GET_LOAN_AMOUNT_SUCCESS),
+  loanAmountError: createGenericAction(GET_LOAN_AMOUNT_ERROR)
 };
+
 export default actions;
