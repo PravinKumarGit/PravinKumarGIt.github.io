@@ -38,7 +38,7 @@ const Start = props => {
       terms,
       incomeFrequency,
       totalIncome,
-      refferalConsent
+      referralConsent
     },
     errors,
     touched,
@@ -202,9 +202,9 @@ const Start = props => {
           <RefferalCheckbox
             onClick={handleChange}
             onBlur={handleBlur}
-            checked={refferalConsent.toString()}
-            name="refferalConsent"
-            errorMessage={touched.refferalConsent ? errors.refferalConsent : ""}
+            checked={referralConsent.toString()}
+            name="referralConsent"
+            errorMessage={touched.referralConsent ? errors.referralConsent : ""}
           />
         </Col>
         <Col sm={12} md={6}>

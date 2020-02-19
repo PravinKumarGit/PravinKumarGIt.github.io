@@ -1,14 +1,11 @@
 import actions from "./actions";
 
-const initState = Object.assign(
-  {},
-  {
-    isFetching: null,
-    loanFormResponse: null,
-    loanFormError: null,
-    step: 1
-  }
-);
+const initState = {
+  isFetching: null,
+  loanFormResponse: null,
+  loanFormError: null,
+  step: 1
+};
 
 export default function(state = initState, action) {
   switch (action.type) {
@@ -46,6 +43,6 @@ export default function(state = initState, action) {
         step: action.payload
       };
     default:
-      return initState;
+      return state;
   }
 }

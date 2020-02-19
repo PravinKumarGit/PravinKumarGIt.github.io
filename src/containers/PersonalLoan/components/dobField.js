@@ -22,13 +22,16 @@ export default function LoanReasons({ ...props }) {
   const activeDays = [...DAYS];
   const activeDay = () => {
     switch (month) {
-      case "Jun":
+      case MONTHS[5].value:
+      case MONTHS[10].value:
+      case MONTHS[3].value:
+      case MONTHS[8].value:
         activeDays.splice(30, 1);
         if (day && day * 1 === 31) {
           setFieldValue("dateOfBirth.day", "");
         }
         break;
-      case "Feb":
+      case MONTHS[1].value:
         if (year && (year * 1) % 4 === 0) {
           activeDays.splice(29, 2);
           if (day && day * 1 > 29) {
@@ -39,24 +42,6 @@ export default function LoanReasons({ ...props }) {
           if (day && day * 1 > 28) {
             setFieldValue("dateOfBirth.day", "");
           }
-        }
-        break;
-      case "Nov":
-        activeDays.splice(30, 1);
-        if (day && day * 1 === 31) {
-          setFieldValue("dateOfBirth.day", "");
-        }
-        break;
-      case "Apr":
-        activeDays.splice(30, 1);
-        if (day && day * 1 === 31) {
-          setFieldValue("dateOfBirth.day", "");
-        }
-        break;
-      case "Sep":
-        activeDays.splice(30, 1);
-        if (day && day * 1 === 31) {
-          setFieldValue("dateOfBirth.day", "");
         }
         break;
       default:
@@ -113,7 +98,6 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-
                   {touched.dateOfBirth &&
                     errors.dateOfBirth &&
                     touched.dateOfBirth.day &&
@@ -153,9 +137,7 @@ export default function LoanReasons({ ...props }) {
                     errors.dateOfBirth &&
                     touched.dateOfBirth.month &&
                     errors.dateOfBirth.month && (
-                      <div className="message">
-                        {errors.dateOfBirth.month}
-                      </div>
+                      <div className="message">{errors.dateOfBirth.month}</div>
                     )}
                 </div>
                 <div className="dob-input-last">
