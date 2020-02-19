@@ -4,8 +4,6 @@ import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
 import { LoanFormPost } from "../../models/loanForm";
 function* loanForm(action) {
-  console.log(action);
-
   const payLoad = new LoanFormPost(action.payload);
   try {
     const response = yield call(postLoanForm, payLoad);
@@ -21,7 +19,6 @@ function* loanForm(action) {
       }
     }
   } catch (error) {
-    console.log(error);
     yield put(
       actions.postLoanFormError({
         errMessage: error.message || WENT_WRONG_MESSAGE

@@ -35,7 +35,6 @@ export default function ParsonalLoan({ ...props }) {
     } finally {
       setSubmitting(false);
     }
-    console.log(values, actions, "Form values");
   };
   useEffect(() => {
     window.addEventListener("message", messageEvent => {

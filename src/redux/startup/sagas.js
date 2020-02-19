@@ -17,7 +17,6 @@ function* loanAmount() {
       }
     }
   } catch (error) {
-    console.log(error);
     yield put(
       actions.loanAmountError({
         errMessage: error.message || WENT_WRONG_MESSAGE

@@ -91,7 +91,6 @@ export class LoanFormGet {
   }
 
   inIt({ values, step }) {
-    console.log(values, step, this, 'LoanFormGet')
     // step 1
     this.loanAmount = values.loanAmount || "";
     this.reasonOfLoan = values.loanReason || "";
