@@ -40,79 +40,13 @@ const Finally = props => {
     <>
       <Row>
         <Col xl={12}>
-          <SubSectionHeading heading="Your Employment Details" />
+          <SubSectionHeading heading="Additional Documents" />
         </Col>
-        <Col sm={12} md={6}>
-          <OccupationSelect
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={occupation}
-            name="occupation"
-            errorMessage={touched.occupation ? errors.occupation : ""}
-          />
-        </Col>
-        <Col sm={12} md={6}>
-          <EmploymentSelect
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={employmentType}
-            name="employmentType"
-            errorMessage={touched.employmentType ? errors.employmentType : ""}
-          />
-        </Col>
-        <Col sm={12} md={6}>
-          <BusinessName
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={businessName}
-            name="businessName"
-            errorMessage={touched.businessName ? errors.businessName : ""}
-          />
-        </Col>
-        <Col sm={12} md={6}>
-          <DateStarted {...props} />
-        </Col>
-        <Col sm={12} md={6}>
-          <EmployerContact
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={employerPhone}
-            name="employerPhone"
-            errorMessage={touched.employerPhone ? errors.employerPhone : ""}
-          />
-        </Col>
-        <Col xl={12}>
-          <Divider />
-        </Col>
-      </Row>
-      <Row>
-        <Col xl={12}>
-          <SubSectionHeading heading="Your Living Situation" />
-        </Col>
-        <Col sm={12} md={6}>
-          <LivingSituation />
-        </Col>
-        <Col sm={12} md={6}>
-          <DependentCount
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={livingSituation}
-            name="livingSituation"
-            errorMessage={touched.livingSituation ? errors.livingSituation : ""}
-          />
-        </Col>
-        <Col sm={12} md={6}>
-          <ResidentialStatus
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={businessName}
-            name="businessName"
-            errorMessage={touched.businessName ? errors.businessName : ""}
-          />
-        </Col>
-        <Col sm={12} md={6}>
-          <DateStartedAddress {...props} />
-        </Col>
+        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}></Col>
         <Col xl={12}>
           <Divider />
         </Col>
@@ -120,30 +54,35 @@ const Finally = props => {
       <Row>
         <Col xl={12}>
           <SubSectionHeading
-            heading="Your Expenses"
+            heading="Additional Personal Details"
             subheading={
               <>
                 <p>
-                  Please be as accurate as possible with your expenses. If they
-                  are greatly
+                  Speed up your loan outcome and give yourself the best chance
+                  of approval
                 </p>
-                <p>
-                  different from what your bank statement shows, any conditional
-                  loan offer
-                </p>
-                <p>provided</p>
+                <p>by filling in the following details.</p>
               </>
             }
           />
         </Col>
-        <Col sm={12} md={6}>
-          <CreditCardCount
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={creditCardCount}
-            name="creditCardCount"
-            errorMessage={touched.creditCardCount ? errors.creditCardCount : ""}
+        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}></Col>
+        <Col xl={12}>
+          <Divider />
+        </Col>
+      </Row>
+      <Row>
+        <Col xl={12}>
+          <SubSectionHeading
+            heading="And Finally"
+           
           />
+        </Col>
+        <Col sm={12} md={6}>
+          
         </Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
@@ -155,7 +94,7 @@ const Finally = props => {
             {isFetching ? (
               <Loader type="light" label="processing..." />
             ) : (
-              "Next"
+              "Submit"
             )}
           </Button>
         </Col>
