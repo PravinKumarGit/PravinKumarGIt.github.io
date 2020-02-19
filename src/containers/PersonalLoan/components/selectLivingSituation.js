@@ -6,8 +6,8 @@ export default function LivingSituation({ ...props }) {
     <>
       <Select
         isPlaceHolder
-        placeholder="Please Select"
-        Title="Occupation"
+        placeholder="Select..."
+        Title="Describe your living situation"
         options={LIVING_SITUATION_OPTIONS}
         {...props}
       />

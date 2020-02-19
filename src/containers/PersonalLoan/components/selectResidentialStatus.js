@@ -6,7 +6,7 @@ export default function ResidentialStatus({ ...props }) {
     <>
       <Select
         isPlaceHolder
-        placeholder="Please Select"
+        placeholder="Select..."
         Title="Describe your residential status"
         options={RESIDENTIAL_STATUS}
         {...props}
