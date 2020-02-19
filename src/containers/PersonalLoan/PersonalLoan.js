@@ -20,29 +20,6 @@ import { LoanFormGet } from "../../models/loanForm";
 
 export default function ParsonalLoan({ ...props }) {
   const [step, setStep] = useState(1);
-
-  // const values = {
-  //   loanAmount: "1000",
-  //   reasonOfLoan: "Household Bills",
-  //   title: "Mrs",
-  //   mobileNumber: "0421323123",
-  //   firstName: "Testing",
-  //   middleName: "Test",
-  //   lastName: "Test",
-  //   email: "abc@abc.com",
-  //   dateOfBirth: { day: "01", month: "12", year: "2000" },
-  //   terms: true,
-  //   unitNumber: "AS1234",
-  //   streetNumber: "9599",
-  //   suburb: "Melbourne Airport",
-  //   street: "S Centre Rd",
-  //   state: "VIC",
-  //   postCode: "3045",
-  //   incomeFrequency: "Fortnightly",
-  //   totalIncome: "123",
-  //   referralConsent: true,
-  //   bankStatementReferralCode: ""
-  // };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
@@ -78,6 +55,7 @@ export default function ParsonalLoan({ ...props }) {
     { step: 3, label: "General Living", active: true },
     { step: 4, label: "Finally", active: true }
   ];
+  const initialValue = new LoanFormGet({ values: {}, step });
   return (
     <Wrapper>
       <Row>
@@ -92,15 +70,50 @@ export default function ParsonalLoan({ ...props }) {
           />
         </Col>
       </Row>
-      <Formik
-        initialValues={new LoanFormGet({ values: {}, step })}
-        validationSchema={validationSchema}
-        validateOnChange
-        validateOnBlur
-        onSubmit={(values, actions) => handleSubmit(values, actions)}
-      >
-        {props => <LoanForm {...props} step={step} />}
-      </Formik>
+       {step === 1 && (
+        <Formik
+          initialValues={initialValue}
+          validationSchema={validationSchema}
+          validateOnChange
+          validateOnBlur
+          onSubmit={(values, actions) => handleSubmit(values, actions)}
+        >
+          {props => <LoanForm {...props} step={step} />}
+        </Formik>
+      )}
+       {step === 2 && (
+        <Formik
+          initialValues={initialValue}
+          validationSchema={validationSchema}
+          validateOnChange
+          validateOnBlur
+          onSubmit={(values, actions) => handleSubmit(values, actions)}
+        >
+          {props => <LoanForm {...props} step={step} />}
+        </Formik>
+      )}
+       {step === 3 && (
+        <Formik
+          initialValues={initialValue}
+          validationSchema={validationSchema}
+          validateOnChange
+          validateOnBlur
+          onSubmit={(values, actions) => handleSubmit(values, actions)}
+        >
+          {props => <LoanForm {...props} step={step} />}
+        </Formik>
+      )}
+       {step === 4 && (
+        <Formik
+          initialValues={initialValue}
+          validationSchema={validationSchema}
+          validateOnChange
+          validateOnBlur
+          onSubmit={(values, actions) => handleSubmit(values, actions)}
+        >
+          {props => <LoanForm {...props} step={step} />}
+        </Formik>
+      )}
       <Footer />
     </Wrapper>
   );

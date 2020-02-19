@@ -39,7 +39,7 @@ export class LoanFormPost {
     this.businessName = values.businessName || null;
     this.employerPhone = values.employerPhone || null;
     this.dateStarted = values.dateStarted || null;
-    this.nextPayDate = values.nextPayDate || null;
+    this.nextPayDate = values.dateStartedAtCurrentAddress || null;
     this.numberOfDependents = values.numberOfDependents || null;
     this.livingSituation = values.livingSituation || null;
     this.partnerIncome = values.partnerIncome || null;
@@ -91,6 +91,7 @@ export class LoanFormGet {
   }
 
   inIt({ values, step }) {
+    console.log(values, step, this, 'LoanFormGet')
     // step 1
     this.loanAmount = values.loanAmount || "";
     this.reasonOfLoan = values.loanReason || "";
@@ -124,7 +125,7 @@ export class LoanFormGet {
     this.businessName = values.businessName || "";
     this.employerPhone = values.employerPhone || "";
     this.dateStarted = values.dateStarted || { day: 1, month: "", year: "" };
-    this.nextPayDate = values.nextPayDate || { day: 1, month: "", year: "" };
+    this.dateStartedAtCurrentAddress = values.nextPayDate || { day: 1, month: "", year: "" };
     this.numberOfDependents = values.numberOfDependents || "";
     this.livingSituation = values.livingSituation || "";
     this.partnerIncome = values.partnerIncome || "";

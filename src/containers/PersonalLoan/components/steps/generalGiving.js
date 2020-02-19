@@ -35,6 +35,7 @@ const Start = props => {
     handleBlur,
     isValid
   } = props;
+  console.log(props,'generalgiving')
   const { isFetching } = useSelector(state => state.loanForm);
   return (
     <>

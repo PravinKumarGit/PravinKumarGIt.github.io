@@ -17,7 +17,7 @@ import Wrapper from "./loanForm.styles";
 export default function LoanForm({ ...props }) {
   const { step, ...rest } = props;
 
-  // console.log(props, "LoanForm");
+  console.log(props, "LoanForm");
   return (
     <Wrapper>
       <form
