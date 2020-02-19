@@ -6,7 +6,7 @@ export default function Occupation({ ...props }) {
     <>
       <Select
         isPlaceHolder
-        placeholder="Please Select"
+        placeholder="Select..."
         Title="Occupation"
         options={OCCUPATION_OPTIONS}
         {...props}

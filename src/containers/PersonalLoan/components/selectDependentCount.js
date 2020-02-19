@@ -6,7 +6,7 @@ export default function DependentCount({ ...props }) {
     <>
       <Select
         isPlaceHolder
-        placeholder="Please Select"
+        placeholder="Select..."
         Title="Number of dependants"
         options={COUNT_OPTIONS(0,6)}
         {...props}
