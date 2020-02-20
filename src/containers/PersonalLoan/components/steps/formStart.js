@@ -194,6 +194,7 @@ const Start = props => {
             onChange={handleChange}
             onBlur={handleBlur}
             value={totalIncome}
+            incomeFrequency={incomeFrequency}
             name="totalIncome"
             errorMessage={touched.totalIncome ? errors.totalIncome : ""}
           />
