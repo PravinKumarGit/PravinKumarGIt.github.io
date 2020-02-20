@@ -35,12 +35,6 @@ export default function(state = initState, action) {
         loanFormResponse: null,
         loanFormError: action.payload
       };
-    case actions.INCREMENT_STEP:
-      const nextStep = constrainStep(state.step + 1);
-      return {
-        ...state,
-        step: nextStep
-      };
     case actions.SET_STEP:
       return {
         ...state,
