@@ -210,7 +210,7 @@ const Start = props => {
         <Col sm={12} md={6}>
           <Button
             type={isFetching ? "button" : "submit"}
-            disabled={!isValid || !touched.loanAmount}
+            disabled={!isValid || !touched.loanAmount || isFetching}
           >
             {isFetching ? <Loader type="light" label="processing..." /> : "Go"}
           </Button>
