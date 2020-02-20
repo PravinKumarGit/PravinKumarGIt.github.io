@@ -13,7 +13,7 @@ function* loanForm(action) {
     switch (status) {
       case 200:
         yield put(actions.postLoanFormSuccess(data));
-        yield put(actions.incrementStep());
+        yield put(actions.setStep(step + 1));
         break;
       default: {
         yield put(

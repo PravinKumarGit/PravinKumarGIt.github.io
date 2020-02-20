@@ -1,4 +1,4 @@
-import { createPayloadAction } from "../utility/actions";
+import { createPayloadAction, createEmptyAction } from "../utility/actions";
 
 const START_UP = "START_UP";
 const GET_LOAN_AMOUNT_START = "GET_LOAN_AMOUNT_START";
@@ -11,7 +11,7 @@ const actions = {
   GET_LOAN_AMOUNT_SUCCESS,
   GET_LOAN_AMOUNT_ERROR,
   startUp: createPayloadAction(START_UP),
-  loanAmountRequest: createPayloadAction(GET_LOAN_AMOUNT_START),
+  loanAmountRequest: createEmptyAction(GET_LOAN_AMOUNT_START),
   loanAmountSuccess: createPayloadAction(GET_LOAN_AMOUNT_SUCCESS),
   loanAmountError: createPayloadAction(GET_LOAN_AMOUNT_ERROR)
 };

@@ -7,6 +7,11 @@ const initState = {
   step: 1
 };
 
+function constrainStep(stepToSet) {
+  const totalSteps = 4;
+  return Math.min(stepToSet, totalSteps);
+}
+
 export default function(state = initState, action) {
   switch (action.type) {
     case actions.POST_LOAN_FORM_START:
@@ -31,8 +36,7 @@ export default function(state = initState, action) {
         loanFormError: action.payload
       };
     case actions.INCREMENT_STEP:
-      const totalSteps = 4;
-      const nextStep = Math.min(state.step + 1, totalSteps);
+      const nextStep = constrainStep(state.step + 1);
       return {
         ...state,
         step: nextStep
@@ -40,7 +44,7 @@ export default function(state = initState, action) {
     case actions.SET_STEP:
       return {
         ...state,
-        step: action.payload
+        step: constrainStep(action.payload)
       };
     default:
       return state;
