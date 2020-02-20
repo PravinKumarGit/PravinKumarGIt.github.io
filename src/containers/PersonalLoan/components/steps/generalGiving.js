@@ -36,6 +36,7 @@ const Start = props => {
     employerPhone,
     employmentType,
     livingSituation,
+    numberOfDependents,
     creditCardCount,
     residentialStatus,
     residentialPaymentFrequency,
@@ -96,14 +97,20 @@ const Start = props => {
           <SubSectionHeading heading="Your Living Situation" />
         </Col>
         <Col sm={12} md={6}>
-          <LivingSituation />
+          <LivingSituation
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={livingSituation}
+            name="livingSituation"
+            errorMessage={touched.livingSituation ? errors.livingSituation : ""}
+          />
         </Col>
         <Col sm={12} md={6}>
           <DependentCount
             onChange={handleChange}
             onBlur={handleBlur}
-            value={livingSituation}
-            name="livingSituation"
+            value={numberOfDependents}
+            name="numberOfDependents"
             errorMessage={touched.livingSituation ? errors.livingSituation : ""}
           />
         </Col>
