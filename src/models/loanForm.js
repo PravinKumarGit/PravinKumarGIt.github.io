@@ -7,6 +7,7 @@ export class LoanFormPost {
 
   inIt({ values, step }) {
     // step 1
+    this.source = 'App Screen 1 - Basic info';
     this.loanAmount = values.loanAmount || null;
     this.loanReason = values.reasonOfLoan || null;
     this.title = values.title || null;
@@ -29,10 +30,12 @@ export class LoanFormPost {
     if (step === 1) return;
 
     // step 2
+    this.source = 'App Screen 2 - Bank Statements';
     this.bankStatementReferralCode = values.bankStatementReferralCode || null;
     if (step === 2) return;
 
     // step 3
+    this.source = 'App Screen 3 - Additional Info';
     this.occupation = values.occupation || null;
     this.employmentBasis = values.employmentBasis || null;
     this.employerName = values.employerName || null;
@@ -44,12 +47,14 @@ export class LoanFormPost {
     this.livingSituation = values.livingSituation || null;
     this.partnerIncome = values.partnerIncome || null;
     this.residentialStatus = values.residentialStatus || null;
+    this.residentialPaymentFrequency = values.residentialPaymentFrequency || null;
     this.weeklyEstimatedCostOfLiving =
       values.weeklyEstimatedCostOfLiving || null;
     this.creditCardCount = values.creditCardCount || null;
     if (step === 3) return;
 
     // step 4
+    this.source = 'App Screen 4 - Thank You';
     this.identificationType = values.identificationType || null;
     this.driversLicenceNumber = values.driversLicenceNumber || null;
     this.driversLicenceCardNumber = values.driversLicenceCardNumber || null;

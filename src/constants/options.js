@@ -122,3 +122,12 @@ export const RESIDENTIAL_STATUS = Object.freeze([
   { label: "Caravan", value: "Caravan" },
   { label: "Other", value: "Other" }
 ]);
+
+// once we have unit tests/later we can swap the above to use this utility
+const createOption = label => ({label, value: label});
+
+export const RESIDENTIAL_PAYMENT_FREQUENCY = Object.freeze([
+  createOption('Weekly'),
+  createOption('Fortnightly'),
+  createOption('Monthly'),
+]);

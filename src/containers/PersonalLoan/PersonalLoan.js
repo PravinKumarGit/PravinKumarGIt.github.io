@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
-  useDispatch
-  // , useSelector
+  useDispatch, useSelector
 } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
@@ -18,8 +17,8 @@ import LoanForm from "./loanForm";
 import validationSchema from "./components/steps/validationSchema";
 import { LoanFormGet } from "../../models/loanForm";
 
-export default function ParsonalLoan({ ...props }) {
-  const [step, setStep] = useState(1);
+export default function PersonalLoan({ ...props }) {
+  const { step } = useSelector(state => state.loanForm);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
@@ -65,7 +64,7 @@ export default function ParsonalLoan({ ...props }) {
           <BreadCrum
             steps={STEPS}
             activeStep={step}
-            changeStep={step => setStep(step)}
+            changeStep={step => dispatch(loanFormActions.setStep(step))}
           />
         </Col>
       </Row>

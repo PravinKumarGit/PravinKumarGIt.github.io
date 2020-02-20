@@ -18,23 +18,30 @@ import LivingSituation from "../selectLivingSituation";
 import DependentCount from "../selectDependentCount";
 import ResidentialStatus from "../selectResidentialStatus";
 import CreditCardCount from "../selectCreditCardCount";
+import ResidentialPaymentFrequency from "../selectResidentialPaymentFrequency";
 
 const Start = props => {
   const {
-    values: {
-      occupation,
-      businessName,
-      employerPhone,
-      employmentType,
-      livingSituation,
-      creditCardCount
-    },
+    values,
     errors,
     touched,
     handleChange,
     handleBlur,
-    isValid
+    isValid,
+    setFieldValue
   } = props;
+  const {
+    occupation,
+    businessName,
+    employerPhone,
+    employmentType,
+    livingSituation,
+    numberOfDependents,
+    creditCardCount,
+    residentialStatus,
+    residentialPaymentFrequency,
+  } = values;
+  
   const { isFetching } = useSelector(state => state.loanForm);
   return (
     <>
@@ -90,10 +97,7 @@ const Start = props => {
           <SubSectionHeading heading="Your Living Situation" />
         </Col>
         <Col sm={12} md={6}>
-          <LivingSituation />
-        </Col>
-        <Col sm={12} md={6}>
-          <DependentCount
+          <LivingSituation
             onChange={handleChange}
             onBlur={handleBlur}
             value={livingSituation}
@@ -102,16 +106,36 @@ const Start = props => {
           />
         </Col>
         <Col sm={12} md={6}>
+          <DependentCount
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={numberOfDependents}
+            name="numberOfDependents"
+            errorMessage={touched.livingSituation ? errors.livingSituation : ""}
+          />
+        </Col>
+        <Col sm={12} md={6}>
           <ResidentialStatus
             onChange={handleChange}
             onBlur={handleBlur}
-            value={businessName}
-            name="businessName"
-            errorMessage={touched.businessName ? errors.businessName : ""}
+            value={residentialStatus}
+            name="residentialStatus"
+            errorMessage={touched.residentialStatus ? errors.residentialStatus : ""}
           />
         </Col>
         <Col sm={12} md={6}>
           <DateStartedAddress {...props} />
+        </Col>
+        <Col sm={12} md={6}>
+          <ResidentialPaymentFrequency
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={residentialPaymentFrequency}
+            name="residentialPaymentFrequency"
+            values={values}
+            setFieldValue={setFieldValue}
+            errorMessage={touched.residentialPaymentFrequency ? errors.residentialPaymentFrequency : ""}
+          />
         </Col>
         <Col xl={12}>
           <Divider />
@@ -150,7 +174,7 @@ const Start = props => {
         <Col sm={12} md={6}>
           <Button
             type={isFetching ? "button" : "submit"}
-            disabled={!isValid || !touched.loanAmount}
+            disabled={!isValid || !touched.loanAmount || isFetching}
           >
             {isFetching ? (
               <Loader type="light" label="processing..." />

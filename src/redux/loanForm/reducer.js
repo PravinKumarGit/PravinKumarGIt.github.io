@@ -3,8 +3,14 @@ import actions from "./actions";
 const initState = {
   isFetching: null,
   loanFormResponse: null,
-  loanFormError: null
+  loanFormError: null,
+  step: 1
 };
+
+function constrainStep(stepToSet) {
+  const totalSteps = 4;
+  return Math.min(stepToSet, totalSteps);
+}
 
 export default function(state = initState, action) {
   switch (action.type) {
@@ -28,6 +34,11 @@ export default function(state = initState, action) {
         isFetching: false,
         loanFormResponse: null,
         loanFormError: action.payload
+      };
+    case actions.SET_STEP:
+      return {
+        ...state,
+        step: constrainStep(action.payload)
       };
     default:
       return state;

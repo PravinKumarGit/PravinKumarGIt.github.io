@@ -4,13 +4,16 @@ import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
 import { LoanFormPost } from "../../models/loanForm";
 function* loanForm(action) {
-  const payLoad = new LoanFormPost(action.payload);
+  const { payload } = action;
+  const { step } = payload;
+  const loanFormPost = new LoanFormPost(action.payload);
   try {
-    const response = yield call(postLoanForm, payLoad);
+    const response = yield call(postLoanForm, loanFormPost);
     const { status, data } = response;
     switch (status) {
       case 200:
         yield put(actions.postLoanFormSuccess(data));
+        yield put(actions.setStep(step + 1));
         break;
       default: {
         yield put(
