@@ -8,31 +8,31 @@ import SubSectionHeading from "../../../../components/uielements/subSectionHeadi
 
 import Loader from "../../../../components/utility/loader";
 
-import OccupationSelect from "../selectOccupation";
-import EmploymentSelect from "../selectEmployment";
-import DateStarted from "../dateStarted";
-import EmployerContact from "../employerContact";
-import BusinessName from "../businessName";
-import DateStartedAddress from "../dateStartedAddress";
-import LivingSituation from "../selectLivingSituation";
-import DependentCount from "../selectDependentCount";
-import ResidentialStatus from "../selectResidentialStatus";
-import CreditCardCount from "../selectCreditCardCount";
+// import OccupationSelect from "../selectOccupation";
+// import EmploymentSelect from "../selectEmployment";
+// import DateStarted from "../dateStarted";
+// import EmployerContact from "../employerContact";
+// import BusinessName from "../businessName";
+// import DateStartedAddress from "../dateStartedAddress";
+// import LivingSituation from "../selectLivingSituation";
+// import DependentCount from "../selectDependentCount";
+// import ResidentialStatus from "../selectResidentialStatus";
+// import CreditCardCount from "../selectCreditCardCount";
 
 const Finally = props => {
   const {
     values: {
-      occupation,
-      businessName,
-      employerPhone,
-      employmentType,
-      livingSituation,
-      creditCardCount
+      // occupation,
+      // businessName,
+      // employerPhone,
+      // employmentType,
+      // livingSituation,
+      // creditCardCount
     },
-    errors,
+    // errors,
     touched,
-    handleChange,
-    handleBlur,
+    // handleChange,
+    // handleBlur,
     isValid
   } = props;
   const { isFetching } = useSelector(state => state.loanForm);
