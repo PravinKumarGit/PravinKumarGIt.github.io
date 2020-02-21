@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import Select from "../../../components/uielements/select/select";
 import { RESIDENTIAL_PAYMENT_FREQUENCY } from "../../../constants/options";
-import { useOptionalSelectManager } from "../../../hooks/useOptionalSelectManager";
+import { useOptionalStateManager } from "../../../hooks/useOptionalStateManager";
 
 
 const getDefaultSelectValue = () => RESIDENTIAL_PAYMENT_FREQUENCY[0].value;
@@ -12,10 +12,10 @@ export default function ResidentialPaymentFrequency(props) {
   const { name } = selectProps;
   
   const shouldShow = getShouldShow(values);
-  useOptionalSelectManager(
+  useOptionalStateManager(
     shouldShow,
-    (value) => setFieldValue(name, value),
     getDefaultSelectValue(), 
+    (value) => setFieldValue(name, value),
   );
   
   return (

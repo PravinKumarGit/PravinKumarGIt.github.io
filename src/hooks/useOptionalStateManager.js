@@ -11,16 +11,16 @@ const shouldShowHasChangedToFalse = (shouldShow, previousShouldShow) =>
 // start to show, we should set the default value (typically "")
 // when we are no longer showing, we should remove from our form
 // state, so set the value to undefined.
-export const useOptionalSelectManager = (shouldShow, setSelectValue, defaultValue) => {
+export const useOptionalStateManager = (shouldShow, defaultValue, setValue) => {
   const [previousShouldShow, setPreviousShouldShow] = useState(shouldShow);
 
   if(shouldShowHasChangedToTrue(shouldShow, previousShouldShow)) {
-    setSelectValue(defaultValue);
+    setValue(defaultValue);
     setPreviousShouldShow(shouldShow);
   }
   
   if (shouldShowHasChangedToFalse(shouldShow, previousShouldShow)) {
-    setSelectValue(undefined);
+    setValue(undefined);
     setPreviousShouldShow(shouldShow);
   }
 };

@@ -1,6 +1,6 @@
 ﻿/* eslint-disable react-hooks/rules-of-hooks */
 import {useState} from "react";
-import {useOptionalSelectManager} from "../useOptionalSelectManager";
+import {useOptionalStateManager} from "../useOptionalStateManager";
 import {expectThat} from "jest-test-utils";
 
 jest.mock("react");
@@ -73,6 +73,6 @@ describe("useOptionalSelectManager", () => {
   };
 
   const run = ({shouldShow, setSelectValue = jest.fn(), defaultValue} = {}) => {
-    useOptionalSelectManager(shouldShow, setSelectValue, defaultValue);
+    useOptionalStateManager(shouldShow, defaultValue, setSelectValue);
   };
 });

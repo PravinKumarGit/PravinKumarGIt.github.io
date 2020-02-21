@@ -48,6 +48,7 @@ export class LoanFormPost {
     this.partnerIncome = values.partnerIncome || null;
     this.residentialStatus = values.residentialStatus || null;
     this.residentialPaymentFrequency = values.residentialPaymentFrequency || null;
+    this.landlordContactName = values.landlordContactName || null;
     this.weeklyEstimatedCostOfLiving =
       values.weeklyEstimatedCostOfLiving || null;
     this.creditCardCount = values.creditCardCount || null;
