@@ -32,7 +32,12 @@ export default function CheckBox({ ...props }) {
             )}
           </label>
         )}
-        <input type="checkbox" className="checkBox-Input" {...rest} />
+        <input
+          type="checkbox"
+          className="checkBox-Input"
+          defaultChecked={checked}
+          {...rest}
+        />
         <div className="checkBox-InformationContainer">
           <div className="checkBox-Message">
             {label}

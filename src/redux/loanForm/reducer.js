@@ -5,7 +5,7 @@ const initState = {
   isFetching: null,
   loanFormResponse: null,
   loanFormError: null,
-  initialValue: new LoanFormModel({ values: {}, initialStep }),
+  initialValue: new LoanFormModel({ values: {}, step: initialStep }),
   step: initialStep
 };
 
@@ -40,7 +40,11 @@ export default function(state = initState, action) {
     case actions.SET_STEP:
       return {
         ...state,
-        step: constrainStep(action.payload)
+        step: constrainStep(action.payload),
+        initialValue: new LoanFormModel({
+          values: state.loanFormResponse ? state.loanFormResponse.value : {},
+          step: action.payload
+        })
       };
     default:
       return state;

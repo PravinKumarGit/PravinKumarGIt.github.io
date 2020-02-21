@@ -25,7 +25,7 @@ export default Yup.object({
   loanAmount: Yup.string()
     .trim()
     .required(requiredFieldMessage),
-  reasonOfLoan: Yup.string()
+  loanReason: Yup.string()
     .trim()
     .required(requiredFieldMessage),
   firstName: Yup.string()
@@ -60,7 +60,7 @@ export default Yup.object({
       excludeEmptyString: true
     })
     .required(requiredFieldMessage),
-  mobileNumber: Yup.string()
+  mobilePhone: Yup.string()
     .trim()
     .required(requiredFieldMessage)
     .matches(requiredDigitInputFieldRegex, {
@@ -107,7 +107,7 @@ export default Yup.object({
       message: invalidValue,
       excludeEmptyString: true
     }),
-  email: Yup.string()
+  emailAddress: Yup.string()
     .trim()
     .required(requiredFieldMessage)
     .test("test-name", emailInputFieldRegexMessage, value => {

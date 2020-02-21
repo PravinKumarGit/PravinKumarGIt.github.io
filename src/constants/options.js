@@ -32,23 +32,23 @@ export const DAYS = (() => {
   const Days = [];
   for (let i = 1; i < 32; i++) {
     const day = i < 10 ? `0${i}` : `${i}`;
-    Days.push({ label: day, value: day });
+    Days.push({ label: day, value: i });
   }
   return Object.freeze(Days);
 })();
 export const MONTHS = Object.freeze([
-  { value: "01", label: "Jan" },
-  { value: "02", label: "Feb" },
-  { value: "03", label: "Mar" },
-  { value: "04", label: "Apr" },
-  { value: "05", label: "May" },
-  { value: "06", label: "Jun" },
-  { value: "07", label: "Jul" },
-  { value: "08", label: "Aug" },
-  { value: "09", label: "Sep" },
-  { value: "10", label: "Oct" },
-  { value: "11", label: "Nov" },
-  { value: "12", label: "Dec" }
+  { value: 1, label: "Jan" },
+  { value: 2, label: "Feb" },
+  { value: 3, label: "Mar" },
+  { value: 4, label: "Apr" },
+  { value: 5, label: "May" },
+  { value: 6, label: "Jun" },
+  { value: 7, label: "Jul" },
+  { value: 8, label: "Aug" },
+  { value: 9, label: "Sep" },
+  { value: 10, label: "Oct" },
+  { value: 11, label: "Nov" },
+  { value: 12, label: "Dec" }
 ]);
 export const YEARS = (min = 18, max = 81) => {
   const years = [];
