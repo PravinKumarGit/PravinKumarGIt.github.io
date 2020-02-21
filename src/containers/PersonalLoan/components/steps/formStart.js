@@ -67,7 +67,7 @@ const Start = props => {
   }, []);
   const StartUp = useSelector(state => state.StartUp);
   const { isFetching } = useSelector(state => state.loanForm);
-
+console.log(props,'props')
   return (
     <>
       <Row>
