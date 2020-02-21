@@ -1,8 +1,19 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render } from "test-utils";
 import ErrorBoundary from "../ErrorBoundary";
 
 describe("<ErrorBoundary>", () => {
+  const errorFunc = console.error;
+  const errorSpy = jest.fn();
+  
+  beforeAll(() => {
+    console.error = errorSpy;
+  });
+  
+  afterAll(() => {
+    console.error = errorFunc
+  });
+  
   it(`shows the fallback when there's an error`, () => {
     const Throws = () => {
         throw new Error('Oh no!')
