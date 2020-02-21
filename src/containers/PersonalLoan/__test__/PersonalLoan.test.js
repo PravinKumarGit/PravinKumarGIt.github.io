@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "test-utils";
+import { render } from "react-test-utils";
 import configureMockStore from "redux-mock-store";
 
 import PersonalLoan from "../PersonalLoan";

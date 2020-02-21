@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "test-utils";
+import { render } from "react-test-utils";
 import ErrorBoundary from "../ErrorBoundary";
 
 describe("<ErrorBoundary>", () => {

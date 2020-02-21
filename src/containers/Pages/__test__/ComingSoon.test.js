@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "test-utils";
+import { render } from "react-test-utils";
 import { BrowserRouter } from "react-router-dom";
 
 import ComingSoon from "../ComingSoon";
