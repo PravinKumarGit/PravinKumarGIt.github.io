@@ -20,6 +20,7 @@ import ResidentialStatus from "../selectResidentialStatus";
 import CreditCardCount from "../selectCreditCardCount";
 import ResidentialPaymentFrequency from "../selectResidentialPaymentFrequency";
 import LandlordContactName from "../landlordContactName";
+import ResidentialPayment from "../ResidentialPayment";
 
 const Start = props => {
   const {
@@ -42,6 +43,7 @@ const Start = props => {
     residentialStatus,
     residentialPaymentFrequency,
     landlordContactName,
+    residentialPayment
   } = values;
   
   const { isFetching } = useSelector(state => state.loanForm);
@@ -148,6 +150,17 @@ const Start = props => {
             values={values}
             setFieldValue={setFieldValue}
             errorMessage={touched.landlordContactName ? errors.landlordContactName : ""}
+            />
+        </Col>
+        <Col sm={12} md={6}>
+          <ResidentialPayment
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={residentialPayment}
+            name="residentialPayment"
+            values={values}
+            setFieldValue={setFieldValue}
+            errorMessage={touched.residentialPayment ? errors.residentialPayment : ""}
             />
         </Col>
         <Col xl={12}>
