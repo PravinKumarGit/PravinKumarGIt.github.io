@@ -1,10 +1,12 @@
 import actions from "./actions";
-
+import LoanFormModel from "../../models/loanForm";
+const initialStep = 1;
 const initState = {
   isFetching: null,
   loanFormResponse: null,
   loanFormError: null,
-  step: 1
+  initialValue: new LoanFormModel({ values: {}, initialStep }),
+  step: initialStep
 };
 
 function constrainStep(stepToSet) {

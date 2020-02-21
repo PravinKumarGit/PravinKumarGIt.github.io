@@ -1,4 +1,4 @@
-export class LoanFormPost {
+export default class LoanForm {
   constructor(data = {}, initModel = true) {
     if (initModel) {
       this.inIt(data);
@@ -7,7 +7,7 @@ export class LoanFormPost {
 
   inIt({ values, step }) {
     // step 1
-    this.source = 'App Screen 1 - Basic info';
+    this.source = "App Screen 1 - Basic info";
     this.loanAmount = values.loanAmount || null;
     this.loanReason = values.reasonOfLoan || null;
     this.title = values.title || null;
@@ -16,8 +16,12 @@ export class LoanFormPost {
     this.lastName = values.lastName || null;
     this.mobilePhone = values.mobileNumber || null;
     this.emailAddress = values.email || null;
-    this.dateOfBirth = values.dateOfBirth || null;
-    this.acceptsPrivacyPolicy = values.terms || false;
+    this.dateOfBirth = values.dateOfBirth || {
+      day: null,
+      month: null,
+      year: null
+    };
+    this.acceptsPrivacyPolicy = values.acceptsPrivacyPolicy || false;
     this.unitNumber = values.unitNumber || null;
     this.streetNumber = values.streetNumber || null;
     this.suburb = values.suburb || null;
@@ -30,31 +34,45 @@ export class LoanFormPost {
     if (step === 1) return;
 
     // step 2
-    this.source = 'App Screen 2 - Bank Statements';
+    this.source = "App Screen 2 - Bank Statements";
     this.bankStatementReferralCode = values.bankStatementReferralCode || null;
     if (step === 2) return;
 
     // step 3
-    this.source = 'App Screen 3 - Additional Info';
+    this.source = "App Screen 3 - Additional Info";
     this.occupation = values.occupation || null;
     this.employmentBasis = values.employmentBasis || null;
     this.employerName = values.employerName || null;
     this.businessName = values.businessName || null;
     this.employerPhone = values.employerPhone || null;
-    this.dateStarted = values.dateStarted || null;
-    this.nextPayDate = values.dateStartedAtCurrentAddress || null;
+    this.dateStarted = values.dateStarted || {
+      day: 1,
+      month: null,
+      year: null
+    };
+    this.nextPayDate = values.nextPayDate || {
+      day: null,
+      month: null,
+      year: null
+    };
+    this.dateStartedAtCurrentAddress = values.dateStartedAtCurrentAddress || {
+      day: 1,
+      month: null,
+      year: null
+    };
     this.numberOfDependents = values.numberOfDependents || null;
     this.livingSituation = values.livingSituation || null;
     this.partnerIncome = values.partnerIncome || null;
     this.residentialStatus = values.residentialStatus || null;
-    this.residentialPaymentFrequency = values.residentialPaymentFrequency || null;
+    this.residentialPaymentFrequency =
+      values.residentialPaymentFrequency || null;
     this.weeklyEstimatedCostOfLiving =
       values.weeklyEstimatedCostOfLiving || null;
     this.creditCardCount = values.creditCardCount || null;
     if (step === 3) return;
 
     // step 4
-    this.source = 'App Screen 4 - Thank You';
+    this.source = "App Screen 4 - Thank You";
     this.identificationType = values.identificationType || null;
     this.driversLicenceNumber = values.driversLicenceNumber || null;
     this.driversLicenceCardNumber = values.driversLicenceCardNumber || null;
@@ -83,90 +101,6 @@ export class LoanFormPost {
     this.brokerExternalPartyEmployeeClientEmploymentId =
       values.brokerExternalPartyEmployeeClientEmploymentId || null;
     this.maritalStatus = values.maritalStatus || null;
-    this.consentsToScoreSeeker = values.consentsToScoreSeeker || false;
-    if (step === 4) return;
-  }
-}
-
-export class LoanFormGet {
-  constructor(data = {}, initModel = true) {
-    if (initModel) {
-      this.inIt(data);
-    }
-  }
-
-  inIt({ values, step }) {
-    // step 1
-    this.loanAmount = values.loanAmount || "";
-    this.reasonOfLoan = values.loanReason || "";
-    this.title = values.title || "";
-    this.firstName = values.firstName || "";
-    this.middleName = values.middleName || "";
-    this.lastName = values.lastName || "";
-    this.mobilePhone = values.mobileNumber || "";
-    this.emailAddress = values.email || "";
-    this.dateOfBirth = values.dateOfBirth || { day: "", month: "", year: "" };
-    this.terms = values.acceptsPrivacyPolicy || false;
-    this.unitNumber = values.unitNumber || "";
-    this.streetNumber = values.streetNumber || "";
-    this.suburb = values.suburb || "";
-    this.street = values.street || "";
-    this.state = values.state || "";
-    this.postCode = values.postCode || "";
-    this.referralConsent = values.referralConsent || false;
-    this.incomeFrequency = values.incomeFrequency || "";
-    this.totalIncome = values.totalIncome || "";
-    if (step === 1) return;
-
-    // step 2
-    this.bankStatementReferralCode = values.bankStatementReferralCode || "";
-    if (step === 2) return;
-
-    // step 3
-    this.occupation = values.occupation || "";
-    this.employmentBasis = values.employmentBasis || "";
-    this.employerName = values.employerName || "";
-    this.businessName = values.businessName || "";
-    this.employerPhone = values.employerPhone || "";
-    this.dateStarted = values.dateStarted || { day: 1, month: "", year: "" };
-    this.dateStartedAtCurrentAddress = values.nextPayDate || { day: 1, month: "", year: "" };
-    this.numberOfDependents = values.numberOfDependents || "";
-    this.livingSituation = values.livingSituation || "";
-    this.partnerIncome = values.partnerIncome || "";
-    this.residentialStatus = values.residentialStatus || "";
-    this.weeklyEstimatedCostOfLiving = values.weeklyEstimatedCostOfLiving || "";
-    this.creditCardCount = values.creditCardCount || "";
-    if (step === 3) return;
-
-    // step 4
-    this.identificationType = values.identificationType || "";
-    this.driversLicenceNumber = values.driversLicenceNumber || "";
-    this.driversLicenceCardNumber = values.driversLicenceCardNumber || "";
-    this.driversLicenceState = values.driversLicenceState || "";
-    this.driversLicenceExpiry = values.driversLicenceExpiry || "";
-    this.medicareName = values.medicareName || "";
-    this.medicareNumber = values.medicareNumber || "";
-    this.medicareReference = values.medicareReference || "";
-    this.medicareCardColour = values.medicareCardColour || "";
-    this.medicareDateExpiry = values.medicareDateExpiry || "";
-    this.consentsToIdentityVerification =
-      values.consentsToIdentityVerification || false;
-    this.workContactNumber = values.workContactNumber || "";
-    this.homePhoneNumber = values.homePhoneNumber || "";
-    this.secondaryEmail = values.secondaryEmail || "";
-    this.alternateContactName = values.alternateContactName || "";
-    this.alternateContactNumber = values.alternateContactNumber || "";
-    this.alternateRelationship = values.alternateRelationship || "";
-    this.foreseeableChanges = values.foreseeableChanges || false;
-    this.foreseeableChangesExplain = values.foreseeableChangesExplain || "";
-    this.residencyStatus = values.residencyStatus || "";
-    this.accountPk = values.accountPk || "";
-    this.accountExternalId = values.accountExternalId || "";
-    this.loanSecurity = values.loanSecurity || "";
-    this.brokerExternalPartyId = values.brokerExternalPartyId || "";
-    this.brokerExternalPartyEmployeeClientEmploymentId =
-      values.brokerExternalPartyEmployeeClientEmploymentId || "";
-    this.maritalStatus = values.maritalStatus || "";
     this.consentsToScoreSeeker = values.consentsToScoreSeeker || false;
   }
 }

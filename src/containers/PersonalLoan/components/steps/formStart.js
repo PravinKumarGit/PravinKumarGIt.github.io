@@ -35,7 +35,7 @@ const Start = props => {
       middleName,
       lastName,
       email,
-      terms,
+      acceptsPrivacyPolicy,
       incomeFrequency,
       totalIncome,
       referralConsent
@@ -156,9 +156,9 @@ const Start = props => {
           <TermsCheckBox
             onChange={handleChange}
             onBlur={handleBlur}
-            checked={terms.toString()}
-            name="terms"
-            errorMessage={touched.terms ? errors.terms : ""}
+            checked={acceptsPrivacyPolicy.toString()}
+            name="acceptsPrivacyPolicy"
+            errorMessage={touched.acceptsPrivacyPolicy ? errors.acceptsPrivacyPolicy : ""}
           />
         </Col>
         <Col xl={12}>

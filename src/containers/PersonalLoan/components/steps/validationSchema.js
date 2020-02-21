@@ -74,7 +74,7 @@ export default Yup.object({
       }
       return true;
     }),
-  terms: Yup.bool().oneOf([true], requireCheckboxMessage),
+  acceptsPrivacyPolicy: Yup.bool().oneOf([true], requireCheckboxMessage),
   unitNumber: Yup.string()
     .trim()
     .matches(requiredDigitOrLetterInputFieldRegex, {

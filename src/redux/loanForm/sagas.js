@@ -2,11 +2,11 @@ import { all, call, takeLatest, put } from "redux-saga/effects";
 import actions from "./actions";
 import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
-import { LoanFormPost } from "../../models/loanForm";
+import LoanFormModel from "../../models/loanForm";
 function* loanForm(action) {
   const { payload } = action;
   const { step } = payload;
-  const loanFormPost = new LoanFormPost(action.payload);
+  const loanFormPost = new LoanFormModel(action.payload);
   try {
     const response = yield call(postLoanForm, loanFormPost);
     const { status, data } = response;

@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  useDispatch, useSelector
-} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
 
@@ -15,14 +13,15 @@ import Footer from "../../components/uielements/footer";
 import Wrapper from "./PersonalLoan.styles";
 import LoanForm from "./loanForm";
 import validationSchema from "./components/steps/validationSchema";
-import { LoanFormGet } from "../../models/loanForm";
 
 export default function PersonalLoan({ ...props }) {
-  const { step } = useSelector(state => state.loanForm);
+  const { step, initialValue } = useSelector(state => state.loanForm);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
   }, [dispatch]);
+
   const handleSubmit = (values, actions) => {
     const { setSubmitting } = actions;
     setSubmitting(true);
@@ -35,25 +34,13 @@ export default function PersonalLoan({ ...props }) {
       setSubmitting(false);
     }
   };
-  useEffect(() => {
-    window.addEventListener("message", messageEvent => {
-      const bankStatementMessageId = "Bank_Statements_Request_ID";
-      if (
-        messageEvent &&
-        messageEvent.data &&
-        messageEvent.data.messageId === bankStatementMessageId
-      ) {
-        console.log(messageEvent.data.value, "code");
-      }
-    });
-  }, []);
+
   const STEPS = [
     { step: 1, label: "Start", active: true },
     { step: 2, label: "Bank Statement", active: true },
     { step: 3, label: "General Living", active: true },
     { step: 4, label: "Finally", active: true }
   ];
-  const initialValue = new LoanFormGet({ values: {}, step });
   return (
     <Wrapper>
       <Row>
@@ -68,7 +55,7 @@ export default function PersonalLoan({ ...props }) {
           />
         </Col>
       </Row>
-       {step === 1 && (
+      {step === 1 && (
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
@@ -79,7 +66,7 @@ export default function PersonalLoan({ ...props }) {
           {props => <LoanForm {...props} step={step} />}
         </Formik>
       )}
-       {step === 2 && (
+      {step === 2 && (
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
@@ -90,7 +77,7 @@ export default function PersonalLoan({ ...props }) {
           {props => <LoanForm {...props} step={step} />}
         </Formik>
       )}
-       {step === 3 && (
+      {step === 3 && (
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
@@ -101,7 +88,7 @@ export default function PersonalLoan({ ...props }) {
           {props => <LoanForm {...props} step={step} />}
         </Formik>
       )}
-       {step === 4 && (
+      {step === 4 && (
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
