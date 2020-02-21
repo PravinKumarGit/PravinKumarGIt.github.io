@@ -28,14 +28,14 @@ const Start = props => {
   const {
     values: {
       loanAmount,
-      reasonOfLoan,
+      loanReason,
       title,
-      mobileNumber,
+      mobilePhone,
       firstName,
       middleName,
       lastName,
-      email,
-      terms,
+      emailAddress,
+      acceptsPrivacyPolicy,
       incomeFrequency,
       totalIncome,
       referralConsent
@@ -63,11 +63,11 @@ const Start = props => {
 
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const StartUp = useSelector(state => state.StartUp);
   const { isFetching } = useSelector(state => state.loanForm);
-
+console.log(props,'props')
   return (
     <>
       <Row>
@@ -94,9 +94,9 @@ const Start = props => {
             placeholder="Select Reason of Loan"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={reasonOfLoan}
-            name="reasonOfLoan"
-            errorMessage={touched.reasonOfLoan ? errors.reasonOfLoan : ""}
+            value={loanReason}
+            name="loanReason"
+            errorMessage={touched.loanReason ? errors.loanReason : ""}
           />
         </Col>
         <Col xl={12}>
@@ -141,24 +141,26 @@ const Start = props => {
           <MobileNoField
             onChange={handleChange}
             onBlur={handleBlur}
-            value={mobileNumber}
-            name="mobileNumber"
-            errorMessage={touched.mobileNumber ? errors.mobileNumber : ""}
+            value={mobilePhone}
+            name="mobilePhone"
+            errorMessage={touched.mobilePhone ? errors.mobilePhone : ""}
           />
           <EmailField
             onChange={handleChange}
             onBlur={handleBlur}
-            value={email}
-            name="email"
-            errorMessage={touched.email ? errors.email : ""}
+            value={emailAddress}
+            name="emailAddress"
+            errorMessage={touched.emailAddress ? errors.emailAddress : ""}
           />
           <DobInput {...props} />
           <TermsCheckBox
             onChange={handleChange}
             onBlur={handleBlur}
-            checked={terms.toString()}
-            name="terms"
-            errorMessage={touched.terms ? errors.terms : ""}
+            checked={acceptsPrivacyPolicy}
+            name="acceptsPrivacyPolicy"
+            errorMessage={
+              touched.acceptsPrivacyPolicy ? errors.acceptsPrivacyPolicy : ""
+            }
           />
         </Col>
         <Col xl={12}>
@@ -203,7 +205,7 @@ const Start = props => {
           <RefferalCheckbox
             onClick={handleChange}
             onBlur={handleBlur}
-            checked={referralConsent.toString()}
+            checked={referralConsent}
             name="referralConsent"
             errorMessage={touched.referralConsent ? errors.referralConsent : ""}
           />

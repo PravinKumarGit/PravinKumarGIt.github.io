@@ -15,6 +15,8 @@ import SubSectionHeading from "../../components/uielements/subSectionHeading";
 import Wrapper from "./loanForm.styles";
 
 export default function LoanForm({ ...props }) {
+  
+  console.log(props,"LoanForm");
   const { step, ...rest } = props;
   return (
     <Wrapper>

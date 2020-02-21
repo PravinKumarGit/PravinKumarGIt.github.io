@@ -8,33 +8,8 @@ import SubSectionHeading from "../../../../components/uielements/subSectionHeadi
 
 import Loader from "../../../../components/utility/loader";
 
-// import OccupationSelect from "../selectOccupation";
-// import EmploymentSelect from "../selectEmployment";
-// import DateStarted from "../dateStarted";
-// import EmployerContact from "../employerContact";
-// import BusinessName from "../businessName";
-// import DateStartedAddress from "../dateStartedAddress";
-// import LivingSituation from "../selectLivingSituation";
-// import DependentCount from "../selectDependentCount";
-// import ResidentialStatus from "../selectResidentialStatus";
-// import CreditCardCount from "../selectCreditCardCount";
-
 const Finally = props => {
-  const {
-    values: {
-      // occupation,
-      // businessName,
-      // employerPhone,
-      // employmentType,
-      // livingSituation,
-      // creditCardCount
-    },
-    // errors,
-    touched,
-    // handleChange,
-    // handleBlur,
-    isValid
-  } = props;
+  const { touched, isValid } = props;
   const { isFetching } = useSelector(state => state.loanForm);
   return (
     <>
@@ -76,14 +51,9 @@ const Finally = props => {
       </Row>
       <Row>
         <Col xl={12}>
-          <SubSectionHeading
-            heading="And Finally"
-           
-          />
+          <SubSectionHeading heading="And Finally" />
         </Col>
-        <Col sm={12} md={6}>
-          
-        </Col>
+        <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}>
