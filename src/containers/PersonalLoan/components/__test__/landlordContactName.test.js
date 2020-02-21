@@ -23,6 +23,17 @@ describe("landlordContactName", () => {
 
     expect(getLandlordInput(result)).toBeTruthy();
   });
+
+  it("should render a help tooltip", () => {
+    const willCauseDisplay = "Renting";
+    const { getByText } = render(<LandlordContactName values={{residentialStatus: willCauseDisplay}} />);
+
+    expect(
+      getByText(
+        `Providing this now can enable a faster outcome`
+      )
+    ).toBeTruthy();
+  });
   
   it("should not render for non Renting, Caravan, Other OR Boarding", () => {
     const result = render(<LandlordContactName values={{residentialStatus: 'nope'}} />);

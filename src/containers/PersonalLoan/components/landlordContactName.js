@@ -16,7 +16,9 @@ export default function LandlordContactName({ ...props }) {
       {shouldShow && (
         <Input 
           title="Landlord contact name" 
-          placeholder="Landlord Contact Name" 
+          placeholder="Landlord Contact Name"
+          helpToolTip
+          ToolTipText="Providing this now can enable a faster outcome"
           {...otherInputProps} 
         />
       )}

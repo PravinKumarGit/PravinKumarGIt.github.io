@@ -18,7 +18,7 @@ export default function LandlordContactNumber({ ...props }) {
           title="Landlord contact number"
           placeholder="Landlord Contact Number"
           helpToolTip
-          ToolTipText={`Please provide a contact number for the person you live with or rent from, who can verify your current address`}
+          ToolTipText="Please provide a contact number for the person you live with or rent from, who can verify your current address"
           type="number"
           maxLength={10}
           {...otherInputProps}
