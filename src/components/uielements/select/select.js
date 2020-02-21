@@ -19,7 +19,7 @@ export default function Select({ ...props }) {
   } = props;
   return (
     <Wrapper>
-      <div className="select-Component">
+      <div className="select-Component" data-testid="select-component">
         {Title && (
           <label className="select-Label">
             {Title}
