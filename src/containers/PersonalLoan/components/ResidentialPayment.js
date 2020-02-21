@@ -35,6 +35,9 @@ export default function ResidentialPayment({ ...props }) {
           placeholder="Your share..."
           helpToolTip
           ToolTipText={`Enter YOUR share of the ${shortResidentialStatus}, only what YOU pay`}
+          type="number"
+          prefix={<span>$</span>}
+          maxLength={5}
           {...otherInputProps}
         />
       )}
