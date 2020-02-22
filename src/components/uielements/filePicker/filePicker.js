@@ -1,15 +1,19 @@
-import React, { useState } from "react";
-import Image from "../../../theme/assets/icon-tooltip.svg";
+import React, { useState, createRef } from "react";
+import FileUploadModal from "../../../models/fileUpload";
+
+import FieldLabel from "../fieldLabel";
+
 import Wrapper from "./filePicker.styles";
 export default function FilePicker({ ...props }) {
   const {
     title,
+    fieldLabel,
     errorMessage,
     helpToolTip,
     ToolTipText,
     OptionalLabel,
     optional,
-    accept,
+    accept,// arrray e.g - [".PDF", ".JPG", ".PNG"]
     maxFileSize,
     onChange,
     value,
@@ -18,7 +22,7 @@ export default function FilePicker({ ...props }) {
     ...rest
   } = props;
 
-
+  let inputOpenFileRef = createRef()
   const fileSizeLimitsErrorMessage = 'File size out of limit'
   const [showFileSizeErrorMessage, setShowFileSizeErrorMessage] = useState(false)
   const [selectedFileName, setSelectedFileName] = useState('')
@@ -37,10 +41,13 @@ export default function FilePicker({ ...props }) {
           const binaryString = readerEvt.target.result;
           const formatedFile = btoa(binaryString);
           const fileType = file.type || '';
-          const value = formatValue(fileType, formatedFile);
-          onChange(value);
-          setSelectedFileName(file.name)
-          if (showFileSizeErrorMessage) setShowFileSizeErrorMessage(false)
+          const base64Content = formatValue(fileType, formatedFile);
+          const data = { base64Content, documentType: name, contentType: fileType }
+          const fileData = new FileUploadModal(data);
+          console.log(fileData);
+          onChange(base64Content);
+          setSelectedFileName(file.name);
+          if (showFileSizeErrorMessage) setShowFileSizeErrorMessage(false);
         };
         reader.readAsBinaryString(file);
       }
@@ -62,34 +69,53 @@ export default function FilePicker({ ...props }) {
     setSelectedFileName('')
   }
 
+  const getAcceptedFileFormatAndLabel = () => {
+    if (accept && accept.length > 0) {
+      const acceptedFileFormats = accept.toString();
+      const acceptedFilesList = accept.map(eachFormat => eachFormat.replace(".", ""))
+      if (acceptedFilesList.length > 1) {
+        const lastFileFormat = acceptedFilesList.pop()
+        const acceptedFileFormatLabel = `${acceptedFilesList.toString()} or ${lastFileFormat}`
+        return { acceptedFileFormats, acceptedFileFormatLabel }
+      }
+      return { acceptedFileFormats, acceptedFileFormatLabel: acceptedFilesList.toString() }
+    }
+    return { acceptedFileFormats: "", acceptedFileFormatLabel: "" }
+  }
+
+  const { acceptedFileFormats, acceptedFileFormatLabel } = getAcceptedFileFormatAndLabel()
+
+  const openSelectFileModal = () => {
+    inputOpenFileRef.current.click()
+  }
+
   return <Wrapper {...props} >
     <div className="filePicker">
-      <div className="filePicker-Label-Container">
-        {title && (
-          <label className="filePicker-Label">
-            {title}
-            {helpToolTip && (
-              <i className="toolTip-Icon">
-                <img src={Image} alt="help icon" />
-                {ToolTipText && (
-                  <span className="toolTip-Text">{ToolTipText}</span>
-                )}
-              </i>
-            )}
-            {OptionalLabel && (
-              <label className="filePicker-Label-Optional">optional</label>
-            )}
-          </label>
-        )}
+      <label className="filePicker-Label">
+        {fieldLabel}</label>
+      <div className="fileUpload-Container">
+        <div className="fileDetails-Container">
+          <div className="filePicker-Label-Container">
+            <FieldLabel
+              title={title}
+              helpToolTip={helpToolTip}
+              ToolTipText={ToolTipText}
+              OptionalLabel={OptionalLabel}
+            />
+          </div>
+          <div className="fileDetails">
+            {acceptedFileFormatLabel && < div className="file-format" >{acceptedFileFormatLabel}</div>}
+            {maxFileSize && <div className="maxFileSize-Label">{formatFileSize(maxFileSize)} Max</div>}
+          </div>
+        </div>
+        <button type="button" name="upload" onClick={openSelectFileModal}> Upload
+        <input {...rest} ref={inputOpenFileRef} style={{ display: 'none' }} type='file' value={value || ""} name={name} accept={acceptedFileFormats} onChange={handleFileSelect} />
+        </button>
       </div>
-      <label className="fileUpload-Container">
-        <div style={{ fontSize: '30px', fontWeight: 'bold' }}>+</div>
-        <input {...rest} type='file' value={value} name={name} accept={accept} onChange={handleFileSelect} />
-      </label>
-      {maxFileSize && <div className="maxFileSize-Label">* Max file size : {formatFileSize(maxFileSize)}</div>}
+
       {selectedFileName && <span className="selectedFile-Label">{selectedFileName} <span onClick={removeSelectedFile}> x</span> </span>}
       {showFileSizeErrorMessage && <div className="message"> {fileSizeLimitsErrorMessage} </div>}
       {errorMessage && <div className="message"> {errorMessage} </div>}
     </div>
-  </Wrapper>
+  </Wrapper >
 }

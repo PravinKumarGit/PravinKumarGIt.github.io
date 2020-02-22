@@ -3,7 +3,6 @@ const theme = {};
 theme.palette = {
   primary: [
     "#4482FF", // 0: Default
-    "#4482FF", // 0: Default
     "#3A78F5", // 1: Darken 4%
     "#3775F2", // 2: Darken 5%
     "rgba(68, 130, 255, 0.2)", // 3: Fade 20%
@@ -53,7 +52,8 @@ theme.palette = {
     "#fb5708", // 18: light red,
     "#7bb840", // 19: themeColor-- extra light green,
     "#50b849", // 20: extra light green,
-    "#000000" // 21: black,
+    "#000000",// 21: black,
+    "#00BA53",// 22 green upload button
   ],
   warning: [
     "#ffbf00" // 0: Warning
