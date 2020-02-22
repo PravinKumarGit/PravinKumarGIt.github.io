@@ -12,7 +12,6 @@ export default function FilePicker({ ...props }) {
     helpToolTip,
     ToolTipText,
     OptionalLabel,
-    optional,
     accept,// arrray e.g - [".PDF", ".JPG", ".PNG"]
     maxFileSize,
     onChange,
@@ -71,14 +70,14 @@ export default function FilePicker({ ...props }) {
 
   const getAcceptedFileFormatAndLabel = () => {
     if (accept && accept.length > 0) {
-      const acceptedFileFormats = accept.toString();
+      const acceptedFileFormats = `${accept}`;
       const acceptedFilesList = accept.map(eachFormat => eachFormat.replace(".", ""))
       if (acceptedFilesList.length > 1) {
         const lastFileFormat = acceptedFilesList.pop()
-        const acceptedFileFormatLabel = `${acceptedFilesList.toString()} or ${lastFileFormat}`
+        const acceptedFileFormatLabel = `${acceptedFilesList} or ${lastFileFormat}`
         return { acceptedFileFormats, acceptedFileFormatLabel }
       }
-      return { acceptedFileFormats, acceptedFileFormatLabel: acceptedFilesList.toString() }
+      return { acceptedFileFormats, acceptedFileFormatLabel: `${acceptedFilesList}` }
     }
     return { acceptedFileFormats: "", acceptedFileFormatLabel: "" }
   }
