@@ -5,6 +5,10 @@ import TermsAcceptModal from "./termsAcceptModel";
 import Wrapper from "./Styles/termsCheckBox.styles";
 export default function TermsCheckBox({ ...props }) {
   const [modalTerms, setModalTerms] = useState(false);
+  const acceptTerms = () => {
+    setModalTerms(false);
+    props.setFieldValue(props.name, true);
+  };
   return (
     <Wrapper>
       <label>
@@ -30,6 +34,7 @@ export default function TermsCheckBox({ ...props }) {
       <TermsAcceptModal
         visible={modalTerms}
         close={() => setModalTerms(!modalTerms)}
+        accept={acceptTerms}
       />
     </Wrapper>
   );

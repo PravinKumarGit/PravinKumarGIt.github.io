@@ -47,7 +47,8 @@ const Start = props => {
     handleChange,
     handleBlur,
     isValid,
-    countryCodes
+    countryCodes,
+    setFieldValue,
   } = props;
 
   let options = [];
@@ -178,6 +179,7 @@ const Start = props => {
             onBlur={handleBlur}
             checked={acceptsPrivacyPolicy}
             name="acceptsPrivacyPolicy"
+            setFieldValue={setFieldValue}
             errorMessage={
               touched.acceptsPrivacyPolicy ? errors.acceptsPrivacyPolicy : ""
             }

@@ -8,11 +8,11 @@ export default function TermsAcceptModal({ ...props }) {
       <Modal
         visible={props.visible}
         header="Privacy Consent &amp; Electronic Authorisation"
-        closeable={false}
+        closeable
         footer={
           <div className="cancelBtn">
             <div className="button-Container">
-              <button onClick={props.close} className="button-Button">
+              <button onClick={props.accept} className="button-Button">
                 Accept
               </button>
             </div>
@@ -96,10 +96,10 @@ export default function TermsAcceptModal({ ...props }) {
           </p>
           <p>
             You can opt out from allowing these third parties to set cookies on
-            your machine, by going to this link{" "}
+            your machine, by going to this link
             <a href="https://rtb.loopa.net.au/pixel/optout">
               https://rtb.loopa.net.au/pixel/optout
-            </a>{" "}
+            </a>
             or by changing your browser settings
           </p>
           <p>&nbsp;</p>
@@ -263,7 +263,7 @@ export default function TermsAcceptModal({ ...props }) {
             If you do not wish to receive marketing information, you may at any
             time decline to receive such information by telephoning us on 1300
             324 746, by writing to us at 4B Mandurah Terrace, Mandurah WA 6210
-            or emailing us at{" "}
+            or emailing us at
             <a href="mailto:apply@fairgofinance.com.au">
               apply@fairgofinance.com.au
             </a>
@@ -351,7 +351,7 @@ export default function TermsAcceptModal({ ...props }) {
           </p>
           <p>
             We will never use a government identifier in order to identify you.
-          </p>{" "}
+          </p>
           <strong>7.3 Business without identifying you</strong>
           <p>
             In most circumstances it will be necessary for us to identify you in
