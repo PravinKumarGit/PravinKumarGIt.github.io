@@ -2,9 +2,9 @@ import React from "react";
 
 import Wrapper from "./modal.styles";
 export default function Select({ ...props }) {
-  const { header, children, footer, onClose, visible, closeable } = props;
+  const { header, children, footer, onClose, visible, closeable, size } = props;
   return (
-    <Wrapper>
+    <Wrapper >
       {visible && (
         <div
           className="modal-Container"
@@ -13,7 +13,7 @@ export default function Select({ ...props }) {
           }}
         >
           <div
-            className="modal-Content"
+            className={`${size || 'medium'} modal-Content`}
             onClick={e => {
               e.stopPropagation();
             }}

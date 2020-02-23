@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { palette,size } from "styled-theme";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .verifyBankDetails-Container {
     display: flex;
     border-radius: 5px;
-    font-size: ${size('p2')};
+    font-size: ${size("p2")};
     justify-content: center;
     margin-top: 20px;
     position: relative;
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     width: 80%;
     height: 500px;
     overflow-x: hidden;
-    background-color: ${palette('grayscale',19)};
+    background-color: ${palette("grayscale", 19)};
     border-radius: 5px;
   }
   .label {
@@ -28,6 +28,15 @@ const Wrapper = styled.div`
     display: flex;
     text-align: left;
     flex-direction: row;
+  }
+  .content-wrapper {
+    margin: 30px 100px;
+    @media only screen and (max-width: ${size("M")}) {
+      margin: 30px 20px;
+    }
+    @media only screen and (max-width: ${size("S")}) {
+      margin: 30px 10px;
+    }
   }
 `;
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-grid-system";
 
@@ -23,8 +23,10 @@ import SelectIncomeFrequency from "../selectIncomeFrequency";
 import IncomeField from "../incomeField";
 import RefferalCheckbox from "../refferalCheckbox";
 import AddressField from "../addressField";
+import ModalSaccWarning from "../modalSaccWarning";
 
 const Start = props => {
+  const [saccModal, setSaccModal] = useState(false);
   const {
     values: {
       loanAmount,
@@ -67,10 +69,28 @@ const Start = props => {
   }, []);
   const StartUp = useSelector(state => state.StartUp);
   const { isFetching } = useSelector(state => state.loanForm);
-console.log(props,'props')
+  const handleSumit = () => {
+    if (!isFetching) {
+      if (loanAmount * 1 <= 2000) {
+        setSaccModal(true);
+      } else {
+        props.submitForm();
+      }
+    }
+  };
+  const continueSumit = () => {
+    setSaccModal(false);
+    props.submitForm();
+  };
+  console.log(props, "props");
   return (
     <>
       <Row>
+        <ModalSaccWarning
+          visible={saccModal}
+          close={() => setSaccModal(false)}
+          continue={continueSumit}
+        />
         <Col xl={12}>
           <SubSectionHeading heading="How much do you need?" />
         </Col>
@@ -212,8 +232,11 @@ console.log(props,'props')
         </Col>
         <Col sm={12} md={6}>
           <Button
-            type={isFetching ? "button" : "submit"}
             disabled={!isValid || !touched.loanAmount || isFetching}
+            buttonProps={{
+              type: "button",
+              onClick: handleSumit
+            }}
           >
             {isFetching ? <Loader type="light" label="processing..." /> : "Go"}
           </Button>

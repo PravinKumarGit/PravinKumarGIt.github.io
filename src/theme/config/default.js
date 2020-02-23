@@ -3,7 +3,6 @@ const theme = {};
 theme.palette = {
   primary: [
     "#4482FF", // 0: Default
-    "#4482FF", // 0: Default
     "#3A78F5", // 1: Darken 4%
     "#3775F2", // 2: Darken 5%
     "rgba(68, 130, 255, 0.2)", // 3: Fade 20%
@@ -53,7 +52,9 @@ theme.palette = {
     "#fb5708", // 18: light red,
     "#7bb840", // 19: themeColor-- extra light green,
     "#50b849", // 20: extra light green,
-    "#000000" // 21: black,
+    "#000000", // 21: black,
+    "#FCB817", // 22: yellow,
+    "#f6bf00" // 23: light yellow
   ],
   warning: [
     "#ffbf00" // 0: Warning
@@ -87,7 +88,7 @@ theme.palette = {
     "#fdfff9", // 16: extra light gray with green
     "#808080", // 17: GreyDarker
     "#fefefe", // 18: Grey
-    "#e4e4e4"  // 19: Grey sade
+    "#e4e4e4" // 19: Grey sade
   ],
   text: [
     "#323332", // 0: Heading
