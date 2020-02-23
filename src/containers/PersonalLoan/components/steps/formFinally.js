@@ -4,12 +4,25 @@ import { Row, Col } from "react-grid-system";
 
 import Button from "../../../../components/uielements/button";
 import Divider from "../../../../components/uielements/divider";
+import FieldLabel from "../../../../components/uielements/fieldLabel";
 import SubSectionHeading from "../../../../components/uielements/subSectionHeading";
 
 import Loader from "../../../../components/utility/loader";
+import PayslipField from "../payslipField";
 
 const Finally = props => {
-  const { touched, isValid } = props;
+  const {
+    values: {
+      payslip
+    },
+    errors,
+    touched,
+    handleChange,
+    handleBlur,
+    isValid,
+    setFieldValue
+  } = props;
+
   const { isFetching } = useSelector(state => state.loanForm);
   return (
     <>
@@ -18,7 +31,15 @@ const Finally = props => {
           <SubSectionHeading heading="Additional Documents" />
         </Col>
         <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}>
+          <FieldLabel title="Required Files" />
+          <PayslipField
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={payslip}
+            setFieldValue={setFieldValue}
+            errorMessage={touched.payslip ? errors.payslip : ""}
+          /></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
@@ -64,8 +85,8 @@ const Finally = props => {
             {isFetching ? (
               <Loader type="light" label="processing..." />
             ) : (
-              "Submit"
-            )}
+                "Submit"
+              )}
           </Button>
         </Col>
       </Row>
