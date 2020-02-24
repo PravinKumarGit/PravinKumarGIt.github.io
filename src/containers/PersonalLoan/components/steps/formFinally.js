@@ -8,12 +8,17 @@ import FieldLabel from "../../../../components/uielements/fieldLabel";
 import SubSectionHeading from "../../../../components/uielements/subSectionHeading";
 
 import Loader from "../../../../components/utility/loader";
+
 import PayslipField from "../payslipField";
+import CentreLinkField from "../centreLinkField";
+import SendViaEmail from "../sendViaEmail";
+import SendViaFax from "../sendViaFax";
 
 const Finally = props => {
   const {
     values: {
-      payslip
+      payslip,
+      centrelink
     },
     errors,
     touched,
@@ -39,7 +44,18 @@ const Finally = props => {
             value={payslip}
             setFieldValue={setFieldValue}
             errorMessage={touched.payslip ? errors.payslip : ""}
-          /></Col>
+          />
+          <CentreLinkField
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={centrelink}
+            setFieldValue={setFieldValue}
+            errorMessage={touched.centrelink ? errors.centrelink : ""}
+          />
+          <FieldLabel title="Alternate Methods" />
+          <SendViaEmail/>
+          <SendViaFax/>
+        </Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>

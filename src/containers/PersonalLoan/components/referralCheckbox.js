@@ -1,11 +1,12 @@
 import React from "react";
 import CheckBox from "../../../components/uielements/checkBox";
-import Wrapper from "./Styles/refferalCheckBox.styles";
-export default function TermsCheckBox({ ...props }) {
+import Wrapper from "./Styles/referralCheckbox.styles";
+export default function ReferralCheckBox({ ...props }) {
+  const { setFieldValue, ...checkboxProps } = props;
   return (
     <Wrapper>
       <label>
-        <CheckBox {...props}>
+        <CheckBox {...checkboxProps}>
           <span className="label">Referral Consent:</span>
           If we are unable to offer a loan today, we may be able to refer you to
           other credit providers and alternative service providers as described

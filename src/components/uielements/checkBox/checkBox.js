@@ -11,8 +11,10 @@ export default function CheckBox({ ...props }) {
     label,
     children,
     checked,
-    ...rest
+    ...checkboxProps
   } = props;
+  const { onClick } = checkboxProps;
+  
   return (
     <Wrapper>
       <div className={`checkBox-Component ${errorMessage ? "required" : ""}`}>
@@ -32,11 +34,7 @@ export default function CheckBox({ ...props }) {
             )}
           </label>
         )}
-        {checked ? (
-          <input type="checkbox" className="checkBox-Input" checked {...rest} />
-        ) : (
-          <input type="checkbox" className="checkBox-Input" {...rest} />
-        )}
+        <input type="checkbox" className="checkBox-Input" checked={checked} onChange={onClick} {...checkboxProps} />
         <div className="checkBox-InformationContainer">
           <div className="checkBox-Message">
             {label}

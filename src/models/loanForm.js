@@ -6,7 +6,6 @@ export default class LoanForm {
   }
 
   inIt({ values, step }) {
-    console.log(values,step,'model')
     // step 1
     this.source = "App Screen 1 - Basic info";
     this.loanAmount = values.loanAmount || "";
@@ -67,6 +66,9 @@ export default class LoanForm {
     this.residentialStatus = values.residentialStatus || "";
     this.residentialPaymentFrequency =
       values.residentialPaymentFrequency || "";
+    this.landlordContactName = values.landlordContactName || "";
+    this.landlordContactNumber = values.landlordContactNumber || "";
+    this.residentialPayment = values.residentialPayment || "";
     this.weeklyEstimatedCostOfLiving =
       values.weeklyEstimatedCostOfLiving || "";
     this.creditCardCount = values.creditCardCount || "";

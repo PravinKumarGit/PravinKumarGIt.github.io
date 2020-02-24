@@ -4,6 +4,8 @@ import CheckBox from "../../../components/uielements/checkBox";
 import TermsAcceptModal from "./termsAcceptModel";
 import Wrapper from "./Styles/termsCheckBox.styles";
 export default function TermsCheckBox({ ...props }) {
+  const { setFieldValue, ...checkboxProps } = props;
+
   const [modalTerms, setModalTerms] = useState(false);
   const acceptTerms = () => {
     setModalTerms(false);
@@ -12,7 +14,7 @@ export default function TermsCheckBox({ ...props }) {
   return (
     <Wrapper>
       <label>
-        <CheckBox {...props}>
+        <CheckBox {...checkboxProps}>
           I agree to: (1){" "}
           <Link
             to="#"

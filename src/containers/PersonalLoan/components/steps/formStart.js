@@ -21,7 +21,7 @@ import DobInput from "../dobField";
 import TermsCheckBox from "../termsCheckBox";
 import SelectIncomeFrequency from "../selectIncomeFrequency";
 import IncomeField from "../incomeField";
-import RefferalCheckbox from "../refferalCheckbox";
+import ReferralCheckbox from "../referralCheckbox";
 import AddressField from "../addressField";
 import ModalSaccWarning from "../modalSaccWarning";
 
@@ -83,7 +83,6 @@ const Start = props => {
     setSaccModal(false);
     props.submitForm();
   };
-  console.log(props, "props");
   return (
     <>
       <Row>
@@ -224,7 +223,7 @@ const Start = props => {
           />
         </Col>
         <Col sm={12} md={6}>
-          <RefferalCheckbox
+          <ReferralCheckbox
             onClick={handleChange}
             onBlur={handleBlur}
             checked={referralConsent}
