@@ -89,7 +89,9 @@ const Wrapper = styled.div`
     margin-right: auto;
   }
   @media only screen and (max-width: ${size("M")}) {
-    .line {
+    .line,
+    .line-active,
+    .line-inactive {
       min-width: 120px;
     }
     .breadCrumb-title-and-button {
@@ -97,8 +99,10 @@ const Wrapper = styled.div`
     }
   }
   @media only screen and (max-width: ${size("S")}) {
-    .line {
-      min-width: 100px;
+    .line,
+    .line-active,
+    .line-inactive {
+      min-width: 90px;
     }
     .breadCrumb-title-and-button {
       margin: 0px 21px;
