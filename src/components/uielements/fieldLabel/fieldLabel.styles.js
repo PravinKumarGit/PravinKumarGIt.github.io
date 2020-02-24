@@ -5,10 +5,9 @@ const Wrapper = styled.div`
 .select-Label {
   display: flex;
   padding-left: 3px;
-  padding-bottom: 7px;
   color: ${palette("color", 14)};
   font-weight: 400;
-  font-size: ${size("p2")};
+  font-size: ${size("p1")};
 }
 .toolTip-Icon {
   float: left;
