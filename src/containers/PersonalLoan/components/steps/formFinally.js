@@ -4,37 +4,25 @@ import { Row, Col } from "react-grid-system";
 
 import Button from "../../../../components/uielements/button";
 import Divider from "../../../../components/uielements/divider";
+import FieldLabel from "../../../../components/uielements/fieldLabel";
 import SubSectionHeading from "../../../../components/uielements/subSectionHeading";
 
 import Loader from "../../../../components/utility/loader";
-
-// import OccupationSelect from "../selectOccupation";
-// import EmploymentSelect from "../selectEmployment";
-// import DateStarted from "../dateStarted";
-// import EmployerContact from "../employerContact";
-// import BusinessName from "../businessName";
-// import DateStartedAddress from "../dateStartedAddress";
-// import LivingSituation from "../selectLivingSituation";
-// import DependentCount from "../selectDependentCount";
-// import ResidentialStatus from "../selectResidentialStatus";
-// import CreditCardCount from "../selectCreditCardCount";
+import PayslipField from "../payslipField";
 
 const Finally = props => {
   const {
     values: {
-      // occupation,
-      // businessName,
-      // employerPhone,
-      // employmentType,
-      // livingSituation,
-      // creditCardCount
+      payslip
     },
-    // errors,
+    errors,
     touched,
-    // handleChange,
-    // handleBlur,
-    isValid
+    handleChange,
+    handleBlur,
+    isValid,
+    setFieldValue
   } = props;
+
   const { isFetching } = useSelector(state => state.loanForm);
   return (
     <>
@@ -43,7 +31,15 @@ const Finally = props => {
           <SubSectionHeading heading="Additional Documents" />
         </Col>
         <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}>
+          <FieldLabel title="Required Files" />
+          <PayslipField
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={payslip}
+            setFieldValue={setFieldValue}
+            errorMessage={touched.payslip ? errors.payslip : ""}
+          /></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
@@ -76,14 +72,9 @@ const Finally = props => {
       </Row>
       <Row>
         <Col xl={12}>
-          <SubSectionHeading
-            heading="And Finally"
-           
-          />
+          <SubSectionHeading heading="And Finally" />
         </Col>
-        <Col sm={12} md={6}>
-          
-        </Col>
+        <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}>
@@ -94,8 +85,8 @@ const Finally = props => {
             {isFetching ? (
               <Loader type="light" label="processing..." />
             ) : (
-              "Submit"
-            )}
+                "Submit"
+              )}
           </Button>
         </Col>
       </Row>

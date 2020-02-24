@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-grid-system";
 
@@ -23,19 +23,21 @@ import SelectIncomeFrequency from "../selectIncomeFrequency";
 import IncomeField from "../incomeField";
 import RefferalCheckbox from "../refferalCheckbox";
 import AddressField from "../addressField";
+import ModalSaccWarning from "../modalSaccWarning";
 
 const Start = props => {
+  const [saccModal, setSaccModal] = useState(false);
   const {
     values: {
       loanAmount,
-      reasonOfLoan,
+      loanReason,
       title,
-      mobileNumber,
+      mobilePhone,
       firstName,
       middleName,
       lastName,
-      email,
-      terms,
+      emailAddress,
+      acceptsPrivacyPolicy,
       incomeFrequency,
       totalIncome,
       referralConsent
@@ -45,7 +47,8 @@ const Start = props => {
     handleChange,
     handleBlur,
     isValid,
-    countryCodes
+    countryCodes,
+    setFieldValue,
   } = props;
 
   let options = [];
@@ -63,14 +66,32 @@ const Start = props => {
 
   useEffect(() => {
     dispatch(actions.loanAmountRequest());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const StartUp = useSelector(state => state.StartUp);
   const { isFetching } = useSelector(state => state.loanForm);
-
+  const handleSumit = () => {
+    if (!isFetching) {
+      if (loanAmount * 1 <= 2000) {
+        setSaccModal(true);
+      } else {
+        props.submitForm();
+      }
+    }
+  };
+  const continueSumit = () => {
+    setSaccModal(false);
+    props.submitForm();
+  };
+  console.log(props, "props");
   return (
     <>
       <Row>
+        <ModalSaccWarning
+          visible={saccModal}
+          close={() => setSaccModal(false)}
+          continue={continueSumit}
+        />
         <Col xl={12}>
           <SubSectionHeading heading="How much do you need?" />
         </Col>
@@ -94,9 +115,9 @@ const Start = props => {
             placeholder="Select Reason of Loan"
             onChange={handleChange}
             onBlur={handleBlur}
-            value={reasonOfLoan}
-            name="reasonOfLoan"
-            errorMessage={touched.reasonOfLoan ? errors.reasonOfLoan : ""}
+            value={loanReason}
+            name="loanReason"
+            errorMessage={touched.loanReason ? errors.loanReason : ""}
           />
         </Col>
         <Col xl={12}>
@@ -141,24 +162,27 @@ const Start = props => {
           <MobileNoField
             onChange={handleChange}
             onBlur={handleBlur}
-            value={mobileNumber}
-            name="mobileNumber"
-            errorMessage={touched.mobileNumber ? errors.mobileNumber : ""}
+            value={mobilePhone}
+            name="mobilePhone"
+            errorMessage={touched.mobilePhone ? errors.mobilePhone : ""}
           />
           <EmailField
             onChange={handleChange}
             onBlur={handleBlur}
-            value={email}
-            name="email"
-            errorMessage={touched.email ? errors.email : ""}
+            value={emailAddress}
+            name="emailAddress"
+            errorMessage={touched.emailAddress ? errors.emailAddress : ""}
           />
           <DobInput {...props} />
           <TermsCheckBox
             onChange={handleChange}
             onBlur={handleBlur}
-            checked={terms.toString()}
-            name="terms"
-            errorMessage={touched.terms ? errors.terms : ""}
+            checked={acceptsPrivacyPolicy}
+            name="acceptsPrivacyPolicy"
+            setFieldValue={setFieldValue}
+            errorMessage={
+              touched.acceptsPrivacyPolicy ? errors.acceptsPrivacyPolicy : ""
+            }
           />
         </Col>
         <Col xl={12}>
@@ -203,15 +227,18 @@ const Start = props => {
           <RefferalCheckbox
             onClick={handleChange}
             onBlur={handleBlur}
-            checked={referralConsent.toString()}
+            checked={referralConsent}
             name="referralConsent"
             errorMessage={touched.referralConsent ? errors.referralConsent : ""}
           />
         </Col>
         <Col sm={12} md={6}>
           <Button
-            type={isFetching ? "button" : "submit"}
             disabled={!isValid || !touched.loanAmount || isFetching}
+            buttonProps={{
+              type: "button",
+              onClick: handleSumit
+            }}
           >
             {isFetching ? <Loader type="light" label="processing..." /> : "Go"}
           </Button>

@@ -32,7 +32,11 @@ export default function CheckBox({ ...props }) {
             )}
           </label>
         )}
-        <input type="checkbox" className="checkBox-Input" {...rest} />
+        {checked ? (
+          <input type="checkbox" className="checkBox-Input" checked {...rest} />
+        ) : (
+          <input type="checkbox" className="checkBox-Input" {...rest} />
+        )}
         <div className="checkBox-InformationContainer">
           <div className="checkBox-Message">
             {label}

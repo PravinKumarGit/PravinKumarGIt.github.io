@@ -13,7 +13,15 @@ const Wrapper = styled.div`
     background-color: ${palette("color", 21)};
     background-color: ${palette("grayscale", 12)};
   }
-
+  .small{
+    width: 500px;
+  }
+  .medium{
+    width: 60%;
+  }
+  .large{
+    width: 90%;
+  }
   .modal-Content {
     position: relative;
     background-color: ${palette("color", 16)};
@@ -27,7 +35,6 @@ const Wrapper = styled.div`
     animation-name: animatetop;
     animation-duration: 0.4s;
     border-radius: 9px;
-    width: 60%;
     @media only screen and (max-width: ${size("M")}) {
       width: 99%;
     }
@@ -71,6 +78,8 @@ const Wrapper = styled.div`
     width: 95%;
     text-align: left;
     font-size: calc(10px + 2vmin);
+    display: flex;
+    align-items: center;
   }
 
   .modal-Body {

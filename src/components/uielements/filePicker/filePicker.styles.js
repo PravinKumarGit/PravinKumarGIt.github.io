@@ -18,76 +18,84 @@ const Wrapper = styled.div`
     padding-left: 3px;
     padding-bottom: 7px;
     color: ${palette("grayscale", 17)};
-    font-weight: 700;
+    font-weight: 400;
     font-size: ${size("p2")};
   }
-  .filePicker-Label-Optional {
-    padding-left: 6px;
-    font-size: ${size("p3")};
-    color: ${palette("grayscale", 15)};
-    font-weight: 700;
-  }
+
   .message {
     padding-left: 1px;
     color: ${palette("color", 18)};
     font-size: ${size("p2")};
   }
-  .toolTip-Icon {
-    float: left;
-    text-decoration: none;
-    position: relative;
-    height: 15px;
-    width: 15px;
-    cursor: pointer;
-    color: ${palette("color", 16)};
-    border-radius: 10px;
-    font-size: ${size("p4")};
-    margin-left: 5px;
-  }
-
-  .toolTip-Icon span {
-    display: none;
-  }
-
-  .toolTip-Icon:hover span {
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    bottom: 20px;
-  }
-
-  .toolTip-Text {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding-top: 5px;
-    width: 200px;
-    color: gray;
-    background-color: ${palette("color", 16)};
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    box-shadow: 1px 2px ${palette("grayscale", 12)};
-  }
 
   .fileUpload-Container{
-    width: 142px;
-    border-radius: 6px;
-    border: dotted 2px #dddddd;
-    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid ${palette("border", 5)};
     text-align: center;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 5px;;
+    align-items: center;
+    background: ${palette("grayscale", 16)} ;
   }
-  input[type='file'] {
-    display: none;
-   }
  .maxFileSize-Label{
    font-size: ${size("p3")};
   }
 .selectedFile-Label{
-  color: rgb(148,200,64);
+  color: ${palette("color", 14)};
+  font-weight: 400;
+  font-size: ${size("p2")};
+  width: fit-content;
+}
+
+
+.selectedFile-Label span {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px 0px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.selectedFile-Label span:hover {
+  background-color: ${palette("color", 14)};
+  border: none;
+  color:  ${ palette("color", 16)};
+}
+
+.fileDetails-Container{
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+}
+.fileDetails{
+  display: flex;
+  justify-content: space-between;
+  color: ${palette("grayscale", 17)};
+  font-weight: 800;
+}
+.file-format{
+  margin: 0px 18px 9px 8px;
   font-size: ${size("p3")};
+}
+
+.fileUpload-Container button{
+  color: ${ palette("color", 16)};
+  background-color:${ palette("color", 24)};
+  border-radius: 5px;
+  padding: 0px 15px;
+  margin-right: 5px;
+  height: 36px;
+  font-size: ${size("p1")};
+  border: none;
+}
+.fileUpload-Container:hover button{
+  cursor: pointer;
 }
 `;
 

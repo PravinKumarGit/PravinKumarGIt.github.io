@@ -16,6 +16,7 @@ const BankStatement = ({ ...props }) => {
           "bankStatementReferralCode",
           messageEvent.data.value
         );
+        props.submitForm();
       }
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
