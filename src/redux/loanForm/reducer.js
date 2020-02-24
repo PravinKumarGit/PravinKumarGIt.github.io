@@ -1,6 +1,6 @@
 import actions from "./actions";
 import LoanFormModel from "../../models/loanForm";
-const initialStep = 3;
+const initialStep = 1;
 const initState = {
   isFetching: null,
   loanFormResponse: null,
