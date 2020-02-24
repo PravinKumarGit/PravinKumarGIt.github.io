@@ -20,6 +20,8 @@ export default function PersonalLoan({ ...props }) {
 
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
+    dispatch(startUpActions.parseQueryString());
+    dispatch(startUpActions.fillForm())
   }, [dispatch]);
 
   const handleSubmit = (values, actions) => {

@@ -3,6 +3,7 @@ import actions from "./actions";
 import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
 import LoanFormModel from "../../models/loanForm";
+
 function* loanForm(action) {
   const { payload } = action;
   const { step } = payload;
