@@ -10,6 +10,8 @@ export default function IncomeFields({ ...props }) {
         type="number"
         prefix={<span>$</span>}
         maxLength={5}
+        helpToolTip
+        ToolTipText="The TOTAL amount you REGULARLY receive from all sources of income, after tax, shown on your bank statements."
         {...rest}
       />
     </>

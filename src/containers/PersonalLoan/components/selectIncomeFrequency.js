@@ -8,6 +8,8 @@ export default function LoanReasons({ ...props }) {
         isPlaceHolder
         placeholder="Select..."
         Title="Income frequency"
+        helpToolTip
+        ToolTipText="How often do you receive your main source of income?"
         options={INCOME_FREQUENCY_OPTIONS}
         {...props}
       />
