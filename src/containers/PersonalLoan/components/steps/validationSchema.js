@@ -18,7 +18,7 @@ const twoCharacterInputFieldRegex = /^[A-Za-z ]{2,}$/;
 const emailInputFieldRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 const digitPhoneInputFieldRegex = /^04\d{8}$/;
 
-export default Yup.object({
+export const StartSchema = Yup.object({
   title: Yup.string()
     .trim()
     .required(requiredFieldMessage),
@@ -135,3 +135,15 @@ export default Yup.object({
       .required(requiredFieldMessage)
   })
 });
+
+export const BankStatementSchema = Yup.object({});
+export const GeneralGivingSchema = Yup.object({
+  // businessName: Yup.string()
+  //   .trim()
+  //   .required(requiredFieldMessage)
+  //   .matches(requiredDigitOrLetterInputFieldRegex, {
+  //     message: invalidValue,
+  //     excludeEmptyString: true
+  //   })  
+});
+export const FinallySchema = Yup.object({});

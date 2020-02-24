@@ -102,7 +102,7 @@ export const LIVING_SITUATION_OPTIONS = Object.freeze([
 export const COUNT_OPTIONS = (min = 0, max = 6) => {
   const COUNT = [];
   for (let i = min; i <= max; i++) {
-    if (i !== max) COUNT.push({ label: i, value: i });
+    if (i !== max) COUNT.push({ label: `${i}`, value: `${i}` });
     else COUNT.push({ label: `${i}+`, value: `${i}+` });
   }
   return Object.freeze(COUNT);
@@ -124,10 +124,10 @@ export const RESIDENTIAL_STATUS = Object.freeze([
 ]);
 
 // once we have unit tests/later we can swap the above to use this utility
-const createOption = label => ({label, value: label});
+const createOption = label => ({ label, value: label });
 
 export const RESIDENTIAL_PAYMENT_FREQUENCY = Object.freeze([
-  createOption('Weekly'),
-  createOption('Fortnightly'),
-  createOption('Monthly'),
+  createOption("Weekly"),
+  createOption("Fortnightly"),
+  createOption("Monthly")
 ]);

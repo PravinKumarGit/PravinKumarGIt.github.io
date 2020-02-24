@@ -21,7 +21,7 @@ export default function LoanReasons({ ...props }) {
 
   const activeDays = [...DAYS];
   const activeDay = () => {
-    switch (month) {
+    switch (~~month) {
       case MONTHS[5].value:
       case MONTHS[10].value:
       case MONTHS[3].value:
