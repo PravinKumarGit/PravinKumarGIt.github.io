@@ -16,18 +16,25 @@ export default function Select({ ...props }) {
             >
               <span
                 className={`breadCrumb-title ${
-                  activeStep === item.step ? "active" : "inactive"
+                  activeStep >= item.step ? "active" : "inactive"
                 }`}
               >
                 {item.label}
               </span>
               <div
                 className={`section-${
-                  activeStep === item.step ? "active" : "inactive"
+                  activeStep >= item.step ? "active" : "inactive"
                 }`}
               ></div>
               {item.step !== stepsActive[0].step && (
-                <div className="line"></div>
+                <>
+                  <div className="line"></div>
+                  <div
+                    className={
+                      activeStep >= item.step ? "line-active" : "line-inactive"
+                    }
+                  ></div>
+                </>
               )}
             </div>
           ))}
