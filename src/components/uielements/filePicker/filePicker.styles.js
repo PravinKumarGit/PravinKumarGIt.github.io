@@ -4,7 +4,7 @@ import { palette, size } from "styled-theme";
 const Wrapper = styled.div`
   .filePicker {
     display: flex;
-    margin: 10px 30px;
+    margin: 5px 0px;
     height: 125px;
     flex-direction: column;
     position: relative;
@@ -38,6 +38,7 @@ const Wrapper = styled.div`
     padding: 0px 5px;;
     align-items: center;
     background: ${palette("grayscale", 16)} ;
+    margin-bottom: 5px;
   }
  .maxFileSize-Label{
    font-size: ${size("p3")};
@@ -55,7 +56,6 @@ const Wrapper = styled.div`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 5px 0px;
   height: 20px;
   width: 20px;
   cursor: pointer;
@@ -77,10 +77,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${palette("grayscale", 17)};
-  font-weight: 800;
+  font-weight: 700;
 }
 .file-format{
-  margin: 0px 18px 9px 8px;
+  margin: 0px 18px 9px 3px;
   font-size: ${size("p3")};
 }
 
