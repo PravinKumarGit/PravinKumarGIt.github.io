@@ -66,6 +66,9 @@ export default class LoanForm {
     this.residentialStatus = values.residentialStatus || "";
     this.residentialPaymentFrequency =
       values.residentialPaymentFrequency || "";
+    this.landlordContactName = values.landlordContactName || "";
+    this.landlordContactNumber = values.landlordContactNumber || "";
+    this.residentialPayment = values.residentialPayment || "";
     this.weeklyEstimatedCostOfLiving =
       values.weeklyEstimatedCostOfLiving || "";
     this.creditCardCount = values.creditCardCount || "";
