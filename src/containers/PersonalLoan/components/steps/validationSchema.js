@@ -133,7 +133,39 @@ export const StartSchema = Yup.object({
     year: Yup.string()
       .trim()
       .required(requiredFieldMessage)
-  })
+  }),
+  identificationType: Yup.string()
+    .trim()
+    .required(requiredFieldMessage),
+  driversLicenceNumber: Yup.string()
+    .trim()
+    .required(requiredFieldMessage)
+    .matches(requiredDigitOrLetterInputFieldRegex, {
+      message: invalidValue,
+      excludeEmptyString: true
+    })
+    .length(6, "Licence number must be exactly 6 characters "),
+  driversLicenceState: Yup.string()
+    .trim()
+    .required(requiredFieldMessage),
+  driversLicenceCardNumber: Yup.string()
+    .trim()
+    .required(requiredFieldMessage)
+    .matches(requiredDigitOrLetterInputFieldRegex, {
+      message: invalidValue,
+      excludeEmptyString: true
+    }),
+  driversLicenceExpiry: Yup.object().shape({
+    day: Yup.string()
+      .trim()
+      .required(requiredFieldMessage),
+    month: Yup.string()
+      .trim()
+      .required(requiredFieldMessage),
+    year: Yup.string()
+      .trim()
+      .required(requiredFieldMessage)
+  }),
 });
 
 export const BankStatementSchema = Yup.object({});

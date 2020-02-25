@@ -16,6 +16,13 @@ import Wrapper from "./loanForm.styles";
 
 export default function LoanForm({ ...props }) {
   const { step, ...rest } = props;
+
+  const setFieldValueAndTouchStatus = (fieldName, value = "", touchStatus = false) => {
+    const { setFieldValue, setFieldTouched } = props;
+    setFieldValue(fieldName, value);
+    setFieldTouched(fieldName, touchStatus);
+  }
+
   return (
     <Wrapper>
       <form
@@ -124,7 +131,9 @@ export default function LoanForm({ ...props }) {
               <Row>
                 <Col>
                   <Divider />
-                  <Finally {...props} />
+                  <Finally
+                    {...props}
+                    setFieldValueAndTouchStatus={setFieldValueAndTouchStatus} />
                 </Col>
               </Row>
             </div>

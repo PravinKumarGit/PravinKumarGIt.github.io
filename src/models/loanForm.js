@@ -80,7 +80,11 @@ export default class LoanForm {
     this.driversLicenceNumber = values.driversLicenceNumber || "";
     this.driversLicenceCardNumber = values.driversLicenceCardNumber || "";
     this.driversLicenceState = values.driversLicenceState || "";
-    this.driversLicenceExpiry = values.driversLicenceExpiry || "";
+    this.driversLicenceExpiry = values.driversLicenceExpiry || {
+      day: "",
+      month: "",
+      year: ""
+    };
     this.medicareName = values.medicareName || "";
     this.medicareNumber = values.medicareNumber || "";
     this.medicareReference = values.medicareReference || "";
