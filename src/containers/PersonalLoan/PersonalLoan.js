@@ -61,6 +61,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}
@@ -72,6 +73,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}
@@ -83,6 +85,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}
@@ -94,6 +97,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={validationSchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}

@@ -19,9 +19,13 @@ function getCurrentLoanState(state) {
   return state.loanFormResponse ? state.loanFormResponse.value : {};
 }
 
+function stringIsNotNullOrEmpty(strValue) {
+  return !!strValue && strValue.trim() !== "";
+}
+
 const reduceKeyMappers = payload => (accumulator, keyMapper) => {
   const queryStringValue = payload[keyMapper.qsKey];
-  if (!!queryStringValue && queryStringValue.trim() !== "") {
+  if (stringIsNotNullOrEmpty(queryStringValue)) {
     accumulator[keyMapper.loKey] = queryStringValue;
   }
   
@@ -46,6 +50,16 @@ function extractQueryStringValues(payload) {
 
   return keyMappers.reduce(reduceKeyMappers(payload), {});
 }
+
+const sanitizeValues = formKeyValues => {
+  const loanReason = formKeyValues['loanReason'];
+  if (stringIsNotNullOrEmpty(loanReason) && loanReason === "BondLoan") {
+    formKeyValues['loanReason'] = "Bond Loan";
+  }
+  return {
+    ...formKeyValues
+  };
+};
 
 export default function(state = initState, action) {
   switch (action.type) {
@@ -83,7 +97,7 @@ export default function(state = initState, action) {
       return {
         ...state,
         initialValue: new LoanFormModel({
-          values: { ...getCurrentLoanState(state), ...extractQueryStringValues(action.payload) },
+          values: { ...getCurrentLoanState(state), ...sanitizeValues(extractQueryStringValues(action.payload)) },
           step: 1
         })
       };
@@ -91,3 +105,7 @@ export default function(state = initState, action) {
       return state;
   }
 }
+
+export const __TEST__ = {
+  sanitizeValues,
+};
