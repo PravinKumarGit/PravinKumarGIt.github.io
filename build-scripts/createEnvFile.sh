@@ -1,6 +1,6 @@
 #!/bin/bash
-buildConfigEnvironment=$1
-envFile="./.env.$1"
+buildConfigEnvironment=$(buildEnvironment)
+envFile="./.env.$buildConfigEnvironment"
 input="./.env.development"
 
 rm -rf $envFile
@@ -11,7 +11,9 @@ do
   
   if printf '%s\n' "$line" | grep -q -e '='; then
     varname=$(printf '%s\n' "$line" | sed -e 's/=.*//')
-    echo "$varname=\"%$varname%"\" >> $envFile
+    eval valvalue='$'$varname
+    # echo "$varname=\"$valvalue"\"
+    echo "$varname=\"$valvalue"\" >> $envFile
   fi
 
 done < "$input"
