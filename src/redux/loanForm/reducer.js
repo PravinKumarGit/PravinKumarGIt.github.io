@@ -97,7 +97,7 @@ export default function(state = initState, action) {
       return {
         ...state,
         initialValue: new LoanFormModel({
-          values: { ...getCurrentLoanState(state), ...sanitizeValues(extractQueryStringValues(action.payload)) },
+          values: { ...sanitizeValues(extractQueryStringValues(action.payload)) },
           step: 1
         })
       };
