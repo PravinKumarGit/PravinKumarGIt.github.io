@@ -12,6 +12,7 @@ const actions = {
   POST_LOAN_FORM_SUCCESS,
   POST_LOAN_FORM_ERROR,
   SET_STEP,
+  PREFILL_USING_QUERYSTRING,
   postLoanFormRequest: createPayloadAction(POST_LOAN_FORM_START),
   postLoanFormSuccess: createPayloadAction(POST_LOAN_FORM_SUCCESS),
   postLoanFormError: createPayloadAction(POST_LOAN_FORM_ERROR),

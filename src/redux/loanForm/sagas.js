@@ -1,4 +1,4 @@
-import { all, call, takeLatest, fork, put, takeEvery } from "redux-saga/effects";
+import { all, call, takeLatest, put } from "redux-saga/effects";
 import actions from "./actions";
 import startupActions from '../startup/actions';
 import { postLoanForm } from "../../services/PersonalLoanApi";

@@ -11,21 +11,18 @@ describe('parseQueryString', () => {
   it('should return foo bar', () => {
     const result = run("?foo=bar");
 
-    console.log({result})
     expect(result).toStrictEqual({foo: "bar"})
   });
   
   it('should return foo bar, do re', () => {
     const result = run("?foo=bar&do=re");
 
-    console.log({result})
     expect(result).toStrictEqual({foo: "bar", do: "re"})
   });
   
   it('should parse encoded uri', () => {
     const result = run("?GR%26ND%40D=GR%26ND%40D");
 
-    console.log({result})
     expect(result).toStrictEqual({"GR&ND@D": "GR&ND@D"})
   });
   
