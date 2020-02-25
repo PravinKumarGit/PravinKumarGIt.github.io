@@ -11,7 +11,6 @@ import SubSectionHeading from "../../../../components/uielements/subSectionHeadi
 import Loader from "../../../../components/utility/loader";
 
 import PayslipField from "../payslipField";
-import CentreLinkField from "../centreLinkField";
 import SendViaEmail from "../sendViaEmail";
 import SendViaFax from "../sendViaFax";
 import IdentificationType from "../selectIdentificationType";
@@ -23,7 +22,6 @@ const Finally = props => {
   const {
     values: {
       payslip,
-      centrelink,
       identificationType
     },
     errors,
@@ -84,13 +82,6 @@ const Finally = props => {
             value={payslip}
             setFieldValue={setFieldValue}
             errorMessage={touched.payslip ? errors.payslip : ""}
-          />
-          <CentreLinkField
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={centrelink}
-            setFieldValue={setFieldValue}
-            errorMessage={touched.centrelink ? errors.centrelink : ""}
           />
           <FieldLabel title="Alternate Methods" />
           <SendViaEmail />
