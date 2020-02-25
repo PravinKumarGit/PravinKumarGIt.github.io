@@ -1,5 +1,6 @@
-import { all, call, takeLatest, put } from "redux-saga/effects";
+import { all, call, takeLatest, fork, put, takeEvery } from "redux-saga/effects";
 import actions from "./actions";
+import startupActions from '../startup/actions';
 import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
 import LoanFormModel from "../../models/loanForm";
@@ -31,6 +32,28 @@ function* loanForm(action) {
   }
 }
 
-export default function* rootSaga() {
-  yield all([takeLatest(actions.POST_LOAN_FORM_START, loanForm)]);
+function* prefillForm({ payload }) {
+  const { id } = payload;
+  
+  const hasQueryStringItems = Object.keys(payload).length !== 0;
+  const hasId = id && id.trim() !== "";
+
+  if (hasQueryStringItems && !hasId) {
+    yield put(actions.prefillUsingQueryString(payload));
+  }
+  else if (hasId) {
+    const { id } = payload;
+    yield put(actions.prefillUsingHydrationId(id))
+  }
 }
+
+export default function* rootSaga() {
+  yield all([
+    takeLatest(actions.POST_LOAN_FORM_START, loanForm),
+    takeLatest(startupActions.INITIALISE_QUERY_STRING, prefillForm),
+  ]);
+}
+
+export const __TEST__ = {
+  prefillForm,
+};
