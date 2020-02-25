@@ -134,6 +134,21 @@ export const StartSchema = Yup.object({
       .trim()
       .required(requiredFieldMessage)
   }),
+});
+
+export const BankStatementSchema = Yup.object({});
+export const GeneralGivingSchema = Yup.object({
+  // businessName: Yup.string()
+  //   .trim()
+  //   .required(requiredFieldMessage)
+  //   .matches(requiredDigitOrLetterInputFieldRegex, {
+  //     message: invalidValue,
+  //     excludeEmptyString: true
+  //   })  
+});
+
+export const FinallySchema = Yup.object({
+
   identificationType: Yup.string()
     .trim()
     .required(requiredFieldMessage),
@@ -167,15 +182,3 @@ export const StartSchema = Yup.object({
       .required(requiredFieldMessage)
   }),
 });
-
-export const BankStatementSchema = Yup.object({});
-export const GeneralGivingSchema = Yup.object({
-  // businessName: Yup.string()
-  //   .trim()
-  //   .required(requiredFieldMessage)
-  //   .matches(requiredDigitOrLetterInputFieldRegex, {
-  //     message: invalidValue,
-  //     excludeEmptyString: true
-  //   })  
-});
-export const FinallySchema = Yup.object({});
