@@ -25,13 +25,8 @@ function* loanAmount() {
   }
 }
 
-function* parseQueryString() {
-  
-}
-
 export default function* rootSaga() {
   yield all([
-    takeLatest(actions.GET_LOAN_AMOUNT_START, loanAmount),
-    takeLatest(actions.PARSE_QUERY_STRING, parseQueryString)
+    takeLatest(actions.GET_LOAN_AMOUNT_START, loanAmount)
   ]);
 }
