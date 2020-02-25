@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Select from "../../../components/uielements/select/select";
 import Input from "../../../components/uielements/input";
 
-import ExpiryDate from "./expiryDate"
+import DriversLicenceExpiryDate from "./driversLicenceExpiryDate"
 
 import { STATE_OPTIONS } from "../../../constants/options";
 
@@ -61,7 +61,7 @@ export default function DriverLicence({ ...props }) {
                 errorMessage={touched.driversLicenceCardNumber ? errors.driversLicenceCardNumber : ""}
                 {...props}
             />}
-            {driversLicenceState === "WA" && <ExpiryDate {...props} />}
+            {driversLicenceState === "WA" && <DriversLicenceExpiryDate {...props} />}
         </>
     );
 }

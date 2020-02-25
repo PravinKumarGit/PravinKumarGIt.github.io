@@ -6,11 +6,11 @@ import Image from "../../../theme/assets/icon-tooltip.svg";
 
 import Wrapper from "./Styles/dobField.styles";
 
-export default function ExpiryDate({ ...props }) {
+export default function MedicareExpiryDate({ ...props }) {
   const {
     OptionalLabel,
     values: {
-        driversLicenceExpiry: { day, month, year }
+        medicareDateExpiry: { day, month, year }
     },
     errors,
     touched,
@@ -18,7 +18,8 @@ export default function ExpiryDate({ ...props }) {
     handleBlur,
     helpToolTip,
     toolTipText,
-    setFieldValue
+    setFieldValue,
+    hideDateField
   } = props;
 
   const activeDays = [...DAYS];
@@ -30,19 +31,19 @@ export default function ExpiryDate({ ...props }) {
       case MONTHS[8].value:
         activeDays.splice(30, 1);
         if (day && day * 1 === 31) {
-          setFieldValue("driversLicenceExpiry.day", "");
+          setFieldValue("medicareDateExpiry.day", "");
         }
         break;
       case MONTHS[1].value:
         if (year && (year * 1) % 4 === 0) {
           activeDays.splice(29, 2);
           if (day && day * 1 > 29) {
-            setFieldValue("driversLicenceExpiry.day", "");
+            setFieldValue("medicareDateExpiry.day", "");
           }
         } else {
           activeDays.splice(28, 3);
           if (day && day * 1 > 28) {
-            setFieldValue("driversLicenceExpiry.day", "");
+            setFieldValue("medicareDateExpiry.day", "");
           }
         }
         break;
@@ -62,7 +63,7 @@ export default function ExpiryDate({ ...props }) {
                {helpToolTip&& <i className="toolTip-Icon">
                   <img src={Image} alt="help icon" />
                  {toolTipText&& <span className="toolTip-Text">
-                    You need to be 18 years or older.
+                    {toolTipText}
                   </span>}
                 </i>}
                  {OptionalLabel && (
@@ -70,22 +71,23 @@ export default function ExpiryDate({ ...props }) {
                 )}
               </label>
             </div>
+
             <Row className={`selectBox-Input`}>
               <Col xs={12} className="dob-input-wrap">
-                <div className="dob-input">
+                {hideDateField&&<div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.driversLicenceExpiry &&
-                      errors.driversLicenceExpiry &&
-                      touched.driversLicenceExpiry.day &&
-                      errors.driversLicenceExpiry.day
+                      touched.medicareDateExpiry &&
+                      errors.medicareDateExpiry &&
+                      touched.medicareDateExpiry.day &&
+                      errors.medicareDateExpiry.day
                         ? "required"
                         : ""
                     } `}
                     value={day}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="driversLicenceExpiry.day"
+                    name="medicareDateExpiry.day"
                   >
                     <option className={`select-Option`} value="">
                       Day
@@ -100,29 +102,29 @@ export default function ExpiryDate({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.driversLicenceExpiry &&
-                    errors.driversLicenceExpiry &&
-                    touched.driversLicenceExpiry.day &&
-                    errors.driversLicenceExpiry.day && (
-                      <div className="message"> {errors.driversLicenceExpiry.day} </div>
+                  {touched.medicareDateExpiry &&
+                    errors.medicareDateExpiry &&
+                    touched.medicareDateExpiry.day &&
+                    errors.medicareDateExpiry.day && (
+                      <div className="message"> {errors.medicareDateExpiry.day} </div>
                     )}
-                </div>
+                </div>}
 
 
                 <div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.driversLicenceExpiry &&
-                      errors.driversLicenceExpiry &&
-                      touched.driversLicenceExpiry.month &&
-                      errors.driversLicenceExpiry.month
+                      touched.medicareDateExpiry &&
+                      errors.medicareDateExpiry &&
+                      touched.medicareDateExpiry.month &&
+                      errors.medicareDateExpiry.month
                         ? "required"
                         : ""
                     } `}
                     value={month}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="driversLicenceExpiry.month"
+                    name="medicareDateExpiry.month"
                   >
                     <option className={`select-Option`} value="">
                       Month
@@ -137,11 +139,11 @@ export default function ExpiryDate({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.driversLicenceExpiry &&
-                    errors.driversLicenceExpiry &&
-                    touched.driversLicenceExpiry.month &&
-                    errors.driversLicenceExpiry.month && (
-                      <div className="message">{errors.driversLicenceExpiry.month}</div>
+                  {touched.medicareDateExpiry &&
+                    errors.medicareDateExpiry &&
+                    touched.medicareDateExpiry.month &&
+                    errors.medicareDateExpiry.month && (
+                      <div className="message">{errors.medicareDateExpiry.month}</div>
                     )}
                 </div>
 
@@ -149,17 +151,17 @@ export default function ExpiryDate({ ...props }) {
                 <div className="dob-input-last">
                   <select
                     className={`select-Select ${
-                      touched.driversLicenceExpiry &&
-                      errors.driversLicenceExpiry &&
-                      touched.driversLicenceExpiry.year &&
-                      errors.driversLicenceExpiry.year
+                      touched.medicareDateExpiry &&
+                      errors.medicareDateExpiry &&
+                      touched.medicareDateExpiry.year &&
+                      errors.medicareDateExpiry.year
                         ? "required"
                         : ""
                     } `}
                     value={year}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="driversLicenceExpiry.year"
+                    name="medicareDateExpiry.year"
                   >
                     <option className={`select-Option`} value="">
                       Year
@@ -174,11 +176,11 @@ export default function ExpiryDate({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.driversLicenceExpiry &&
-                    errors.driversLicenceExpiry &&
-                    touched.driversLicenceExpiry.year &&
-                    errors.driversLicenceExpiry.year && (
-                      <div className="message"> {errors.driversLicenceExpiry.year} </div>
+                  {touched.medicareDateExpiry &&
+                    errors.medicareDateExpiry &&
+                    touched.medicareDateExpiry.year &&
+                    errors.medicareDateExpiry.year && (
+                      <div className="message"> {errors.medicareDateExpiry.year} </div>
                     )}
                 </div>
 

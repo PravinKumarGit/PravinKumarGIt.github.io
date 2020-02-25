@@ -181,4 +181,17 @@ export const FinallySchema = Yup.object({
       .trim()
       .required(requiredFieldMessage)
   }),
+  medicareNumber: Yup.string()
+  .trim()
+  .matches(requiredDigitInputFieldRegex, {
+    message: invalidValue,
+    excludeEmptyString: true
+  })
+  .length(10, "Card number must be exactly 10 numbers "),
+  medicareReference: Yup.string()
+  .trim()
+  .matches(requiredDigitInputFieldRegex, {
+    message: invalidValue,
+    excludeEmptyString: true
+  })
 });

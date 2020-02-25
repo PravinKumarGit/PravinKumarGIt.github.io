@@ -17,6 +17,7 @@ import SendViaFax from "../sendViaFax";
 import IdentificationType from "../selectIdentificationType";
 import IdentityVerification from "../identityVerification"
 import DriverLicence from "../driverLicence";
+import Medicare from "../medicare"
 
 const Finally = props => {
   const {
@@ -36,10 +37,19 @@ const Finally = props => {
   } = props;
 
   useEffect(() => {
-    setFieldValueAndTouchStatus("driversLicenceCardNumber")
-    setFieldValueAndTouchStatus("driversLicenceState")
-    setFieldValueAndTouchStatus("driversLicenceNumber")
-    setFieldValueAndTouchStatus("driversLicenceExpiry", { day: "", month: "", year: "" })
+    if (identificationType) {
+      //driver licence fields
+      setFieldValueAndTouchStatus("driversLicenceCardNumber")
+      setFieldValueAndTouchStatus("driversLicenceState")
+      setFieldValueAndTouchStatus("driversLicenceNumber")
+      setFieldValueAndTouchStatus("driversLicenceExpiry", { day: "", month: "", year: "" })
+      // medicare fields
+      setFieldValueAndTouchStatus("medicareName")
+      setFieldValueAndTouchStatus("medicareNumber")
+      setFieldValueAndTouchStatus("medicareReference")
+      setFieldValueAndTouchStatus("medicareCardColour")
+      setFieldValueAndTouchStatus("medicareDateExpiry", { day: "", month: "", year: "" })
+    }
   }, [identificationType])
 
   const { isFetching } = useSelector(state => state.loanForm);
@@ -63,6 +73,7 @@ const Finally = props => {
             errorMessage={touched.identificationType ? errors.identificationType : ""}
           />
           {identificationType === "Drivers Licence" && <DriverLicence {...props} />}
+          {identificationType === "Medicare" && <Medicare {...props} />}
           <IdentityVerification />
         </Col>
         <Col sm={12} md={6}>

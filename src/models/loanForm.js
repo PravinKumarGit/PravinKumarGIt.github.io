@@ -15,7 +15,7 @@ export default class LoanForm {
     this.middleName = values.middleName || "";
     this.lastName = values.lastName || "";
     this.mobilePhone = values.mobilePhone || "";
-    this.emailAddress = values.emailAddress|| "";
+    this.emailAddress = values.emailAddress || "";
     this.dateOfBirth = values.dateOfBirth || {
       day: "",
       month: "",
@@ -89,7 +89,11 @@ export default class LoanForm {
     this.medicareNumber = values.medicareNumber || "";
     this.medicareReference = values.medicareReference || "";
     this.medicareCardColour = values.medicareCardColour || "";
-    this.medicareDateExpiry = values.medicareDateExpiry || "";
+    this.medicareDateExpiry = values.medicareDateExpiry || {
+      day:  "",
+      month: "",
+      year: ""
+    };
     this.consentsToIdentityVerification =
       values.consentsToIdentityVerification || false;
     this.workContactNumber = values.workContactNumber || "";

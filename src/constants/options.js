@@ -154,3 +154,11 @@ export const STATE_OPTIONS = Object.freeze([
   { label: "VIC", value: "VIC" },
   { label: "WA", value: "WA" },
 ])
+
+
+
+export const CARD_COLOUR_OPTIONS = Object.freeze([
+  { label: "Green", value: "Green" },
+  { label: "Blue", value: "Blue" },
+  { label: "Yellow", value: "Yellow" },
+]);
