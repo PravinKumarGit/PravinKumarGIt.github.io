@@ -5,5 +5,6 @@ import themes from "./theme/config/theme.config";
 
 export default function AppProvider({ children }) {
   const { themeName } = useSelector(state => state.ThemeSwitcher.changeThemes);
+  console.log(themeName,'theme')
   return <ThemeProvider theme={themes[themeName]}>{children}</ThemeProvider>;
 }
