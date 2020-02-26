@@ -13,17 +13,15 @@ export default function GetCreditFile() {
         <div className="message">{getCreditFileContentMessage}</div>
         <div className="padding"></div>
         <div className="content">
-          <a 
-            className="get-credit-file-button"
-            href="http://www.veda.com.au"
-          >
-            Get My Credit File
-            <span className="content-spacing"></span>
-            <span className="icon">
-              <img src={ExitToAppSvg} alt=""></img>
-            </span>
-            
-          </a>
+          <span>
+            <a className="get-credit-file-button" href="http://www.veda.com.au">
+              <span>Get My Credit File</span>
+              <span className="content-spacing"></span>
+              <span className="icon">
+                <img src={ExitToAppSvg} alt=""></img>
+              </span>
+            </a>
+          </span>
         </div>
       </div>
     </Wrapper>

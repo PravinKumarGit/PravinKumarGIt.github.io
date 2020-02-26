@@ -18,7 +18,12 @@ const Wrapper = styled.div`
   .icon {
     color: ${palette("color", 17)};
   }
+  .content {
+    
+  }
   .get-credit-file-button {
+    display: inline-flex
+    align-items: flex-start
     border-color: ${palette("color", 17)};
     background: #FDFFF9;
   }
