@@ -234,4 +234,7 @@ export const FinallySchema = Yup.object({
       }
       return true;
     }),
+    foreseeableChanges: Yup.string()
+    .trim()
+    .required(requiredFieldMessage),
 });

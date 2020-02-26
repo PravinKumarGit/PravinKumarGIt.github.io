@@ -22,6 +22,10 @@ import HomePhoneNumber from "../homePhoneNumber"
 import ContactName from "../contactName"
 import ContactNumber from "../contactNumber"
 import RelationToYou from "../relationToYou"
+import YesNo from "../yesNo"
+import Explain from "../expalin"
+
+import { YES_NO_VALUES } from "../../../../constants/commonConstants"
 
 const Finally = props => {
   const {
@@ -32,7 +36,10 @@ const Finally = props => {
       homePhoneNumber,
       alternateContactName,
       alternateContactNumber,
-      alternateRelationship
+      alternateRelationship,
+      foreseeableChanges,
+      consentsToIdentityVerification,
+      foreseeableChangesExplain
     },
     errors,
     touched,
@@ -60,6 +67,11 @@ const Finally = props => {
     }
   }, [identificationType])
 
+  useEffect(() => {
+    if (foreseeableChanges === YES_NO_VALUES.NO)
+      setFieldValueAndTouchStatus("foreseeableChangesExplain")
+  }, [foreseeableChanges])
+
   const { isFetching } = useSelector(state => state.loanForm);
   return (
     <>
@@ -82,7 +94,12 @@ const Finally = props => {
           />
           {identificationType === "Drivers Licence" && <DriverLicence {...props} />}
           {identificationType === "Medicare" && <Medicare {...props} />}
-          <IdentityVerification />
+          <IdentityVerification
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={consentsToIdentityVerification}
+            name="consentsToIdentityVerification"
+            errorMessage={touched.consentsToIdentityVerification ? errors.consentsToIdentityVerification : ""} />
         </Col>
         <Col sm={12} md={6}>
           <FieldLabel title="Required Files" />
@@ -97,9 +114,7 @@ const Finally = props => {
           <SendViaEmail />
           <SendViaFax />
         </Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+
         <Col xl={12}>
           <Divider />
         </Col>
@@ -174,8 +189,25 @@ const Finally = props => {
         <Col xl={12}>
           <SubSectionHeading heading="And Finally" />
         </Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}>
+          <YesNo
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={foreseeableChanges}
+            name="foreseeableChanges"
+            errorMessage={touched.foreseeableChanges ? errors.foreseeableChanges : ""}
+          />
+        </Col>
+        <Col sm={12} md={6}>
+          {foreseeableChanges === YES_NO_VALUES.YES &&
+            <Explain
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={foreseeableChangesExplain}
+              name="foreseeableChangesExplain"
+              errorMessage={touched.foreseeableChangesExplain ? errors.foreseeableChangesExplain : ""}
+            />}
+        </Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}>
           <Button
