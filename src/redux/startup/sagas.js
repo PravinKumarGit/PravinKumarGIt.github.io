@@ -26,5 +26,7 @@ function* loanAmount() {
 }
 
 export default function* rootSaga() {
-  yield all([takeLatest(actions.GET_LOAN_AMOUNT_START, loanAmount)]);
+  yield all([
+    takeLatest(actions.GET_LOAN_AMOUNT_START, loanAmount)
+  ]);
 }
