@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Formik } from "formik";
+import React from "react";
 import { Row, Col } from "react-grid-system";
 
 import TopHeader from "../../../components/uielements/topHeader";
+import Banner from "./Components/banner";
 
 import Wrapper from "../Decline/Decline.styles";
 
@@ -14,7 +13,18 @@ export default function() {
         <Col lg={12}>
           <TopHeader />
         </Col>
-        <Col lg={12}></Col>
+      </Row>
+      <div className="banner-wrapper">
+        <Row>
+          <Col lg={3} />
+          <Col lg={6}>
+            <Banner />
+          </Col>
+          <Col lg={3} />
+        </Row>
+      </div>
+      <Row>
+        <Col></Col>
       </Row>
     </Wrapper>
   );
