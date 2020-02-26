@@ -17,6 +17,10 @@ const publicRoutes = [
     component: lazy(() => import("./containers/Pages/ComingSoon"))
   },
   {
+    path: PUBLIC_ROUTE.DECLINE,
+    component: lazy(() => import("./containers/Pages/Decline/Decline"))
+  },
+  {
     path: PUBLIC_ROUTE.PAGE_NOT_FOUND,
     component: lazy(() => import("./containers/Pages/404/404"))
   }
