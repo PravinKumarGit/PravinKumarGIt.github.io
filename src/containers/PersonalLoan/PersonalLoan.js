@@ -12,7 +12,12 @@ import Footer from "../../components/uielements/footer";
 
 import Wrapper from "./PersonalLoan.styles";
 import LoanForm from "./loanForm";
-import validationSchema from "./components/steps/validationSchema";
+import {
+  StartSchema,
+  BankStatementSchema,
+  GeneralGivingSchema,
+  FinallySchema
+} from "./components/steps/validationSchema";
 
 export default function PersonalLoan({ ...props }) {
   const { step, initialValue } = useSelector(state => state.loanForm);
@@ -60,7 +65,7 @@ export default function PersonalLoan({ ...props }) {
       {step === 1 && (
         <Formik
           initialValues={initialValue}
-          validationSchema={validationSchema}
+          validationSchema={StartSchema}
           enableReinitialize
           validateOnChange
           validateOnBlur
@@ -72,7 +77,7 @@ export default function PersonalLoan({ ...props }) {
       {step === 2 && (
         <Formik
           initialValues={initialValue}
-          validationSchema={validationSchema}
+          validationSchema={BankStatementSchema}
           enableReinitialize
           validateOnChange
           validateOnBlur
@@ -84,7 +89,7 @@ export default function PersonalLoan({ ...props }) {
       {step === 3 && (
         <Formik
           initialValues={initialValue}
-          validationSchema={validationSchema}
+          validationSchema={GeneralGivingSchema}
           enableReinitialize
           validateOnChange
           validateOnBlur
@@ -96,7 +101,7 @@ export default function PersonalLoan({ ...props }) {
       {step === 4 && (
         <Formik
           initialValues={initialValue}
-          validationSchema={validationSchema}
+          validationSchema={FinallySchema}
           enableReinitialize
           validateOnChange
           validateOnBlur

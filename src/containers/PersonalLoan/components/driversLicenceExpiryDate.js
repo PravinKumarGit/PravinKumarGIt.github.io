@@ -6,16 +6,18 @@ import Image from "../../../theme/assets/icon-tooltip.svg";
 
 import Wrapper from "./Styles/dobField.styles";
 
-export default function LoanReasons({ ...props }) {
+export default function DriversLicenceExpiryDate({ ...props }) {
   const {
     OptionalLabel,
     values: {
-      dateOfBirth: { day, month, year }
+      driversLicenceExpiry: { day, month, year }
     },
     errors,
     touched,
     handleChange,
     handleBlur,
+    helpToolTip,
+    toolTipText,
     setFieldValue
   } = props;
 
@@ -28,19 +30,19 @@ export default function LoanReasons({ ...props }) {
       case MONTHS[8].value:
         activeDays.splice(30, 1);
         if (day && day * 1 === 31) {
-          setFieldValue("dateOfBirth.day", "");
+          setFieldValue("driversLicenceExpiry.day", "");
         }
         break;
       case MONTHS[1].value:
         if (year && (year * 1) % 4 === 0) {
           activeDays.splice(29, 2);
           if (day && day * 1 > 29) {
-            setFieldValue("dateOfBirth.day", "");
+            setFieldValue("driversLicenceExpiry.day", "");
           }
         } else {
           activeDays.splice(28, 3);
           if (day && day * 1 > 28) {
-            setFieldValue("dateOfBirth.day", "");
+            setFieldValue("driversLicenceExpiry.day", "");
           }
         }
         break;
@@ -56,13 +58,13 @@ export default function LoanReasons({ ...props }) {
           <div className="selectBox">
             <div className="selectBox-Label-Container">
               <label className="selectBox-Label">
-                <span>Date of Birth</span>
-                <i className="toolTip-Icon">
+                <span>Expiry date</span>
+                {helpToolTip && <i className="toolTip-Icon">
                   <img src={Image} alt="help icon" />
-                  <span className="toolTip-Text">
-                    You need to be 18 years or older.
-                  </span>
-                </i>
+                  {toolTipText && <span className="toolTip-Text">
+                    {toolTipText}
+                  </span>}
+                </i>}
                 {OptionalLabel && (
                   <label className="selectBox-Label-Optional">optional</label>
                 )}
@@ -73,17 +75,17 @@ export default function LoanReasons({ ...props }) {
                 <div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.day &&
-                      errors.dateOfBirth.day
+                      touched.driversLicenceExpiry &&
+                        errors.driversLicenceExpiry &&
+                        touched.driversLicenceExpiry.day &&
+                        errors.driversLicenceExpiry.day
                         ? "required"
                         : ""
-                    } `}
+                      } `}
                     value={day}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="dateOfBirth.day"
+                    name="driversLicenceExpiry.day"
                   >
                     <option className={`select-Option`} value="">
                       Day
@@ -98,27 +100,29 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.day &&
-                    errors.dateOfBirth.day && (
-                      <div className="message"> {errors.dateOfBirth.day} </div>
+                  {touched.driversLicenceExpiry &&
+                    errors.driversLicenceExpiry &&
+                    touched.driversLicenceExpiry.day &&
+                    errors.driversLicenceExpiry.day && (
+                      <div className="message"> {errors.driversLicenceExpiry.day} </div>
                     )}
                 </div>
+
+
                 <div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.month &&
-                      errors.dateOfBirth.month
+                      touched.driversLicenceExpiry &&
+                        errors.driversLicenceExpiry &&
+                        touched.driversLicenceExpiry.month &&
+                        errors.driversLicenceExpiry.month
                         ? "required"
                         : ""
-                    } `}
+                      } `}
                     value={month}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="dateOfBirth.month"
+                    name="driversLicenceExpiry.month"
                   >
                     <option className={`select-Option`} value="">
                       Month
@@ -133,32 +137,34 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.month &&
-                    errors.dateOfBirth.month && (
-                      <div className="message">{errors.dateOfBirth.month}</div>
+                  {touched.driversLicenceExpiry &&
+                    errors.driversLicenceExpiry &&
+                    touched.driversLicenceExpiry.month &&
+                    errors.driversLicenceExpiry.month && (
+                      <div className="message">{errors.driversLicenceExpiry.month}</div>
                     )}
                 </div>
+
+
                 <div className="dob-input-last">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.year &&
-                      errors.dateOfBirth.year
+                      touched.driversLicenceExpiry &&
+                        errors.driversLicenceExpiry &&
+                        touched.driversLicenceExpiry.year &&
+                        errors.driversLicenceExpiry.year
                         ? "required"
                         : ""
-                    } `}
+                      } `}
                     value={year}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="dateOfBirth.year"
+                    name="driversLicenceExpiry.year"
                   >
                     <option className={`select-Option`} value="">
                       Year
                     </option>
-                    {(YEARS() || []).map((item, index) => (
+                    {(YEARS(0, 11, true) || []).map((item, index) => (
                       <option
                         key={`${new Date().getTime()}${index}`}
                         className={`select-Option${index}`}
@@ -168,13 +174,15 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.year &&
-                    errors.dateOfBirth.year && (
-                      <div className="message"> {errors.dateOfBirth.year} </div>
+                  {touched.driversLicenceExpiry &&
+                    errors.driversLicenceExpiry &&
+                    touched.driversLicenceExpiry.year &&
+                    errors.driversLicenceExpiry.year && (
+                      <div className="message"> {errors.driversLicenceExpiry.year} </div>
                     )}
                 </div>
+
+
               </Col>
             </Row>
           </div>

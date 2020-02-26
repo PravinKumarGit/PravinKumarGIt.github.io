@@ -6,17 +6,20 @@ import Image from "../../../theme/assets/icon-tooltip.svg";
 
 import Wrapper from "./Styles/dobField.styles";
 
-export default function LoanReasons({ ...props }) {
+export default function MedicareExpiryDate({ ...props }) {
   const {
     OptionalLabel,
     values: {
-      dateOfBirth: { day, month, year }
+        medicareDateExpiry: { day, month, year }
     },
     errors,
     touched,
     handleChange,
     handleBlur,
-    setFieldValue
+    helpToolTip,
+    toolTipText,
+    setFieldValue,
+    hideDateField
   } = props;
 
   const activeDays = [...DAYS];
@@ -28,19 +31,19 @@ export default function LoanReasons({ ...props }) {
       case MONTHS[8].value:
         activeDays.splice(30, 1);
         if (day && day * 1 === 31) {
-          setFieldValue("dateOfBirth.day", "");
+          setFieldValue("medicareDateExpiry.day", "");
         }
         break;
       case MONTHS[1].value:
         if (year && (year * 1) % 4 === 0) {
           activeDays.splice(29, 2);
           if (day && day * 1 > 29) {
-            setFieldValue("dateOfBirth.day", "");
+            setFieldValue("medicareDateExpiry.day", "");
           }
         } else {
           activeDays.splice(28, 3);
           if (day && day * 1 > 28) {
-            setFieldValue("dateOfBirth.day", "");
+            setFieldValue("medicareDateExpiry.day", "");
           }
         }
         break;
@@ -56,34 +59,35 @@ export default function LoanReasons({ ...props }) {
           <div className="selectBox">
             <div className="selectBox-Label-Container">
               <label className="selectBox-Label">
-                <span>Date of Birth</span>
-                <i className="toolTip-Icon">
+                <span>Expiry date</span>
+               {helpToolTip&& <i className="toolTip-Icon">
                   <img src={Image} alt="help icon" />
-                  <span className="toolTip-Text">
-                    You need to be 18 years or older.
-                  </span>
-                </i>
-                {OptionalLabel && (
+                 {toolTipText&& <span className="toolTip-Text">
+                    {toolTipText}
+                  </span>}
+                </i>}
+                 {OptionalLabel && (
                   <label className="selectBox-Label-Optional">optional</label>
                 )}
               </label>
             </div>
+
             <Row className={`selectBox-Input`}>
               <Col xs={12} className="dob-input-wrap">
-                <div className="dob-input">
+                {hideDateField&&<div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.day &&
-                      errors.dateOfBirth.day
+                      touched.medicareDateExpiry &&
+                      errors.medicareDateExpiry &&
+                      touched.medicareDateExpiry.day &&
+                      errors.medicareDateExpiry.day
                         ? "required"
                         : ""
                     } `}
                     value={day}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="dateOfBirth.day"
+                    name="medicareDateExpiry.day"
                   >
                     <option className={`select-Option`} value="">
                       Day
@@ -98,27 +102,29 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.day &&
-                    errors.dateOfBirth.day && (
-                      <div className="message"> {errors.dateOfBirth.day} </div>
+                  {touched.medicareDateExpiry &&
+                    errors.medicareDateExpiry &&
+                    touched.medicareDateExpiry.day &&
+                    errors.medicareDateExpiry.day && (
+                      <div className="message"> {errors.medicareDateExpiry.day} </div>
                     )}
-                </div>
+                </div>}
+
+
                 <div className="dob-input">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.month &&
-                      errors.dateOfBirth.month
+                      touched.medicareDateExpiry &&
+                      errors.medicareDateExpiry &&
+                      touched.medicareDateExpiry.month &&
+                      errors.medicareDateExpiry.month
                         ? "required"
                         : ""
                     } `}
                     value={month}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="dateOfBirth.month"
+                    name="medicareDateExpiry.month"
                   >
                     <option className={`select-Option`} value="">
                       Month
@@ -133,32 +139,34 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.month &&
-                    errors.dateOfBirth.month && (
-                      <div className="message">{errors.dateOfBirth.month}</div>
+                  {touched.medicareDateExpiry &&
+                    errors.medicareDateExpiry &&
+                    touched.medicareDateExpiry.month &&
+                    errors.medicareDateExpiry.month && (
+                      <div className="message">{errors.medicareDateExpiry.month}</div>
                     )}
                 </div>
+
+
                 <div className="dob-input-last">
                   <select
                     className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.year &&
-                      errors.dateOfBirth.year
+                      touched.medicareDateExpiry &&
+                      errors.medicareDateExpiry &&
+                      touched.medicareDateExpiry.year &&
+                      errors.medicareDateExpiry.year
                         ? "required"
                         : ""
                     } `}
                     value={year}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="dateOfBirth.year"
+                    name="medicareDateExpiry.year"
                   >
                     <option className={`select-Option`} value="">
                       Year
                     </option>
-                    {(YEARS() || []).map((item, index) => (
+                    {(YEARS(0,11,true) || []).map((item, index) => (
                       <option
                         key={`${new Date().getTime()}${index}`}
                         className={`select-Option${index}`}
@@ -168,13 +176,15 @@ export default function LoanReasons({ ...props }) {
                       </option>
                     ))}
                   </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.year &&
-                    errors.dateOfBirth.year && (
-                      <div className="message"> {errors.dateOfBirth.year} </div>
+                  {touched.medicareDateExpiry &&
+                    errors.medicareDateExpiry &&
+                    touched.medicareDateExpiry.year &&
+                    errors.medicareDateExpiry.year && (
+                      <div className="message"> {errors.medicareDateExpiry.year} </div>
                     )}
                 </div>
+
+
               </Col>
             </Row>
           </div>

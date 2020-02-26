@@ -18,7 +18,7 @@ const twoCharacterInputFieldRegex = /^[A-Za-z ]{2,}$/;
 const emailInputFieldRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 const digitPhoneInputFieldRegex = /^04\d{8}$/;
 
-export default Yup.object({
+export const StartSchema = Yup.object({
   title: Yup.string()
     .trim()
     .required(requiredFieldMessage),
@@ -133,5 +133,65 @@ export default Yup.object({
     year: Yup.string()
       .trim()
       .required(requiredFieldMessage)
+  }),
+});
+
+export const BankStatementSchema = Yup.object({});
+export const GeneralGivingSchema = Yup.object({
+  // businessName: Yup.string()
+  //   .trim()
+  //   .required(requiredFieldMessage)
+  //   .matches(requiredDigitOrLetterInputFieldRegex, {
+  //     message: invalidValue,
+  //     excludeEmptyString: true
+  //   })  
+});
+
+export const FinallySchema = Yup.object({
+
+  identificationType: Yup.string()
+    .trim()
+    .required(requiredFieldMessage),
+  driversLicenceNumber: Yup.string()
+    .trim()
+    .required(requiredFieldMessage)
+    .matches(requiredDigitOrLetterInputFieldRegex, {
+      message: invalidValue,
+      excludeEmptyString: true
+    })
+    .length(6, "Licence number must be exactly 6 characters "),
+  driversLicenceState: Yup.string()
+    .trim()
+    .required(requiredFieldMessage),
+  driversLicenceCardNumber: Yup.string()
+    .trim()
+    .required(requiredFieldMessage)
+    .matches(requiredDigitOrLetterInputFieldRegex, {
+      message: invalidValue,
+      excludeEmptyString: true
+    }),
+  driversLicenceExpiry: Yup.object().shape({
+    day: Yup.string()
+      .trim()
+      .required(requiredFieldMessage),
+    month: Yup.string()
+      .trim()
+      .required(requiredFieldMessage),
+    year: Yup.string()
+      .trim()
+      .required(requiredFieldMessage)
+  }),
+  medicareNumber: Yup.string()
+  .trim()
+  .matches(requiredDigitInputFieldRegex, {
+    message: invalidValue,
+    excludeEmptyString: true
+  })
+  .length(10, "Card number must be exactly 10 numbers "),
+  medicareReference: Yup.string()
+  .trim()
+  .matches(requiredDigitInputFieldRegex, {
+    message: invalidValue,
+    excludeEmptyString: true
   })
 });

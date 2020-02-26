@@ -45,10 +45,11 @@ const Start = props => {
     residentialPaymentFrequency,
     landlordContactName,
     residentialPayment,
-    landlordContactNumber,
+    landlordContactNumber
   } = values;
-  
+
   const { isFetching } = useSelector(state => state.loanForm);
+
   return (
     <>
       <Row>
@@ -117,7 +118,7 @@ const Start = props => {
             onBlur={handleBlur}
             value={numberOfDependents}
             name="numberOfDependents"
-            errorMessage={touched.livingSituation ? errors.livingSituation : ""}
+            errorMessage={touched.numberOfDependents ? errors.numberOfDependents : ""}
           />
         </Col>
         <Col sm={12} md={6}>
@@ -126,7 +127,9 @@ const Start = props => {
             onBlur={handleBlur}
             value={residentialStatus}
             name="residentialStatus"
-            errorMessage={touched.residentialStatus ? errors.residentialStatus : ""}
+            errorMessage={
+              touched.residentialStatus ? errors.residentialStatus : ""
+            }
           />
         </Col>
         <Col sm={12} md={6}>
@@ -140,7 +143,11 @@ const Start = props => {
             name="residentialPaymentFrequency"
             values={values}
             setFieldValue={setFieldValue}
-            errorMessage={touched.residentialPaymentFrequency ? errors.residentialPaymentFrequency : ""}
+            errorMessage={
+              touched.residentialPaymentFrequency
+                ? errors.residentialPaymentFrequency
+                : ""
+            }
           />
         </Col>
         <Col sm={12} md={6}>
@@ -151,8 +158,10 @@ const Start = props => {
             name="landlordContactName"
             values={values}
             setFieldValue={setFieldValue}
-            errorMessage={touched.landlordContactName ? errors.landlordContactName : ""}
-            />
+            errorMessage={
+              touched.landlordContactName ? errors.landlordContactName : ""
+            }
+          />
         </Col>
         <Col sm={12} md={6}>
           <ResidentialPayment
@@ -162,8 +171,10 @@ const Start = props => {
             name="residentialPayment"
             values={values}
             setFieldValue={setFieldValue}
-            errorMessage={touched.residentialPayment ? errors.residentialPayment : ""}
-            />
+            errorMessage={
+              touched.residentialPayment ? errors.residentialPayment : ""
+            }
+          />
         </Col>
         <Col sm={12} md={6}>
           <LandlordContactNumber
@@ -173,8 +184,10 @@ const Start = props => {
             name="landlordContactNumber"
             values={values}
             setFieldValue={setFieldValue}
-            errorMessage={touched.landlordContactNumber ? errors.landlordContactNumber : ""}
-            />
+            errorMessage={
+              touched.landlordContactNumber ? errors.landlordContactNumber : ""
+            }
+          />
         </Col>
         <Col xl={12}>
           <Divider />
@@ -186,15 +199,13 @@ const Start = props => {
             heading="Your Expenses"
             subheading={
               <>
-                <p>
-                  Please be as accurate as possible with your expenses. If they
-                  are greatly
-                </p>
-                <p>
-                  different from what your bank statement shows, any conditional
-                  loan offer
-                </p>
-                <p>provided</p>
+                Please be as accurate as possible with your expenses. If they
+                are greatly
+                <br />
+                different from what your bank statement shows, any conditional
+                loan offer
+                <br />
+                provided
               </>
             }
           />
@@ -212,8 +223,10 @@ const Start = props => {
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}>
           <Button
-            type={isFetching ? "button" : "submit"}
-            disabled={!isValid || !touched.loanAmount || isFetching}
+            disabled={!isValid || !creditCardCount || isFetching}
+            buttonProps={{
+              type: isFetching ? "button" : "submit"
+            }}
           >
             {isFetching ? (
               <Loader type="light" label="processing..." />

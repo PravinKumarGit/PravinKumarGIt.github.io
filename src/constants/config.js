@@ -1,4 +1,7 @@
+import environmentSettings from "../constants/environmentSettings";
+
 const CONFIG = {
-  GOOGLE_API_KEY: "AIzaSyAYmGp4lUqeXNlZgN0zPUUTH-w_EPlwUno"
+  GOOGLE_API_KEY: environmentSettings.googleApiKey
 };
+
 export default CONFIG;
