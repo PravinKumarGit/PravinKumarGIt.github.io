@@ -3,6 +3,7 @@ import { Row, Col } from "react-grid-system";
 
 import TopHeader from "../../../components/uielements/topHeader";
 import Banner from "./Components/banner";
+import Options from "./Components/options";
 
 import Wrapper from "../Decline/Decline.styles";
 
@@ -23,9 +24,15 @@ export default function() {
           <Col lg={3} />
         </Row>
       </div>
-      <Row>
-        <Col></Col>
-      </Row>
+      <div className="options-wrapper">
+        <Row>
+          <Col lg={3} />
+          <Col lg={6}>
+            <Options />
+          </Col>
+          <Col lg={3} />
+        </Row>
+      </div>
     </Wrapper>
   );
 }
