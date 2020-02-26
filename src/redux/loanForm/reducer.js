@@ -19,48 +19,6 @@ function getCurrentLoanState(state) {
   return state.loanFormResponse ? state.loanFormResponse.value : {};
 }
 
-function stringIsNotNullOrEmpty(strValue) {
-  return !!strValue && strValue.trim() !== "";
-}
-
-const reduceKeyMappers = payload => (accumulator, keyMapper) => {
-  const queryStringValue = payload[keyMapper.qsKey];
-  if (stringIsNotNullOrEmpty(queryStringValue)) {
-    accumulator[keyMapper.loKey] = queryStringValue;
-  }
-  
-  return accumulator;
-};
-
-function createKeyMapper(qsKey, loKey) {
-  return {qsKey, loKey: loKey || qsKey};
-}
-
-function extractQueryStringValues(payload) {
-  const keyMappers = [
-    createKeyMapper("reasonforloan", "loanReason"),
-    createKeyMapper("reasonForLoan", "loanReason"),
-    createKeyMapper("email", "emailAddress"),
-    createKeyMapper("firstName"),
-    createKeyMapper("firstname", "firstName"),
-    createKeyMapper("lastName"),
-    createKeyMapper("mobileNumber", "mobilePhone"),
-    createKeyMapper("loanAmount"),
-  ];
-
-  return keyMappers.reduce(reduceKeyMappers(payload), {});
-}
-
-const sanitizeValues = formKeyValues => {
-  const loanReason = formKeyValues['loanReason'];
-  if (stringIsNotNullOrEmpty(loanReason) && loanReason === "BondLoan") {
-    formKeyValues['loanReason'] = "Bond Loan";
-  }
-  return {
-    ...formKeyValues
-  };
-};
-
 export default function(state = initState, action) {
   switch (action.type) {
     case actions.POST_LOAN_FORM_START:
@@ -93,11 +51,11 @@ export default function(state = initState, action) {
           step: action.payload
         })
       };
-    case actions.PREFILL_USING_QUERYSTRING: 
+    case actions.PREFILL_USING_PAYLOAD: 
       return {
         ...state,
         initialValue: new LoanFormModel({
-          values: { ...sanitizeValues(extractQueryStringValues(action.payload)) },
+          values: { ...action.payload },
           step: 1
         })
       };
@@ -105,7 +63,3 @@ export default function(state = initState, action) {
       return state;
   }
 }
-
-export const __TEST__ = {
-  sanitizeValues,
-};

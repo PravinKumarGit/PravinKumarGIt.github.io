@@ -4,6 +4,8 @@ import startupActions from '../startup/actions';
 import { postLoanForm } from "../../services/PersonalLoanApi";
 import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
 import LoanFormModel from "../../models/loanForm";
+import { sanitizeValues } from "../utility/sanitizeLoanObjectValues";
+import { queryStringToLoanObjectMapper } from "../utility/queryStringToLoanObjectMapper";
 
 function* loanForm(action) {
   const { payload } = action;
@@ -39,11 +41,12 @@ function* prefillForm({ payload }) {
   const hasId = id && id.trim() !== "";
 
   if (hasQueryStringItems && !hasId) {
-    yield put(actions.prefillUsingQueryString(payload));
+    const loanFormObject = sanitizeValues(queryStringToLoanObjectMapper(payload));
+    yield put(actions.prefillUsingPayload(loanFormObject));
   }
   else if (hasId) {
-    const { id } = payload;
-    yield put(actions.prefillUsingHydrationId(id))
+    // const { id } = payload;
+    yield put(actions.prefillUsingPayload({firstName: "ToDo"}))
   }
 }
 
@@ -55,5 +58,5 @@ export default function* rootSaga() {
 }
 
 export const __TEST__ = {
-  prefillForm,
+  prefillForm
 };

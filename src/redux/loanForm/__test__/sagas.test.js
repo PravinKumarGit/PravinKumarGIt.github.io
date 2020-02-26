@@ -1,4 +1,6 @@
-﻿import {put} from "redux-saga/effects";
+﻿import { put } from "redux-saga/effects";
+import { sanitizeValues } from "../../utility/sanitizeLoanObjectValues";
+import { queryStringToLoanObjectMapper } from "../../utility/queryStringToLoanObjectMapper";
 import loanFormAction from '../actions';
 import { __TEST__ } from '../sagas';
 
@@ -14,22 +16,23 @@ describe("loanForm.sagas", () => {
       expectGeneratorDone(generator);
     });
     
-    it("should put the PREFILL_USING_QS action when we have a query string and no ID then done", () => {
+    it("should put the PREFILL_USING_PAYLOAD action when we have a query string and no ID then done", () => {
       const payload = {some: "qs"};
+      const mappedPayload = sanitizeValues(queryStringToLoanObjectMapper(payload));
 
       const generator = runPrefillForm(payload);
-      
-      expect(generator.next().value).toStrictEqual(put(loanFormAction.prefillUsingQueryString(payload)));
+
+      expect(generator.next().value).toStrictEqual(put(loanFormAction.prefillUsingPayload(mappedPayload)));
       expectGeneratorDone(generator);
     });
 
-    it("should put the PREFIL_HYDRATION_ID action when we have an Id passed in", () => {
+    it("should put the PREFILL_USING_PAYLOAD action when we have an Id passed in using the response from the API", () => {
       const expected = "expected";
       const payload = {id: expected};
       
       const generator = runPrefillForm(payload);
       
-      expect(generator.next().value).toStrictEqual(put(loanFormAction.prefillUsingHydrationId(expected)));
+      expect(generator.next().value).toStrictEqual(put(loanFormAction.prefillUsingPayload({firstName: "ToDo"})));
       expectGeneratorDone(generator);
     });
 
