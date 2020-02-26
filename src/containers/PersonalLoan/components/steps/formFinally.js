@@ -17,12 +17,22 @@ import IdentificationType from "../selectIdentificationType";
 import IdentityVerification from "../identityVerification"
 import DriverLicence from "../driverLicence";
 import Medicare from "../medicare"
+import WorkContactNumber from "../workContactNumber"
+import HomePhoneNumber from "../homePhoneNumber"
+import ContactName from "../contactName"
+import ContactNumber from "../contactNumber"
+import RelationToYou from "../relationToYou"
 
 const Finally = props => {
   const {
     values: {
       payslip,
-      identificationType
+      identificationType,
+      workContactNumber,
+      homePhoneNumber,
+      alternateContactName,
+      alternateContactNumber,
+      alternateRelationship
     },
     errors,
     touched,
@@ -109,8 +119,51 @@ const Finally = props => {
             }
           />
         </Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}>
+          <FieldLabel title="Additional Contact Details" />
+          <WorkContactNumber
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={workContactNumber}
+            name="workContactNumber"
+            errorMessage={touched.workContactNumber ? errors.workContactNumber : ""}
+          />
+          <HomePhoneNumber
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={homePhoneNumber}
+            name="homePhoneNumber"
+            errorMessage={touched.homePhoneNumber ? errors.homePhoneNumber : ""} />
+
+        </Col>
+        <Col sm={12} md={6}>
+          <FieldLabel
+            title="Alternate Account Contact Person"
+            helpToolTip
+            ToolTipText="Please provide us with an alternative contact which we may use to reach you if required."
+          />
+          <ContactName
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={alternateContactName}
+            name="alternateContactName"
+            errorMessage={touched.alternateContactName ? errors.alternateContactName : ""} />
+
+          <ContactNumber
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={alternateContactNumber}
+            name="alternateContactNumber"
+            errorMessage={touched.alternateContactNumber ? errors.alternateContactNumber : ""} />
+
+          <RelationToYou
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={alternateRelationship}
+            name="alternateRelationship"
+            errorMessage={touched.alternateRelationship ? errors.alternateRelationship : ""}
+          />
+        </Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col xl={12}>

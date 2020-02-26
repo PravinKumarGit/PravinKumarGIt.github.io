@@ -155,10 +155,17 @@ export const STATE_OPTIONS = Object.freeze([
   { label: "WA", value: "WA" },
 ])
 
-
-
 export const CARD_COLOUR_OPTIONS = Object.freeze([
   { label: "Green", value: "Green" },
   { label: "Blue", value: "Blue" },
   { label: "Yellow", value: "Yellow" },
+]);
+
+export const RELATIONSHIP_TO_YOU_OPTIONS = Object.freeze([
+  { label: "Family (Parent)", value: "Parent" },
+  { label: "Family (Sibling)", value: "Sibling" },
+  { label: "Friend", value: "Friend" },
+  { label: "Relative", value: "Relative" },
+  { label: "Colleague", value: "Colleague" },
+  { label: "Partner", value: "Partner" },
 ]);

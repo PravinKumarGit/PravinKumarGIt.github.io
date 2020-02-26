@@ -36,6 +36,7 @@ export default function DriverLicence({ ...props }) {
                 value={driversLicenceNumber}
                 onChange={handleChange}
                 onBlur={handleBlur}
+                maxLength={6}
                 errorMessage={touched.driversLicenceNumber ? errors.driversLicenceNumber : ""}
                 {...props}
             />
