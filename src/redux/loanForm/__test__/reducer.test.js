@@ -54,8 +54,10 @@ describe("loanForm.reducer", () => {
 
       const state = runPrefillUsingQuerystring({payload});
 
-      expect(state.initialValue).toStrictEqual(expected); // ensures that we ran the new LoanFormModel constructor
-      expect(state.initialValue.loanAmount).toBe(expectedLoanAmount); // ensures that our property was actually set
+      // ensures that we ran the new LoanFormModel constructor
+      expect(state.initialValue).toStrictEqual(expected);
+      // ensures that our property was actually set
+      expect(state.initialValue.loanAmount).toBe(expectedLoanAmount); 
     });
 
     const runPrefillUsingQuerystring = ({initState = {initialValue: {}}, payload = {}} = {}) => {

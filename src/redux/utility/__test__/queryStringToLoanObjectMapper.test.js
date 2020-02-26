@@ -19,5 +19,6 @@ describe("extractQueryStringValues", () => {
     expect(result[formKey]).toBe(expected);
   });
 
-  const runExtractQueryStringValues = (queryStringKeyValuePairDictionary) => queryStringToLoanObjectMapper(queryStringKeyValuePairDictionary);
+  const runExtractQueryStringValues = (queryStringKeyValuePairDictionary) => 
+    queryStringToLoanObjectMapper(queryStringKeyValuePairDictionary);
 });
