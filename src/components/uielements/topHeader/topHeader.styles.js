@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     margin-right: 10vw;
     float: right;
     align-items: center;
-    color: ${palette("header", 3)};
+    color: ${palette("header", 2)};
     font-size: ${size("p1")};
     letter-spacing: 1px;
     font-weight: 700;
