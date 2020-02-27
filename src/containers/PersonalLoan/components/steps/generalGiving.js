@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Row, Col } from "react-grid-system";
 
@@ -22,6 +23,9 @@ import ResidentialPaymentFrequency from "../selectResidentialPaymentFrequency";
 import LandlordContactName from "../landlordContactName";
 import ResidentialPayment from "../ResidentialPayment";
 import LandlordContactNumber from "../landlordContactNumber";
+import OwnIncomeYesNo from "../ownIncomeYesNo"
+
+import { LIVING_SITUATION_OPTIONS } from "../../../../constants/options"
 
 const Start = props => {
   const {
@@ -39,6 +43,7 @@ const Start = props => {
     employerPhone,
     employmentType,
     livingSituation,
+    partnerIncome,
     numberOfDependents,
     creditCardCount,
     residentialStatus,
@@ -49,6 +54,11 @@ const Start = props => {
   } = values;
 
   const { isFetching } = useSelector(state => state.loanForm);
+
+
+  useEffect(() => {
+    if (partnerIncome) setFieldValue("partnerIncome", "")
+  }, [livingSituation])
 
   return (
     <>
@@ -111,6 +121,17 @@ const Start = props => {
             name="livingSituation"
             errorMessage={touched.livingSituation ? errors.livingSituation : ""}
           />
+
+          {(livingSituation === LIVING_SITUATION_OPTIONS[1].value ||
+            livingSituation === LIVING_SITUATION_OPTIONS[2].value)
+            && <OwnIncomeYesNo
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={partnerIncome}
+              name="partnerIncome"
+              errorMessage={touched.partnerIncome ? errors.partnerIncome : ""}
+            />
+          }
         </Col>
         <Col sm={12} md={6}>
           <DependentCount
@@ -231,8 +252,8 @@ const Start = props => {
             {isFetching ? (
               <Loader type="light" label="processing..." />
             ) : (
-              "Next"
-            )}
+                "Next"
+              )}
           </Button>
         </Col>
       </Row>
