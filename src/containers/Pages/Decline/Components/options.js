@@ -5,7 +5,7 @@ import OptionItem from "./optionItem";
 import ReferralConsent from "./referralConsent";
 import GetCreditFile from "./getCreditFile";
 
-export default function Options() {
+const Options = () => {
   return (
     <Wrapper>
       <div className="options">
@@ -33,4 +33,6 @@ export default function Options() {
       </div>
     </Wrapper>
   );
-}
+};
+
+export default Options;

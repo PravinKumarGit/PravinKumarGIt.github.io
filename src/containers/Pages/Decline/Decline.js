@@ -9,7 +9,7 @@ import Footer from "../../../components/uielements/footer";
 
 import Wrapper from "../Decline/Decline.styles";
 
-export default function() {
+const Decline = props => {
   return (
     <Wrapper>
       <Row>
@@ -31,7 +31,7 @@ export default function() {
           <Row>
             <Col lg={3} />
             <Col lg={6}>
-              <Options />
+              <Options {...props} />
             </Col>
             <Col lg={3} />
           </Row>
@@ -57,3 +57,5 @@ export default function() {
     </Wrapper>
   );
 }
+
+export default Decline
