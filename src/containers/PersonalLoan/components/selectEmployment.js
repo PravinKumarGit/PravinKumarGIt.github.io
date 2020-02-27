@@ -9,6 +9,8 @@ export default function Employment({ ...props }) {
         placeholder="Select..."
         Title="Employment Type"
         options={EMPLOYMENT_OPTIONS}
+        helpToolTip
+        ToolTipText="I receive the majority of my income from"
         {...props}
       />
     </>
