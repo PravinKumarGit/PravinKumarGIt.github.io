@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   .applicationBreadCrumb-Container {
     display: flex;
     height: 120px;
-    background-color: ${palette("color", 15)};
+    background-color: ${palette("breadCrumHeader", 2)};
     font-size: ${size("p2")};
   }
   .breadCrumbBox {
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   .line {
     min-width: 173px;
     height: 12px;
-    background-color: ${palette("color", 16)};
+    background-color: ${palette("breadCrumHeader", 4)};
     position: absolute;
     align-self: center;
     z-index: -5;
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   .line-inactive {
     min-width: 173px;
     height: 10px;
-    background-color: ${palette("color", 16)};
+    background-color: ${palette("breadCrumHeader", 4)};
     position: absolute;
     align-self: center;
     z-index: -5;
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
   .line-active {
     min-width: 173px;
     height: 6px;
-    background-color: ${palette("color", 19)};
+    background-color: ${palette("breadCrumHeader", 3)};
     position: absolute;
     align-self: center;
     right: 10px;
@@ -51,8 +51,8 @@ const Wrapper = styled.div`
   .section-active {
     width: 20px;
     height: 20px;
-    background-color: ${palette("color", 19)};
-    border: 8px solid ${palette("color", 16)};
+    background-color: ${palette("breadCrumHeader", 0)};
+    border: 8px solid ${palette("breadCrumHeader", 4)};
     border-radius: 90px;
   }
   .section-active,
@@ -70,17 +70,17 @@ const Wrapper = styled.div`
     text-align: center;
   }
   .active {
-    color: ${palette("color", 19)};
+    color: ${palette("breadCrumHeader", 0)};
     bottom: 40px;
   }
   .inactive {
-    color: ${palette("color", 16)};
+    color: ${palette("breadCrumHeader", 1)};
     bottom: 40px;
   }
   .section-inactive {
     width: 28px;
     height: 28px;
-    background-color: ${palette("color", 16)};
+    background-color: ${palette("breadCrumHeader", 4)};
     border-radius: 90px;
   }
   .section-active,

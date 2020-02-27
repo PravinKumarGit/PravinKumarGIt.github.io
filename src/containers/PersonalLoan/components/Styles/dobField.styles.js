@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     display: inline-flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: ${palette("grayscale", 17)};
+    color: ${palette("formInputElement", 0)};
     font-weight: 700;
     font-size: ${size("p2")};
   }
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   }
   .selectBox-Icon {
     color: ${palette("border", 6)};
-    border-right: 1px solid ${palette("border", 5)};
+    border-right: 1px solid ${palette("formInputElement", 1)};
     margin-right: 7px;
     min-width: 30px;
     display: flex;
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
     width: 100%;
     font-size: ${size("p1")};
     padding: none !important;
-    color: ${palette("color", 14)};
+    color: ${palette("formInputElement", 1)};
     text-overflow: ellipsis;
   }
   .selectBox-Input input:focus {
@@ -82,10 +82,6 @@ const Wrapper = styled.div`
   .iconRequired {
     border-right: 1px solid ${palette("error", 3)};
     color: ${palette("error", 3)};
-  }
-  .selectBox-Input input::placeholder {
-    color: gray;
-    font-weight: lighter;
   }
   .toolTip-Icon {
     float: left;
@@ -137,10 +133,10 @@ const Wrapper = styled.div`
     overflow: hidden;
     height: 30px;
     width: 100%;
-    color: ${palette("color", 14)};
-    fill: ${palette("color", 14)};
-    background-color: ${palette("color", 16)};
-    border: 1px solid ${palette("border", 5)};
+    color:${palette("formInputElement", 2)};
+    fill: ${palette("formInputElement", 2)};
+    background-color:${palette("formInputElement", 5)};
+    border: 1px solid${palette("formInputElement", 2)};
   }
   .select-Select * {
     border: none;

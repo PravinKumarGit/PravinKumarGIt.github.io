@@ -119,9 +119,32 @@ theme.palette = {
     VARIABLES.COLORS.lightPinkOne // 5:
   ],
   header: [
-    VARIABLES.COLORS.lightGreenOne, // 1: light green
-    VARIABLES.COLORS.darkGreenOne, // 2: themeColor--- Dark green
-    VARIABLES.COLORS.white // 3: black
+    VARIABLES.COLORS.lightGreenOne, // 0: light green
+    VARIABLES.COLORS.darkGreenOne, // 1: Dark green
+    VARIABLES.COLORS.white // 2: white
+  ],
+  breadCrumHeader:[
+    VARIABLES.COLORS.lightGreenOne, // 0: active text color
+    VARIABLES.COLORS.darkGrayFourteen, // 1: inactive text color
+    VARIABLES.COLORS.darkGreenOne, // 2: background color
+    VARIABLES.COLORS.lightGreenOne, // 3: dot-line color
+    VARIABLES.COLORS.white // 4: inactive text color
+  ],
+  accordian:[
+    VARIABLES.COLORS.darkGreenOne, // 0: Head bar background
+    VARIABLES.COLORS.white, // 1: Head bar text Color
+    VARIABLES.COLORS.darkGreenOne, // 2: panel background
+    VARIABLES.COLORS.white, // 3: panel text color
+    VARIABLES.COLORS.lightGreenOne, // 4: Head bar background two
+    VARIABLES.COLORS.lightGreenOne, // 5: List item disc icon
+  ],
+  formInputElement:[
+    VARIABLES.COLORS.black, // 0: Label
+    VARIABLES.COLORS.lightGreenOne, // 1: border
+    VARIABLES.COLORS.lightGreenOne, // 2: place holder
+    VARIABLES.COLORS.white, // 3: tooltip
+    VARIABLES.COLORS.darkGreenOne, // 4: optional label
+    VARIABLES.COLORS.white, // 5: input background 
   ]
 };
 

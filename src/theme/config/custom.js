@@ -48,8 +48,8 @@ export default {
       VARIABLES.COLORS.lightOrangeOne, // 11: Auth0
       VARIABLES.COLORS.lightOrangeTwo, // 12: Auth0
       VARIABLES.COLORS.lightRedOne, // 13: themeColor--AlizarinCrimson
-      VARIABLES.COLORS.lightGreenOne, // 14: light green
-      VARIABLES.COLORS.darkGreenOne, // 15: themeColor--- Dark green
+      VARIABLES.COLORS.lightNavyBlueOne, // 14: light green
+      VARIABLES.COLORS.lightNavyBlueOne, // 15: themeColor--- Dark green
       VARIABLES.COLORS.white, // 16: white,
       VARIABLES.COLORS.lightGrayOne, // 17: light gray,
       VARIABLES.COLORS.lightRedTwo, // 18: light red,
@@ -124,6 +124,29 @@ export default {
       VARIABLES.COLORS.white, // 0: white
       VARIABLES.COLORS.white, // 1: white
       VARIABLES.COLORS.black // 2: black
+    ],
+    breadCrumHeader: [
+      VARIABLES.COLORS.lightOrangeThree, // 0: active text color
+      VARIABLES.COLORS.darkGrayFourteen, // 1: inactive text color
+      VARIABLES.COLORS.white, // 2: background color
+      VARIABLES.COLORS.lightOrangeThree, // 3: dot-line color
+      VARIABLES.COLORS.darkGrayFifteen // 4: inactive text color
+    ],
+    accordian:[
+      VARIABLES.COLORS.lightNavyBlueOne, // 0: Head bar background one
+      VARIABLES.COLORS.white, // 1: Head bar text Color
+      VARIABLES.COLORS.lightNavyBlueOne, // 2: panel background
+      VARIABLES.COLORS.white, // 3: panel text color
+      VARIABLES.COLORS.lightNavyBlueOne, // 4: Head bar background two
+      VARIABLES.COLORS.darkGrayFourteen, // 5: List item disc icon
+    ],
+    formInputElement:[
+      VARIABLES.COLORS.black, // 0: Label
+      VARIABLES.COLORS.lightNavyBlueOne, // 1: border
+      VARIABLES.COLORS.lightNavyBlueOne, // 2: place holder
+      VARIABLES.COLORS.white, // 3: tooltip
+      VARIABLES.COLORS.lightNavyBlueOne, // 4: optional label
+      VARIABLES.COLORS.white, // 5: input background 
     ]
   }
 };

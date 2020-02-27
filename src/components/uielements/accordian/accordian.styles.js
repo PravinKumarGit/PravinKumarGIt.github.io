@@ -8,8 +8,8 @@ const Wrapper = styled.div`
     margin: 30px 0 20px;
     align-content: center;
     text-align: center;
-    background-color: ${palette("color", 16)};
-    color: ${palette("color", 16)};
+    // background-color: ${palette("accordian", 0)};
+    color: ${palette("accordian", 1)};
   }
   .UserInputBlock-Label {
     display: grid;
@@ -18,22 +18,10 @@ const Wrapper = styled.div`
     height: 40px;
     font-size: ${size("h5")};
     cursor: pointer;
-    background: -webkit-gradient(
-      linear,
-      right top,
-      left top,
-      color-stop(0, ${palette("color", 15)}),
-      to(${palette("color", 14)})
-    );
-    background: -webkit-linear-gradient(
-      right,
-      ${palette("color", 15)},
-      ${palette("color", 14)}
-    );
     background: linear-gradient(
       270deg,
-      ${palette("color", 15)} 0,
-      ${palette("color", 14)}
+      ${palette("accordian", 0)} 0,
+      ${palette("accordian", 4)}
     );
   }
   .content-show {
@@ -43,7 +31,7 @@ const Wrapper = styled.div`
     justify-items: legacy;
     padding-left: 4vw;
     grid-template-columns: 100%;
-    background-color: rgb(0, 103, 63);
+    background-color: ${palette("accordian", 2)};
   }
   .content-hide {
     display: none;

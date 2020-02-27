@@ -7,7 +7,7 @@ const themes = {
 };
 
 export const themeConfig = {
-  theme: "customTheme"
-  // theme: 'defaultTheme',
+  // theme: "customTheme"
+  theme: 'defaultTheme',
 };
 export default themes;
