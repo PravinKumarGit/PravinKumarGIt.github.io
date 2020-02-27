@@ -1,6 +1,5 @@
 import React from "react";
-
-import Image from "../../../theme/assets/icon-tooltip.svg";
+import ToolTipIcon from "../toolTipIcon"
 import Wrapper from "./input.styles";
 export default function Input({ ...props }) {
   const {
@@ -16,6 +15,7 @@ export default function Input({ ...props }) {
     onChange,
     ...rest
   } = props;
+
   return (
     <Wrapper>
       <div className="textBox">
@@ -24,12 +24,7 @@ export default function Input({ ...props }) {
             <label className="textBox-Label">
               {title}
               {helpToolTip && (
-                <i className="toolTip-Icon">
-                  <img src={Image} alt="help icon" />
-                  {ToolTipText && (
-                    <span className="toolTip-Text">{ToolTipText}</span>
-                  )}
-                </i>
+                <ToolTipIcon ToolTipText={ToolTipText} />
               )}
               {OptionalLabel && (
                 <label className="textBox-Label-Optional">optional</label>

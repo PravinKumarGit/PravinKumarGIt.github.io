@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { palette } from "styled-theme";
 
 const Wrapper = styled.div`
-  background-color: ${palette("grayscale", 14)};
+  background: linear-gradient(to bottom, ${palette("color", 25)} 0%, ${palette("color", 16)} 100%);
   overflow: hidden;
 `;
 

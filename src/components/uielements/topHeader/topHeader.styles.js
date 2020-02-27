@@ -5,8 +5,8 @@ const Wrapper = styled.div`
   .Header-Container {
     display: block;
     height: 50px;
-    background: ${palette("color", 19)};
-    color: ${palette("color", 16)};
+    background: ${palette("header", 0)};
+    color: ${palette("header", 2)};
   }
   .logos {
     display: flex;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     margin-right: 10vw;
     float: right;
     align-items: center;
-    color: ${palette("grayscale", 16)};
+    color: ${palette("header", 2)};
     font-size: ${size("p1")};
     letter-spacing: 1px;
     font-weight: 700;

@@ -1,9 +1,8 @@
 import React from "react";
 import { Row, Col } from "react-grid-system";
 
+import ToolTipIcon from "../../../components/uielements/toolTipIcon";
 import { MONTHS, YEARS } from "../../../constants/options";
-import Image from "../../../theme/assets/icon-tooltip.svg";
-
 import Wrapper from "./Styles/dobField.styles";
 
 export default function DateStarted({ ...props }) {
@@ -26,13 +25,11 @@ export default function DateStarted({ ...props }) {
             <div className="selectBox-Label-Container">
               <label className="selectBox-Label">
                 <span>Date started with employer</span>
-                <i className="toolTip-Icon">
-                  <img src={Image} alt="help icon" />
-                  <span className="toolTip-Text">
-                    What date did you start with your employer, month and year
-                    are required.
-                  </span>
-                </i>
+                <ToolTipIcon
+                  ToolTipText="What date did you start with your employer, month and year
+                  are required."
+                />
+               
                 {OptionalLabel && (
                   <label className="selectBox-Label-Optional">optional</label>
                 )}

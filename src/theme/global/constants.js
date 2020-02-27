@@ -19,4 +19,9 @@ const basicStyle = {
   colStyle,
   mediaBreakPoints
 };
+
+export const THEMES={
+  default: "defaultTheme",
+  rentBond: "rentBondTheme"
+}
 export default basicStyle;

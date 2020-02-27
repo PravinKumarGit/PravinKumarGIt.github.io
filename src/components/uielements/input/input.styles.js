@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     display: inline-flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: ${palette("grayscale", 17)};
+    color: ${palette("formInputElement", 0)};
     font-weight: 700;
     font-size: ${size("p2")};
   }
@@ -29,15 +29,15 @@ const Wrapper = styled.div`
   }
   .textBox-Input {
     display: flex;
-    border: 1px solid ${palette("border", 5)};
+    border: 1px solid ${palette("formInputElement", 1)};
     border-radius: 5px;
     height: 30px;
     margin: 0 !important;
     overflow: hidden;
   }
   .textBox-Icon {
-    color: ${palette("border", 6)};
-    border-right: 1px solid ${palette("border", 5)};
+    color: ${palette("formInputElement", 1)};
+    border-right: 1px solid ${palette("formInputElement", 1)};
     margin-right: 7px;
     min-width: 30px;
     display: flex;
@@ -45,8 +45,8 @@ const Wrapper = styled.div`
     align-items: center;
   }
   .textBox-Icon-Suffix {
-    color: ${palette("border", 6)};
-    border-left: 1px solid ${palette("border", 5)};
+    color: ${palette("formInputElement", 1)};
+    border-left: 1px solid ${palette("formInputElement", 1)};
     margin-left: 7px;
     min-width: 30px;
     display: flex;
@@ -89,45 +89,10 @@ const Wrapper = styled.div`
     color: ${palette("error", 3)};
   }
   .textBox-Input input::placeholder {
-    color: gray;
+    color: ${palette("formInputElement", 2)};
     font-weight: lighter;
   }
-  .toolTip-Icon {
-    float: left;
-    text-decoration: none;
-    position: relative;
-    height: 15px;
-    width: 15px;
-    cursor: pointer;
-    color: ${palette("color", 16)};
-    border-radius: 10px;
-    font-size: ${size("p4")};
-    margin-left: 5px;
-  }
 
-  .toolTip-Icon span {
-    display: none;
-  }
-
-  .toolTip-Icon:hover span {
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    bottom: 20px;
-  }
-
-  .toolTip-Text {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding-top: 5px;
-    width: 200px;
-    color: gray;
-    background-color: ${palette("color", 16)};
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    box-shadow: 1px 2px ${palette("grayscale", 12)};
-  }
 `;
 
 export default Wrapper;

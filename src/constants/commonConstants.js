@@ -7,3 +7,8 @@ export const AGREE_NOT_AGREE_VALUES={
     AGREE:"agree",
     NOT_AGREE:"notAgree"
 }
+
+export const THEMES ={
+    default: "defaultTheme",
+    rentBont: "rentBontTheme"
+}

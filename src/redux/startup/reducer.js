@@ -1,10 +1,12 @@
 import actions from "./actions";
+import { themeConfig,getTheme } from "../../theme/config/theme.config";
 
 const initState = {
   loanAmountIsFetching: null,
   loanAmountResponse: null,
   loanAmountError: null,
-  queryString: {}
+  queryString: {},
+  theme: themeConfig.theme
 };
 
 export default function(state = initState, action) {
@@ -33,8 +35,10 @@ export default function(state = initState, action) {
     case actions.INITIALISE_QUERY_STRING:
       return {
         ...state,
-        queryString: action.payload
+        queryString: action.payload,
+        theme: getTheme(action.payload)
       };
+
     default:
       return state;
   }

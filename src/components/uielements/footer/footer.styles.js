@@ -7,9 +7,9 @@ const Wrapper = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100px;
-    border-top: 1px solid ${palette('color',21)};
-    background-color: ${palette('color',15)};
-    color: ${palette('color',16)};
+    border-top: 1px solid ${palette('footer',0)};
+    background-color: ${palette('footer',1)};
+    color: ${palette('footer',2)};
     font-size: 12px;
     align-items: center;
   }

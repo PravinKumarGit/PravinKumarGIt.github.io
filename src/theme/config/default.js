@@ -1,122 +1,158 @@
+import VARIABLES from "../global/variables";
 const theme = {};
 
 theme.palette = {
   primary: [
-    "#4482FF", // 0: Default
-    "#3A78F5", // 1: Darken 4%
-    "#3775F2", // 2: Darken 5%
-    "rgba(68, 130, 255, 0.2)", // 3: Fade 20%
-    "#4C8AFF", // 4: Lighten 3%
-    "rgba(68, 130, 255, 0.75)", // 5: Fade 75%
-    "#6AA8FF", // 6: Lighten 15%
-    "#63A1FF", // 7: Lighten 12%
-    "#3F7DFA", // 8: Darken 2%
-    "#3369e7", // 9: Algolia color
-    "#5896FF", // 10: Lighten 8%
-    "#2b69e6", // 11:
-    "#236cfe", // 12: darken 10%
-    "#4d88ff" // 13: Lighten 5%
+    VARIABLES.COLORS.defaultBlue, // 0: Default blue
+    VARIABLES.COLORS.darkBlueFour, // 1: Darken 4%
+    VARIABLES.COLORS.darBluekFive, // 2: Darken 5%
+    VARIABLES.COLORS.fadeBlueTwenty, // 3: Fade 20%
+    VARIABLES.COLORS.lightBlueThree, // 4: Lighten 3%
+    VARIABLES.COLORS.fadeBlueSeventyFive, // 5: Fade 75%
+    VARIABLES.COLORS.fadeBlueFifteen, // 6: Lighten 15%
+    VARIABLES.COLORS.lightBlueTwelve, // 7: Lighten 12%
+    VARIABLES.COLORS.darkBlueTwo, // 8: Darken 2%
+    VARIABLES.COLORS.algoliaBlue, // 9: Algolia color
+    VARIABLES.COLORS.lightBlueEight, // 10: Lighten 8%
+    VARIABLES.COLORS.lightBlueNine, // 11:
+    VARIABLES.COLORS.darkBlueTen, // 12: darken 10%
+    VARIABLES.COLORS.lightBlueFive // 13: Lighten 5%
   ],
   secondary: [
-    "#2d3446", // 0: DarkBlue
-    "#f1f3f6", // 1: LightBluish
-    "#788195", // 2: LightBlue
-    "#E4E6E9", // 3: LightBluish Darken 5%
-    "#364d79", // 4:
-    "#202739", // 5: DarkBlue Darken 5%
-    "#f5f6f8", // 6: LighterBluish
-    "#e9ebf1", // 7: DarkBluish
-    "#F6F8FB", // 8: LighterBluish Lighten 2%
-    "#E9EBEE", // 9: LighterBluish Darken 3%
-    "#1a1a1a" // 10: Sidebar submenu select
+    VARIABLES.COLORS.darkBlue, // 0: DarkBlue
+    VARIABLES.COLORS.lightBlueTwo, // 1: LightBluish
+    VARIABLES.COLORS.lightBlue, // 2: LightBlue
+    VARIABLES.COLORS.darkBlueSix, // 3: LightBluish Darken 5%
+    VARIABLES.COLORS.darkBlueSeven, // 4:
+    VARIABLES.COLORS.darkBlueFifteen, // 5: DarkBlue Darken 5%
+    VARIABLES.COLORS.lightBlueFour, // 6: LighterBluish
+    VARIABLES.COLORS.darkBlueSixteen, // 7: DarkBluish
+    VARIABLES.COLORS.lightBlueSix, // 8: LighterBluish Lighten 2%
+    VARIABLES.COLORS.lightBlueSeven, // 9: LighterBluish Darken 3%
+    VARIABLES.COLORS.lightBlack // 10: Sidebar submenu select
   ],
   color: [
-    "#FEAC01", // 0: Orange
-    "#42299a", // 1: Purple
-    "#F75D81", // 2: Pink
-    "#7ED321", // 3: LimeGreen
-    "#39435f", // 4: BlueShade
-    "#FFCA28", // 5: Yellow
-    "#F2BD1B", // 6: Yellow Darken 5%
-    "#3b5998", // 7: Facebook
-    "#344e86", // 8: Facebook Darken 5%
-    "#dd4b39", // 9: Google Plus
-    "#d73925", // 10: Google Plus Darken 5%
-    "#e14615", // 11: Auth0
-    "#ca3f13", // 12: Auth0
-    "#e0364c", // 13: themeColor--AlizarinCrimson
-    "#94c840", // 14: light green
-    "#00673f", // 15: themeColor--- Dark green
-    "#FFFFFF", // 16: white,
-    "#7b7b7b", // 17: light gray,
-    "#fb5708", // 18: light red,
-    "#7bb840", // 19: themeColor-- extra light green,
-    "#50b849", // 20: extra light green,
-    "#000000", // 21: black,
-    "#FCB817", // 22: yellow,
-    "#f6bf00", // 23: light yellow
-    "#00BA53"  // 24 green upload button
+    VARIABLES.COLORS.orange, // 0: Orange
+    VARIABLES.COLORS.purple, // 1: Purple
+    VARIABLES.COLORS.pink, // 2: Pink
+    VARIABLES.COLORS.limeGreen, // 3: LimeGreen
+    VARIABLES.COLORS.blueShade, // 4: BlueShade
+    VARIABLES.COLORS.yellow, // 5: Yellow
+    VARIABLES.COLORS.darkYellowFive, // 6: Yellow Darken 5%
+    VARIABLES.COLORS.facebook, // 7: Facebook
+    VARIABLES.COLORS.darkFacebookFive, // 8: Facebook Darken 5%
+    VARIABLES.COLORS.googlePlus, // 9: Google Plus
+    VARIABLES.COLORS.darkGooglePlusFive, // 10: Google Plus Darken 5%
+    VARIABLES.COLORS.lightOrangeOne, // 11: Auth0
+    VARIABLES.COLORS.lightOrangeTwo, // 12: Auth0
+    VARIABLES.COLORS.lightRedOne, // 13: themeColor--AlizarinCrimson
+    VARIABLES.COLORS.lightGreenOne, // 14: light green
+    VARIABLES.COLORS.darkGreenOne, // 15: themeColor--- Dark green
+    VARIABLES.COLORS.white, // 16: white,
+    VARIABLES.COLORS.lightGrayOne, // 17: light gray,
+    VARIABLES.COLORS.lightRedTwo, // 18: light red,
+    VARIABLES.COLORS.lightGreenTwo, // 19: themeColor-- extra light green,
+    VARIABLES.COLORS.lightGreenThree, // 20: extra light green,
+    VARIABLES.COLORS.black, // 21: black,
+    VARIABLES.COLORS.lightYellowOne, // 22: yellow,
+    VARIABLES.COLORS.lightYellowTwo, // 23: light yellow
+    VARIABLES.COLORS.lightGreenSeven, // 24 green upload button
+    VARIABLES.COLORS.lightGreenEight // 25 extra light screen
   ],
   warning: [
-    "#ffbf00" // 0: Warning
+    VARIABLES.COLORS.lightRedThree // 0: Warning
   ],
   success: [
-    "#00b16a" // 0: Success
+    VARIABLES.COLORS.lightGreenFour // 0: Success
   ],
   error: [
-    "#f64744", // 0: Error
-    "#EC3D3A", // 1: Darken 4%
-    "#FF5B58", // 2: Lighten 8%
-    "#ff0000" // 3: Red
+    VARIABLES.COLORS.lightRedFour, // 0: Error
+    VARIABLES.COLORS.darkRedOne, // 1: Darken 4%
+    VARIABLES.COLORS.lightRedFive, // 2: Lighten 8%
+    VARIABLES.COLORS.red // 3: Red
   ],
   grayscale: [
-    "#bababa", // 0: GreyShade
-    "#c1c1c1", // 1: GreyDark
-    "#D8D8D8", // 2: Grey
-    "#f1f1f1", // 3: GreyAlt
-    "#F3F3F3", // 4: GreyLight
-    "#fafafa", // 5: DarkWhite
-    "#F9F9F9", // 6: DarkerWhite
-    "#fcfcfc", // 7: #fff Darken 1%
-    "#eeeeee", // 8:
-    "#fbfbfb", // 9:
-    "#f5f5f5", // 10:
-    "#f7f8f9", // 11: today-highlight-bg
-    "#8888886e", // 12: light gray with less opacity
-    "#f9fbf8", // 13: extra light gray with green
-    "#f2f7f0", // 14: extra light gray with green
-    "#aaaaaa", // 15: gray with red
-    "#fdfff9", // 16: extra light gray with green
-    "#808080", // 17: GreyDarker
-    "#fefefe", // 18: Grey
-    "#e4e4e4" // 19: Grey sade
+    VARIABLES.COLORS.lightGrayTwenty, // 0: GreyShade
+    VARIABLES.COLORS.lightGrayTwo, // 1: GreyDark
+    VARIABLES.COLORS.lightGrayFour, // 2: Grey
+    VARIABLES.COLORS.lightGrayFive, // 3: GreyAlt
+    VARIABLES.COLORS.lightGraySix, // 4: GreyLight
+    VARIABLES.COLORS.lightGraySeven, // 5: DarkWhite
+    VARIABLES.COLORS.lightGrayEight, // 6: DarkerWhite
+    VARIABLES.COLORS.lightGrayNine, // 7: #fff Darken 1%
+    VARIABLES.COLORS.lightGrayTen, // 8:
+    VARIABLES.COLORS.lightGrayEleven, // 9:
+    VARIABLES.COLORS.lightGrayTwelve, // 10:
+    VARIABLES.COLORS.lightGrayTherteen, // 11: today-highlight-bg
+    VARIABLES.COLORS.lightFourteenGray, // 12: light gray with less opacity
+    VARIABLES.COLORS.lightGrayFifteen, // 13: extra light gray with green
+    VARIABLES.COLORS.lightGraySixteen, // 14: extra light gray with green
+    VARIABLES.COLORS.lightGraySeventeen, // 15: gray with red
+    VARIABLES.COLORS.lightGrayEighteen, // 16: extra light gray with green
+    VARIABLES.COLORS.gray, // 17: GreyDarker
+    VARIABLES.COLORS.darkGrayOne, // 18: Grey
+    VARIABLES.COLORS.darkGrayTwo // 19: Grey sade
   ],
   text: [
-    "#323332", // 0: Heading
-    "#595959", // 1: HeadingLight
-    "#979797", // 2: Text
-    "#797979", // 3: TextDark
-    "#6a6c6a" // 4: Heading Lighten 22%
+    VARIABLES.COLORS.darkGrayThree, // 0: Heading
+    VARIABLES.COLORS.darkGrayFour, // 1: HeadingLight
+    VARIABLES.COLORS.darkGrayFive, // 2: Text
+    VARIABLES.COLORS.darkGraySix, // 3: TextDark
+    VARIABLES.COLORS.darkGraySeven // 4: Heading Lighten 22%
   ],
   border: [
-    "#e9e9e9", // 0: Border
-    "#d8d8d8", // 1: BorderDark
-    "#ebebeb", // 2: BorderLight
-    "#d3d3d3", // 3: orderExtraLight
-    "rgba(228, 228, 228, 0.65)", // 4:
-    "rgba(148, 200, 64, 0.3)", // 5: extra light green
-    "rgba(148, 200, 64, 0.5)", // 6: light green
-    "rgba(199,195,195,.2)" // 7: light gray
+    VARIABLES.COLORS.darkGrayEight, // 0: Border
+    VARIABLES.COLORS.darkGrayNine, // 1: BorderDark
+    VARIABLES.COLORS.darkGrayTen, // 2: BorderLight
+    VARIABLES.COLORS.darkGrayEleven, // 3: orderExtraLight
+    VARIABLES.COLORS.darkGrayTwelve, // 4:
+    VARIABLES.COLORS.darkGrayTharteen, // 5: extra light green
+    VARIABLES.COLORS.lightGreenFive, // 6: light green
+    VARIABLES.COLORS.lightGrayNinteen // 7: light gray
   ],
 
   calendar: [
-    "#905", // 0:
-    "#690", // 1:
-    "#a67f59", // 2:
-    "#07a", // 3:
-    "#dd4a68", // 4:
-    "#e90" // 5:
+    VARIABLES.COLORS.lightBrownOne, // 0:
+    VARIABLES.COLORS.lightVioletOne, // 1:
+    VARIABLES.COLORS.lightBrownTwo, // 2:
+    VARIABLES.COLORS.lightGreenSix, // 3:
+    VARIABLES.COLORS.lightRedsix, // 4:
+    VARIABLES.COLORS.lightPinkOne // 5:
+  ],
+  header: [
+    VARIABLES.COLORS.lightGreenOne, // 0: light green
+    VARIABLES.COLORS.darkGreenOne, // 1: Dark green
+    VARIABLES.COLORS.white // 2: white
+  ],
+  breadCrumHeader:[
+    VARIABLES.COLORS.lightGreenOne, // 0: active text color
+    VARIABLES.COLORS.darkGrayFourteen, // 1: inactive text color
+    VARIABLES.COLORS.darkGreenOne, // 2: background color
+    VARIABLES.COLORS.lightGreenOne, // 3: dot-line color
+    VARIABLES.COLORS.white // 4: inactive text color
+  ],
+  accordian:[
+    VARIABLES.COLORS.darkGreenOne, // 0: Head bar background
+    VARIABLES.COLORS.white, // 1: Head bar text Color
+    VARIABLES.COLORS.darkGreenOne, // 2: panel background
+    VARIABLES.COLORS.white, // 3: panel text color
+    VARIABLES.COLORS.lightGreenOne, // 4: Head bar background two
+    VARIABLES.COLORS.lightGreenOne, // 5: List item disc icon
+  ],
+  formInputElement:[
+    VARIABLES.COLORS.lightGrayOne, // 0: Label
+    VARIABLES.COLORS.lightGreenOne, // 1: border
+    VARIABLES.COLORS.lightGreenOne, // 2: place holder
+    VARIABLES.COLORS.white, // 3: tooltip
+    VARIABLES.COLORS.darkGreenOne, // 4: optional label
+    VARIABLES.COLORS.white, // 5: input background 
+  ],
+  footer:[
+    VARIABLES.COLORS.white, // 0: border top
+    VARIABLES.COLORS.darkGreenOne, // 0: BackGround
+    VARIABLES.COLORS.white, // 1: Text
   ]
+
 };
 
 theme.fonts = {
