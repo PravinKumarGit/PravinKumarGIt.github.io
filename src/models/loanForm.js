@@ -72,6 +72,9 @@ export default class LoanForm {
     this.weeklyEstimatedCostOfLiving =
       values.weeklyEstimatedCostOfLiving || "";
     this.creditCardCount = values.creditCardCount || "";
+    this.totalCreditLimit = values.totalCreditLimit || "";
+    this.amountBalance = values.amountBalance || "";
+
     if (step === 3) return;
 
     // step 4
@@ -92,13 +95,13 @@ export default class LoanForm {
     this.medicareReference = values.medicareReference || "";
     this.medicareCardColour = values.medicareCardColour || "";
     this.medicareDateExpiry = values.medicareDateExpiry || {
-      day:  "",
+      day: "",
       month: "",
       year: ""
     };
     this.consentsToIdentityVerification =
       values.consentsToIdentityVerification || "";
-      // Additional Personal Details
+    // Additional Personal Details
     this.workContactNumber = values.workContactNumber || "";
     this.homePhoneNumber = values.homePhoneNumber || "";
     this.secondaryEmail = values.secondaryEmail || "";
