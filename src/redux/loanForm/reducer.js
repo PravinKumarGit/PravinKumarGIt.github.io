@@ -1,5 +1,6 @@
 import actions from "./actions";
 import LoanFormModel from "../../models/loanForm";
+
 const initialStep = 1;
 const initState = {
   isFetching: null,
@@ -12,6 +13,10 @@ const initState = {
 function constrainStep(stepToSet) {
   const totalSteps = 4;
   return Math.min(stepToSet, totalSteps);
+}
+
+function getCurrentLoanState(state) {
+  return state.loanFormResponse ? state.loanFormResponse.value : {};
 }
 
 export default function(state = initState, action) {
@@ -42,8 +47,16 @@ export default function(state = initState, action) {
         ...state,
         step: constrainStep(action.payload),
         initialValue: new LoanFormModel({
-          values: state.loanFormResponse ? state.loanFormResponse.value : {},
+          values: getCurrentLoanState(state),
           step: action.payload
+        })
+      };
+    case actions.PREFILL_USING_PAYLOAD: 
+      return {
+        ...state,
+        initialValue: new LoanFormModel({
+          values: { ...action.payload },
+          step: 1
         })
       };
     default:

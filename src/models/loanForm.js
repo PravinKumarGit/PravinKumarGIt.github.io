@@ -75,6 +75,8 @@ export default class LoanForm {
     if (step === 3) return;
 
     // step 4
+
+    // Additional Documents
     this.source = "App Screen 4 - Thank You";
     this.identificationType = values.identificationType || "";
     this.driversLicenceNumber = values.driversLicenceNumber || "";
@@ -95,14 +97,16 @@ export default class LoanForm {
       year: ""
     };
     this.consentsToIdentityVerification =
-      values.consentsToIdentityVerification || false;
+      values.consentsToIdentityVerification || "";
+      // Additional Personal Details
     this.workContactNumber = values.workContactNumber || "";
     this.homePhoneNumber = values.homePhoneNumber || "";
     this.secondaryEmail = values.secondaryEmail || "";
     this.alternateContactName = values.alternateContactName || "";
     this.alternateContactNumber = values.alternateContactNumber || "";
     this.alternateRelationship = values.alternateRelationship || "";
-    this.foreseeableChanges = values.foreseeableChanges || false;
+    //and finally
+    this.foreseeableChanges = values.foreseeableChanges || "";
     this.foreseeableChangesExplain = values.foreseeableChangesExplain || "";
     this.residencyStatus = values.residencyStatus || "";
     this.accountPk = values.accountPk || "";

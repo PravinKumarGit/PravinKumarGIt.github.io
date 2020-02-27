@@ -4,19 +4,32 @@ import Wrapper from "./verification.styles";
 export default function Verification({ ...props }) {
   const {
     title,
+    leftButtonProps,
+    leftButtonLabel,
+    rightButtonProps,
+    rightButtonLabel,
+    errorMessage,
+    helpToolTip,
+    ToolTipText,
+    OptionalLabel,
+    ...rest
   } = props;
+
   return (
     <Wrapper>
       <div className="verification">
         <p>{title}</p>
         <div className="verification-options">
           <div className="option-container">
-            <input type="radio" id="agree" name="agree" value="agree" />
-            <label for="agree">I Agree</label>
+            <label >
+              <input {...rest}{...leftButtonProps} type="radio" />
+              {leftButtonLabel}
+            </label>
           </div>
           <div>
-            <input type="radio" id="notAgree" name="agree" value="notAgree" />
-            <label for="notAgree">I Do Not Agree</label>
+            <label>
+              <input {...rest}{...rightButtonProps} type="radio" />
+              {rightButtonLabel}</label>
           </div>
         </div>
       </div>

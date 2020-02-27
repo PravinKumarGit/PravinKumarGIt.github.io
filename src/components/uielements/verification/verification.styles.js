@@ -3,6 +3,9 @@ import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
 
+.verification{
+    margin: 10px 30px;
+}
 .verification p {
     display: flex;
     padding-left: 3px;
@@ -10,7 +13,7 @@ const Wrapper = styled.div`
     color: ${palette("grayscale", 17)};
     font-weight: 700;
     font-size: ${size("p2")};
-    margin: 45px 0px 8px 0px;
+    
 }
 .verification-options{
     display: flex;
