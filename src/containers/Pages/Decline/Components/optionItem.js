@@ -5,17 +5,17 @@ export default function OptionItem({ ...props }) {
 
   return (
     <Wrapper>
-      <span className="bullet">
-      
-        <div className="marker">
+      <div className="option-item">
+      <span className="option-item-bullet">
+        <div className="option-item-marker">
           {props.bulletValue} 
         </div>
-        
       </span>
-      <span className="padding"></span>
-      <span className="content">
+      <span className="option-item-padding"></span>
+      <span className="option-item-content">
         {props.content}
       </span>
+      </div>
     </Wrapper>
   );
 }

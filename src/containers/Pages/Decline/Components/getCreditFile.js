@@ -9,17 +9,17 @@ export default function GetCreditFile() {
 
   return (
     <Wrapper>
-      <div className="referral-consent">
-        <div className="message">{getCreditFileContentMessage}</div>
-        <div className="padding"></div>
-        <div className="content">
+      <div className="get-credit-file">
+        <div className="get-credit-file-message">{getCreditFileContentMessage}</div>
+        <div className="get-credit-file-padding"></div>
+        <div className="get-credit-file-content">
           <span>
             <a className="get-credit-file-button" href="http://www.veda.com.au">
-              <span>Get My Credit File</span>
-              <span className="content-spacing"></span>
-              <span className="icon">
+              <div className="get-credit-file-button-text">Get My Credit File</div>
+              <div className="get-credit-file-button-content-spacing"></div>
+              <div className="get-credit-file-button-icon">
                 <img src={ExitToAppSvg} alt=""></img>
-              </span>
+              </div>
             </a>
           </span>
         </div>

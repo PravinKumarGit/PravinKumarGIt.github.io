@@ -55,7 +55,8 @@ theme.palette = {
     "#000000", // 21: black,
     "#FCB817", // 22: yellow,
     "#f6bf00", // 23: light yellow
-    "#00BA53"  // 24 green upload button
+    "#00BA53", // 24 green upload button,
+    "#3f903f"  // 25: not so dark green
   ],
   warning: [
     "#ffbf00" // 0: Warning

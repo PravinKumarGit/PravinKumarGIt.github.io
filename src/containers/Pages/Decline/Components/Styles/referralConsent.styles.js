@@ -1,19 +1,19 @@
 import styled from "styled-components";
-import { palette, size } from "styled-theme";
+import { palette } from "styled-theme";
 
 const Wrapper = styled.div`
   display: inline;
   .referral-consent {
     display: inline;
   }
-  .padding {
-    padding-bottom: 4%;
-  }
-  .message {
+  .referral-consent-message {
     color: ${palette("color", 17)};
   }
-  .content {
-    
+  .referral-consent-padding {
+    padding: 10px;
+  }
+  .referral-consent-content {
+    margin-left: -30px;
   }
 `;
 

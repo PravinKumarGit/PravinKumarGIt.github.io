@@ -2,8 +2,10 @@ import React from "react";
 import { Row, Col } from "react-grid-system";
 
 import TopHeader from "../../../components/uielements/topHeader";
-import Banner from "./Components/banner";
+import Banner from "./Components/declineBanner";
 import Options from "./Components/options";
+
+import Footer from "../../../components/uielements/footer";
 
 import Wrapper from "../Decline/Decline.styles";
 
@@ -15,23 +17,42 @@ export default function() {
           <TopHeader />
         </Col>
       </Row>
-      <div className="banner-wrapper">
-        <Row>
-          <Col lg={3} />
-          <Col lg={6}>
-            <Banner />
-          </Col>
-          <Col lg={3} />
-        </Row>
+      <div className="decline-content">
+        <div className="decline-banner-wrapper">
+          <Row>
+            <Col lg={3} />
+            <Col lg={6}>
+              <Banner />
+            </Col>
+            <Col lg={3} />
+          </Row>
+        </div>
+        <div className="decline-options-wrapper">
+          <Row>
+            <Col lg={3} />
+            <Col lg={6}>
+              <Options />
+            </Col>
+            <Col lg={3} />
+          </Row>
+        </div>
+        <div className="decline-message-wrapper">
+          <Row>
+            <Col lg={3} />
+            <Col lg={6}>
+              <div className="decline-message">
+                Thank you again for considering us.
+                <br />
+                <br />
+                The Fair Go Finance team.
+              </div>
+            </Col>
+            <Col lg={3} />
+          </Row>
+        </div>
       </div>
-      <div className="options-wrapper">
-        <Row>
-          <Col lg={3} />
-          <Col lg={6}>
-            <Options />
-          </Col>
-          <Col lg={3} />
-        </Row>
+      <div className="footer-wrapper">
+        <Footer />
       </div>
     </Wrapper>
   );

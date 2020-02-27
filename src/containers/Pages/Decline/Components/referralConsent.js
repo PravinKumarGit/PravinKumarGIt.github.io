@@ -12,11 +12,11 @@ export default function ReferralConsent({ ...props }) {
   return (
     <Wrapper>
       <div className="referral-consent">
-        <div className="message">
+        <div className="referral-consent-message">
           We can refer you to another lender who may be able to assist you.
         </div>
-        <div className="padding"></div>
-        <div className="content">
+        <div className="referral-consent-padding"></div>
+        <div className="referral-consent-content">
           <CheckBox {...checkboxProps}>
             <strong>Referral Consent</strong>: {referralConsentContentMessage}
           </CheckBox>

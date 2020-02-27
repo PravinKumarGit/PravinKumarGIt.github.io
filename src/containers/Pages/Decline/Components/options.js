@@ -9,9 +9,10 @@ export default function Options() {
   return (
     <Wrapper>
       <div className="options">
-        <div className="container">
-          <h1 className="title">What are your options?</h1>
-          <div className="content">
+        <div className="options-container">
+          <h1 className="options-title">What are your options?</h1>
+          <div className="options-padding"></div>
+          <div className="options-content">
             <ul>
               <li>
                 <OptionItem
@@ -19,6 +20,7 @@ export default function Options() {
                   content={ReferralConsent()}
                 ></OptionItem>
               </li>
+              <div className="options-padding"></div>
               <li>
                 <OptionItem
                   bulletValue="2"

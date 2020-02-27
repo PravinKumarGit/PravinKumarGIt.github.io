@@ -1,26 +1,23 @@
 import styled from "styled-components";
-import { palette, size } from "styled-theme";
+import { palette } from "styled-theme";
 
 const Wrapper = styled.div`
   min-height: 50px;
-  display:flex
-  .bullet {
-    
+  .option-item {
+    display: flex;
   }
-  .marker {
-    height: 25px;
-    width: 25px;
-    background-color: ${palette("color", 15)};
+  .option-item-marker {
+    height: 36px;
+    width: 36px;
+    background-color: ${palette("color", 25)};
     color: ${palette("color", 16)};
     border-radius: 50%;
     display: inline-block;
     text-align: center;
+    font-size: 24px;
   }
-  .content {
-    
-  }
-  .padding {
-    padding-right: 20px
+  .option-item-padding {
+    padding-right: 20px;
   }
 `;
 

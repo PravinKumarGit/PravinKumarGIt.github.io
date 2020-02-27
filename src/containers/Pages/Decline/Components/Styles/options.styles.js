@@ -6,14 +6,18 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: auto;
   }
-  .container {
+  .options-container {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
     font-size: ${size("p1")};
   }
-  .title {
-    color: ${palette("color", 14)}; 
+  .options-title {
+    color: ${palette("color", 14)};
+    font-size: ${size("h4")};
+  }
+  .options-padding {
+    padding-bottom: 40px;
   }
 `;
 
