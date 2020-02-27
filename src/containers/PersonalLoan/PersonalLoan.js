@@ -7,7 +7,6 @@ import loanFormActions from "../../redux/loanForm/actions";
 import startUpActions from "../../redux/startup/actions";
 import TopHeader from "../../components/uielements/topHeader";
 import BreadCrum from "../../components/uielements/breadCrum";
-
 import Footer from "../../components/uielements/footer";
 
 import Wrapper from "./PersonalLoan.styles";
@@ -21,12 +20,13 @@ import {
 
 export default function PersonalLoan({ ...props }) {
   const { step, initialValue } = useSelector(state => state.loanForm);
+  const themeName = useSelector(state => state.StartUp.theme);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
     dispatch(startUpActions.parseQueryString());
-    dispatch(startUpActions.fillForm())
+    dispatch(startUpActions.fillForm());
   }, [dispatch]);
 
   const handleSubmit = (values, actions) => {
@@ -52,7 +52,7 @@ export default function PersonalLoan({ ...props }) {
     <Wrapper>
       <Row>
         <Col lg={12}>
-          <TopHeader />
+          <TopHeader currentTheme={themeName} />
         </Col>
         <Col lg={12}>
           <BreadCrum

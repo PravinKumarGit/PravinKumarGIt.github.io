@@ -1,9 +1,8 @@
 import React from "react";
 import { Row, Col } from "react-grid-system";
 
+import ToolTipIcon from "../../../components/uielements/toolTipIcon";
 import { MONTHS, YEARS } from "../../../constants/options";
-import Image from "../../../theme/assets/icon-tooltip.svg";
-
 import Wrapper from "./Styles/dobField.styles";
 
 export default function DateStartedAtAddress({ ...props }) {
@@ -26,13 +25,10 @@ export default function DateStartedAtAddress({ ...props }) {
             <div className="selectBox-Label-Container">
               <label className="selectBox-Label">
                 <span>Date started at current address</span>
-                <i className="toolTip-Icon">
-                  <img src={Image} alt="help icon" />
-                  <span className="toolTip-Text">
-                    Approximate date that you started living in your current
-                    residence.
-                  </span>
-                </i>
+                <ToolTipIcon
+                  ToolTipText=" Approximate date that you started living in your current
+                    residence."
+                />
                 {OptionalLabel && (
                   <label className="selectBox-Label-Optional">optional</label>
                 )}
@@ -72,7 +68,9 @@ export default function DateStartedAtAddress({ ...props }) {
                     errors.dateStartedAtCurrentAddress &&
                     touched.dateStartedAtCurrentAddress.month &&
                     errors.dateStartedAtCurrentAddress.month && (
-                      <div className="message">{errors.dateStartedAtCurrentAddress.month}</div>
+                      <div className="message">
+                        {errors.dateStartedAtCurrentAddress.month}
+                      </div>
                     )}
                 </div>
                 <div className="dob-input-last">
@@ -107,7 +105,10 @@ export default function DateStartedAtAddress({ ...props }) {
                     errors.dateStartedAtCurrentAddress &&
                     touched.dateStartedAtCurrentAddress.year &&
                     errors.dateStartedAtCurrentAddress.year && (
-                      <div className="message"> {errors.dateStartedAtCurrentAddress.year} </div>
+                      <div className="message">
+                        {" "}
+                        {errors.dateStartedAtCurrentAddress.year}{" "}
+                      </div>
                     )}
                 </div>
               </Col>

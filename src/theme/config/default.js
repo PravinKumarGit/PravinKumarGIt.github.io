@@ -56,7 +56,8 @@ theme.palette = {
     VARIABLES.COLORS.black, // 21: black,
     VARIABLES.COLORS.lightYellowOne, // 22: yellow,
     VARIABLES.COLORS.lightYellowTwo, // 23: light yellow
-    VARIABLES.COLORS.lightGreenSeven // 24 green upload button
+    VARIABLES.COLORS.lightGreenSeven, // 24 green upload button
+    VARIABLES.COLORS.lightGreenEight // 25 extra light screen
   ],
   warning: [
     VARIABLES.COLORS.lightRedThree // 0: Warning
@@ -139,13 +140,19 @@ theme.palette = {
     VARIABLES.COLORS.lightGreenOne, // 5: List item disc icon
   ],
   formInputElement:[
-    VARIABLES.COLORS.black, // 0: Label
+    VARIABLES.COLORS.lightGrayOne, // 0: Label
     VARIABLES.COLORS.lightGreenOne, // 1: border
     VARIABLES.COLORS.lightGreenOne, // 2: place holder
     VARIABLES.COLORS.white, // 3: tooltip
     VARIABLES.COLORS.darkGreenOne, // 4: optional label
     VARIABLES.COLORS.white, // 5: input background 
+  ],
+  footer:[
+    VARIABLES.COLORS.white, // 0: border top
+    VARIABLES.COLORS.darkGreenOne, // 0: BackGround
+    VARIABLES.COLORS.white, // 1: Text
   ]
+
 };
 
 theme.fonts = {

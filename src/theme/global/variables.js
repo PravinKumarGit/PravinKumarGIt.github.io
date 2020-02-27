@@ -98,7 +98,8 @@ const variables = Object.freeze({
     lightNavyBlueOne: "#526AB5", //95:
     darkGrayFourteen: "#999", // 96: Gray redish
     darkGrayFifteen: "#e6e6e6", // 97: Gray
-    lightOrangeThree: "#f47e28" //98:
+    lightOrangeThree: "#f47e28", //98:
+    lightGreenEight: "#f1f6ef"
   }
 });
 

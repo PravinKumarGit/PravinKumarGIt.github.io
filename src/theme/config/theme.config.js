@@ -1,13 +1,20 @@
 import defaultTheme from "./default";
-import customTheme from "./custom";
-
-const themes = {
-  defaultTheme,
-  customTheme
-};
+import rentBondTheme from "./custom";
+import { THEMES } from "../global/constants";
+const themes = {};
+themes[THEMES.default] = defaultTheme;
+themes[THEMES.rentBond] = rentBondTheme;
 
 export const themeConfig = {
-  // theme: "customTheme"
-  theme: 'defaultTheme',
+  // theme: THEMES.default,
+  theme: THEMES.rentBond
+};
+export const getTheme = ({ utm_campaign }) => {
+  switch (utm_campaign) {
+    case "RENT":
+      return THEMES.rentBond;
+    default:
+      return THEMES.default;
+  }
 };
 export default themes;

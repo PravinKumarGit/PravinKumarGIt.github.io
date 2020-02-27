@@ -58,7 +58,8 @@ export default {
       VARIABLES.COLORS.black, // 21: black,
       VARIABLES.COLORS.lightYellowOne, // 22: yellow,
       VARIABLES.COLORS.lightYellowTwo, // 23: light yellow
-      VARIABLES.COLORS.lightGreenSeven // 24 green upload button
+      VARIABLES.COLORS.lightGreenSeven, // 24 green upload button
+      VARIABLES.COLORS.lightGreenEight // 25 extra light screen
     ],
     warning: [
       VARIABLES.COLORS.lightRedThree // 0: Warning
@@ -132,21 +133,26 @@ export default {
       VARIABLES.COLORS.lightOrangeThree, // 3: dot-line color
       VARIABLES.COLORS.darkGrayFifteen // 4: inactive text color
     ],
-    accordian:[
+    accordian: [
       VARIABLES.COLORS.lightNavyBlueOne, // 0: Head bar background one
       VARIABLES.COLORS.white, // 1: Head bar text Color
       VARIABLES.COLORS.lightNavyBlueOne, // 2: panel background
       VARIABLES.COLORS.white, // 3: panel text color
       VARIABLES.COLORS.lightNavyBlueOne, // 4: Head bar background two
-      VARIABLES.COLORS.darkGrayFourteen, // 5: List item disc icon
+      VARIABLES.COLORS.darkGrayFourteen // 5: List item disc icon
     ],
-    formInputElement:[
+    formInputElement: [
       VARIABLES.COLORS.black, // 0: Label
       VARIABLES.COLORS.lightNavyBlueOne, // 1: border
       VARIABLES.COLORS.lightNavyBlueOne, // 2: place holder
       VARIABLES.COLORS.white, // 3: tooltip
       VARIABLES.COLORS.lightNavyBlueOne, // 4: optional label
-      VARIABLES.COLORS.white, // 5: input background 
+      VARIABLES.COLORS.white // 5: input background
+    ],
+    footer: [
+      VARIABLES.COLORS.white, // 0: border top
+      VARIABLES.COLORS.white, // 0: BackGround
+      VARIABLES.COLORS.black, // 1: Text
     ]
   }
 };

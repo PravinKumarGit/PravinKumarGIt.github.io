@@ -1,12 +1,17 @@
 import React from "react";
 
+import { THEMES } from "../../../theme/global/constants";
 import LogoImage from "../../../theme/assets/logo-rebranded-2019.png";
+import LogoImageRentBond from "../../../theme/assets/rent_bond-logo.svg";
 import Wrapper from "./topHeader.styles";
 export default function Select({ ...props }) {
   return (
     <Wrapper>
       <div className="Header-Container">
         <div className="logos">
+         {THEMES.rentBond === props.currentTheme && <div className="logoBox">
+            <img src={LogoImageRentBond} alt="logo" />
+          </div>}
           <div className="logoBox">
             <img src={LogoImage} alt="logo" />
           </div>
