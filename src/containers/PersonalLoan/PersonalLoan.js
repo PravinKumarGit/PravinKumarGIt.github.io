@@ -25,6 +25,8 @@ export default function PersonalLoan({ ...props }) {
 
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
+    dispatch(startUpActions.parseQueryString());
+    dispatch(startUpActions.fillForm())
   }, [dispatch]);
 
   const handleSubmit = (values, actions) => {
@@ -64,6 +66,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={StartSchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}
@@ -75,6 +78,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={BankStatementSchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}
@@ -86,6 +90,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={GeneralGivingSchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}
@@ -97,6 +102,7 @@ export default function PersonalLoan({ ...props }) {
         <Formik
           initialValues={initialValue}
           validationSchema={FinallySchema}
+          enableReinitialize
           validateOnChange
           validateOnBlur
           onSubmit={(values, actions) => handleSubmit(values, actions)}

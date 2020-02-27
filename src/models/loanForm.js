@@ -15,7 +15,7 @@ export default class LoanForm {
     this.middleName = values.middleName || "";
     this.lastName = values.lastName || "";
     this.mobilePhone = values.mobilePhone || "";
-    this.emailAddress = values.emailAddress|| "";
+    this.emailAddress = values.emailAddress || "";
     this.dateOfBirth = values.dateOfBirth || {
       day: "",
       month: "",
@@ -72,29 +72,44 @@ export default class LoanForm {
     this.weeklyEstimatedCostOfLiving =
       values.weeklyEstimatedCostOfLiving || "";
     this.creditCardCount = values.creditCardCount || "";
+    this.totalCreditLimit = values.totalCreditLimit || "";
+    this.amountBalance = values.amountBalance || "";
+
     if (step === 3) return;
 
     // step 4
+
+    // Additional Documents
     this.source = "App Screen 4 - Thank You";
     this.identificationType = values.identificationType || "";
     this.driversLicenceNumber = values.driversLicenceNumber || "";
     this.driversLicenceCardNumber = values.driversLicenceCardNumber || "";
     this.driversLicenceState = values.driversLicenceState || "";
-    this.driversLicenceExpiry = values.driversLicenceExpiry || "";
+    this.driversLicenceExpiry = values.driversLicenceExpiry || {
+      day: "",
+      month: "",
+      year: ""
+    };
     this.medicareName = values.medicareName || "";
     this.medicareNumber = values.medicareNumber || "";
     this.medicareReference = values.medicareReference || "";
     this.medicareCardColour = values.medicareCardColour || "";
-    this.medicareDateExpiry = values.medicareDateExpiry || "";
+    this.medicareDateExpiry = values.medicareDateExpiry || {
+      day: "",
+      month: "",
+      year: ""
+    };
     this.consentsToIdentityVerification =
-      values.consentsToIdentityVerification || false;
+      values.consentsToIdentityVerification || "";
+    // Additional Personal Details
     this.workContactNumber = values.workContactNumber || "";
     this.homePhoneNumber = values.homePhoneNumber || "";
     this.secondaryEmail = values.secondaryEmail || "";
     this.alternateContactName = values.alternateContactName || "";
     this.alternateContactNumber = values.alternateContactNumber || "";
     this.alternateRelationship = values.alternateRelationship || "";
-    this.foreseeableChanges = values.foreseeableChanges || false;
+    //and finally
+    this.foreseeableChanges = values.foreseeableChanges || "";
     this.foreseeableChangesExplain = values.foreseeableChangesExplain || "";
     this.residencyStatus = values.residencyStatus || "";
     this.accountPk = values.accountPk || "";

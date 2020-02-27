@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Row, Col } from "react-grid-system";
 
@@ -10,23 +11,66 @@ import SubSectionHeading from "../../../../components/uielements/subSectionHeadi
 import Loader from "../../../../components/utility/loader";
 
 import PayslipField from "../payslipField";
-import CentreLinkField from "../centreLinkField";
 import SendViaEmail from "../sendViaEmail";
 import SendViaFax from "../sendViaFax";
+import IdentificationType from "../selectIdentificationType";
+import IdentityVerification from "../identityVerification"
+import DriverLicence from "../driverLicence";
+import Medicare from "../medicare"
+import WorkContactNumber from "../workContactNumber"
+import HomePhoneNumber from "../homePhoneNumber"
+import ContactName from "../contactName"
+import ContactNumber from "../contactNumber"
+import RelationToYou from "../relationToYou"
+import YesNo from "../yesNo"
+import Explain from "../expalin"
+
+import { YES_NO_VALUES } from "../../../../constants/commonConstants"
 
 const Finally = props => {
   const {
     values: {
       payslip,
-      centrelink
+      identificationType,
+      workContactNumber,
+      homePhoneNumber,
+      alternateContactName,
+      alternateContactNumber,
+      alternateRelationship,
+      foreseeableChanges,
+      consentsToIdentityVerification,
+      foreseeableChangesExplain
     },
     errors,
     touched,
     handleChange,
     handleBlur,
     isValid,
-    setFieldValue
+    setFieldValue,
+    setFieldValueAndTouchStatus
+
   } = props;
+
+  useEffect(() => {
+    if (identificationType) {
+      //driver licence fields
+      setFieldValueAndTouchStatus("driversLicenceCardNumber")
+      setFieldValueAndTouchStatus("driversLicenceState")
+      setFieldValueAndTouchStatus("driversLicenceNumber")
+      setFieldValueAndTouchStatus("driversLicenceExpiry", { day: "", month: "", year: "" })
+      // medicare fields
+      setFieldValueAndTouchStatus("medicareName")
+      setFieldValueAndTouchStatus("medicareNumber")
+      setFieldValueAndTouchStatus("medicareReference")
+      setFieldValueAndTouchStatus("medicareCardColour")
+      setFieldValueAndTouchStatus("medicareDateExpiry", { day: "", month: "", year: "" })
+    }
+  }, [identificationType])
+
+  useEffect(() => {
+    if (foreseeableChanges === YES_NO_VALUES.NO)
+      setFieldValueAndTouchStatus("foreseeableChangesExplain")
+  }, [foreseeableChanges])
 
   const { isFetching } = useSelector(state => state.loanForm);
   return (
@@ -35,7 +79,28 @@ const Finally = props => {
         <Col xl={12}>
           <SubSectionHeading heading="Additional Documents" />
         </Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}>
+          <FieldLabel
+            title="Identification"
+            helpToolTip
+            ToolTipText="identification"
+          />
+          <IdentificationType
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={identificationType}
+            name="identificationType"
+            errorMessage={touched.identificationType ? errors.identificationType : ""}
+          />
+          {identificationType === "Drivers Licence" && <DriverLicence {...props} />}
+          {identificationType === "Medicare" && <Medicare {...props} />}
+          <IdentityVerification
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={consentsToIdentityVerification}
+            name="consentsToIdentityVerification"
+            errorMessage={touched.consentsToIdentityVerification ? errors.consentsToIdentityVerification : ""} />
+        </Col>
         <Col sm={12} md={6}>
           <FieldLabel title="Required Files" />
           <PayslipField
@@ -45,20 +110,11 @@ const Finally = props => {
             setFieldValue={setFieldValue}
             errorMessage={touched.payslip ? errors.payslip : ""}
           />
-          <CentreLinkField
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={centrelink}
-            setFieldValue={setFieldValue}
-            errorMessage={touched.centrelink ? errors.centrelink : ""}
-          />
           <FieldLabel title="Alternate Methods" />
-          <SendViaEmail/>
-          <SendViaFax/>
+          <SendViaEmail />
+          <SendViaFax />
         </Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+
         <Col xl={12}>
           <Divider />
         </Col>
@@ -78,8 +134,51 @@ const Finally = props => {
             }
           />
         </Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}>
+          <FieldLabel title="Additional Contact Details" />
+          <WorkContactNumber
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={workContactNumber}
+            name="workContactNumber"
+            errorMessage={touched.workContactNumber ? errors.workContactNumber : ""}
+          />
+          <HomePhoneNumber
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={homePhoneNumber}
+            name="homePhoneNumber"
+            errorMessage={touched.homePhoneNumber ? errors.homePhoneNumber : ""} />
+
+        </Col>
+        <Col sm={12} md={6}>
+          <FieldLabel
+            title="Alternate Account Contact Person"
+            helpToolTip
+            ToolTipText="Please provide us with an alternative contact which we may use to reach you if required."
+          />
+          <ContactName
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={alternateContactName}
+            name="alternateContactName"
+            errorMessage={touched.alternateContactName ? errors.alternateContactName : ""} />
+
+          <ContactNumber
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={alternateContactNumber}
+            name="alternateContactNumber"
+            errorMessage={touched.alternateContactNumber ? errors.alternateContactNumber : ""} />
+
+          <RelationToYou
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={alternateRelationship}
+            name="alternateRelationship"
+            errorMessage={touched.alternateRelationship ? errors.alternateRelationship : ""}
+          />
+        </Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col xl={12}>
@@ -90,8 +189,25 @@ const Finally = props => {
         <Col xl={12}>
           <SubSectionHeading heading="And Finally" />
         </Col>
-        <Col sm={12} md={6}></Col>
-        <Col sm={12} md={6}></Col>
+        <Col sm={12} md={6}>
+          <YesNo
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={foreseeableChanges}
+            name="foreseeableChanges"
+            errorMessage={touched.foreseeableChanges ? errors.foreseeableChanges : ""}
+          />
+        </Col>
+        <Col sm={12} md={6}>
+          {foreseeableChanges === YES_NO_VALUES.YES &&
+            <Explain
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={foreseeableChangesExplain}
+              name="foreseeableChangesExplain"
+              errorMessage={touched.foreseeableChangesExplain ? errors.foreseeableChangesExplain : ""}
+            />}
+        </Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}>
           <Button

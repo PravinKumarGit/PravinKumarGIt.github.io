@@ -36,6 +36,7 @@ export const DAYS = (() => {
   }
   return Object.freeze(Days);
 })();
+
 export const MONTHS = Object.freeze([
   { value: 1, label: "Jan" },
   { value: 2, label: "Feb" },
@@ -50,12 +51,18 @@ export const MONTHS = Object.freeze([
   { value: 11, label: "Nov" },
   { value: 12, label: "Dec" }
 ]);
-export const YEARS = (min = 18, max = 81) => {
+
+export const YEARS = (min = 18, max = 81, upcommingYears = false) => {
   const years = [];
   const date = new Date();
-  for (let i = date.getFullYear() - min; i > date.getFullYear() - max; i--) {
-    years.push({ label: i, value: i });
-  }
+  if (upcommingYears)
+    for (let i = date.getFullYear() - min; i <= date.getFullYear() + max; i++) {
+      years.push({ label: i, value: i });
+    }
+  else
+    for (let i = date.getFullYear() - min; i > date.getFullYear() - max; i--) {
+      years.push({ label: i, value: i });
+    }
   return Object.freeze(years);
 };
 
@@ -130,4 +137,41 @@ export const RESIDENTIAL_PAYMENT_FREQUENCY = Object.freeze([
   createOption("Weekly"),
   createOption("Fortnightly"),
   createOption("Monthly")
+]);
+
+export const IDENTIFICATION_TYPE_OPTIONS = Object.freeze([
+  { label: "Drivers Licence", value: "Drivers Licence" },
+  { label: "Medicare", value: "Medicare" },
+]);
+
+export const STATE_OPTIONS = Object.freeze([
+  { label: "ACT", value: "ACT" },
+  { label: "NSW", value: "NSW" },
+  { label: "NT", value: "NT" },
+  { label: "QLD", value: "QLD" },
+  { label: "SA", value: "SA" },
+  { label: "TAS", value: "TAS" },
+  { label: "VIC", value: "VIC" },
+  { label: "WA", value: "WA" },
+])
+
+export const CARD_COLOUR_OPTIONS = Object.freeze([
+  { label: "Green", value: "Green" },
+  { label: "Blue", value: "Blue" },
+  { label: "Yellow", value: "Yellow" },
+]);
+
+export const RELATIONSHIP_TO_YOU_OPTIONS = Object.freeze([
+  { label: "Family (Parent)", value: "Parent" },
+  { label: "Family (Sibling)", value: "Sibling" },
+  { label: "Friend", value: "Friend" },
+  { label: "Relative", value: "Relative" },
+  { label: "Colleague", value: "Colleague" },
+  { label: "Partner", value: "Partner" },
+]);
+
+export const AMOUNT_BALANCE_OPTIONS = Object.freeze([
+  createOption("Minimum"),
+  createOption("Part"),
+  createOption("Full Balance")
 ]);
