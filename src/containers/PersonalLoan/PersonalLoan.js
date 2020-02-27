@@ -39,6 +39,8 @@ export default function PersonalLoan({ ...props }) {
       console.log(err);
     } finally {
       setSubmitting(false);
+      if(step<STEPS.length)
+      dispatch(loanFormActions.setStep(step+1))
     }
   };
 
