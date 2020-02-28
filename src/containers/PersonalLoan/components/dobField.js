@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col } from "react-grid-system";
+import ToolTipIcon from "../../../components/uielements/toolTipIcon";
 
 import { DAYS, MONTHS, YEARS } from "../../../constants/options";
-import Image from "../../../theme/assets/icon-tooltip.svg";
 
 import Wrapper from "./Styles/dobField.styles";
 
@@ -57,12 +57,7 @@ export default function LoanReasons({ ...props }) {
             <div className="selectBox-Label-Container">
               <label className="selectBox-Label">
                 <span>Date of Birth</span>
-                <i className="toolTip-Icon">
-                  <img src={Image} alt="help icon" />
-                  <span className="toolTip-Text">
-                    You need to be 18 years or older.
-                  </span>
-                </i>
+                <ToolTipIcon ToolTipText="You need to be 18 years or older." />
                 {OptionalLabel && (
                   <label className="selectBox-Label-Optional">optional</label>
                 )}

@@ -3,7 +3,7 @@ import { palette } from "styled-theme";
 
 const Wrapper = styled.div`
   .pct-show {
-    color: rgb(148, 200, 64);
+    color: ${palette("color", 15)};
     text-decoration: none;
   }
 

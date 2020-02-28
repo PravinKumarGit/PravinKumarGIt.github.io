@@ -1,5 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-grid-system";
+import { useSelector } from "react-redux";
+import { THEMES } from "../../theme/global/constants";
 
 import SectionHeading from "../../components/uielements/sectionHeading";
 import Divider from "../../components/uielements/divider";
@@ -16,13 +18,24 @@ import Wrapper from "./loanForm.styles";
 
 export default function LoanForm({ ...props }) {
   const { step, ...rest } = props;
+  const themeName = useSelector(state => state.StartUp.theme);
 
-  const setFieldValueAndTouchStatus = (fieldName, value = "", touchStatus = false) => {
+  const setFieldValueAndTouchStatus = (
+    fieldName,
+    value = "",
+    touchStatus = false
+  ) => {
     const { setFieldValue, setFieldTouched } = props;
     setFieldValue(fieldName, value);
     setFieldTouched(fieldName, touchStatus);
+  };
+  let title = "Personal Loan Application";
+  switch (themeName) {
+    case THEMES.rentBond:
+      title = "RentBond Application";
+      break;
+    default:
   }
-
   return (
     <Wrapper>
       <form
@@ -37,7 +50,7 @@ export default function LoanForm({ ...props }) {
               <Row>
                 <Col>
                   <SectionHeading
-                    heading="Personal Loan Application"
+                    heading={title}
                     subheading={
                       <span>
                         It only takes a few minutes to get an outcome.
@@ -133,7 +146,8 @@ export default function LoanForm({ ...props }) {
                   <Divider />
                   <Finally
                     {...props}
-                    setFieldValueAndTouchStatus={setFieldValueAndTouchStatus} />
+                    setFieldValueAndTouchStatus={setFieldValueAndTouchStatus}
+                  />
                 </Col>
               </Row>
             </div>

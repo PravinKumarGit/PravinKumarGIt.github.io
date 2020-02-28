@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   }
 
   .Address-ManualButton:hover {
-    background-color: ${palette("color", 20)};
+    background-color: ${palette("color", 15)};
     color: ${palette("color", 16)};
   }
   .address-wrapper {

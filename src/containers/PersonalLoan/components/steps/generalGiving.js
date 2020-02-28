@@ -24,6 +24,8 @@ import LandlordContactName from "../landlordContactName";
 import ResidentialPayment from "../ResidentialPayment";
 import LandlordContactNumber from "../landlordContactNumber";
 import OwnIncomeYesNo from "../ownIncomeYesNo"
+import TotalCreditLimit from "../totalCreditLimit"
+import AmountBalance from "../amountBalance"
 
 import { LIVING_SITUATION_OPTIONS } from "../../../../constants/options"
 
@@ -50,15 +52,33 @@ const Start = props => {
     residentialPaymentFrequency,
     landlordContactName,
     residentialPayment,
-    landlordContactNumber
+    landlordContactNumber,
+    totalCreditLimit,
+    amountBalance
   } = values;
 
   const { isFetching } = useSelector(state => state.loanForm);
 
-
   useEffect(() => {
     if (partnerIncome) setFieldValue("partnerIncome", "")
   }, [livingSituation])
+
+  useEffect(() => {
+    if (totalCreditLimit) setFieldValue("totalCreditLimit", "")
+    if (amountBalance) setFieldValue("amountBalance", "")
+  }, [creditCardCount])
+
+  const shouldDisableNextButton = () => {
+    if (creditCardCount || isValid || isFetching) {
+      if (creditCardCount === "1") {
+        if (totalCreditLimit && amountBalance)
+          return false
+        return true;
+      }
+      return false;
+    }
+    return true;
+  }
 
   return (
     <>
@@ -239,12 +259,32 @@ const Start = props => {
             name="creditCardCount"
             errorMessage={touched.creditCardCount ? errors.creditCardCount : ""}
           />
+
+          {creditCardCount === "1" &&
+            <>
+              <TotalCreditLimit
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={totalCreditLimit}
+                name="totalCreditLimit"
+                errorMessage={touched.totalCreditLimit ? errors.totalCreditLimit : ""}
+              />
+
+              <AmountBalance
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={amountBalance}
+                name="amountBalance"
+                errorMessage={touched.amountBalance ? errors.amountBalance : ""}
+              />
+            </>}
+
         </Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}></Col>
         <Col sm={12} md={6}>
           <Button
-            disabled={!isValid || !creditCardCount || isFetching}
+            disabled={!isValid || !creditCardCount || shouldDisableNextButton()}
             buttonProps={{
               type: isFetching ? "button" : "submit"
             }}

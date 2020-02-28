@@ -1,3 +1,5 @@
+import { INCOME_FREQUENCY_OPTIONS } from "../constants/options";
+
 export default class LoanForm {
   constructor(data = {}, initModel = true) {
     if (initModel) {
@@ -29,7 +31,8 @@ export default class LoanForm {
     this.state = values.state || "";
     this.postCode = values.postCode || "";
     this.referralConsent = values.referralConsent || false;
-    this.incomeFrequency = values.incomeFrequency || "";
+    this.incomeFrequency =
+      values.incomeFrequency || INCOME_FREQUENCY_OPTIONS[0].value;
     this.totalIncome = values.totalIncome || "";
     if (step === 1) return;
 
@@ -45,21 +48,23 @@ export default class LoanForm {
     this.employerName = values.employerName || "";
     this.businessName = values.businessName || "";
     this.employerPhone = values.employerPhone || "";
-    this.dateStarted = values.dateStarted || null
-    this.nextPayDate = values.nextPayDate || null
-    this.dateStartedAtCurrentAddress = values.dateStartedAtCurrentAddress || null
+    this.dateStarted = values.dateStarted || null;
+    this.nextPayDate = values.nextPayDate || null;
+    this.dateStartedAtCurrentAddress =
+      values.dateStartedAtCurrentAddress || null;
     this.numberOfDependents = values.numberOfDependents || "";
     this.livingSituation = values.livingSituation || "";
     this.partnerIncome = values.partnerIncome || "";
     this.residentialStatus = values.residentialStatus || "";
-    this.residentialPaymentFrequency =
-      values.residentialPaymentFrequency || "";
+    this.residentialPaymentFrequency = values.residentialPaymentFrequency || "";
     this.landlordContactName = values.landlordContactName || "";
     this.landlordContactNumber = values.landlordContactNumber || "";
     this.residentialPayment = values.residentialPayment || "";
-    this.weeklyEstimatedCostOfLiving =
-      values.weeklyEstimatedCostOfLiving || "";
+    this.weeklyEstimatedCostOfLiving = values.weeklyEstimatedCostOfLiving || "";
     this.creditCardCount = values.creditCardCount || "";
+    this.totalCreditLimit = values.totalCreditLimit || "";
+    this.amountBalance = values.amountBalance || "";
+
     if (step === 3) return;
 
     // step 4
@@ -70,7 +75,7 @@ export default class LoanForm {
     this.driversLicenceNumber = values.driversLicenceNumber || "";
     this.driversLicenceCardNumber = values.driversLicenceCardNumber || "";
     this.driversLicenceState = values.driversLicenceState || "";
-    this.driversLicenceExpiry = values.driversLicenceExpiry || null
+    this.driversLicenceExpiry = values.driversLicenceExpiry || null;
     this.medicareName = values.medicareName || "";
     this.medicareNumber = values.medicareNumber || "";
     this.medicareReference = values.medicareReference || "";
@@ -78,7 +83,7 @@ export default class LoanForm {
     this.medicareDateExpiry = values.medicareDateExpiry || null;
     this.consentsToIdentityVerification =
       values.consentsToIdentityVerification || null;
-      // Additional Personal Details
+    // Additional Personal Details
     this.workContactNumber = values.workContactNumber || "";
     this.homePhoneNumber = values.homePhoneNumber || "";
     this.secondaryEmail = values.secondaryEmail || "";

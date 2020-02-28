@@ -1,6 +1,6 @@
 import React from "react";
+import ToolTipIcon from "../toolTipIcon";
 
-import Image from "../../../theme/assets/icon-tooltip.svg";
 import Wrapper from "./select.styles";
 export default function Select({ ...props }) {
   const {
@@ -17,20 +17,14 @@ export default function Select({ ...props }) {
     placeholder,
     ...rest
   } = props;
+
   return (
     <Wrapper>
       <div className="select-Component" data-testid="select-component">
         {Title && (
           <label className="select-Label">
             {Title}
-            {helpToolTip && (
-              <i className="toolTip-Icon">
-                <img src={Image} alt="help icon" />
-                {ToolTipText && (
-                  <span className="toolTip-Text">{ToolTipText}</span>
-                )}
-              </i>
-            )}
+            {helpToolTip && <ToolTipIcon ToolTipText={ToolTipText} />}
             {OptionalLabel && (
               <label className="textBox-Label-Optional">optional</label>
             )}
@@ -59,11 +53,7 @@ export default function Select({ ...props }) {
             className={`select-Select ${errorMessage ? "required" : ""} `}
             {...rest}
           >
-            {isPlaceHolder && (
-              <option value="" >
-                {placeholder}
-              </option>
-            )}
+            {isPlaceHolder && <option value="">{placeholder}</option>}
             {(options || []).map((item, index) => (
               <option
                 key={`${new Date().getTime()}${index}`}

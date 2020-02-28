@@ -38,7 +38,7 @@ const Wrapper = styled.div`
     margin-block-start: 0;
   }
   .listBox-Item:before {
-    color: ${palette("color", 14)};
+    color: ${palette("accordian", 5)};
     content: "•";
     font-size: ${size("h5")};
   }

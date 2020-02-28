@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     height: 36px;
     width: 36px;
     background-color: ${palette("color", 25)};
-    color: ${palette("color", 16)};
+    color: ${palette("color", 100)};
     border-radius: 50%;
     display: inline-block;
     text-align: center;

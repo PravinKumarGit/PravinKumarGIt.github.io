@@ -169,3 +169,9 @@ export const RELATIONSHIP_TO_YOU_OPTIONS = Object.freeze([
   { label: "Colleague", value: "Colleague" },
   { label: "Partner", value: "Partner" },
 ]);
+
+export const AMOUNT_BALANCE_OPTIONS = Object.freeze([
+  createOption("Minimum"),
+  createOption("Part"),
+  createOption("Full Balance")
+]);

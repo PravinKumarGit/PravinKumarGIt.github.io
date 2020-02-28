@@ -10,13 +10,13 @@ const Wrapper = styled.div`
     display: flex;
     padding-left: 3px;
     padding-bottom: 7px;
-    color: ${palette("grayscale", 17)};
+    color: ${palette("formInputElement", 0)};
     font-weight: 700;
     font-size: ${size("p2")};
   }
   .select-Select {
     display: flex;
-    border: 1px solid ${palette("border", 5)};
+    border: 1px solid ${palette("formInputElement", 1)};
     border-radius: 5px;
     margin: 0 !important;
     padding-left: 7px;

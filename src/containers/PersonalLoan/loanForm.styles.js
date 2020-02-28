@@ -9,6 +9,8 @@ const Wrapper = styled.div`
     justify-content: center;
     margin-top: 20px;
     position: relative;
+    flex-direction: column;
+    align-items: center;
   }
 
   #fgf-bank-frame {
@@ -37,6 +39,12 @@ const Wrapper = styled.div`
     @media only screen and (max-width: ${size("S")}) {
       margin: 30px 10px;
     }
+  }
+
+  .next-buton-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 `;
 
