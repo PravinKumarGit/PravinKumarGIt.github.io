@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import Wrapper from "./Styles/referralConsent.styles";
@@ -6,11 +6,21 @@ import Wrapper from "./Styles/referralConsent.styles";
 import loanFormActions from "../../../../redux/loanForm/actions";
 
 import ReferralForm from "../../../PersonalLoan/referralForm";
+import { ReferralFormSchema } from "../../../PersonalLoan/components/steps/validationSchema";
+
 import CheckBox from "../../../../components/uielements/checkBox";
 
 const ReferralConsent = () => {
   const { initialValue } = useSelector(state => state.loanForm);
   const dispatch = useDispatch();
+
+  const [referralConsent, setReferralConsent] = useState(
+    initialValue.referralConsent
+  );
+
+  const handleCheckBox = () => {
+    setReferralConsent(!referralConsent);
+  };
 
   const handleSubmit = (values, actions) => {
     const { setSubmitting } = actions;
@@ -38,20 +48,22 @@ const ReferralConsent = () => {
         <div className="referral-consent-content">
           {
             <CheckBox
-              onChange={() => console.log("Hello")}
-              checked={initialValue.referralConsent}
+              onChange={handleCheckBox}
+              checked={referralConsent}
               name="referralConsent"
-              setFieldValue={initialValue.referralConsent}
             >
               <strong>Referral Consent</strong>: {referralConsentContentMessage}
             </CheckBox>
           }
-          <Formik
-            initialValues={initialValue}
-            onSubmit={(values, actions) => handleSubmit(values, actions)}
-          >
-            {props => <ReferralForm {...props} />}
-          </Formik>
+          <div className="referral-consent-form-wrapper">
+            <Formik
+              initialValues={initialValue}
+              validationSchema={ReferralFormSchema}
+              onSubmit={(values, actions) => handleSubmit(values, actions)}
+            >
+              {props => <ReferralForm {...props} />}
+            </Formik>
+          </div>
         </div>
       </div>
     </Wrapper>
