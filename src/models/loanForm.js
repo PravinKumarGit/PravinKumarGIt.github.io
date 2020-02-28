@@ -45,21 +45,9 @@ export default class LoanForm {
     this.employerName = values.employerName || "";
     this.businessName = values.businessName || "";
     this.employerPhone = values.employerPhone || "";
-    this.dateStarted = values.dateStarted || {
-      day: 1,
-      month: "",
-      year: ""
-    };
-    this.nextPayDate = values.nextPayDate || {
-      day: "",
-      month: "",
-      year: ""
-    };
-    this.dateStartedAtCurrentAddress = values.dateStartedAtCurrentAddress || {
-      day: 1,
-      month: "",
-      year: ""
-    };
+    this.dateStarted = values.dateStarted || null
+    this.nextPayDate = values.nextPayDate || null
+    this.dateStartedAtCurrentAddress = values.dateStartedAtCurrentAddress || null
     this.numberOfDependents = values.numberOfDependents || "";
     this.livingSituation = values.livingSituation || "";
     this.partnerIncome = values.partnerIncome || "";
@@ -82,22 +70,14 @@ export default class LoanForm {
     this.driversLicenceNumber = values.driversLicenceNumber || "";
     this.driversLicenceCardNumber = values.driversLicenceCardNumber || "";
     this.driversLicenceState = values.driversLicenceState || "";
-    this.driversLicenceExpiry = values.driversLicenceExpiry || {
-      day: "",
-      month: "",
-      year: ""
-    };
+    this.driversLicenceExpiry = values.driversLicenceExpiry || null
     this.medicareName = values.medicareName || "";
     this.medicareNumber = values.medicareNumber || "";
     this.medicareReference = values.medicareReference || "";
     this.medicareCardColour = values.medicareCardColour || "";
-    this.medicareDateExpiry = values.medicareDateExpiry || {
-      day:  "",
-      month: "",
-      year: ""
-    };
+    this.medicareDateExpiry = values.medicareDateExpiry || null;
     this.consentsToIdentityVerification =
-      values.consentsToIdentityVerification || "";
+      values.consentsToIdentityVerification || null;
       // Additional Personal Details
     this.workContactNumber = values.workContactNumber || "";
     this.homePhoneNumber = values.homePhoneNumber || "";

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-grid-system";
 
@@ -14,6 +14,7 @@ import DobInput from "./components/dobField";
 import MobileNoField from "./components/mobileNoField";
 import EmailField from "./components/emailField";
 import BusinessName from "./components/businessName";
+import TermsCheckBox from "./components/termsCheckBox";
 
 import Wrapper from "./referralForm.styles";
 
@@ -36,7 +37,8 @@ const ReferralForm = props => {
       firstName,
       lastName,
       emailAddress,
-      businessName
+      businessName,
+      acceptsPrivacyPolicy
     },
     errors,
     touched,
@@ -111,7 +113,7 @@ const ReferralForm = props => {
               <BusinessName
                 onChange={handleChange}
                 onBlur={handleBlur}
-                value={businessName}
+                value={businessName || ""}
                 name="businessName"
                 errorMessage={touched.businessName ? errors.businessName : ""}
               />
@@ -123,6 +125,18 @@ const ReferralForm = props => {
                 value={loanReason}
                 name="loanReason"
                 errorMessage={touched.loanReason ? errors.loanReason : ""}
+              />
+              <TermsCheckBox
+                onChange={handleChange}
+                onBlur={handleBlur}
+                checked={acceptsPrivacyPolicy}
+                name="acceptsPrivacyPolicy"
+                setFieldValue={setFieldValue}
+                errorMessage={
+                  touched.acceptsPrivacyPolicy
+                    ? errors.acceptsPrivacyPolicy
+                    : ""
+                }
               />
               <Button
                 disabled={!isValid || !touched.loanAmount || isFetching}
@@ -138,6 +152,11 @@ const ReferralForm = props => {
               </Button>
             </form>
           </Col>
+          <div className="referral-form-end-padding"></div>
+          <div className="referral-form-disclaimer">
+            Fair Go Finance may receive a payment or benefit from Lead Market
+            Australia for this referral at no cost to you.
+          </div>
         </div>
       </Row>
     </Wrapper>

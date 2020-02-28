@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { size } from "styled-theme";
+import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   display:flex;
@@ -17,6 +17,14 @@ const Wrapper = styled.div`
     border-bottom: 1px solid #0000002e;
     margin-bottom: 1.1rem;
     padding-bottom: 0.5rem;
+  }
+  .referral-form-end-padding {
+    padding-bottom: 10px;
+  }
+  .referral-form-disclaimer {
+    text-align: center
+    color: ${palette("color", 17)};
+    font-size: ${size("p3")}
   }
 `;
 

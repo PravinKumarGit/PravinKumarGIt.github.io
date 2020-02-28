@@ -11,11 +11,18 @@ import { ReferralFormSchema } from "../../../PersonalLoan/components/steps/valid
 import CheckBox from "../../../../components/uielements/checkBox";
 
 const ReferralConsent = () => {
-  const { initialValue } = useSelector(state => state.loanForm);
+  const { initialValue, loanFormResponse } = useSelector(
+    state => state.loanForm
+  );
   const dispatch = useDispatch();
 
+  let formValue = initialValue;
+  if (loanFormResponse != null) {
+    formValue = { ...loanFormResponse.value };
+  }
+
   const [referralConsent, setReferralConsent] = useState(
-    initialValue.referralConsent
+    formValue.referralConsent
   );
 
   const handleCheckBox = () => {
@@ -57,7 +64,7 @@ const ReferralConsent = () => {
           }
           <div className="referral-consent-form-wrapper">
             <Formik
-              initialValues={initialValue}
+              initialValues={formValue}
               validationSchema={ReferralFormSchema}
               onSubmit={(values, actions) => handleSubmit(values, actions)}
             >
