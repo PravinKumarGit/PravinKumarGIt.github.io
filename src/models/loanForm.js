@@ -1,3 +1,5 @@
+import { INCOME_FREQUENCY_OPTIONS } from "../constants/options"
+
 export default class LoanForm {
   constructor(data = {}, initModel = true) {
     if (initModel) {
@@ -29,7 +31,7 @@ export default class LoanForm {
     this.state = values.state || "";
     this.postCode = values.postCode || "";
     this.referralConsent = values.referralConsent || false;
-    this.incomeFrequency = values.incomeFrequency || "";
+    this.incomeFrequency = values.incomeFrequency || INCOME_FREQUENCY_OPTIONS[0].value;
     this.totalIncome = values.totalIncome || "";
     if (step === 1) return;
 
