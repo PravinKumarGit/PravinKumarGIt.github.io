@@ -1,4 +1,4 @@
-import { INCOME_FREQUENCY_OPTIONS } from "../constants/options";
+import { INCOME_FREQUENCY_OPTIONS } from "../constants/options"
 
 export default class LoanForm {
   constructor(data = {}, initModel = true) {
@@ -31,8 +31,7 @@ export default class LoanForm {
     this.state = values.state || "";
     this.postCode = values.postCode || "";
     this.referralConsent = values.referralConsent || false;
-    this.incomeFrequency =
-      values.incomeFrequency || INCOME_FREQUENCY_OPTIONS[0].value;
+    this.incomeFrequency = values.incomeFrequency || INCOME_FREQUENCY_OPTIONS[0].value;
     this.totalIncome = values.totalIncome || "";
     if (step === 1) return;
 
@@ -48,19 +47,32 @@ export default class LoanForm {
     this.employerName = values.employerName || "";
     this.businessName = values.businessName || "";
     this.employerPhone = values.employerPhone || "";
-    this.dateStarted = values.dateStarted || null;
-    this.nextPayDate = values.nextPayDate || null;
-    this.dateStartedAtCurrentAddress =
-      values.dateStartedAtCurrentAddress || null;
+    this.dateStarted = values.dateStarted || {
+      day: 1,
+      month: "",
+      year: ""
+    };
+    this.nextPayDate = values.nextPayDate || {
+      day: "",
+      month: "",
+      year: ""
+    };
+    this.dateStartedAtCurrentAddress = values.dateStartedAtCurrentAddress || {
+      day: 1,
+      month: "",
+      year: ""
+    };
     this.numberOfDependents = values.numberOfDependents || "";
     this.livingSituation = values.livingSituation || "";
     this.partnerIncome = values.partnerIncome || "";
     this.residentialStatus = values.residentialStatus || "";
-    this.residentialPaymentFrequency = values.residentialPaymentFrequency || "";
+    this.residentialPaymentFrequency =
+      values.residentialPaymentFrequency || "";
     this.landlordContactName = values.landlordContactName || "";
     this.landlordContactNumber = values.landlordContactNumber || "";
     this.residentialPayment = values.residentialPayment || "";
-    this.weeklyEstimatedCostOfLiving = values.weeklyEstimatedCostOfLiving || "";
+    this.weeklyEstimatedCostOfLiving =
+      values.weeklyEstimatedCostOfLiving || "";
     this.creditCardCount = values.creditCardCount || "";
     this.totalCreditLimit = values.totalCreditLimit || "";
     this.amountBalance = values.amountBalance || "";
@@ -75,14 +87,22 @@ export default class LoanForm {
     this.driversLicenceNumber = values.driversLicenceNumber || "";
     this.driversLicenceCardNumber = values.driversLicenceCardNumber || "";
     this.driversLicenceState = values.driversLicenceState || "";
-    this.driversLicenceExpiry = values.driversLicenceExpiry || null;
+    this.driversLicenceExpiry = values.driversLicenceExpiry || {
+      day: "",
+      month: "",
+      year: ""
+    };
     this.medicareName = values.medicareName || "";
     this.medicareNumber = values.medicareNumber || "";
     this.medicareReference = values.medicareReference || "";
     this.medicareCardColour = values.medicareCardColour || "";
-    this.medicareDateExpiry = values.medicareDateExpiry || null;
+    this.medicareDateExpiry = values.medicareDateExpiry || {
+      day: "",
+      month: "",
+      year: ""
+    };
     this.consentsToIdentityVerification =
-      values.consentsToIdentityVerification || null;
+      values.consentsToIdentityVerification || "";
     // Additional Personal Details
     this.workContactNumber = values.workContactNumber || "";
     this.homePhoneNumber = values.homePhoneNumber || "";

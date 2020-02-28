@@ -70,7 +70,7 @@ const Start = props => {
 
   const shouldDisableNextButton = () => {
     if (creditCardCount || isValid || isFetching) {
-      if (creditCardCount === "1") {
+      if (creditCardCount >= "1") {
         if (totalCreditLimit && amountBalance)
           return false
         return true;
@@ -260,7 +260,7 @@ const Start = props => {
             errorMessage={touched.creditCardCount ? errors.creditCardCount : ""}
           />
 
-          {creditCardCount === "1" &&
+          {creditCardCount >= "1" &&
             <>
               <TotalCreditLimit
                 onChange={handleChange}
