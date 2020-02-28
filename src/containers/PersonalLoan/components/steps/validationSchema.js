@@ -9,7 +9,7 @@ const emailInputFieldRegexMessage = "Please enter a valid email address";
 const numberMinMaxInputMessage = "Please enter minimum 100 maximum 10000.";
 const requireCheckboxMessage = "Field must be checked";
 const requiredPhoneInputFieldRegexMessage = (numberType = "mobile number") =>
-  `Please enter a valid ${numberType} 10 digit start with 04.`
+  `Please enter a valid ${numberType} 10 digit start with 04.`;
 
 const requiredLetterInputFieldRegex = /^[A-Za-z ]+$/;
 const requiredDigitInputFieldRegex = /^[0-9]+$/;
@@ -17,6 +17,65 @@ const requiredDigitOrLetterInputFieldRegex = /^[0-9A-Za-z ]+$/;
 const twoCharacterInputFieldRegex = /^[A-Za-z ]{2,}$/;
 const emailInputFieldRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 const digitPhoneInputFieldRegex = /^04\d{8}$/;
+
+export const ReferralFormSchema = Yup.object({
+  firstName: Yup.string()
+    .trim()
+    .matches(requiredLetterInputFieldRegex, {
+      message: invalidValue,
+      excludeEmptyString: true
+    })
+    .matches(twoCharacterInputFieldRegex, {
+      message: requiredLetterInputFieldRegexMessage,
+      excludeEmptyString: true
+    })
+    .required(requiredFieldMessage),
+  lastName: Yup.string()
+    .trim()
+    .matches(requiredLetterInputFieldRegex, {
+      message: invalidValue,
+      excludeEmptyString: true
+    })
+    .matches(twoCharacterInputFieldRegex, {
+      message: requiredLetterInputFieldRegexMessage,
+      excludeEmptyString: true
+    })
+    .required(requiredFieldMessage),
+    dateOfBirth: Yup.object().shape({
+      day: Yup.string()
+        .trim()
+        .required(requiredFieldMessage),
+      month: Yup.string()
+        .trim()
+        .required(requiredFieldMessage),
+      year: Yup.string()
+        .trim()
+        .required(requiredFieldMessage)
+    }),
+    mobilePhone: Yup.string()
+    .trim()
+    .required(requiredFieldMessage)
+    .matches(requiredDigitInputFieldRegex, {
+      message: invalidValue,
+      excludeEmptyString: true
+    })
+    .test("test-number", requiredPhoneInputFieldRegexMessage(), value => {
+      let isValid = digitPhoneInputFieldRegex.test(value);
+      if (!isValid) {
+        return false;
+      }
+      return true;
+    }),
+    emailAddress: Yup.string()
+    .trim()
+    .required(requiredFieldMessage)
+    .test("test-name", emailInputFieldRegexMessage, value => {
+      return emailInputFieldRegex.test(value);
+    }),
+    loanAmount: Yup.string()
+    .trim()
+    .required(requiredFieldMessage),
+});
 
 export const StartSchema = Yup.object({
   title: Yup.string()
@@ -133,7 +192,7 @@ export const StartSchema = Yup.object({
     year: Yup.string()
       .trim()
       .required(requiredFieldMessage)
-  }),
+  })
 });
 
 export const BankStatementSchema = Yup.object({});
@@ -144,11 +203,10 @@ export const GeneralGivingSchema = Yup.object({
   //   .matches(requiredDigitOrLetterInputFieldRegex, {
   //     message: invalidValue,
   //     excludeEmptyString: true
-  //   })  
+  //   })
 });
 
 export const FinallySchema = Yup.object({
-
   identificationType: Yup.string()
     .trim()
     .required(requiredFieldMessage),
@@ -201,40 +259,52 @@ export const FinallySchema = Yup.object({
       message: invalidValue,
       excludeEmptyString: true
     })
-    .test("test-number", requiredPhoneInputFieldRegexMessage("work contact number"), value => {
-      let isValid = digitPhoneInputFieldRegex.test(value);
-      if (!isValid) {
-        return false;
+    .test(
+      "test-number",
+      requiredPhoneInputFieldRegexMessage("work contact number"),
+      value => {
+        let isValid = digitPhoneInputFieldRegex.test(value);
+        if (!isValid) {
+          return false;
+        }
+        return true;
       }
-      return true;
-    }),
+    ),
   homePhoneNumber: Yup.string()
     .trim()
     .matches(requiredDigitInputFieldRegex, {
       message: invalidValue,
       excludeEmptyString: true
     })
-    .test("test-number", requiredPhoneInputFieldRegexMessage("home phone number"), value => {
-      let isValid = digitPhoneInputFieldRegex.test(value);
-      if (!isValid) {
-        return false;
+    .test(
+      "test-number",
+      requiredPhoneInputFieldRegexMessage("home phone number"),
+      value => {
+        let isValid = digitPhoneInputFieldRegex.test(value);
+        if (!isValid) {
+          return false;
+        }
+        return true;
       }
-      return true;
-    }),
+    ),
   alternateContactNumber: Yup.string()
     .trim()
     .matches(requiredDigitInputFieldRegex, {
       message: invalidValue,
       excludeEmptyString: true
     })
-    .test("test-number", requiredPhoneInputFieldRegexMessage("contact number"), value => {
-      let isValid = digitPhoneInputFieldRegex.test(value);
-      if (!isValid) {
-        return false;
+    .test(
+      "test-number",
+      requiredPhoneInputFieldRegexMessage("contact number"),
+      value => {
+        let isValid = digitPhoneInputFieldRegex.test(value);
+        if (!isValid) {
+          return false;
+        }
+        return true;
       }
-      return true;
-    }),
-    foreseeableChanges: Yup.string()
+    ),
+  foreseeableChanges: Yup.string()
     .trim()
-    .required(requiredFieldMessage),
+    .required(requiredFieldMessage)
 });

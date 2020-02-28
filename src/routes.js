@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import ErrorBoundary from "./ErrorBoundary";
 import { PUBLIC_ROUTE } from "./route.constants";
@@ -17,6 +17,10 @@ const publicRoutes = [
     component: lazy(() => import("./containers/Pages/ComingSoon"))
   },
   {
+    path: PUBLIC_ROUTE.DECLINE,
+    component: lazy(() => import("./containers/Pages/Decline/Decline"))
+  },
+  {
     path: PUBLIC_ROUTE.PAGE_NOT_FOUND,
     component: lazy(() => import("./containers/Pages/404/404"))
   }
@@ -26,15 +30,13 @@ export default function Routes() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loader />}>
-        <Router>
-          <Switch>
-            {publicRoutes.map((route, index) => (
-              <Route key={index} path={route.path} exact={route.exact}>
-                <route.component />
-              </Route>
-            ))}
-          </Switch>
-        </Router>
+        <Switch>
+          {publicRoutes.map((route, index) => (
+            <Route key={index} path={route.path} exact={route.exact}>
+              <route.component />
+            </Route>
+          ))}
+        </Switch>
       </Suspense>
     </ErrorBoundary>
   );
