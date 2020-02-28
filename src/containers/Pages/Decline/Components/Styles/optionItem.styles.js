@@ -9,8 +9,8 @@ const Wrapper = styled.div`
   .option-item-marker {
     height: 36px;
     width: 36px;
-    background-color: ${palette("color", 25)};
-    color: ${palette("color", 100)};
+    background-color: ${palette("color", 26)};
+    color: ${palette("color", 16)};
     border-radius: 50%;
     display: inline-block;
     text-align: center;
