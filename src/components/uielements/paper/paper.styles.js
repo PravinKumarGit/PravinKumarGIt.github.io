@@ -11,8 +11,14 @@ const Wrapper = styled.div`
     background-color: ${palette("color", 16)};
     border-radius: 10px;
     box-shadow: 0 2px 4px ${palette("border", 7)};
+    @media only screen and (max-width: ${size("LG")}) {
+      width: 80vw;
+    }
+    @media only screen and (max-width: ${size("L")}) {
+      width: 95vw;
+    }
     @media only screen and (max-width: ${size("M")}) {
-      width: 90vw;
+      width: 98vw;
     }
     @media only screen and (max-width: ${size("S")}) {
       width: 100vw;

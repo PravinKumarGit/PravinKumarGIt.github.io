@@ -33,11 +33,17 @@ const Wrapper = styled.div`
   }
   .content-wrapper {
     margin: 30px 100px;
-    @media only screen and (max-width: ${size("M")}) {
+    @media only screen and (max-width: ${size("LG")}) {
+      margin: 30px 50px;
+    }
+    @media only screen and (max-width: ${size("L")}) {
       margin: 30px 20px;
     }
-    @media only screen and (max-width: ${size("S")}) {
+    @media only screen and (max-width: ${size("M")}) {
       margin: 30px 10px;
+    }
+    @media only screen and (max-width: ${size("S")}) {
+      margin: 30px 5px;
     }
   }
 

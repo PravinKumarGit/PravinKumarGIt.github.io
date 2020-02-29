@@ -3,7 +3,7 @@ import { palette, size } from "styled-theme";
 
 const Wrapper = styled.div`
   .select-Component {
-    margin: 10px 30px;
+    margin: 10px 0px;
     min-height: 80px;
   }
   .select-Label {

@@ -51,130 +51,126 @@ export default function LoanReasons({ ...props }) {
 
   return (
     <Wrapper>
-      <Row>
-        <Col xl={12}>
-          <div className="selectBox">
-            <div className="selectBox-Label-Container">
-              <label className="selectBox-Label">
-                <span>Date of Birth</span>
-                <ToolTipIcon ToolTipText="You need to be 18 years or older." />
-                {OptionalLabel && (
-                  <label className="selectBox-Label-Optional">optional</label>
+      <div className="selectBox">
+        <div className="selectBox-Label-Container">
+          <label className="selectBox-Label">
+            <span>Date of Birth</span>
+            <ToolTipIcon ToolTipText="You need to be 18 years or older." />
+            {OptionalLabel && (
+              <label className="selectBox-Label-Optional">optional</label>
+            )}
+          </label>
+        </div>
+        <Row className={`selectBox-Input`}>
+          <Col xs={12} className="dob-input-wrap">
+            <div className="dob-input">
+              <select
+                className={`select-Select ${
+                  touched.dateOfBirth &&
+                  errors.dateOfBirth &&
+                  touched.dateOfBirth.day &&
+                  errors.dateOfBirth.day
+                    ? "required"
+                    : ""
+                } `}
+                value={day}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                name="dateOfBirth.day"
+              >
+                <option className={`select-Option`} value="">
+                  Day
+                </option>
+                {(activeDay() || []).map((item, index) => (
+                  <option
+                    key={`${new Date().getTime()}${index}`}
+                    className={`select-Option${index}`}
+                    value={item.value}
+                  >
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+              {touched.dateOfBirth &&
+                errors.dateOfBirth &&
+                touched.dateOfBirth.day &&
+                errors.dateOfBirth.day && (
+                  <div className="message"> {errors.dateOfBirth.day} </div>
                 )}
-              </label>
             </div>
-            <Row className={`selectBox-Input`}>
-              <Col xs={12} className="dob-input-wrap">
-                <div className="dob-input">
-                  <select
-                    className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.day &&
-                      errors.dateOfBirth.day
-                        ? "required"
-                        : ""
-                    } `}
-                    value={day}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    name="dateOfBirth.day"
+            <div className="dob-input">
+              <select
+                className={`select-Select ${
+                  touched.dateOfBirth &&
+                  errors.dateOfBirth &&
+                  touched.dateOfBirth.month &&
+                  errors.dateOfBirth.month
+                    ? "required"
+                    : ""
+                } `}
+                value={month}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                name="dateOfBirth.month"
+              >
+                <option className={`select-Option`} value="">
+                  Month
+                </option>
+                {(MONTHS || []).map((item, index) => (
+                  <option
+                    key={`${new Date().getTime()}${index}`}
+                    className={`select-Option${index}`}
+                    value={item.value}
                   >
-                    <option className={`select-Option`} value="">
-                      Day
-                    </option>
-                    {(activeDay() || []).map((item, index) => (
-                      <option
-                        key={`${new Date().getTime()}${index}`}
-                        className={`select-Option${index}`}
-                        value={item.value}
-                      >
-                        {item.label}
-                      </option>
-                    ))}
-                  </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.day &&
-                    errors.dateOfBirth.day && (
-                      <div className="message"> {errors.dateOfBirth.day} </div>
-                    )}
-                </div>
-                <div className="dob-input">
-                  <select
-                    className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.month &&
-                      errors.dateOfBirth.month
-                        ? "required"
-                        : ""
-                    } `}
-                    value={month}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    name="dateOfBirth.month"
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+              {touched.dateOfBirth &&
+                errors.dateOfBirth &&
+                touched.dateOfBirth.month &&
+                errors.dateOfBirth.month && (
+                  <div className="message">{errors.dateOfBirth.month}</div>
+                )}
+            </div>
+            <div className="dob-input-last">
+              <select
+                className={`select-Select ${
+                  touched.dateOfBirth &&
+                  errors.dateOfBirth &&
+                  touched.dateOfBirth.year &&
+                  errors.dateOfBirth.year
+                    ? "required"
+                    : ""
+                } `}
+                value={year}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                name="dateOfBirth.year"
+              >
+                <option className={`select-Option`} value="">
+                  Year
+                </option>
+                {(YEARS() || []).map((item, index) => (
+                  <option
+                    key={`${new Date().getTime()}${index}`}
+                    className={`select-Option${index}`}
+                    value={item.value}
                   >
-                    <option className={`select-Option`} value="">
-                      Month
-                    </option>
-                    {(MONTHS || []).map((item, index) => (
-                      <option
-                        key={`${new Date().getTime()}${index}`}
-                        className={`select-Option${index}`}
-                        value={item.value}
-                      >
-                        {item.label}
-                      </option>
-                    ))}
-                  </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.month &&
-                    errors.dateOfBirth.month && (
-                      <div className="message">{errors.dateOfBirth.month}</div>
-                    )}
-                </div>
-                <div className="dob-input-last">
-                  <select
-                    className={`select-Select ${
-                      touched.dateOfBirth &&
-                      errors.dateOfBirth &&
-                      touched.dateOfBirth.year &&
-                      errors.dateOfBirth.year
-                        ? "required"
-                        : ""
-                    } `}
-                    value={year}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    name="dateOfBirth.year"
-                  >
-                    <option className={`select-Option`} value="">
-                      Year
-                    </option>
-                    {(YEARS() || []).map((item, index) => (
-                      <option
-                        key={`${new Date().getTime()}${index}`}
-                        className={`select-Option${index}`}
-                        value={item.value}
-                      >
-                        {item.label}
-                      </option>
-                    ))}
-                  </select>
-                  {touched.dateOfBirth &&
-                    errors.dateOfBirth &&
-                    touched.dateOfBirth.year &&
-                    errors.dateOfBirth.year && (
-                      <div className="message"> {errors.dateOfBirth.year} </div>
-                    )}
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </Col>
-      </Row>
+                    {item.label}
+                  </option>
+                ))}
+              </select>
+              {touched.dateOfBirth &&
+                errors.dateOfBirth &&
+                touched.dateOfBirth.year &&
+                errors.dateOfBirth.year && (
+                  <div className="message"> {errors.dateOfBirth.year} </div>
+                )}
+            </div>
+          </Col>
+        </Row>
+      </div>
     </Wrapper>
   );
 }
