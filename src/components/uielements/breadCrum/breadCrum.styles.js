@@ -74,8 +74,8 @@ const Wrapper = styled.div`
     bottom: 40px;
   }
   .inactive {
-    color: ${palette("breadCrumHeader", 1)};
-    bottom: 40px;
+    color: ${palette("breadCrumHeader", 4)};
+    bottom: 35px;
   }
   .section-inactive {
     width: 28px;
