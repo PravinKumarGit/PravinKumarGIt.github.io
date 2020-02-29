@@ -57,7 +57,8 @@ theme.palette = {
     VARIABLES.COLORS.lightYellowOne, // 22: yellow,
     VARIABLES.COLORS.lightYellowTwo, // 23: light yellow
     VARIABLES.COLORS.lightGreenSeven, // 24 green upload button
-    VARIABLES.COLORS.lightGreenEight // 25 extra light screen
+    VARIABLES.COLORS.lightGreenEight, // 25 extra light screen,
+    VARIABLES.COLORS.darkGreenNine // 26 light dark green
   ],
   warning: [
     VARIABLES.COLORS.lightRedThree // 0: Warning

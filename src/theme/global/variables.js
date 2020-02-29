@@ -99,7 +99,8 @@ const variables = Object.freeze({
     darkGrayFourteen: "#999", // 96: Gray redish
     darkGrayFifteen: "#e6e6e6", // 97: Gray
     lightOrangeThree: "#f47e28", //98:
-    lightGreenEight: "#f1f6ef"
+    lightGreenEight: "#f1f6ef", //99
+    darkGreenNine: "#3f903f" //100
   }
 });
 

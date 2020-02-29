@@ -5,8 +5,6 @@ export default function LoanReasons({ ...props }) {
   return (
     <>
       <Select
-        isPlaceHolder
-        placeholder="Select..."
         Title="Income frequency"
         helpToolTip
         ToolTipText="How often do you receive your main source of income?"

@@ -6,6 +6,8 @@ import { WENT_WRONG_MESSAGE } from "../../constants/commonMessage";
 import LoanFormModel from "../../models/loanForm";
 import { sanitizeValues } from "../utility/sanitizeLoanObjectValues";
 import { queryStringToLoanObjectMapper } from "../utility/queryStringToLoanObjectMapper";
+import { push } from 'connected-react-router'
+import { PUBLIC_ROUTE } from '../../route.constants'
 
 function* loanForm(action) {
   const { payload } = action;
@@ -17,7 +19,13 @@ function* loanForm(action) {
     switch (status) {
       case 200:
         yield put(actions.postLoanFormSuccess(data));
-        yield put(actions.setStep(step + 1));
+
+        if (data.status === "Declined"){
+          yield put(push(PUBLIC_ROUTE.DECLINE))
+        } else {
+          yield put(actions.setStep(step + 1));
+        }
+
         break;
       default: {
         yield put(
