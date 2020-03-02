@@ -40,10 +40,10 @@ const Wrapper = styled.div`
       margin: 30px 20px;
     }
     @media only screen and (max-width: ${size("M")}) {
-      margin: 30px 10px;
+      margin: 30px 30px;
     }
     @media only screen and (max-width: ${size("S")}) {
-      margin: 30px 5px;
+      margin: 30px 30px;
     }
   }
 
