@@ -12,11 +12,8 @@ export default function AppProvider({ children }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(startUpActions.loanAmountRequest());
     dispatch(startUpActions.parseQueryString());
-    dispatch(startUpActions.fillForm());
   }, [dispatch]);
-  console.log(themeName, THEMES.loading);
   if (themeName === THEMES.loading) {
     return <Loader />;
   }

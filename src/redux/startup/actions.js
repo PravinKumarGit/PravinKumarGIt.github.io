@@ -11,7 +11,7 @@ const CHANGE_THEME="CHANGE_THEME";
 const parseQueryString = () => {
   return {
     type: INITIALISE_QUERY_STRING,
-    payload: queryStringParser(window.location.search)
+    payload: queryStringParser(window.location.href)
   };
 };
 
