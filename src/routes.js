@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 import ErrorBoundary from "./ErrorBoundary";
 import { PUBLIC_ROUTE } from "./route.constants";
@@ -30,13 +30,15 @@ export default function Routes() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loader />}>
-        <Switch>
-          {publicRoutes.map((route, index) => (
-            <Route key={index} path={route.path} exact={route.exact}>
-              <route.component />
-            </Route>
-          ))}
-        </Switch>
+        <HashRouter>
+          <Switch>
+            {publicRoutes.map((route, index) => (
+              <Route key={index} path={route.path} exact={route.exact}>
+                <route.component />
+              </Route>
+            ))}
+          </Switch>
+        </HashRouter>
       </Suspense>
     </ErrorBoundary>
   );

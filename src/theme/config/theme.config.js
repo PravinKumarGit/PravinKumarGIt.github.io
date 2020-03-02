@@ -4,6 +4,7 @@ import { THEMES } from "../global/constants";
 const themes = {};
 themes[THEMES.default] = defaultTheme;
 themes[THEMES.rentBond] = rentBondTheme;
+themes[THEMES.loading] = {};
 
 export const themeConfig = {
   // theme: THEMES.default,

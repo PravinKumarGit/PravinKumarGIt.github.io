@@ -22,6 +22,7 @@ const basicStyle = {
 
 export const THEMES={
   default: "defaultTheme",
-  rentBond: "rentBondTheme"
+  rentBond: "rentBondTheme",
+  loading: "loading"
 }
 export default basicStyle;

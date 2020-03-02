@@ -1,12 +1,12 @@
 import actions from "./actions";
-import { themeConfig,getTheme } from "../../theme/config/theme.config";
-
+import { getTheme } from "../../theme/config/theme.config";
+import { THEMES } from "../../theme/global/constants";
 const initState = {
   loanAmountIsFetching: null,
   loanAmountResponse: null,
   loanAmountError: null,
   queryString: {},
-  theme: themeConfig.theme
+  theme: THEMES.loading
 };
 
 export default function(state = initState, action) {

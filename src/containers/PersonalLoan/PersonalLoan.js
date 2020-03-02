@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import { Row, Col } from "react-grid-system";
+import startUpActions from "../../redux/startup/actions";
 
 import loanFormActions from "../../redux/loanForm/actions";
-import startUpActions from "../../redux/startup/actions";
 import TopHeader from "../../components/uielements/topHeader";
 import BreadCrum from "../../components/uielements/breadCrum";
 import Footer from "../../components/uielements/footer";
@@ -25,7 +25,6 @@ export default function PersonalLoan({ ...props }) {
 
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
-    dispatch(startUpActions.parseQueryString());
     dispatch(startUpActions.fillForm());
   }, [dispatch]);
 
@@ -39,8 +38,7 @@ export default function PersonalLoan({ ...props }) {
       console.log(err);
     } finally {
       setSubmitting(false);
-      if(step<STEPS.length)
-      dispatch(loanFormActions.setStep(step+1))
+      if (step < STEPS.length) dispatch(loanFormActions.setStep(step + 1));
     }
   };
 
