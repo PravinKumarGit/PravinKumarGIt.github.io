@@ -54,8 +54,9 @@ export default function PersonalLoan({ ...props }) {
   };
 
   const onStepChange = item => {
-    dispatch(loanFormActions.setStep(item.step));
-    dispatch(push(item.path));
+    dispatch(loanFormActions.setStep(item.step))
+    if (window.location.hash !== `#${item.path}`)
+      dispatch(push(item.path));
   };
 
   return (

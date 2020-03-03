@@ -92,7 +92,7 @@ export default function LoanForm({ ...props }) {
                 <Col>
                   <SubSectionHeading
                     heading="Your Bank Account"
-                    subheading={[
+                    subheading={
                       <span>
                         <span className="left-align">
                           In order to assess your ability to repay your loan, we
@@ -100,15 +100,15 @@ export default function LoanForm({ ...props }) {
                           simplest and quickest way to do this is through
                           uploading your statement using our tool below.
                         </span>
-                        ,
-                        <br />,
+
+                        <br />
                         <span className="left-align">
                           <span className="label">Note:</span> we do not see
                           your internet banking details and do not gain access
                           to your bank account.
                         </span>
                       </span>
-                    ]}
+                    }
                   />
                   <BankStatement {...props} />
                 </Col>

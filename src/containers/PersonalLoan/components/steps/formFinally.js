@@ -125,11 +125,10 @@ const Finally = props => {
             heading="Additional Personal Details"
             subheading={
               <>
-                <p>
-                  Speed up your loan outcome and give yourself the best chance
-                  of approval
-                </p>
-                <p>by filling in the following details.</p>
+                Speed up your loan outcome and give yourself the best chance
+                of approval
+                <br />
+                by filling in the following details.
               </>
             }
           />
