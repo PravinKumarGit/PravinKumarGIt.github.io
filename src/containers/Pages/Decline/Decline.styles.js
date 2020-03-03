@@ -4,6 +4,8 @@ import { palette } from "styled-theme";
 const Wrapper = styled.div`
   overflow: hidden;
   .decline-content {
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .decline-banner-wrapper {
     padding-top: 7%;

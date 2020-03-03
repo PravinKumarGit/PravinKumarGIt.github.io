@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Formik } from "formik";
 import Wrapper from "./Styles/referralConsent.styles";
 
-import loanFormActions from "../../../../redux/loanForm/actions";
-
 import ReferralForm from "../../../PersonalLoan/referralForm";
-import { ReferralFormSchema } from "../../../PersonalLoan/components/steps/validationSchema";
 
 import CheckBox from "../../../../components/uielements/checkBox";
 
@@ -14,6 +10,7 @@ const ReferralConsent = () => {
   const { initialValue, loanFormResponse } = useSelector(
     state => state.loanForm
   );
+
   const dispatch = useDispatch();
 
   let formValue = initialValue;
@@ -29,18 +26,11 @@ const ReferralConsent = () => {
     setReferralConsent(!referralConsent);
   };
 
-  const handleSubmit = (values, actions) => {
-    const { setSubmitting } = actions;
-    setSubmitting(true);
-    try {
-      setSubmitting(false);
-      dispatch(loanFormActions.postLoanFormRequest({ values }));
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setSubmitting(false);
+  const getFormConfig = () => {
+    return {
+      values: formValue
     }
-  };
+  }
 
   const referralConsentContentMessage =
     "Given we are unable to offer a loan today, we may be able to refer you to other credit providers and alternative service providers as described in our Privacy Policies, who may be able to offer you an alternative finance option. Do you give us approval to do this and agree to sending your contact details, name and financial information to these providers?";
@@ -62,15 +52,11 @@ const ReferralConsent = () => {
               <strong>Referral Consent</strong>: {referralConsentContentMessage}
             </CheckBox>
           }
-          <div className="referral-consent-form-wrapper">
-            <Formik
-              initialValues={formValue}
-              validationSchema={ReferralFormSchema}
-              onSubmit={(values, actions) => handleSubmit(values, actions)}
-            >
-              {props => <ReferralForm {...props} />}
-            </Formik>
-          </div>
+          {referralConsent && (
+            <div className="referral-consent-form-wrapper">
+              <ReferralForm {...getFormConfig()}/>
+            </div>
+          )}
         </div>
       </div>
     </Wrapper>
