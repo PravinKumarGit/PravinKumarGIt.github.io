@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Wrapper from "./Styles/referralConsent.styles";
 
 import ReferralForm from "../../../PersonalLoan/referralForm";
@@ -10,8 +10,6 @@ const ReferralConsent = () => {
   const { initialValue, loanFormResponse } = useSelector(
     state => state.loanForm
   );
-
-  const dispatch = useDispatch();
 
   let formValue = initialValue;
   if (loanFormResponse != null) {
@@ -29,8 +27,8 @@ const ReferralConsent = () => {
   const getFormConfig = () => {
     return {
       values: formValue
-    }
-  }
+    };
+  };
 
   const referralConsentContentMessage =
     "Given we are unable to offer a loan today, we may be able to refer you to other credit providers and alternative service providers as described in our Privacy Policies, who may be able to offer you an alternative finance option. Do you give us approval to do this and agree to sending your contact details, name and financial information to these providers?";
@@ -54,7 +52,7 @@ const ReferralConsent = () => {
           }
           {referralConsent && (
             <div className="referral-consent-form-wrapper">
-              <ReferralForm {...getFormConfig()}/>
+              <ReferralForm {...getFormConfig()} />
             </div>
           )}
         </div>
