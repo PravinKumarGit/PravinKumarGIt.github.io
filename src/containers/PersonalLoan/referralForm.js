@@ -86,7 +86,7 @@ const ReferralForm = props => {
 
   useEffect(() => {
     let script = document.getElementById(scriptConfig.scriptId);
-    if(script != null) {
+    if (script != null) {
       script.remove();
     }
 
