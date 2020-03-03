@@ -85,7 +85,12 @@ const ReferralForm = props => {
   const { values } = props;
 
   useEffect(() => {
-    const script = document.createElement("script");
+    let script = document.getElementById(scriptConfig.scriptId);
+    if (script != null) {
+      script.remove();
+    }
+
+    script = document.createElement("script");
     script.onload = () => {
       const formConfig = Object.assign({}, scriptConfig, { values });
       initLeadMarketReferralForm(formConfig);
