@@ -11,7 +11,7 @@ export default function Select({ ...props }) {
           {stepsActive.map(item => (
             <div
               className="breadCrumb-title-and-button"
-              onClick={() => changeStep(item.step)}
+              onClick={() => changeStep(item)}
               key={`breadCrumb${item.step}`}
             >
               <span

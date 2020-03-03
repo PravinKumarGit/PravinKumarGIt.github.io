@@ -12,6 +12,20 @@ const publicRoutes = [
     component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
   },
   {
+    path: PUBLIC_ROUTE.BANK_STATEMENT_PAGE,
+    exact: true,
+    component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
+  },  {
+    path: PUBLIC_ROUTE.GENERAL_LIVING_PAGE,
+    exact: true,
+    component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
+  },  {
+    path: PUBLIC_ROUTE.FINALLY_PAGE,
+    exact: true,
+    component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
+  },
+
+  {
     path: PUBLIC_ROUTE.COMING_SOON,
     exact: true,
     component: lazy(() => import("./containers/Pages/ComingSoon"))
