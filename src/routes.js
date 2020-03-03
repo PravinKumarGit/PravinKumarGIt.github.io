@@ -18,6 +18,7 @@ const publicRoutes = [
   },
   {
     path: PUBLIC_ROUTE.DECLINE,
+    exact: true,
     component: lazy(() => import("./containers/Pages/Decline/Decline"))
   },
   {
