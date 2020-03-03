@@ -17,10 +17,9 @@ import {
   GeneralGivingSchema,
   FinallySchema
 } from "./components/steps/validationSchema";
-// import history from '../../utils/history';
-import { push } from 'connected-react-router'
+import { push } from "connected-react-router";
 import { PUBLIC_ROUTE } from "../../route.constants";
-import TagManager from 'react-gtm-module'
+import TagManager from "react-gtm-module";
 
 export default function PersonalLoan({ ...props }) {
   const { step, initialValue } = useSelector(state => state.loanForm);
@@ -28,17 +27,13 @@ export default function PersonalLoan({ ...props }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // const { location } = props.history;
-    // const pageUrl = location.pathname + location.search;
-
     const tagManagerArgs = {
       dataLayer: {
         pageUrl: ""
       }
-    }
-    TagManager.dataLayer(tagManagerArgs)
-  }, [])
-  console.log(props)
+    };
+    TagManager.dataLayer(tagManagerArgs);
+  }, []);
   useEffect(() => {
     dispatch(startUpActions.loanAmountRequest());
     dispatch(startUpActions.fillForm());
@@ -54,23 +49,31 @@ export default function PersonalLoan({ ...props }) {
       console.log(err);
     } finally {
       setSubmitting(false);
-      if (step < STEPS.length)
-        dispatch(loanFormActions.setStep(step + 1))
+      if (step < STEPS.length) dispatch(loanFormActions.setStep(step + 1));
     }
   };
 
   const STEPS = [
     { step: 1, label: "Start", active: true, path: PUBLIC_ROUTE.LANDING },
-    { step: 2, label: "Bank Statement", active: true, path: PUBLIC_ROUTE.BANK_STATEMENT_PAGE },
-    { step: 3, label: "General Living", active: true, path: PUBLIC_ROUTE.GENERAL_LIVING_PAGE },
+    {
+      step: 2,
+      label: "Bank Statement",
+      active: true,
+      path: PUBLIC_ROUTE.BANK_STATEMENT_PAGE
+    },
+    {
+      step: 3,
+      label: "General Living",
+      active: true,
+      path: PUBLIC_ROUTE.GENERAL_LIVING_PAGE
+    },
     { step: 4, label: "Finally", active: true, path: PUBLIC_ROUTE.FINALLY_PAGE }
   ];
 
-  const onStepChange = (item) => {
+  const onStepChange = item => {
     dispatch(loanFormActions.setStep(item.step))
-    debugger
-    push(item.path)
-  }
+    dispatch(push(item.path));
+  };
 
   return (
     <Wrapper>

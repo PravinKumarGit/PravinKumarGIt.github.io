@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 import ErrorBoundary from "./ErrorBoundary";
 import { PUBLIC_ROUTE } from "./route.constants";
@@ -15,11 +15,13 @@ const publicRoutes = [
     path: PUBLIC_ROUTE.BANK_STATEMENT_PAGE,
     exact: true,
     component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
-  },  {
+  },
+  {
     path: PUBLIC_ROUTE.GENERAL_LIVING_PAGE,
     exact: true,
     component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
-  },  {
+  },
+  {
     path: PUBLIC_ROUTE.FINALLY_PAGE,
     exact: true,
     component: lazy(() => import("./containers/PersonalLoan/PersonalLoan"))
@@ -45,13 +47,15 @@ export default function Routes() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loader />}>
-        <Switch>
-          {publicRoutes.map((route, index) => (
-            <Route key={index} path={route.path} exact={route.exact}>
-              <route.component />
-            </Route>
-          ))}
-        </Switch>
+        <HashRouter>
+          <Switch>
+            {publicRoutes.map((route, index) => (
+              <Route key={index} path={route.path} exact={route.exact}>
+                <route.component />
+              </Route>
+            ))}
+          </Switch>
+        </HashRouter>
       </Suspense>
     </ErrorBoundary>
   );
