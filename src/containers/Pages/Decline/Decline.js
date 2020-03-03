@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-grid-system";
+import { useSelector } from "react-redux";
 
 import TopHeader from "../../../components/uielements/topHeader";
 import Banner from "./Components/declineBanner";
@@ -10,11 +11,13 @@ import Footer from "../../../components/uielements/footer";
 import Wrapper from "../Decline/Decline.styles";
 
 const Decline = props => {
+  const themeName = useSelector(state => state.StartUp.theme);
+
   return (
     <Wrapper>
       <Row>
         <Col lg={12}>
-          <TopHeader />
+          <TopHeader currentTheme={themeName} />
         </Col>
       </Row>
       <div className="decline-content">
@@ -56,6 +59,6 @@ const Decline = props => {
       </div>
     </Wrapper>
   );
-}
+};
 
-export default Decline
+export default Decline;

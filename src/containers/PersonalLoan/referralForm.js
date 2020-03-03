@@ -1,163 +1,121 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-grid-system";
-
-import actions from "../../redux/startup/actions";
-import Select from "../../components/uielements/select/select";
-import Button from "../../components/uielements/button";
-import Loader from "../../components/utility/loader";
-
-import LoanSelect from "./components/selectForLoanResoans";
-import FirstName from "./components/firstName";
-import LastName from "./components/lastName";
-import DobInput from "./components/dobField";
-import MobileNoField from "./components/mobileNoField";
-import EmailField from "./components/emailField";
-import BusinessName from "./components/businessName";
-import TermsCheckBox from "./components/termsCheckBox";
 
 import Wrapper from "./referralForm.styles";
 
-const ReferralForm = props => {
-  const dispatch = useDispatch();
+import environmentSettings from "../../constants/environmentSettings";
 
-  useEffect(() => {
-    dispatch(actions.loanAmountRequest());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const dateObjectIsNotEmpty = dateObject => {
+  return (
+    dateObject.year !== "" && dateObject.month !== "" && dateObject.day !== ""
+  );
+};
 
-  const { isFetching } = useSelector(state => state.loanForm);
-  const StartUp = useSelector(state => state.StartUp);
-
+const initLeadMarketReferralForm = formConfig => {
   const {
     values: {
-      loanAmount,
-      loanReason,
-      mobilePhone,
+      accountExternalId,
       firstName,
       lastName,
+      dateOfBirth,
+      mobilePhone,
       emailAddress,
+      loanAmount,
+      loanReason,
       businessName,
       acceptsPrivacyPolicy
     },
-    errors,
-    touched,
-    handleChange,
-    handleBlur,
-    isValid,
-    setFieldValue
-  } = props;
+    scriptId
+  } = formConfig;
+
+  const mlmLoaderElement = document.getElementById(scriptId);
+
+  const refValue = accountExternalId
+    ? `loanapplication-${accountExternalId}`
+    : Math.random() * 999999;
+
+  const dobValue = dateObjectIsNotEmpty(dateOfBirth)
+    ? new Date(dateOfBirth.year, dateOfBirth.month, dateOfBirth.day)
+        .toISOString()
+        .split("T")[0]
+    : null;
+
+  const leadMarketConfig = {
+    ref: "",
+    csid: "",
+    fn: "",
+    sn: "",
+    mob: "",
+    e: "",
+    a: "",
+    emp: "",
+    la: "",
+    lr: "",
+    tok: "",
+    aff: environmentSettings.leadMarketAffiliateCode,
+    mode: "embedded",
+    "hide-tc": "",
+    test_sale_outcome: environmentSettings.environment !== "production" ? 4 : 1
+  };
+
+  const config = Object.assign(leadMarketConfig, {
+    ref: refValue,
+    fn: firstName,
+    sn: lastName,
+    dob: dobValue,
+    mob: mobilePhone,
+    e: emailAddress,
+    a: "", // streetName
+    emp: businessName || "",
+    la: loanAmount,
+    lr: loanReason,
+    "hide-tc": acceptsPrivacyPolicy
+  });
+
+  const event = new CustomEvent("mlm.init", { detail: config });
+
+  mlmLoaderElement.dispatchEvent(event);
+};
+
+const ReferralForm = props => {
+  const scriptConfig = {
+    scriptId: "mlm-loader-1-target",
+    dataTargetId: "mlm-loader-1"
+  };
+  const { values } = props;
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.onload = () => {
+      const formConfig = Object.assign({}, scriptConfig, { values });
+      initLeadMarketReferralForm(formConfig);
+    };
+
+    script.setAttribute("id", scriptConfig.scriptId);
+    script.setAttribute("data-target", scriptConfig.dataTargetId);
+    script.setAttribute("data-include-url-param", "true");
+    script.setAttribute("data-defer", "true");
+    script.setAttribute("data-full-screen", "true");
+
+    document.body.appendChild(script);
+
+    script.setAttribute(
+      "src",
+      `https://static.creditsense.com.au/iframe/mlm-loader.js?mode=embedded`
+    );
+  }, [scriptConfig, values]);
 
   return (
     <Wrapper>
       <Row>
-        <div className="referral-form">
-          <div className="referral-form-instructions">
-            Let's see if we can help connect you with a suitable lender.
-            <br />
-            Some of your information is entered below, please{" "}
-            <strong>complete the rest and click Continue.</strong>
-          </div>
-          <div className="referral-form-start-padding"></div>
-          <Col>
-            <form
-              noValidate
-              autoComplete="off"
-              className="referral-form-form"
-              onSubmit={props.handleSubmit}
-            >
-              <div className="referral-form-section">Personal Details</div>
-              <FirstName
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={firstName}
-                name="firstName"
-                errorMessage={touched.firstName ? errors.firstName : ""}
-              />
-              <LastName
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={lastName}
-                name="lastName"
-                errorMessage={touched.lastName ? errors.lastName : ""}
-              />
-              <DobInput {...props} />
-              <div className="referral-form-section">Contact Details</div>
-              <MobileNoField
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={mobilePhone}
-                name="mobilePhone"
-                errorMessage={touched.mobilePhone ? errors.mobilePhone : ""}
-              />
-              <EmailField
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={emailAddress}
-                name="emailAddress"
-                errorMessage={touched.emailAddress ? errors.emailAddress : ""}
-              />
-              <div className="referral-form-section">Loan Information</div>
-              <Select
-                Title="Loan Amount"
-                isPlaceHolder
-                placeholder="Select Loan Amount"
-                loading={StartUp && StartUp.loanAmountIsFetching}
-                options={StartUp ? StartUp.loanAmountResponse : []}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={loanAmount}
-                name="loanAmount"
-                errorMessage={touched.loanAmount ? errors.loanAmount : ""}
-              />
-              <BusinessName
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={businessName || ""}
-                name="businessName"
-                errorMessage={touched.businessName ? errors.businessName : ""}
-              />
-              <LoanSelect
-                isPlaceHolder
-                placeholder="Select Reason of Loan"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={loanReason}
-                name="loanReason"
-                errorMessage={touched.loanReason ? errors.loanReason : ""}
-              />
-              <TermsCheckBox
-                onChange={handleChange}
-                onBlur={handleBlur}
-                checked={acceptsPrivacyPolicy}
-                name="acceptsPrivacyPolicy"
-                setFieldValue={setFieldValue}
-                errorMessage={
-                  touched.acceptsPrivacyPolicy
-                    ? errors.acceptsPrivacyPolicy
-                    : ""
-                }
-              />
-              <Button
-                disabled={!isValid || !touched.loanAmount || isFetching}
-                buttonProps={{
-                  type: isFetching ? "button" : "submit"
-                }}
-              >
-                {isFetching ? (
-                  <Loader type="light" label="processing..." />
-                ) : (
-                  "Continue"
-                )}
-              </Button>
-            </form>
-          </Col>
+        <Col>
+          <div className="referral-form" id={scriptConfig.dataTargetId} />
           <div className="referral-form-end-padding"></div>
           <div className="referral-form-disclaimer">
             Fair Go Finance may receive a payment or benefit from Lead Market
             Australia for this referral at no cost to you.
           </div>
-        </div>
+        </Col>
       </Row>
     </Wrapper>
   );
