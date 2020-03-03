@@ -8,6 +8,7 @@ import { sanitizeValues } from "../utility/sanitizeLoanObjectValues";
 import { queryStringToLoanObjectMapper } from "../utility/queryStringToLoanObjectMapper";
 import { push } from "connected-react-router";
 import { PUBLIC_ROUTE } from "../../route.constants";
+import { STEPS } from "../../constants/commonConstants";
 
 function* loanForm(action) {
   const { payload } = action;
@@ -23,6 +24,7 @@ function* loanForm(action) {
         if (data.status === "Declined") {
           yield put(push(PUBLIC_ROUTE.DECLINE));
         } else {
+          yield put(push(STEPS.filter(item => step + 1 === item.step)[0].path));
           yield put(actions.setStep(step + 1));
         }
 
@@ -44,7 +46,6 @@ function* loanForm(action) {
 
 function* prefillForm({ payload }) {
   const { id } = payload;
-
   const hasQueryStringItems = Object.keys(payload).length !== 0;
   const hasId = id && id.trim() !== "";
 

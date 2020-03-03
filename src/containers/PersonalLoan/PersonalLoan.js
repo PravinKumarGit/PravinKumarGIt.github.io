@@ -18,7 +18,7 @@ import {
   FinallySchema
 } from "./components/steps/validationSchema";
 import { push } from "connected-react-router";
-import { PUBLIC_ROUTE } from "../../route.constants";
+import { STEPS } from "../../constants/commonConstants";
 import TagManager from "react-gtm-module";
 
 export default function PersonalLoan({ ...props }) {
@@ -49,29 +49,12 @@ export default function PersonalLoan({ ...props }) {
       console.log(err);
     } finally {
       setSubmitting(false);
-      if (step < STEPS.length) dispatch(loanFormActions.setStep(step + 1));
+      // if (step < STEPS.length) dispatch(loanFormActions.setStep(step + 1));
     }
   };
 
-  const STEPS = [
-    { step: 1, label: "Start", active: true, path: PUBLIC_ROUTE.LANDING },
-    {
-      step: 2,
-      label: "Bank Statement",
-      active: true,
-      path: PUBLIC_ROUTE.BANK_STATEMENT_PAGE
-    },
-    {
-      step: 3,
-      label: "General Living",
-      active: true,
-      path: PUBLIC_ROUTE.GENERAL_LIVING_PAGE
-    },
-    { step: 4, label: "Finally", active: true, path: PUBLIC_ROUTE.FINALLY_PAGE }
-  ];
-
   const onStepChange = item => {
-    dispatch(loanFormActions.setStep(item.step))
+    dispatch(loanFormActions.setStep(item.step));
     dispatch(push(item.path));
   };
 
